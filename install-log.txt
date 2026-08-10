@@ -1,0 +1,55 @@
+npm notice PING https://registry.npmjs.org/
+npm error A complete log of this run can be found in: C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_33_159Z-debug-0.log
+ 
+================ npm config ================ 
+; "builtin" config from C:\Users\Rana\AppData\Roaming\npm\node_modules\npm\npmrc
+
+prefix = "C:\\Users\\Rana\\AppData\\Roaming\\npm"
+
+; "user" config from C:\Users\Rana\.npmrc
+
+fetch-retries = 5
+fetch-retry-maxtimeout = 120000
+fetch-retry-mintimeout = 20000
+fetch-timeout = 600000
+maxsockets = 3
+
+; node bin location = C:\Program Files\nodejs\node.exe
+; node version = v24.13.0
+; npm local prefix = C:\Users\Rana\Brain\CTO Vault\05_Projects\Pixelette_Holdings_WordPress_Rebuild_001\NEXTJS
+; npm version = 11.9.0
+; cwd = C:\Users\Rana\Brain\CTO Vault\05_Projects\Pixelette_Holdings_WordPress_Rebuild_001\NEXTJS
+; HOME = C:\Users\Rana
+; Run `npm config ls -l` to show all defaults.
+ 
+================ npm install =============== 
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\Rana\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.9.0
+npm info using node@v24.13.0
+npm verbose title npm install
+npm verbose argv "install" "--no-audit" "--no-fund" "--loglevel" "verbose"
+npm verbose logfile logs-max:10 dir:C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_35_276Z-
+npm verbose logfile C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_35_276Z-debug-0.log
+npm verbose cwd C:\Users\Rana\Brain\CTO Vault\05_Projects\Pixelette_Holdings_WordPress_Rebuild_001\NEXTJS
+npm verbose os Windows_NT 10.0.26200
+npm verbose node v24.13.0
+npm verbose npm  v11.9.0
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_35_276Z-debug-0.log
+ 
+============ retry: maxsockets 1 ============ 
+npm verbose cli C:\Program Files\nodejs\node.exe C:\Users\Rana\AppData\Roaming\npm\node_modules\npm\bin\npm-cli.js
+npm info using npm@11.9.0
+npm info using node@v24.13.0
+npm verbose title npm install
+npm verbose argv "install" "--no-audit" "--no-fund" "--maxsockets" "1" "--loglevel" "verbose"
+npm verbose logfile logs-max:10 dir:C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_36_254Z-
+npm verbose logfile C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_36_254Z-debug-0.log
+npm verbose cwd C:\Users\Rana\Brain\CTO Vault\05_Projects\Pixelette_Holdings_WordPress_Rebuild_001\NEXTJS
+npm verbose os Windows_NT 10.0.26200
+npm verbose node v24.13.0
+npm verbose npm  v11.9.0
+npm verbose exit 1
+npm verbose code 1
+npm error A complete log of this run can be found in: C:\Users\Rana\AppData\Local\npm-cache\_logs\2026-08-06T17_22_36_254Z-debug-0.log

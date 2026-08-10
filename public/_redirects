@@ -1,0 +1,41 @@
+# Pixelette Holdings — redirect map (Next.js static export)
+# Netlify / Cloudflare Pages format. Source  Destination  Status
+#
+# Clean directory URLs are produced natively by `trailingSlash: true`, so —
+# unlike the flat prototype — no rewrite table is needed here. This file
+# carries only the legacy 301s, the 410, and the fallback.
+#
+# The same mapping is declared in next.config.mjs so it applies automatically
+# if the site ever moves to a Node runtime. Keep the two in step.
+#
+# Rule order matters: first match wins.
+
+# ---------------------------------------------------------------- legacy 301s
+# The old model explainer consolidates into one canonical page.
+/how-it-works              /hse-model/            301
+/how-it-works/             /hse-model/            301
+
+# Banned-term slug. Redirect DIRECT to the destination — never chain via
+# /how-it-works/, which would create a two-hop redirect.
+/accelerator               /hse-model/            301
+/accelerator/              /hse-model/            301
+
+# The long application is replaced by the short fit assessment.
+/start-your-venture        /apply/                301
+/start-your-venture/       /apply/                301
+
+# The old insight slug, now fully descriptive.
+/insights/services-for-equity/   /insights/services-for-equity-properly-structured/   301
+
+# COUNSEL GATE — do not enable until the replacement capital-partner page is
+# cleared under s.21 FSMA. Until then the old page is retired, not redirected
+# into an uncleared destination.
+# /for-investors           /partners/capital/     301
+
+# Removed brand. No equivalent destination exists, so this is GONE, not moved.
+# A 301 here would misrepresent the relationship.
+/starbreeder               /404.html              410
+/portfolio/starbreeder     /404.html              410
+
+# ------------------------------------------------------------------ fallback
+/*                         /404.html              404

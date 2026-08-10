@@ -1,0 +1,33 @@
+# Pixelette Holdings — security and caching headers (Next.js static export)
+# Netlify / Cloudflare Pages format.
+#
+# The site loads no third-party scripts, fonts or images — next/font self-hosts
+# Plus Jakarta Sans and Inter at build time — so the content security policy can
+# be genuinely strict rather than permissive-by-default. If analytics or a tag
+# manager is added later, its host must be added here explicitly, and only fire
+# after cookie consent.
+#
+# 'unsafe-inline' on script-src is required by the Next.js runtime, which
+# inlines its bootstrap and flight data. Replacing it with a nonce needs a
+# server runtime, so it stays until the site leaves static export.
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'
+
+# Gated routes must not be indexed even if a link leaks.
+# Belt-and-braces alongside robots.txt and the per-page robots metadata.
+/partners/capital/*
+  X-Robots-Tag: noindex, nofollow
+
+/apply/thank-you/*
+  X-Robots-Tag: noindex, nofollow
+
+# Next.js emits content-hashed filenames under /_next/static, so these are
+# safe to cache immutably for a year.
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
