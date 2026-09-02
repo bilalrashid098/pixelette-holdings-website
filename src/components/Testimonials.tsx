@@ -37,13 +37,13 @@ export function Testimonials({ items }: { items: Testimonial[] }) {
   return (
     <div className="tstm-grid">
       {items.map((t) => (
-        <figure className="tstm" key={t.name}>
+        <figure className="card tstm" key={t.name}>
           <blockquote>{t.quote}</blockquote>
           <figcaption>
             <Avatar src={t.avatar} name={t.name} />
             <span className="tstm-who">
-              <strong>{t.name}</strong>
-              <span>{t.role} · {t.company}</span>
+              <strong className="h4">{t.name}</strong>
+              <span className="small">{t.role} · {t.company}</span>
             </span>
           </figcaption>
         </figure>

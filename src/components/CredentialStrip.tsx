@@ -18,7 +18,7 @@ function Badge({ img, label }: { img?: string; label: string }) {
       />
     );
   }
-  return <span className="cred-item">{label}</span>;
+  return <span className="pill">{label}</span>;
 }
 
 export function CredentialStrip({ items }: { items: readonly { label: string; img?: string }[] }) {
