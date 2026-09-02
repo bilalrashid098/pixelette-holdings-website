@@ -1085,3 +1085,80 @@ body.menu-open { overflow: hidden; }
   .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--color-line); font-size: 1rem; }
   .menu-toggle { display: grid; }
 }
+
+/* ==========================================================================
+   SITE LAYER — scroll reveal
+   Composition and timing only. Declares no colour.
+
+   THE SAFETY RULE, stated once. Every hiding rule below is gated on
+   html[data-reveal='on'], and ONLY the inline script in layout.tsx sets that
+   attribute -- after checking that IntersectionObserver exists and that
+   prefers-reduced-motion is not set. If script never runs, or is disabled, or
+   fails, the attribute is never set and NOTHING is hidden.
+
+   That gate is the whole point. The `.reveal` class this replaces hid content
+   unconditionally in CSS and depended on JS to bring it back; deleting its
+   observer while the class stayed on the markup would have rendered four
+   routes blank with a clean build and no warning. See commit 58cb09c. Do not
+   "simplify" this by hiding on a bare class again.
+
+   The accessibility statement tells visitors that reveal transitions are
+   removed under prefers-reduced-motion. That is a published claim about this
+   block. The inline script honours it, and the media query at the foot honours
+   it a second time in case the script ever stops. Both belong here.
+   ========================================================================== */
+
+:root {
+  --reveal-shift: 10px;
+  --reveal-time:  620ms;
+  --reveal-ease:  cubic-bezier(.22, .61, .36, 1);
+  --reveal-step:  70ms;   /* stagger between grid children */
+}
+
+/* The grids that stack. A container here reveals as ONE unit and its direct
+   children follow in sequence, which is what makes a card row read as a deck
+   being dealt rather than as eight separate arrivals. */
+html[data-reveal='on'] :is(
+  .card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps
+) > *,
+html[data-reveal='on'] .section-head,
+html[data-reveal='on'] .prose {
+  opacity: 0;
+  transform: translateY(var(--reveal-shift));
+}
+
+html[data-reveal='on'] :is(
+  .card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps
+).is-revealed > *,
+html[data-reveal='on'] .section-head.is-revealed,
+html[data-reveal='on'] .prose.is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity   var(--reveal-time) var(--reveal-ease),
+              transform var(--reveal-time) var(--reveal-ease);
+}
+
+/* --reveal-i is set per child by ScrollReveal and capped there, so a long grid
+   cannot run a two-second tail. Unset means zero, so a single item and every
+   section head start immediately. */
+html[data-reveal='on'] :is(
+  .card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps
+).is-revealed > * {
+  transition-delay: calc(var(--reveal-i, 0) * var(--reveal-step));
+}
+
+/* The second honouring of the published accessibility claim. Belt and braces:
+   the script should never set the attribute under this setting, but if it ever
+   does, nothing here moves and nothing here is hidden. */
+@media (prefers-reduced-motion: reduce) {
+  html[data-reveal='on'] :is(
+    .card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps
+  ) > *,
+  html[data-reveal='on'] .section-head,
+  html[data-reveal='on'] .prose {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+  }
+}

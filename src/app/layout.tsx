@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Newsreader, Outfit, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { SITE } from '@/content/site';
 import './globals.css';
 
@@ -145,10 +146,61 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={SITE.lang} className={`${newsreader.variable} ${outfit.variable} ${plexMono.variable}`}>
       <body>
+        {/*
+          Scroll reveal, whole mechanism. FIRST in the body so it runs during
+          parse, before anything paints — otherwise the page renders visible and
+          then blinks out as the attribute lands.
+
+          IT DOES NOT DEPEND ON REACT, and that is deliberate. The first version
+          set the attribute here and left the observing to a hydrated component;
+          measured in Chrome, hydration on the five legal routes lost the race
+          with the failsafe, so the reveal quietly did nothing. A visitor on a
+          slow connection would have hit the same thing in production. The
+          observer therefore starts at DOMContentLoaded and owes React nothing.
+          ScrollReveal only re-scans after a client-side navigation, through the
+          window.__revealScan hook exposed here.
+
+          It is the ONLY thing that sets data-reveal, and only when the browser
+          can observe intersections and the visitor has not asked for reduced
+          motion. No script, no attribute, nothing hidden: the page is simply
+          static. That is the correct failure direction, and the one the deleted
+          ScrollEffects got wrong — see globals.css and commit 58cb09c.
+
+          Both the catch and the 3s timer exist to remove the attribute if the
+          scan never completes. Better a static page than a blank one.
+
+          Inline is permitted here: the CSP sets script-src 'self'
+          'unsafe-inline'. Do not move this to an external file — a fetched
+          script cannot beat first paint, which is the whole reason it exists.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{" +
+              "if(!('IntersectionObserver' in window))return;" +
+              "if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;" +
+              "var G='.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps';" +
+              "var I='.section-head, .prose';var MAX=7;var done=false;" +
+              "var e=document.documentElement;e.setAttribute('data-reveal','on');" +
+              "var io=new IntersectionObserver(function(es){es.forEach(function(en){" +
+              "if(!en.isIntersecting)return;en.target.classList.add('is-revealed');io.unobserve(en.target);" +
+              "});},{threshold:0,rootMargin:'0px 0px -12% 0px'});" +
+              "function scan(){var g=document.querySelectorAll(G),i,j,k;" +
+              "for(i=0;i<g.length;i++){var c=g[i].children;" +
+              "for(j=0;j<c.length;j++)c[j].style.setProperty('--reveal-i',String(j<MAX?j:MAX));" +
+              "io.observe(g[i]);}" +
+              "var t=document.querySelectorAll(I);for(k=0;k<t.length;k++)io.observe(t[k]);done=true;}" +
+              "window.__revealScan=scan;" +
+              "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan);else scan();" +
+              "setTimeout(function(){if(!done)e.removeAttribute('data-reveal');},3000);" +
+              "}catch(_){try{document.documentElement.removeAttribute('data-reveal');}catch(__){}}})();",
+          }}
+        />
         {/* First focusable element on every route, so a keyboard or screen-reader
             visitor can bypass the header nav rather than tabbing it on all 26 pages.
             A plain <a>, not next/link: this is a same-page fragment, not a route. */}
         <a className="skip-to-content" href="#top">Skip to content</a>
+        <ScrollReveal />
         <SiteHeader />
         <main id="top">{children}</main>
         <SiteFooter />
