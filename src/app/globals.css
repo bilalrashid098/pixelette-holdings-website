@@ -372,27 +372,32 @@ button { cursor: pointer; }
 
 /* The two dark grounds. `.deep` is the deeper of the pair and shares the
    footer's ground, which is how the guide treats its own closing band. */
-.band-closing      { background: var(--color-panel);  color: var(--color-panel-fg); }
-.band-closing.deep { background: var(--color-footer); }
-.footer            { background: var(--color-footer); color: var(--color-panel-fg); }
+/* THE DARK BANDS CARRY A TONAL GRADIENT. Trialled on the homepage and adopted
+   site-wide on 2 September 2026.
 
-/* TRIAL — HOMEPAGE ONLY. Opted into per section by the `gradient` prop on
-   Section, so nothing leaks to the other 25 routes while this is being judged.
-   If it is kept, fold it into .band-closing above and delete both the prop and
-   this block; if it is not, delete this block alone.
-
-   The gradient runs BETWEEN THE TWO EXISTING DARK TOKENS and introduces no new
-   colour. That is deliberate and it is what makes it safe: every stop is a
+   It runs BETWEEN THE TWO EXISTING DARK TOKENS and introduces no new colour.
+   That is what makes it safe rather than merely tasteful: every stop is a
    value whose contrast is already measured, so nothing on these bands can drop
    below what it measures today. --color-panel-fg is 10.38 on the panel and
    11.12 on the footer; --color-panel-accent is 9.70 and 10.39. Everything in
-   between is bracketed by those pairs.
+   between is bracketed by those pairs, so the palette gate is unaffected and
+   there is nothing to re-measure.
 
-   It IS a divergence from the guide's register, which is flat, and gradients
-   were on the list of things this conversion removed. Requested deliberately,
-   so it is an exception rather than drift. */
-.band-closing.band-grad      { background: linear-gradient(168deg, var(--color-panel) 0%, var(--color-footer) 100%); }
-.band-closing.deep.band-grad { background: linear-gradient(168deg, var(--color-footer) 0%, var(--color-panel) 100%); }
+   The two variants run in OPPOSITE directions so that two dark bands appearing
+   in one page do not read as the same fill repeated.
+
+   IT IS A DIVERGENCE FROM THE GUIDE. The register is flat, and gradients are
+   on the explicit list of things this conversion removed alongside
+   glassmorphism and glow shadows. Requested deliberately and adopted after
+   being seen, so it is an exception rather than drift — but it is a STANDING
+   one and belongs with the guide's author, not just in this file. */
+.band-closing      { background: linear-gradient(168deg, var(--color-panel) 0%, var(--color-footer) 100%); color: var(--color-panel-fg); }
+.band-closing.deep { background: linear-gradient(168deg, var(--color-footer) 0%, var(--color-panel) 100%); }
+
+/* The footer stays FLAT, deliberately. Only the content bands were trialled
+   and approved; the footer is a different surface and was not part of what was
+   seen. It is also what the guide's own footer does. */
+.footer            { background: var(--color-footer); color: var(--color-panel-fg); }
 
 /* Hero grounds. `.wash` is the guide's centred homepage default and is NOT in
    use — Holdings' hero is two-column, so a centred wash would fall under the
@@ -1026,6 +1031,19 @@ body.menu-open { overflow: hidden; }
   background: var(--color-danger);
   -webkit-mask-image: var(--icon-cross);
           mask-image: var(--icon-cross);
+}
+
+.space-b {
+  margin-bottom: 2rem;
+}
+
+.space-t {
+  margin-top: 2rem;
+}
+
+.space-y {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* ==========================================================================

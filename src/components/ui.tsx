@@ -30,24 +30,14 @@ export function Section({
   surface = 'warm',
   id,
   tight,
-  gradient,
 }: {
   children: ReactNode;
   surface?: 'warm' | 'ice' | 'navy' | 'deep';
   id?: string;
   tight?: boolean;
-  /**
-   * TRIAL, homepage only. Opts a dark band into the tonal gradient defined in
-   * globals.css. It exists so the gradient can be judged on one page without
-   * leaking to the other 25 routes. If the gradient is kept it moves into
-   * .band-closing itself and this prop and its call sites are deleted; if it
-   * is dropped, the same deletion applies. Either way it does not survive.
-   */
-  gradient?: boolean;
 }) {
-  const ground = SECTION_CLASS[surface][tight ? 'tight' : 'normal'];
   return (
-    <section id={id} className={gradient ? `${ground} band-grad` : ground}>
+    <section id={id} className={SECTION_CLASS[surface][tight ? 'tight' : 'normal']}>
       <div className="wrap">{children}</div>
     </section>
   );
@@ -288,15 +278,12 @@ export function Card({ title, children }: { title: string; children: ReactNode }
 export function ConversionClose({
   title = 'Could we build this company together?',
   lead = 'Complete a short HSE Fit Assessment to provide the venture, founder, execution-scope and available-capital information needed for qualification.',
-  gradient,
 }: {
   title?: string;
   lead?: string;
-  /** TRIAL, homepage only. See the note on Section. */
-  gradient?: boolean;
 }) {
   return (
-    <Section surface="deep" gradient={gradient}>
+    <Section surface="deep">
       <SectionHead eyebrow="Next step" title={title} lead={lead} />
       <Buttons>
         <Btn href="/apply">Check if you qualify</Btn>

@@ -218,7 +218,7 @@ export default function HseModelPage() {
           </article>
         </div>
 
-        <div className="panel">
+        <div className="panel space-t">
           <h3 className="h3">What HSE does not promise</h3>
           <ul>
             {NOT_PROMISED.map((n) => (
