@@ -41,7 +41,7 @@ export default function ApplyPage() {
         title="Tell us what you are ready to build."
         lead="This is a commercial qualification for an execution partnership. It is not a pitch competition, a grant application or a request for Pixelette to invest cash."
       >
-        <ul className="tick-list">
+        <ul className="list">
           <li>Short first-stage assessment.</li>
           <li>No pitch deck required at this stage.</li>
           <li>No automatic acceptance or rejection.</li>
@@ -55,7 +55,7 @@ export default function ApplyPage() {
           title="HSE may be right if…"
           lead="If the opportunity is promising but not sufficiently validated, we may suggest a paid Validation Sprint. If you prefer to retain equity, we may suggest full-cash delivery."
         />
-        <ul className="tick-list">
+        <ul className="list">
           <li>You are the committed founder or operator.</li>
           <li>The venture addresses a defined problem and market.</li>
           <li>You can fund the agreed cash portion of professional execution.</li>
@@ -80,8 +80,8 @@ export default function ApplyPage() {
             <div key={s.n} className="step">
               <b>{s.n}</b>
               <div>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
+                <h3 className="h3">{s.title}</h3>
+                <p className="body">{s.body}</p>
               </div>
             </div>
           ))}

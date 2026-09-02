@@ -85,8 +85,8 @@ export default function TwoConnectPage() {
             <div key={n} className="step">
               <b>{n}</b>
               <div>
-                <h3>{title}</h3>
-                <p>{body}</p>
+                <h3 className="h3">{title}</h3>
+                <p className="body">{body}</p>
               </div>
             </div>
           ))}

@@ -108,7 +108,7 @@ export default function HseModelPage() {
           title="The stage sets the maximum ceiling."
           lead="Earlier ventures carry more execution risk and may require a broader programme. More mature ventures usually require a narrower equity allocation."
         />
-        <table className="data-table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Stage at signature</th>
@@ -136,17 +136,17 @@ export default function HseModelPage() {
         <SectionHead eyebrow="How equity is earned" title="Two tranches. Both earned through work." />
         <div className="two-col">
           <article>
-            <h3>Delivery equity</h3>
-            <p style={{ color: 'var(--muted)', marginTop: 12 }}>
+            <h3 className="h3">Delivery equity</h3>
+            <p className="body">
               Equity vests only when defined product, launch or readiness milestones are delivered and
               accepted. Rejected, incomplete or undelivered milestones do not vest. Unvested equity
               returns when the relevant delivery ends.
             </p>
           </article>
           <article>
-            <span className="held-flag">{CONTINUATION_EQUITY_HELD.flag}</span>
-            <h3>Continuation equity</h3>
-            <p style={{ color: 'var(--muted)', marginTop: 12 }}>{CONTINUATION_EQUITY_HELD.body}</p>
+            <span className="pill flag-held">{CONTINUATION_EQUITY_HELD.flag}</span>
+            <h3 className="h3">Continuation equity</h3>
+            <p className="body">{CONTINUATION_EQUITY_HELD.body}</p>
           </article>
         </div>
       </Section>
@@ -164,8 +164,8 @@ export default function HseModelPage() {
             <article key={g.n} className="gate">
               <div className="gate-num">{g.n}</div>
               <div>
-                <h3>{g.name}</h3>
-                <p>{g.body}</p>
+                <h3 className="h3">{g.name}</h3>
+                <p className="body">{g.body}</p>
                 <dl>
                   <div>
                     <dt>Evidence produced</dt>
@@ -196,8 +196,8 @@ export default function HseModelPage() {
         />
         <div className="two-col">
           <article>
-            <h3>The founder is responsible for</h3>
-            <ul className="plain-list">
+            <h3 className="h3">The founder is responsible for</h3>
+            <ul className="list-plain">
               <li>Vision, domain expertise and operator leadership.</li>
               <li>Timely decisions and stakeholder access.</li>
               <li>The agreed cash tranche before each phase.</li>
@@ -207,8 +207,8 @@ export default function HseModelPage() {
             </ul>
           </article>
           <article>
-            <h3>Under an approved engagement, Pixelette&rsquo;s responsibilities may include</h3>
-            <ul className="plain-list">
+            <h3 className="h3">Under an approved engagement, Pixelette&rsquo;s responsibilities may include</h3>
+            <ul className="list-plain">
               <li>The accepted scope and delivery evidence.</li>
               <li>Technical, product, launch and assurance work expressly included.</li>
               <li>Transparent reporting and change control.</li>
@@ -220,7 +220,7 @@ export default function HseModelPage() {
         </div>
 
         <div className="panel">
-          <h3>What HSE does not promise</h3>
+          <h3 className="h3">What HSE does not promise</h3>
           <ul>
             {NOT_PROMISED.map((n) => (
               <li key={n}>{n}</li>

@@ -75,16 +75,16 @@ export default function FounderProtectionPage() {
         />
         <div className="two-col">
           <article>
-            <h3>What protects the founder</h3>
-            <ul className="tick-list">
+            <h3 className="h3">What protects the founder</h3>
+            <ul className="list">
               {FOUNDER_PROTECTIONS.map((p) => (
                 <li key={p}>{p}</li>
               ))}
             </ul>
           </article>
           <article>
-            <h3>What protects Pixelette</h3>
-            <ul className="tick-list">
+            <h3 className="h3">What protects Pixelette</h3>
+            <ul className="list">
               {PIXELETTE_PROTECTIONS.map((p) => (
                 <li key={p}>{p}</li>
               ))}
@@ -99,7 +99,7 @@ export default function FounderProtectionPage() {
           title="What the charter does not do."
           lead="Protection is not the same as a guarantee. Being explicit about the limits is part of what makes the rest credible."
         />
-        <ul className="cross-list">
+        <ul className="list list-cross">
           {BOUNDARIES.map((b) => (
             <li key={b}>{b}</li>
           ))}

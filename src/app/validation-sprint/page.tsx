@@ -59,8 +59,8 @@ export default function ValidationSprintPage() {
         />
         <div className="two-col">
           <article>
-            <h3>The Sprint is right when</h3>
-            <ul className="tick-list">
+            <h3 className="h3">The Sprint is right when</h3>
+            <ul className="list">
               <li>The problem is real but the buyer is not yet proven.</li>
               <li>Scope is unclear enough that any estimate would be fiction.</li>
               <li>Technical feasibility carries genuine unknowns.</li>
@@ -69,8 +69,8 @@ export default function ValidationSprintPage() {
             </ul>
           </article>
           <article>
-            <h3>The Sprint is not</h3>
-            <ul className="cross-list">
+            <h3 className="h3">The Sprint is not</h3>
+            <ul className="list list-cross">
               <li>A free consultation or a sales meeting.</li>
               <li>A pitch-deck exercise.</li>
               <li>A commitment by either party to an HSE mandate.</li>
@@ -87,8 +87,8 @@ export default function ValidationSprintPage() {
             <div key={w.n} className="step">
               <b>{w.n}</b>
               <div>
-                <h3>{w.title}</h3>
-                <p>{w.body}</p>
+                <h3 className="h3">{w.title}</h3>
+                <p className="body">{w.body}</p>
               </div>
             </div>
           ))}
@@ -112,19 +112,19 @@ export default function ValidationSprintPage() {
       <Section surface="ice">
         <SectionHead eyebrow="Three honest outcomes" title="Every Sprint ends in a decision, not a proposal." />
         <CardGrid>
-          <article className="p-card">
-            <span className="rel-label rel-direct-hse-venture">Outcome one</span>
-            <h3>Proceed to HSE</h3>
+          <article className="card">
+            <span className="pill rel-direct-hse-venture">Outcome one</span>
+            <h3 className="h3">Proceed to HSE</h3>
             <p>The evidence supports a full mandate. Sprint deliverables fold into the subsequent engagement.</p>
           </article>
-          <article className="p-card">
-            <span className="rel-label rel-capital-relationship">Outcome two</span>
-            <h3>Proceed on full cash</h3>
+          <article className="card">
+            <span className="pill rel-capital-relationship">Outcome two</span>
+            <h3 className="h3">Proceed on full cash</h3>
             <p>The venture is sound and you would rather retain the equity. The same delivery discipline applies.</p>
           </article>
-          <article className="p-card">
-            <span className="rel-label rel-project-in-development">Outcome three</span>
-            <h3>No fit</h3>
+          <article className="card">
+            <span className="pill rel-project-in-development">Outcome three</span>
+            <h3 className="h3">No fit</h3>
             <p>
               We say so plainly. You keep every deliverable and the reasoning, and you have not spent a
               build budget finding out.
