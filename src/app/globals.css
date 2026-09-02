@@ -260,10 +260,13 @@ button { cursor: pointer; }
 .body  { font-size: var(--fs-body); line-height: 1.65; color: var(--color-body);  max-width: 66ch; }
 .small { font-size: .875rem;        line-height: 1.6;  color: var(--color-muted); }
 
-/* The most distinctive small element in the system. */
+/* The most distinctive small element in the system. Set in sentence case at the
+   user's request, 2 Sep 2026 — the guide sets it uppercase. The .18em tracking
+   existed to open up capitals and reads as broken on lowercase, so it comes back
+   to .04em; the mono face, size and brand colour are untouched. */
 .eyebrow {
   font-family: var(--font-mono); font-weight: 400;
-  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  font-size: 11px; letter-spacing: .04em;
   color: var(--color-brand);
 }
 
