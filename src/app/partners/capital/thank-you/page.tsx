@@ -38,12 +38,10 @@ export default function CapitalThankYouPage() {
           <li>A response is not a confirmation of eligibility.</li>
         </ul>
 
-        <div style={{ marginTop: 34 }}>
-          <Buttons>
-            <Btn href="/portfolio">Explore the public portfolio</Btn>
-            <Btn href="/hse-model">Read the HSE model</Btn>
-          </Buttons>
-        </div>
+        <Buttons>
+          <Btn href="/portfolio">Explore the public portfolio</Btn>
+          <Btn href="/hse-model">Read the HSE model</Btn>
+        </Buttons>
       </Section>
     </>
   );

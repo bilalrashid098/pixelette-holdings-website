@@ -30,16 +30,14 @@ export default function ApplyThankYouPage() {
           <li>Nothing is agreed until scope, economics and documentation are signed separately.</li>
         </ul>
 
-        <div style={{ marginTop: 34 }}>
-          <Buttons>
-            <Btn href="/hse-model">
-              Read the HSE model
-            </Btn>
-            <Btn href="/portfolio">
-              Explore the portfolio
-            </Btn>
-          </Buttons>
-        </div>
+        <Buttons>
+          <Btn href="/hse-model">
+            Read the HSE model
+          </Btn>
+          <Btn href="/portfolio">
+            Explore the portfolio
+          </Btn>
+        </Buttons>
       </Section>
     </>
   );

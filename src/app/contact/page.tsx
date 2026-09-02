@@ -52,11 +52,9 @@ export default function ContactPage() {
               Use the short fit assessment. It gathers the venture, stage and execution-capital context
               needed for a qualification decision, and it reaches the right reviewer directly.
             </p>
-            <div style={{ marginTop: 20 }}>
-              <Buttons>
-                <Btn href="/apply">Check if you qualify</Btn>
-              </Buttons>
-            </div>
+            <Buttons>
+              <Btn href="/apply">Check if you qualify</Btn>
+            </Buttons>
           </article>
           <article>
             <h3 className="h3">Capital partners</h3>
@@ -65,11 +63,9 @@ export default function ContactPage() {
               counsel-approved terms. Please do not send investment enquiries through the general
               contact form.
             </p>
-            <div style={{ marginTop: 20 }}>
-              <Buttons>
-                <Btn href="/partners/capital">Capital Partner overview</Btn>
-              </Buttons>
-            </div>
+            <Buttons>
+              <Btn href="/partners/capital">Capital Partner overview</Btn>
+            </Buttons>
           </article>
         </div>
       </Section>

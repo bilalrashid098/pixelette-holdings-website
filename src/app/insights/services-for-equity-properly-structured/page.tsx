@@ -123,7 +123,7 @@ export default function ServicesForEquityArticle() {
             <strong>How this applies at Pixelette.</strong> The HSE model uses all four structures:
             milestone vesting, clawback, stage ceilings of up to 30%, 20% and 12%, and a full-cash
             alternative that is always available. The{' '}
-            <Link href="/hse-model/founder-protection">Founder Protection Charter</Link> states the
+            <Link className="link" href="/hse-model/founder-protection">Founder Protection Charter</Link> states the
             commitments in eight lines. Final contractual language, vesting mechanics and tax treatment
             require counsel approval before any instrument is signed.
           </Qualifier>

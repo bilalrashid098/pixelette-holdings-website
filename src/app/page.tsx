@@ -118,7 +118,7 @@ export default function HomePage() {
             <RelationshipTag relationship={twoConnect.relationship} flagship />
             <h3 className="h3">{twoConnect.name}</h3>
             <p className="body">{twoConnect.oneLine}</p>
-            <p style={{ marginTop: 14 }}><Link href="/portfolio/2connect">Explore 2Connect ↗</Link></p>
+            <p><Link className="link flink" href="/portfolio/2connect">Explore 2Connect ↗</Link></p>
           </article>
 
           <article className="card">
@@ -138,7 +138,7 @@ export default function HomePage() {
               Product delivery, go-to-market systems, compliance readiness and portfolio governance
               brought into one operating model.
             </p>
-            <p style={{ marginTop: 14 }}><Link href="/capabilities">Explore capabilities ↗</Link></p>
+            <p><Link className="link flink" href="/capabilities">Explore capabilities ↗</Link></p>
           </Card>
         </CardGrid>
       </Section>
@@ -209,12 +209,10 @@ export default function HomePage() {
           claims. Client publication consent is required before any public release of these figures,
           screens, outcomes or founder quotes.
         </p>
-        <div style={{ marginTop: 30 }}>
-          <Buttons>
-            <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
-            <Btn href="/apply" variant="secondary">Check if you qualify</Btn>
-          </Buttons>
-        </div>
+        <Buttons>
+          <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
+          <Btn href="/apply" variant="secondary">Check if you qualify</Btn>
+        </Buttons>
       </Section>
 
       {/* ----------------------------------------------------- portfolio */}
@@ -231,11 +229,9 @@ export default function HomePage() {
           <div><p><strong>Delivered Ventures</strong></p><p>Companies or products for which a Pixelette capability delivered evidenced work, without implying equity.</p></div>
           <div><p><strong>Capital and Strategic Partners</strong></p><p>Organisations connected to capital, policy or institutional work, without implying ownership.</p></div>
         </div>
-        <div style={{ marginTop: 34 }}>
-          <Buttons>
-            <Btn href="/portfolio">Explore the portfolio</Btn>
-          </Buttons>
-        </div>
+        <Buttons>
+          <Btn href="/portfolio">Explore the portfolio</Btn>
+        </Buttons>
       </Section>
 
       {/* -------------------------------------------------- capabilities */}
@@ -253,7 +249,7 @@ export default function HomePage() {
               <h3 className="h3">{c.arm}</h3>
               <p className="body">{c.body}</p>
               {c.url.startsWith('http') ? (
-                <p style={{ marginTop: 14 }}>
+                <p>
                   <a className="link flink" href={c.url} target="_blank" rel="noopener noreferrer">
                     Visit {c.arm.replace(' Ltd', '')} ↗
                   </a>

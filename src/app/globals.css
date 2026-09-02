@@ -615,12 +615,37 @@ button { cursor: pointer; }
 
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 28px; }
 
+/* A .small acting as a FOOTNOTE under a block — a consent note under a tile
+   strip, a qualifier under an action pair — needs a gap above it. Without this
+   it sits flush against whatever precedes it.
+
+   .small itself is common-layer and carries no margin, correctly: spacing is
+   composition and composition lives in this layer. The rule is scoped to the
+   footnote positions rather than applied to .small generally, because the same
+   class is a <span> inside testimonial captions and form hints, where a top
+   margin would be wrong. */
+.wrap > * + .small,
+.wrap > div > * + .small,
+.gate dl + .small { margin-top: 16px; }
+
+/* Same problem one size up: an article body that follows a lead line. The
+   first heading inside .prose has its top margin zeroed so the block does not
+   open with a gap, which meant .prose itself had nothing separating it from
+   whatever came before. The legal pages used to carry a hand-set marginTop on
+   every heading for this; those came out at D5e and this replaces them. */
+* + .prose { margin-top: 34px; }
+
 .card-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   gap: 22px; margin-top: 40px;
 }
 .card { display: flex; flex-direction: column; }
-.card .pill, .card .pill-brand { align-self: flex-start; margin-bottom: 14px; }
+
+/* A classification pill sits above the thing it classifies, so it needs a gap
+   under it. .two-col is here because /hse-model puts a held-claim flag above a
+   heading outside a card, where the pill was sitting flush against it. */
+.card .pill, .card .pill-brand,
+.two-col > article > .pill { align-self: flex-start; margin-bottom: 14px; }
 .card .h3 { margin-bottom: 10px; }
 .card .body + .body, .card .small + .body { margin-top: 12px; }
 .card .flink { margin-top: 14px; }

@@ -59,13 +59,11 @@ export default function PortfolioPage() {
             </div>
           ))}
         </div>
-        <div style={{ marginTop: 34 }}>
-          <Buttons>
-            <Btn href="/portfolio/investments">Equity investments</Btn>
-            <Btn href="/portfolio/hse-ventures">Direct HSE ventures</Btn>
-            <Btn href="/portfolio/delivered-ventures">Delivered ventures</Btn>
-          </Buttons>
-        </div>
+        <Buttons>
+          <Btn href="/portfolio/investments">Equity investments</Btn>
+          <Btn href="/portfolio/hse-ventures">Direct HSE ventures</Btn>
+          <Btn href="/portfolio/delivered-ventures">Delivered ventures</Btn>
+        </Buttons>
       </Section>
 
       <Section surface="ice">
@@ -104,11 +102,9 @@ export default function PortfolioPage() {
           is required before any public release of the figures, screens, outcome claims or founder
           quotes.
         </p>
-        <div style={{ marginTop: 30 }}>
-          <Buttons>
-            <Btn href="/portfolio/2connect">Explore the project</Btn>
-          </Buttons>
-        </div>
+        <Buttons>
+          <Btn href="/portfolio/2connect">Explore the project</Btn>
+        </Buttons>
       </Section>
 
       <Section>

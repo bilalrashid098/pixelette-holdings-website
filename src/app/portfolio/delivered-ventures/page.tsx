@@ -39,8 +39,8 @@ export default function DeliveredVenturesPage() {
           <p className="lead">
             Where Pixelette delivers work for a venture without taking an equity position, it will be
             listed here. Our current portfolio is shown under{' '}
-            <Link href="/portfolio/hse-ventures">Direct HSE Ventures</Link> and{' '}
-            <Link href="/portfolio/investments">Equity Investments</Link>.
+            <Link className="link" href="/portfolio/hse-ventures">Direct HSE Ventures</Link> and{' '}
+            <Link className="link" href="/portfolio/investments">Equity Investments</Link>.
           </p>
         )}
       </Section>

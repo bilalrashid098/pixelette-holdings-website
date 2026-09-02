@@ -51,8 +51,8 @@ export default function InsightsPage() {
               <h3 className="h3">{l.title}</h3>
               <p className="body">{l.body}</p>
               {l.href ? (
-                <p style={{ marginTop: 14 }}>
-                  <Link href={l.href}>Read the article ↗</Link>
+                <p>
+                  <Link className="link flink" href={l.href}>Read the article ↗</Link>
                 </p>
               ) : null}
             </article>
