@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "compare:palette": "node scripts/build-palette-compare.mjs"
+    "compare:palette": "node scripts/build-palette-compare.mjs",
+    "gate:tokens": "node scripts/token-gate.mjs"
   },
   "dependencies": {
     "next": "^15.0.0",
