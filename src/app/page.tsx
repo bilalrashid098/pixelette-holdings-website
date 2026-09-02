@@ -190,6 +190,25 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* ----------------------------------------------------- portfolio */}
+      <Section>
+        <SectionHead
+          eyebrow="Proof, properly classified"
+          title="Every relationship shown for what it is."
+          lead="Our portfolio separates equity investments, direct HSE ventures, projects in development, delivered work and capital relationships. Classification creates credibility. It does not hide weak evidence behind a mixed logo wall."
+        />
+        <div className="taxonomy">
+          <div><p><strong>Equity Investments</strong></p><p>Founder-confirmed equity interests, with final documentary and legal checks completed before publication.</p></div>
+          <div><p><strong>Direct HSE Ventures</strong></p><p>Ventures selected for the Pixelette HSE portfolio.</p></div>
+          <div><p><strong>Projects in Development</strong></p><p>Current portfolio projects described without implying ownership, completion or a guaranteed outcome.</p></div>
+          <div><p><strong>Delivered Ventures</strong></p><p>Companies or products for which a Pixelette capability delivered evidenced work, without implying equity.</p></div>
+          <div><p><strong>Capital and Strategic Partners</strong></p><p>Organisations connected to capital, policy or institutional work, without implying ownership.</p></div>
+        </div>
+        <Buttons>
+          <Btn href="/portfolio">Explore the portfolio</Btn>
+        </Buttons>
+      </Section>
+
       {/* ------------------------------------------------------ 2Connect */}
       <Section surface="deep">
         <SectionHead
@@ -212,25 +231,6 @@ export default function HomePage() {
         <Buttons>
           <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
           <Btn href="/apply" variant="secondary">Check if you qualify</Btn>
-        </Buttons>
-      </Section>
-
-      {/* ----------------------------------------------------- portfolio */}
-      <Section>
-        <SectionHead
-          eyebrow="Proof, properly classified"
-          title="Every relationship shown for what it is."
-          lead="Our portfolio separates equity investments, direct HSE ventures, projects in development, delivered work and capital relationships. Classification creates credibility. It does not hide weak evidence behind a mixed logo wall."
-        />
-        <div className="taxonomy">
-          <div><p><strong>Equity Investments</strong></p><p>Founder-confirmed equity interests, with final documentary and legal checks completed before publication.</p></div>
-          <div><p><strong>Direct HSE Ventures</strong></p><p>Ventures selected for the Pixelette HSE portfolio.</p></div>
-          <div><p><strong>Projects in Development</strong></p><p>Current portfolio projects described without implying ownership, completion or a guaranteed outcome.</p></div>
-          <div><p><strong>Delivered Ventures</strong></p><p>Companies or products for which a Pixelette capability delivered evidenced work, without implying equity.</p></div>
-          <div><p><strong>Capital and Strategic Partners</strong></p><p>Organisations connected to capital, policy or institutional work, without implying ownership.</p></div>
-        </div>
-        <Buttons>
-          <Btn href="/portfolio">Explore the portfolio</Btn>
         </Buttons>
       </Section>
 
