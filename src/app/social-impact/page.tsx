@@ -61,10 +61,10 @@ export default function SocialImpactPage() {
         />
         <CardGrid>
           {PROGRAMMES.map((p) => (
-            <article key={p.title} className="p-card">
-              <span className={`rel-label ${p.tagClass}`}>{p.tag}</span>
-              <h3>{p.title}</h3>
-              <p>{p.body}</p>
+            <article key={p.title} className="card">
+              <span className={`pill ${p.tagClass}`}>{p.tag}</span>
+              <h3 className="h3">{p.title}</h3>
+              <p className="body">{p.body}</p>
             </article>
           ))}
         </CardGrid>

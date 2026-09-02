@@ -93,14 +93,14 @@ export default function PortfolioPage() {
           lead="An intent-led AI networking agent that evaluates reciprocal fit and explains why an introduction may be valuable."
           light
         />
-        <div className="metric-strip">
-          <div className="metric"><strong>12</strong><span>project repositories</span></div>
-          <div className="metric"><strong>1,891</strong><span>measured commits</span></div>
-          <div className="metric"><strong>122</strong><span>active development days</span></div>
-          <div className="metric"><strong>~217k</strong><span>lines of current code</span></div>
-          <div className="metric"><strong>95</strong><span>AI/backend test files</span></div>
+        <div className="tile-strip">
+          <div className="tile"><strong>12</strong><span>project repositories</span></div>
+          <div className="tile"><strong>1,891</strong><span>measured commits</span></div>
+          <div className="tile"><strong>122</strong><span>active development days</span></div>
+          <div className="tile"><strong>~217k</strong><span>lines of current code</span></div>
+          <div className="tile"><strong>95</strong><span>AI/backend test files</span></div>
         </div>
-        <p className="consent-note">
+        <p className="small">
           Repository-derived measures, approved for controlled design only. Client publication consent
           is required before any public release of the figures, screens, outcome claims or founder
           quotes.

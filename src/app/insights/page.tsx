@@ -47,9 +47,9 @@ export default function InsightsPage() {
         />
         <CardGrid>
           {LINES.map((l) => (
-            <article key={l.title} className="p-card">
-              <h3>{l.title}</h3>
-              <p>{l.body}</p>
+            <article key={l.title} className="card">
+              <h3 className="h3">{l.title}</h3>
+              <p className="body">{l.body}</p>
               {l.href ? (
                 <p style={{ marginTop: 14 }}>
                   <Link href={l.href}>Read the article ↗</Link>

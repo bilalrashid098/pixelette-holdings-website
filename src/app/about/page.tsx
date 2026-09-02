@@ -107,9 +107,9 @@ export default function AboutPage() {
         <SectionHead eyebrow="Credentials" title="Verified, not asserted." />
         <CardGrid>
           {CREDENTIALS.map((c) => (
-            <article key={c.title} className="p-card">
-              <h3>{c.title}</h3>
-              <p>{c.body}</p>
+            <article key={c.title} className="card">
+              <h3 className="h3">{c.title}</h3>
+              <p className="body">{c.body}</p>
             </article>
           ))}
         </CardGrid>

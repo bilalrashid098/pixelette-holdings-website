@@ -61,7 +61,7 @@ export default function CapitalPartnersPage() {
             self-certified sophisticated investors, subject to eligibility verification and formal
             documentation.
           </p>
-          <p className="consent-note">
+          <p className="small">
             The FCA treats websites and online materials as capable of constituting financial
             promotions; section 21 of the Financial Services and Markets Act 2000 restricts
             unauthorised invitations or inducements to engage in investment activity.
@@ -86,8 +86,8 @@ export default function CapitalPartnersPage() {
         <SectionHead eyebrow="Governance and diligence" title="Built to survive scrutiny." />
         <div className="two-col">
           <article>
-            <h3>Governance approach</h3>
-            <ul className="tick-list">
+            <h3 className="h3">Governance approach</h3>
+            <ul className="list">
               <li>Stage-based equity ceilings agreed before work begins.</li>
               <li>Milestone acceptance, vesting and clawback discipline.</li>
               <li>Founder retains operational control; Pixelette takes minority protections.</li>
@@ -95,8 +95,8 @@ export default function CapitalPartnersPage() {
             </ul>
           </article>
           <article>
-            <h3>Diligence approach</h3>
-            <ul className="tick-list">
+            <h3 className="h3">Diligence approach</h3>
+            <ul className="list">
               <li>Evidence room maintained across the delivery lifecycle.</li>
               <li>Architecture, security and delivery records held per venture.</li>
               <li>Claims classified by evidence status before any external use.</li>
@@ -115,7 +115,7 @@ export default function CapitalPartnersPage() {
         <Buttons>
           <Btn href="/partners/capital/qualification">Request qualification</Btn>
         </Buttons>
-        <p className="consent-note">
+        <p className="small">
           Submitting a request creates no entitlement to information, no offer and no investment
           opportunity.
         </p>

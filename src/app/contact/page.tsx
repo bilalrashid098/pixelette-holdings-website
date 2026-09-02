@@ -48,8 +48,8 @@ export default function ContactPage() {
         <SectionHead eyebrow="Before you write" title="Two enquiries have their own route." />
         <div className="two-col">
           <article>
-            <h3>Founders seeking an HSE partnership</h3>
-            <p style={{ color: 'var(--muted)', marginTop: 12 }}>
+            <h3 className="h3">Founders seeking an HSE partnership</h3>
+            <p className="body">
               Use the short fit assessment. It gathers the venture, stage and execution-capital context
               needed for a qualification decision, and it reaches the right reviewer directly.
             </p>
@@ -60,8 +60,8 @@ export default function ContactPage() {
             </div>
           </article>
           <article>
-            <h3>Capital partners</h3>
-            <p style={{ color: 'var(--muted)', marginTop: 12 }}>
+            <h3 className="h3">Capital partners</h3>
+            <p className="body">
               Capital relationships follow a separate, controlled qualification route under
               counsel-approved terms. Please do not send investment enquiries through the general
               contact form.
@@ -101,8 +101,8 @@ export default function ContactPage() {
       <Section tight>
         <div className="two-col">
           <article>
-            <h3>Contact</h3>
-            <ul className="plain-list">
+            <h3 className="h3">Contact</h3>
+            <ul className="list-plain">
               <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
               <li><a href={`tel:${CONTACT.phoneTel}`}>{CONTACT.phone}</a></li>
               <li>
@@ -113,8 +113,8 @@ export default function ContactPage() {
             </ul>
           </article>
           <article>
-            <h3>Registered office</h3>
-            <p style={{ color: 'var(--muted)', marginTop: 12 }}>
+            <h3 className="h3">Registered office</h3>
+            <p className="body">
               {SITE.legalName}
               <br />
               {SITE.registeredOffice}

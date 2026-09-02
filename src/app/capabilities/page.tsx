@@ -118,7 +118,7 @@ export default function CapabilitiesPage() {
           </CardGrid>
           {GROUP_URLS[c.id] ? (
             <p style={{ marginTop: 26 }}>
-              <a className="card-link" href={GROUP_URLS[c.id]} target="_blank" rel="noopener noreferrer">
+              <a className="link flink" href={GROUP_URLS[c.id]} target="_blank" rel="noopener noreferrer">
                 Visit {c.arm.replace(' Ltd', '').replace(' capability', '')} ↗
               </a>
             </p>
