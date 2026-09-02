@@ -25,12 +25,12 @@ export default function HomePage() {
   return (
     <>
       {/* ---------------------------------------------------------- hero */}
-      <section className="hero">
-        <div className="shell hero-grid">
+      <section className="hero wash-left">
+        <div className="wrap hero-grid">
           <div>
-            <p className="eyebrow light">Hybrid Sweat Equity · Build it, launch it, own it</p>
-            <h1 className="display">Build and launch your company, without giving a studio a quarter of it.</h1>
-            <p className="lead light">
+            <p className="eyebrow">Hybrid Sweat Equity · Build it, launch it, own it</p>
+            <h1 className="h1">Build and launch your company, without giving a studio a quarter of it.</h1>
+            <p className="lead">
               Venture studios can look cash-free up front, then cost you 25&ndash;90% of your company.
               Pixelette gives you the build team, the launch, and the enterprise-readiness work for a
               clear fee plus a capped, earned share of the upside. You approve every stage, you keep
@@ -40,7 +40,7 @@ export default function HomePage() {
               <Btn href="/apply">Check if you qualify</Btn>
               <Btn href="/hse-model" variant="secondary">Compare what you keep</Btn>
             </Buttons>
-            <p className="consent-note">
+            <p className="small">
               Selective entry. Clear fees. Capped upside. You keep control.
             </p>
           </div>
@@ -68,15 +68,15 @@ export default function HomePage() {
 
       {/* ------------------------------------------------- proof timeline */}
       <Section surface="ice" tight>
-        <div className="economics-grid">
+        <div className="tile-grid">
           {PROOF_TIMELINE.map((m) => (
-            <article className="economics-card" key={m.label}>
-              <div className="number">{m.figure}</div>
-              <h3>{m.label}</h3>
+            <article className="tile" key={m.label}>
+              <strong>{m.figure}</strong>
+              <span>{m.label}</span>
             </article>
           ))}
         </div>
-        <p className="consent-note" style={{ marginTop: 20 }}>{PROOF_TIMELINE_NOTE}</p>
+        <p className="small" style={{ marginTop: 20 }}>{PROOF_TIMELINE_NOTE}</p>
       </Section>
 
       {/* ------------------------------------------- why not a free studio */}
@@ -86,7 +86,7 @@ export default function HomePage() {
           title="&ldquo;Free&rdquo; build can be the most expensive capital you ever take."
           lead="A studio that fronts the build for no cash is paid in ownership of your company, typically a quarter to the majority of it, and often the control that comes with it. With Pixelette you pay for the work, share a capped and earned slice of the upside, and stay the owner."
         />
-        <table className="data-table">
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">What you give up</th>
@@ -127,23 +127,23 @@ export default function HomePage() {
       {/* ----------------------------------------------------- proof rail */}
       <Section surface="ice" tight>
         <CardGrid>
-          <article className="p-card">
+          <article className="card">
             <RelationshipTag relationship={twoConnect.relationship} flagship />
-            <h3>{twoConnect.name}</h3>
-            <p>{twoConnect.oneLine}</p>
+            <h3 className="h3">{twoConnect.name}</h3>
+            <p className="body">{twoConnect.oneLine}</p>
             <p style={{ marginTop: 14 }}><Link href="/portfolio/2connect">Explore 2Connect ↗</Link></p>
           </article>
 
-          <article className="p-card">
+          <article className="card">
             <RelationshipTag relationship={bic.relationship} />
-            <h3>{bic.name}</h3>
-            <p>{bic.oneLine}</p>
+            <h3 className="h3">{bic.name}</h3>
+            <p className="body">{bic.oneLine}</p>
           </article>
 
-          <article className="p-card">
+          <article className="card">
             <RelationshipTag relationship={dav.relationship} />
-            <h3>{dav.name}</h3>
-            <p>{dav.oneLine}</p>
+            <h3 className="h3">{dav.name}</h3>
+            <p className="body">{dav.oneLine}</p>
           </article>
 
           <Card title="Four integrated capabilities">
@@ -163,12 +163,12 @@ export default function HomePage() {
           title="Cash-funded delivery. Equity earned through execution."
           lead="How the money works, and why you keep more of your company: you fund the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open."
         />
-        <div className="economics-grid">
+        <div className="card-grid">
           {ECONOMICS.map((e) => (
-            <article key={e.title} className="economics-card">
-              <div className="number">{e.figure}</div>
-              <h3>{e.title}</h3>
-              <p style={{ color: 'var(--muted)', fontSize: '0.95rem', marginTop: 10 }}>{e.body}</p>
+            <article key={e.title} className="card">
+              <p className="stat">{e.figure}</p>
+              <h3 className="h3">{e.title}</h3>
+              <p className="body">{e.body}</p>
             </article>
           ))}
         </div>
@@ -191,13 +191,13 @@ export default function HomePage() {
             <article key={g.n} className="gate">
               <div className="gate-num">{g.n}</div>
               <div>
-                <h3>{g.name}</h3>
-                <p>{g.body}</p>
+                <h3 className="h3">{g.name}</h3>
+                <p className="body">{g.body}</p>
                 <dl>
                   <div><dt>Evidence produced</dt><dd>{g.evidence}</dd></div>
                   <div><dt>Decision</dt><dd>{g.decision}</dd></div>
                 </dl>
-                {g.note ? <p className="consent-note">{g.note}</p> : null}
+                {g.note ? <p className="small">{g.note}</p> : null}
               </div>
             </article>
           ))}
@@ -212,14 +212,14 @@ export default function HomePage() {
           lead="A networking agent built around a simple idea: people should meet because the connection makes sense for both sides. Users express what they need, the platform evaluates reciprocal fit, and each suggested match includes an explanation."
           light
         />
-        <div className="metric-strip">
-          <div className="metric"><strong>12</strong><span>project repositories</span></div>
-          <div className="metric"><strong>1,891</strong><span>measured commits</span></div>
-          <div className="metric"><strong>122</strong><span>active development days</span></div>
-          <div className="metric"><strong>~217k</strong><span>lines of current code</span></div>
-          <div className="metric"><strong>95</strong><span>AI/backend test files</span></div>
+        <div className="tile-strip">
+          <div className="tile"><strong>12</strong><span>project repositories</span></div>
+          <div className="tile"><strong>1,891</strong><span>measured commits</span></div>
+          <div className="tile"><strong>122</strong><span>active development days</span></div>
+          <div className="tile"><strong>~217k</strong><span>lines of current code</span></div>
+          <div className="tile"><strong>95</strong><span>AI/backend test files</span></div>
         </div>
-        <p className="consent-note">
+        <p className="small">
           CONSENT GATE, repository-derived measures, not revenue, user-growth or commercial-outcome
           claims. Client publication consent is required before any public release of these figures,
           screens, outcomes or founder quotes.
@@ -262,14 +262,14 @@ export default function HomePage() {
         />
         <CardGrid>
           {CAPABILITIES.map((c) => (
-            <article key={c.capability} className="p-card">
+            <article key={c.capability} className="card">
               <CapabilityBrand name={c.capability} />
               <p className="eyebrow">{c.n} · {c.capability}</p>
-              <h3>{c.arm}</h3>
-              <p>{c.body}</p>
+              <h3 className="h3">{c.arm}</h3>
+              <p className="body">{c.body}</p>
               {c.url.startsWith('http') ? (
                 <p style={{ marginTop: 14 }}>
-                  <a className="card-link" href={c.url} target="_blank" rel="noopener noreferrer">
+                  <a className="link flink" href={c.url} target="_blank" rel="noopener noreferrer">
                     Visit {c.arm.replace(' Ltd', '')} ↗
                   </a>
                 </p>
@@ -347,8 +347,8 @@ export default function HomePage() {
         <SectionHead eyebrow="Is HSE the right route?" title="Built for founders ready to execute." />
         <div className="two-col">
           <article>
-            <h3>Good fit</h3>
-            <ul className="tick-list">
+            <h3 className="h3">Good fit</h3>
+            <ul className="list">
               <li>A defined problem with a plausible commercial market.</li>
               <li>A committed founder or operator.</li>
               <li>A buildable technology opportunity.</li>
@@ -357,8 +357,8 @@ export default function HomePage() {
             </ul>
           </article>
           <article>
-            <h3>Not currently a fit</h3>
-            <ul className="cross-list">
+            <h3 className="h3">Not currently a fit</h3>
+            <ul className="list list-cross">
               <li>The primary request is for Pixelette to provide or find cash.</li>
               <li>There is no committed operator.</li>
               <li>No capital is available for professional execution.</li>

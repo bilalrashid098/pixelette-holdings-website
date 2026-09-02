@@ -253,8 +253,11 @@ export function VentureCard({ venture, href }: { venture: Venture; href?: string
           deliberately NOT rendered to the public. It stays in the data for the team. */}
       {href ? (
         <p>
+          {/* The arrow is part of the visible label, so it stays as the
+              character it is. Only the arrows that were already aria-hidden
+              decoration became icons. */}
           <Link className="link flink" href={href}>
-            Read more <ArrowUpRightIcon />
+            Read more ↗
           </Link>
         </p>
       ) : null}

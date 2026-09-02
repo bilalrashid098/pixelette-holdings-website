@@ -695,6 +695,87 @@ body.menu-open { overflow: hidden; }
 .cred-text strong { font-size: .95rem; font-weight: 600; color: var(--color-ink); }
 .cred-text span { font-size: .8rem; color: var(--color-muted); }
 
+/* ------------------------------------------------------------- homepage */
+
+.hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 60px; align-items: center; }
+
+/* Tiles in a row, and tiles in a grid. Both read their whole appearance from
+   the common layer's .tile — this only decides how many sit side by side. */
+.tile-grid  { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
+.tile-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin-top: 38px; }
+
+/* The economics figure. Mono and large, so the signal tone is legitimate here
+   at 3:1 rather than 4.5:1 — the same reasoning as the tile numeral. */
+.stat {
+  font-family: var(--font-mono); font-size: 2.25rem; font-weight: 500;
+  letter-spacing: -.03em; line-height: 1;
+  color: var(--color-brand-signal);
+  margin-bottom: 16px;
+}
+
+/* Definition rows, hairline-separated. */
+.taxonomy { display: grid; gap: 14px; margin-top: 38px; }
+.taxonomy > div {
+  display: grid; grid-template-columns: 250px 1fr; gap: 24px;
+  padding: 18px 0; border-bottom: 1px solid var(--color-line);
+}
+.taxonomy p { color: var(--color-body); font-size: .95rem; }
+.taxonomy strong { color: var(--color-ink); }
+
+/* The five decision gates. Rendered on a dark band, so everything inside
+   takes its colour from the .band-closing context rules. */
+.gate-list { display: grid; gap: 18px; margin-top: 44px; }
+.gate {
+  display: grid; grid-template-columns: 92px 1fr; gap: 28px; align-items: start;
+  padding: 34px 32px;
+  border: 1px solid var(--color-line-dark); border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, .04);
+}
+.gate-num {
+  font-family: var(--font-mono); font-size: 2.25rem; font-weight: 500;
+  letter-spacing: -.03em; line-height: 1;
+  color: var(--color-panel-accent);
+}
+.gate .h3 { margin-bottom: 10px; }
+.gate dl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin: 20px 0 0; }
+.gate dt {
+  margin-bottom: 5px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--color-panel-accent);
+}
+.gate dd { margin: 0; font-size: .95rem; color: var(--color-page); }
+
+/* The founder charter: a numbered grid of cards. */
+.charter { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 42px 0 0; padding: 0; counter-reset: charter; }
+.charter > li {
+  list-style: none; position: relative;
+  padding: 26px 26px 26px 74px;
+  border: 1px solid var(--color-line-card); border-radius: var(--radius-card);
+  background: var(--color-page); box-shadow: var(--shadow-tile);
+  font-size: .98rem; color: var(--color-body);
+}
+.charter > li::before {
+  counter-increment: charter; content: counter(charter, decimal-leading-zero);
+  position: absolute; left: 26px; top: 26px;
+  font-family: var(--font-mono); font-size: 1rem; color: var(--color-brand);
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 40px; }
+.two-col > article {
+  padding: 32px 28px;
+  border: 1px solid var(--color-line-card); border-radius: var(--radius-card);
+  background: var(--color-page); box-shadow: var(--shadow-tile);
+}
+.two-col .h3 { margin-bottom: 12px; }
+
+/* The negation variant of .list. Same geometry, the guide's traced cross, and
+   the danger tone — because here the marker carries the meaning. */
+.list-cross > li::before {
+  background: var(--color-danger);
+  -webkit-mask-image: var(--icon-cross);
+          mask-image: var(--icon-cross);
+}
+
 /* ==========================================================================
    THE ONE MEDIA QUERY
    Everything else interpolates. Resist adding a second — the stylesheet this
@@ -710,6 +791,11 @@ body.menu-open { overflow: hidden; }
   .wash-left { background: radial-gradient(620px 380px at 30% -12%, var(--color-brand-wash) 0%, var(--color-page) 62%); }
 
   .section-head { grid-template-columns: 1fr; gap: 20px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 44px; }
+  .charter, .two-col { grid-template-columns: 1fr; }
+  .taxonomy > div { grid-template-columns: 1fr; gap: 6px; }
+  .gate { grid-template-columns: 1fr; gap: 14px; }
+  .gate dl { grid-template-columns: 1fr; }
 
   .nav { grid-template-columns: 1fr auto auto; }
   .nav-links {
