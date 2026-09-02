@@ -37,7 +37,7 @@ export default function DeliveredVenturesPage() {
             ))}
           </CardGrid>
         ) : (
-          <p style={{ color: 'var(--muted)', maxWidth: 640, fontSize: '1.05rem' }}>
+          <p className="lead">
             Where Pixelette delivers work for a venture without taking an equity position, it will be
             listed here. Our current portfolio is shown under{' '}
             <Link href="/portfolio/hse-ventures">Direct HSE Ventures</Link> and{' '}

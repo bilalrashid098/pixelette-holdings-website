@@ -24,7 +24,7 @@ export default function ApplyThankYouPage() {
 
       <Section>
         <SectionHead eyebrow="What happens now" title="What you should expect." />
-        <ul className="tick-list">
+        <ul className="list">
           <li>Your submission is reviewed by a person, not scored by an algorithm.</li>
           <li>A response does not imply acceptance, an offer or an entitlement to a meeting.</li>
           <li>We may recommend HSE, a paid Validation Sprint, full-cash delivery or no engagement.</li>

@@ -32,7 +32,7 @@ export default function CapitalThankYouPage() {
         </EvidenceGate>
 
         <SectionHead eyebrow="What happens now" title="Manual review, then a decision." />
-        <ul className="tick-list">
+        <ul className="list">
           <li>Your request is assessed against the approved qualification criteria.</li>
           <li>Eligibility verification and formal documentation precede any material being shared.</li>
           <li>No deal terms, ticket sizes, returns or allocations are communicated by this route.</li>

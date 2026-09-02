@@ -21,7 +21,7 @@ export default function DisclaimerPage() {
       <Section>
         <div style={{ maxWidth: 860 }}>
           <div className="prose">
-            <h2 style={{ fontSize: '1.6rem', marginTop: 48 }}>No offer or inducement</h2>
+            <h2>No offer or inducement</h2>
             <p>
               This website is provided for information only and is{' '}
               <strong>not an offer, invitation or inducement to invest</strong>. Any investment
@@ -29,14 +29,14 @@ export default function DisclaimerPage() {
               sophisticated investors, subject to eligibility verification and formal documentation.
             </p>
 
-            <h2 style={{ fontSize: '1.6rem', marginTop: 44 }}>No advice</h2>
+            <h2>No advice</h2>
             <p>
               Nothing on this website constitutes investment, legal, tax or financial advice, and it
               must not be relied upon as such.
             </p>
 
-            <h2 style={{ fontSize: '1.6rem', marginTop: 44 }}>No guaranteed outcomes</h2>
-            <ul className="cross-list">
+            <h2>No guaranteed outcomes</h2>
+            <ul className="list list-cross">
               <li>No customers, revenue or product-market fit is guaranteed.</li>
               <li>No fundraising outcome, investor introduction or investment result is guaranteed.</li>
               <li>
@@ -49,14 +49,14 @@ export default function DisclaimerPage() {
               </li>
             </ul>
 
-            <h2 style={{ fontSize: '1.6rem', marginTop: 44 }}>Portfolio information</h2>
+            <h2>Portfolio information</h2>
             <p>
               Portfolio relationships are shown with a classification label describing the current
               nature of each relationship. A logo or name does not imply ownership, equity, endorsement
               or a current commercial engagement beyond the stated classification.
             </p>
 
-            <h2 style={{ fontSize: '1.6rem', marginTop: 44 }}>Financial promotions</h2>
+            <h2>Financial promotions</h2>
             <p>
               Websites and online materials can constitute financial promotions. Section 21 of the
               Financial Services and Markets Act 2000 restricts unauthorised invitations or inducements

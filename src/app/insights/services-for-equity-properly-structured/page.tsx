@@ -52,7 +52,7 @@ export default function ServicesForEquityArticle() {
             mechanism to recover the position.
           </p>
 
-          <h2 style={{ marginTop: 44 }}>The four structures that fix it</h2>
+          <h2>The four structures that fix it</h2>
 
           <h3>1. Milestone vesting</h3>
           <p>
@@ -95,7 +95,7 @@ export default function ServicesForEquityArticle() {
         </div>
 
         <div className="prose">
-          <h2 style={{ marginTop: 44 }}>The valuation problem nobody solves early enough</h2>
+          <h2>The valuation problem nobody solves early enough</h2>
           <p>
             Milestone-earned equity raises an obvious question: earned at what valuation? A cap table
             records a fixed number. You cannot retroactively reprice a position as the venture de-risks.
@@ -105,8 +105,8 @@ export default function ServicesForEquityArticle() {
             operable, and any percentage discussed is an intention, not a term.
           </p>
 
-          <h2 style={{ marginTop: 44 }}>What honest structuring cannot promise</h2>
-          <ul className="cross-list">
+          <h2>What honest structuring cannot promise</h2>
+          <ul className="list list-cross">
             <li>That the venture succeeds.</li>
             <li>Customers, revenue or product-market fit.</li>
             <li>Fundraising, investor introductions or an investment outcome.</li>

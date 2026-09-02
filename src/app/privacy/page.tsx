@@ -107,7 +107,7 @@ export default function PrivacyPage() {
           <div className="prose">
             {SECTIONS.map((s) => (
               <div key={s.h}>
-                <h2 style={{ fontSize: '1.5rem', marginTop: 40 }}>{s.h}</h2>
+                <h2>{s.h}</h2>
                 {s.body.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}

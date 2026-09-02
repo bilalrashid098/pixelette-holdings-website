@@ -22,14 +22,14 @@ export default function AccessibilityPage() {
       <Section>
         <div style={{ maxWidth: 860 }}>
           <div className="prose">
-            <h2 style={{ fontSize: '1.6rem', marginTop: 10 }}>Our commitment</h2>
+            <h2>Our commitment</h2>
             <p>
               {SITE.legalName} aims to meet <strong>WCAG 2.2 level AA</strong>. Accessibility is
               treated as a build requirement, not a retrofit.
             </p>
 
-            <h2 style={{ fontSize: '1.6rem', marginTop: 44 }}>What is built in</h2>
-            <ul className="tick-list">
+            <h2>What is built in</h2>
+            <ul className="list">
               <li>Semantic headings and landmark structure on every page.</li>
               <li>Full keyboard operability, including the navigation and the interactive stage system.</li>
               <li>Visible focus indicators on all interactive elements.</li>
@@ -49,7 +49,7 @@ export default function AccessibilityPage() {
           </div>
 
           <div className="prose">
-            <h2 style={{ fontSize: '1.6rem', marginTop: 44 }}>Feedback</h2>
+            <h2>Feedback</h2>
             <p>
               If you encounter a barrier on this website, email us at{' '}
               <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> and we will respond and
