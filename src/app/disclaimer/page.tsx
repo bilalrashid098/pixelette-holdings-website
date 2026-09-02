@@ -15,7 +15,6 @@ export default function DisclaimerPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Disclaimer' }]}
         eyebrow="Legal"
         title="Website and Investment Disclaimer"
-        small
       />
 
       <Section>

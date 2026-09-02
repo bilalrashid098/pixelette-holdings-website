@@ -28,7 +28,6 @@ export default function HseVenturesPage() {
         eyebrow="Direct HSE ventures"
         title="Ventures selected for the HSE portfolio."
         lead="Selection means Pixelette judged the venture worth executing against. It does not mean a completed product, a commercial outcome or a guaranteed return."
-        small
       />
 
       <Section>

@@ -23,7 +23,6 @@ export default function ServicesForEquityArticle() {
         eyebrow="Insight · The HSE model"
         title="Services-for-equity, properly structured."
         lead="Most services-for-equity arrangements fail for the same two reasons: the scope was never defined, and the equity was granted before the work was done. Both are fixable, and the fixes are structural rather than cultural."
-        small
       />
 
       <Section>
@@ -132,7 +131,7 @@ export default function ServicesForEquityArticle() {
       </Section>
 
       <Section surface="deep">
-        <SectionHead eyebrow="Next" title="See how the structures work in practice." light />
+        <SectionHead eyebrow="Next" title="See how the structures work in practice." />
         <Buttons>
           <Btn href="/hse-model">Explore the HSE model</Btn>
           <Btn href="/hse-model/founder-protection" variant="secondary">

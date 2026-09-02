@@ -25,9 +25,10 @@ const base: SVGProps<SVGSVGElement> = {
  * always the READING tone, never the signal: at these stroke weights the
  * signal reads washed out even where the ratio technically passes.
  *
- * Only icons with a real call site are built. The guide also draws a star and
- * a set of chevrons; this site has nowhere to put them, and a primitive
- * nobody imports is the failure mode Appendix E warns about.
+ * Only icons with a real call site are built. The guide also draws a star, a
+ * set of chevrons and a plain right arrow; this site has nowhere to put them,
+ * and a primitive nobody imports is the failure mode Appendix E warns about.
+ * The right arrow WAS built at D1 and removed at D8 for exactly that reason.
  *
  * The check, the plus, the minus and the quote glyph are drawn from the same
  * traced paths but applied as CSS masks in globals.css, because their call
@@ -51,15 +52,6 @@ export function ArrowUpRightIcon({ size = 15 }: { size?: number }) {
   return (
     <svg {...guideBase} width={size} height={size}>
       <path d="M5 12L12 5M6 5h6v6" />
-    </svg>
-  );
-}
-
-/** Arrow right — inline continuation. */
-export function ArrowRightIcon({ size = 16 }: { size?: number }) {
-  return (
-    <svg {...guideBase} width={size} height={size}>
-      <path d="M3 8.5h10M9 4.5l4 4-4 4" />
     </svg>
   );
 }

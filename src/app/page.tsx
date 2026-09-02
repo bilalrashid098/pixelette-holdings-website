@@ -184,7 +184,6 @@ export default function HomePage() {
           eyebrow="One system · five decision gates"
           title="Progress is earned at every stage."
           lead="Each stage produces evidence and a fresh go, revise or stop decision. Neither party is committed to a weak next phase simply because the previous phase was completed."
-          light
         />
         <div className="gate-list">
           {GATES.map((g) => (
@@ -210,7 +209,6 @@ export default function HomePage() {
           eyebrow="Flagship direct HSE venture · Agentic AI"
           title="2Connect: intent-led AI for better introductions."
           lead="A networking agent built around a simple idea: people should meet because the connection makes sense for both sides. Users express what they need, the platform evaluates reciprocal fit, and each suggested match includes an explanation."
-          light
         />
         <div className="tile-strip">
           <div className="tile"><strong>12</strong><span>project repositories</span></div>
@@ -337,7 +335,6 @@ export default function HomePage() {
           eyebrow="Trusted by founders"
           title="Founders who built with us, in their words."
           lead="Real founders across the portfolio on what the Hybrid Sweat Equity partnership changed for them."
-          light
         />
         <Testimonials items={TESTIMONIALS} />
       </Section>

@@ -14,7 +14,6 @@ export default function NotFound() {
         eyebrow="404"
         title="That page is not here."
         lead="The link may be out of date, or the page may have been retired during the site rebuild. These are the routes people usually want."
-        small
       >
         <Buttons>
           <Btn href="/">Return home</Btn>

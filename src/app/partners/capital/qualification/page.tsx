@@ -33,7 +33,6 @@ export default function CapitalQualificationPage() {
         eyebrow="Qualification"
         title="Controlled access, properly gated."
         lead="Detailed portfolio material is shared only after qualification and manual approval, under counsel-approved terms."
-        small
       />
 
       <Section>

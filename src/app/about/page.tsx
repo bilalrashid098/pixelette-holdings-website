@@ -116,7 +116,7 @@ export default function AboutPage() {
       </Section>
 
       <Section surface="deep">
-        <SectionHead eyebrow="Next step" title="Think your venture fits?" light />
+        <SectionHead eyebrow="Next step" title="Think your venture fits?" />
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>
           <Btn href="/hse-model" variant="secondary">Explore the HSE model</Btn>

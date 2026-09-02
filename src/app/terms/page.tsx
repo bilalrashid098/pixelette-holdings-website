@@ -100,7 +100,6 @@ export default function TermsPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Terms of Use' }]}
         eyebrow="Legal"
         title="Terms of Use"
-        small
       />
 
       <Section>

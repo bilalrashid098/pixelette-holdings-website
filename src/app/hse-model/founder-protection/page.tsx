@@ -111,7 +111,6 @@ export default function FounderProtectionPage() {
           eyebrow="Next step"
           title="Comfortable with how the equity works?"
           lead="The short fit assessment is the responsible starting point. It is not a pitch competition and not a request for Pixelette to invest cash."
-          light
         />
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>

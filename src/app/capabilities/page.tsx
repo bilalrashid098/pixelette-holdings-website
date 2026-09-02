@@ -132,7 +132,6 @@ export default function CapabilitiesPage() {
           eyebrow="Next step"
           title="Need the whole system, not one supplier?"
           lead="If you would rather retain equity, the same capabilities are available on full-cash professional delivery."
-          light
         />
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>

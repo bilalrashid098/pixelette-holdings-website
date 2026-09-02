@@ -150,7 +150,6 @@ export default function ValidationSprintPage() {
           eyebrow="Next step"
           title="Not sure whether you need a Sprint or a mandate?"
           lead="The fit assessment routes you honestly. If the venture is ready for a full mandate we will say so; if it is not, the Sprint is the responsible alternative."
-          light
         />
         <Buttons>
           <Btn href="/apply">Check your fit</Btn>

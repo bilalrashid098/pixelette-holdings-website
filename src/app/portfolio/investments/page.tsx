@@ -26,7 +26,6 @@ export default function InvestmentsPage() {
         eyebrow="Equity investments"
         title="Where Pixelette holds an interest."
         lead="Equity interests held by Pixelette Holdings, shown for what they are: an investment position, not control of the organisation."
-        small
       />
 
       <Section>

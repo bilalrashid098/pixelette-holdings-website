@@ -41,7 +41,6 @@ export default function ContactPage() {
         eyebrow="Contact"
         title="Route your enquiry properly."
         lead="Selecting the right route means the right person replies. Founder applications are handled through the HSE Fit Assessment, not this form."
-        small
       />
 
       <Section>

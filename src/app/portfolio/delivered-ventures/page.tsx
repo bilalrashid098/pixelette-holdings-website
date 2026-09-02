@@ -26,7 +26,6 @@ export default function DeliveredVenturesPage() {
         eyebrow="Delivered ventures"
         title="Work delivered. Not ownership claimed."
         lead="A delivered relationship means a Pixelette capability did evidenced work for the venture. It carries no equity claim, and it is not a client endorsement."
-        small
       />
 
       <Section>

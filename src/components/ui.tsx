@@ -44,12 +44,9 @@ export function Section({
 }
 
 /**
- * `light` is retired and ignored.
- *
- * Dark grounds now recolour their own children in the common layer, so a
- * section moved onto a dark band cannot end up half-inverted. The prop stays
- * in the signature only so the ~20 existing call sites keep compiling; it and
- * they are removed together at D8.
+ * Dark grounds recolour their own children in the common layer, so a section
+ * moved onto a dark band cannot end up half-inverted. There is no `light`
+ * prop; it was retired at D8 together with its call sites.
  */
 export function SectionHead({
   eyebrow,
@@ -59,7 +56,6 @@ export function SectionHead({
   eyebrow: string;
   title: string;
   lead?: string;
-  light?: boolean;
 }) {
   return (
     <div className="section-head">
@@ -80,9 +76,9 @@ export function SectionHead({
  * inverts what used to be a dark navy hero, so the breadcrumb, eyebrow, lead
  * and heading all read on light now.
  *
- * `small` is retired and ignored: every interior hero takes .h1p, which is the
- * scale's interior variant and the token with the most call sites in the whole
- * system. Removed with its call sites at D8.
+ * There is no `small` prop. Every interior hero takes .h1p, which is the
+ * scale's interior variant and has more call sites than any other token in the
+ * system. Retired at D8 with its call sites.
  */
 export function PageHero({
   eyebrow,
@@ -96,7 +92,6 @@ export function PageHero({
   lead?: string;
   breadcrumb?: { label: string; href?: string }[];
   children?: ReactNode;
-  small?: boolean;
 }) {
   return (
     <section className="hero wash-left">
@@ -289,7 +284,7 @@ export function ConversionClose({
 }) {
   return (
     <Section surface="deep">
-      <SectionHead eyebrow="Next step" title={title} lead={lead} light />
+      <SectionHead eyebrow="Next step" title={title} lead={lead} />
       <Buttons>
         <Btn href="/apply">Check if you qualify</Btn>
         <Btn href="/hse-model" variant="secondary">

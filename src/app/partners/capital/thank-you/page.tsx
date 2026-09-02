@@ -14,7 +14,6 @@ export default function CapitalThankYouPage() {
         eyebrow="Request received"
         title="Thank you. Your request is with us."
         lead="Requests are reviewed and approved manually. Access to detailed portfolio material is never automatic."
-        small
       />
 
       <Section>

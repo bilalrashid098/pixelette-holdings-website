@@ -91,7 +91,6 @@ export default function PortfolioPage() {
           eyebrow="Featured direct HSE venture"
           title="2Connect: intent-led AI for better introductions."
           lead="An intent-led AI networking agent that evaluates reciprocal fit and explains why an introduction may be valuable."
-          light
         />
         <div className="tile-strip">
           <div className="tile"><strong>12</strong><span>project repositories</span></div>

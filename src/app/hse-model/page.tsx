@@ -157,7 +157,6 @@ export default function HseModelPage() {
           eyebrow="Five gates"
           title="Five gates. Five evidence-based decisions."
           lead="Each stage produces evidence and a fresh decision. Neither party is committed to a weak next phase simply because the previous phase was completed."
-          light
         />
         <div className="gate-list">
           {GATES.map((g) => (
@@ -269,7 +268,6 @@ export default function HseModelPage() {
           eyebrow="Qualification"
           title="The right route starts with fit."
           lead="The assessment helps us decide whether the responsible next step is an HSE mandate, a paid Validation Sprint, full-cash delivery or no current engagement."
-          light
         />
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>

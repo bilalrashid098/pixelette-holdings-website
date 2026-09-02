@@ -194,8 +194,18 @@ button { cursor: pointer; }
   outline-offset: 3px;
 }
 
+/* NARROWED, deliberately. The stylesheet this replaced neutralised animation
+   and transition duration on `*, *::before, *::after` with !important. That
+   blanket was load-bearing only because the old site animated a great deal;
+   this one animates almost nothing, and a blanket override would also flatten
+   states a user still needs to perceive.
+
+   It is NOT deleted, because the orbit keeps its rotation as a sanctioned
+   exception and that rotation must stop here. The orbit's own rule is added
+   beside its keyframes at the call site in Phase E — see 30-Hero-strategy. */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .nav-links { transition: none; }
 }
 
 /* ==========================================================================

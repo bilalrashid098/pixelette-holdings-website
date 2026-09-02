@@ -16,7 +16,6 @@ export default function CookiesPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Cookie Policy' }]}
         eyebrow="Legal"
         title="Cookie Policy"
-        small
       />
 
       <Section>

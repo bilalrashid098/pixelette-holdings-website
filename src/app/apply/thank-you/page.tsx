@@ -19,7 +19,6 @@ export default function ApplyThankYouPage() {
         eyebrow="Assessment received"
         title="Thank you. Your assessment is with us."
         lead="A member of the Pixelette Holdings team will review what you have sent and respond if the venture is a plausible fit for a qualification conversation."
-        small
       />
 
       <Section>

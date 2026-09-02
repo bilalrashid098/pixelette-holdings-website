@@ -111,7 +111,6 @@ export default function TwoConnectPage() {
           eyebrow="What Pixelette delivered"
           title="Concept to a live product on web and mobile."
           lead="Technical leadership and engineering delivery across web, mobile, backend, AI and infrastructure, taking 2Connect from concept to a live product on the web and the app stores."
-          light
         />
       </Section>
 
@@ -133,7 +132,6 @@ export default function TwoConnectPage() {
           eyebrow="Next step"
           title="Building something operationally complex?"
           lead="If the venture has a committed operator, a serious market and capital available for execution, the HSE Fit Assessment is the right first step."
-          light
         />
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>

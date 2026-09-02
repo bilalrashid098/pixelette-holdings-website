@@ -16,7 +16,6 @@ export default function AccessibilityPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Accessibility' }]}
         eyebrow="Legal"
         title="Accessibility Statement"
-        small
       />
 
       <Section>

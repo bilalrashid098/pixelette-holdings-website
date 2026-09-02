@@ -97,7 +97,6 @@ export default function PrivacyPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Privacy Notice' }]}
         eyebrow="Legal"
         title="Privacy Notice"
-        small
       />
 
       <Section>
