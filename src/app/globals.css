@@ -546,44 +546,35 @@ button { cursor: pointer; }
 .held.legal  { border-color: #C9D5E3; background: var(--color-brand-tint); }
 
 /* ============================================================ SIGNATURE
-   THE PIXEL TICK.
+   THE PIXEL TICK — BUILT AT D9, REJECTED ON SIGHT BY THE USER, REMOVED.
 
-   Three small squares stepped upward at each section opening, echoing the
-   pixel canopy of the Holdings wordmark. Derived from the MARK rather than
-   from the pattern guide, which is what stops it colliding with a sibling
-   site's device — the first conversion's two rejected candidates (a capped
-   section rule, and a card accent moved from the top edge to the left) were
-   both guide-derived, and the sibling site had already shipped something
-   near-identical to each.
+   Recorded rather than deleted silently, because a design that was built and
+   rejected is worth more written down than gone. The reasoning transfers.
 
-   Exactly one device. Two mannerisms read as decoration and the register
-   goes flat.
+   WHAT IT WAS. Three small squares stepped upward at each section opening,
+   echoing the pixel canopy of the Holdings wordmark. Derived from the MARK
+   rather than from the guide, which is what would have kept it from colliding
+   with a sibling site's device. Three background-image declarations and one
+   position rule, carrying the signal tone as a non-text mark at 4.28:1
+   against a 3:1 threshold.
 
-   It is three background-image declarations and one position rule. To revert
-   it, delete this block; nothing else in the stylesheet refers to it.
+   WHY IT WAS SOUND. It met every constraint the brand layer sets, it could
+   not collide with the sibling site, and it reverted in one block.
 
-   It carries the SIGNAL tone, which is what the signal is for: a solid
-   non-text mark, 4.28:1 on white against a 3:1 threshold. On the dark bands
-   it switches to the tone that speaks there. */
+   THE MOST LIKELY REASON IT FAILED. The guide divides sections with a plain
+   full-width hairline and nothing else. A mark sitting on that hairline reads
+   as an ornament interrupting a rule rather than as a signature: at 18x9px it
+   is too small to register as a device and too visible to disappear. The
+   register the guide sets is flat and editorial, and it has room for a rule
+   but not for a motif on top of one.
 
-.sec, .sec-sm { position: relative; --tick-tone: var(--color-brand-signal); }
-.band-closing { --tick-tone: var(--color-brand-signal-dark); }
+   WHAT REPLACED IT. Nothing. The section divider is now the guide's own
+   hairline, which is the border-top already declared on .sec and .sec-sm in
+   the common layer above. This site therefore ships with NO signature device.
 
-.sec::before, .sec-sm::before {
-  content: '';
-  position: absolute; top: 0;
-  /* Anchored to the content column, not the viewport edge, so it lines up
-     with the eyebrow beneath it at every width. */
-  left: max(20px, calc((100% - var(--container-wrap)) / 2));
-  width: 18px; height: 9px;
-  background-image:
-    linear-gradient(var(--tick-tone), var(--tick-tone)),
-    linear-gradient(var(--tick-tone), var(--tick-tone)),
-    linear-gradient(var(--tick-tone), var(--tick-tone));
-  background-repeat: no-repeat;
-  background-size: 4px 3px, 4px 6px, 4px 9px;
-  background-position: 0 100%, 7px 100%, 14px 100%;
-}
+   If a future session wants one, do not re-add this. Put it somewhere other
+   than the section rule.
+   ============================================================ */
 
 /* ------------------------------------------------------------ wrappers */
 
