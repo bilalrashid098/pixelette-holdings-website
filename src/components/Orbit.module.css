@@ -63,6 +63,25 @@
   border-color: color-mix(in srgb, var(--color-brand) 30%, transparent);
 }
 
+/* The core carries the weight of the widget, so it is a filled brand disc
+   rather than an outline.
+
+   THE FILL IS THE READING TONE AND SLIGHTLY TRANSLUCENT, and both halves of
+   that are measured rather than chosen by eye:
+
+     - It must be --color-brand, not --color-brand-signal. White on the signal
+       is 4.28:1, and the "EXECUTION ENGINE" label is ~10.6px mono, which needs
+       4.5. White on the reading tone is 5.73:1.
+     - The core sits on the page ground, so any transparency lightens the
+       effective fill and pulls white text down with it. At 94% the fill reads
+       2c71b5 (written bare: the token gate does not parse comments, so a hash
+       here would trip it on its own documentation) and white measures 5.08:1 —
+       translucent enough to see, with real headroom. At 88% it is exactly 4.50
+       and at 85% the label FAILS.
+       Do not push it past 90 without re-measuring.
+
+   No border and no shadow: the fill defines the shape, and the register is
+   flat. This does mean the signal tone now appears nowhere in the orbit. */
 .core {
   position: absolute;
   inset: 34%;
@@ -70,11 +89,7 @@
   place-items: center;
   text-align: center;
   border-radius: 50%;
-  background: var(--color-page);
-  /* The one place the signal appears: a non-text mark at 4.28:1 against a 3:1
-     threshold. It cannot set any of the text here. */
-  border: 1px solid var(--color-brand-signal);
-  box-shadow: var(--shadow-tile);
+  background: color-mix(in srgb, var(--color-brand) 94%, transparent);
 }
 .core strong {
   display: block;
@@ -82,14 +97,14 @@
   font-weight: 500;
   font-size: 1.5rem;
   letter-spacing: -.02em;
-  color: var(--color-ink);
+  color: var(--color-page);
 }
 .core span {
   font-family: var(--font-mono);
   font-size: .66rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--color-muted);
+  color: var(--color-page);
 }
 
 /* Nodes read as tiles, which is the vocabulary the rest of the site already
