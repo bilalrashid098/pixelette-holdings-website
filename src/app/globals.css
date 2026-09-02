@@ -707,19 +707,26 @@ button { cursor: pointer; }
   background: var(--color-page);
   border-bottom: 1px solid var(--color-line);
 }
+/* 1fr auto 1fr, NOT auto 1fr auto. The nav is centred on the PAGE, which is
+   what centring means here — the wordmark and the CTA are different widths, so
+   centring the links inside the space left between them would sit them off to
+   one side by half that difference. Equal flexible columns either side make the
+   middle column's centre the container's centre whatever the two ends measure.
+   Both ends still park on their own edge via justify-self. */
 .nav {
-  display: grid; grid-template-columns: auto 1fr auto;
+  display: grid; grid-template-columns: 1fr auto 1fr;
   align-items: center; gap: 24px;
   min-height: var(--header-h);
 }
 
 .wordmark {
   display: inline-flex; align-items: center; min-height: 44px;
+  justify-self: start;
   font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em;
 }
 .brand-logo { height: 30px; width: auto; display: block; }
 
-.nav-links { display: flex; justify-content: flex-end; align-items: center; gap: clamp(14px, 1.6vw, 28px); }
+.nav-links { display: flex; justify-content: center; align-items: center; gap: clamp(14px, 1.6vw, 28px); }
 .nav-links a {
   display: inline-flex; align-items: center; min-height: 44px;
   font-size: .9375rem; color: var(--color-muted);
@@ -728,7 +735,7 @@ button { cursor: pointer; }
 
 /* .btn2 metrics, reduced to the guide's header height. 44px, not the 42px it
    used to be — that was one of the two sub-floor tap targets in the register. */
-.nav-cta { min-height: 44px; padding: 0 18px; font-size: .9375rem; }
+.nav-cta { min-height: 44px; padding: 0 18px; font-size: .9375rem; justify-self: end; }
 
 .menu-toggle {
   display: none;
