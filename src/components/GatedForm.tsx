@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowUpRightIcon } from './Icons';
+import { CONTACT } from '@/content/site';
 
 /**
  * A form that renders and validates but cannot submit.
@@ -25,7 +26,7 @@ export function GatedForm({
   consents,
   submitLabel,
   note,
-  heldBody = 'This form is being finalised. In the meantime, email us at info@pixeletteholdings.com and we will route your enquiry to the right person.',
+  heldBody = `This form is being finalised. In the meantime, email us at ${CONTACT.email} and we will route your enquiry to the right person.`,
   approved = false,
 }: {
   id: string;

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Qualifier } from '@/components/ui';
 import { GatedForm, type Field } from '@/components/GatedForm';
+import { CONTACT } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Capital qualification request',
@@ -62,7 +63,7 @@ export default function CapitalQualificationPage() {
           ]}
           submitLabel="Request qualification"
           note="Submitting this request does not create any entitlement to information, an offer, or an investment opportunity."
-          heldBody="This request form is being finalised. In the meantime, email us at info@pixeletteholdings.com and we will follow up."
+          heldBody={`This request form is being finalised. In the meantime, email us at ${CONTACT.email} and we will follow up.`}
         />
       </Section>
     </>

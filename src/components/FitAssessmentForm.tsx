@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { ArrowUpRightIcon } from './Icons';
+import { CONTACT } from '@/content/site';
 
 /**
  * HSE Fit Assessment.
@@ -184,7 +185,7 @@ export function FitAssessmentForm() {
 
       <p className="small form-note" style={{ marginTop: 22 }}>
         This assessment is being finalised. In the meantime, email us at{' '}
-        <a href="mailto:info@pixeletteholdings.com">info@pixeletteholdings.com</a> and we will pick up
+        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> and we will pick up
         your enquiry.
       </p>
     </div>

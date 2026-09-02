@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Section, PageHero, Qualifier } from '@/components/ui';
-import { SITE } from '@/content/site';
+import { SITE, CONTACT } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Terms of Use',
@@ -22,7 +22,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'Who we are',
     body: [
-      `Pixelette Holdings is a trading name of ${SITE.legalName}, a company registered in ${SITE.jurisdiction}, company number ${SITE.companyNumber}, registered office ${SITE.registeredOffice}. Contact: info@pixeletteholdings.com. These terms govern your use of this website.`,
+      `Pixelette Holdings is a trading name of ${SITE.legalName}, a company registered in ${SITE.jurisdiction}, company number ${SITE.companyNumber}, registered office ${SITE.registeredOffice}. Contact: ${CONTACT.email}. These terms govern your use of this website.`,
     ],
   },
   {

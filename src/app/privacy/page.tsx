@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Section, PageHero, Qualifier } from '@/components/ui';
-import { SITE } from '@/content/site';
+import { SITE, CONTACT } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Privacy Notice',
@@ -21,7 +21,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'Who we are',
     body: [
-      `The data controller is ${SITE.legalName} ("Pixelette Holdings", "we", "us" or "our"), a company registered in ${SITE.jurisdiction}, company number ${SITE.companyNumber}, registered office ${SITE.registeredOffice}. For any privacy matter, contact info@pixeletteholdings.com.`,
+      `The data controller is ${SITE.legalName} ("Pixelette Holdings", "we", "us" or "our"), a company registered in ${SITE.jurisdiction}, company number ${SITE.companyNumber}, registered office ${SITE.registeredOffice}. For any privacy matter, contact ${CONTACT.email}.`,
       'This notice describes how we collect, use, disclose, store and protect personal data in connection with our website and related services. By using the site, you acknowledge the practices described here.',
     ],
   },
@@ -66,7 +66,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'Your rights',
     body: [
-      'You have the right to access your personal data and to request its rectification, erasure, restriction or portability, and to object to processing. Where processing is based on consent, you may withdraw it at any time. To exercise a right, contact info@pixeletteholdings.com.',
+      `You have the right to access your personal data and to request its rectification, erasure, restriction or portability, and to object to processing. Where processing is based on consent, you may withdraw it at any time. To exercise a right, contact ${CONTACT.email}.`,
       "You also have the right to complain to the Information Commissioner's Office (ICO), the UK supervisory authority, at ico.org.uk.",
     ],
   },
