@@ -376,6 +376,24 @@ button { cursor: pointer; }
 .band-closing.deep { background: var(--color-footer); }
 .footer            { background: var(--color-footer); color: var(--color-panel-fg); }
 
+/* TRIAL — HOMEPAGE ONLY. Opted into per section by the `gradient` prop on
+   Section, so nothing leaks to the other 25 routes while this is being judged.
+   If it is kept, fold it into .band-closing above and delete both the prop and
+   this block; if it is not, delete this block alone.
+
+   The gradient runs BETWEEN THE TWO EXISTING DARK TOKENS and introduces no new
+   colour. That is deliberate and it is what makes it safe: every stop is a
+   value whose contrast is already measured, so nothing on these bands can drop
+   below what it measures today. --color-panel-fg is 10.38 on the panel and
+   11.12 on the footer; --color-panel-accent is 9.70 and 10.39. Everything in
+   between is bracketed by those pairs.
+
+   It IS a divergence from the guide's register, which is flat, and gradients
+   were on the list of things this conversion removed. Requested deliberately,
+   so it is an exception rather than drift. */
+.band-closing.band-grad      { background: linear-gradient(168deg, var(--color-panel) 0%, var(--color-footer) 100%); }
+.band-closing.deep.band-grad { background: linear-gradient(168deg, var(--color-footer) 0%, var(--color-panel) 100%); }
+
 /* Hero grounds. `.wash` is the guide's centred homepage default and is NOT in
    use — Holdings' hero is two-column, so a centred wash would fall under the
    widget as much as the copy. `.wash-left` is the offset variant, which is the

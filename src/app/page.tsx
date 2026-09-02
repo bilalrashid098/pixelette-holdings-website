@@ -166,7 +166,7 @@ export default function HomePage() {
       </Section>
 
       {/* --------------------------------------------------- five gates */}
-      <Section surface="navy">
+      <Section surface="navy" gradient>
         <SectionHead
           eyebrow="One system · five decision gates"
           title="Progress is earned at every stage."
@@ -210,7 +210,7 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------------ 2Connect */}
-      <Section surface="deep">
+      <Section surface="deep" gradient>
         <SectionHead
           eyebrow="Flagship direct HSE venture · Agentic AI"
           title="2Connect: intent-led AI for better introductions."
@@ -313,7 +313,7 @@ export default function HomePage() {
       </Section>
 
       {/* --------------------------------------------------- testimonials */}
-      <Section surface="navy">
+      <Section surface="navy" gradient>
         <SectionHead
           eyebrow="Trusted by founders"
           title="Founders who built with us, in their words."
@@ -349,7 +349,7 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <ConversionClose />
+      <ConversionClose gradient />
     </>
   );
 }
