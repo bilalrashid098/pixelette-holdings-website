@@ -308,7 +308,7 @@ export default function HomePage() {
 
       {/* --------------------------------------------------- credentials */}
       <Section surface="ice" tight>
-        <p className="cred-eyebrow">Verified credentials</p>
+        <p className="eyebrow cred-eyebrow">Verified credentials</p>
         <Credentials />
       </Section>
 

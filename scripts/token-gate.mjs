@@ -103,8 +103,7 @@ for (const file of tsxFiles) {
   const rel = relative(ROOT, file).replace(/\\/g, '/');
   const source = readFileSync(file, 'utf8');
 
-  for (const m of source.matchAll(/className=(?:"([^"]*)"|\{`([^`]*)`\}|\{'([^']*)'\})/g)) {
-    const raw = m[1] ?? m[2] ?? m[3] ?? '';
+  const check = (raw) => {
     // Drop ${...} interpolations wholesale. A class assembled by interpolation
     // cannot be checked statically, so the conversion builds them from lookup
     // maps that return whole literal strings instead — see Section in ui.tsx.
@@ -112,6 +111,24 @@ for (const file of tsxFiles) {
     for (const cls of literal.split(/\s+/).filter(Boolean)) {
       classesChecked += 1;
       if (!defined.has(cls)) fail('class not in stylesheet', `${rel}: ${cls}`);
+    }
+  };
+
+  for (const m of source.matchAll(/className=(?:"([^"]*)"|\{`([^`]*)`\}|\{'([^']*)'\})/g)) {
+    check(m[1] ?? m[2] ?? m[3] ?? '');
+  }
+
+  // `className={SOMETHING[key]}` is invisible to the matcher above, and that
+  // blind spot is exactly where a dead class would hide. The convention is
+  // that any const whose name ends in _CLASS holds whole class strings, and
+  // every string literal inside it is checked. Keep the convention or lose
+  // the coverage.
+  for (const m of source.matchAll(/const\s+\w*_CLASS(?:ES)?\b[^=]*=\s*\{([\s\S]*?)\n\}/g)) {
+    // Values only. Keys are quoted too in a Record<...> map, and a key is not
+    // a class name — matching on the colon is what separates them.
+    for (const lit of (m[1] ?? '').matchAll(/:\s*(?:'([^']*)'|"([^"]*)")/g)) {
+      const value = lit[1] ?? lit[2] ?? '';
+      if (value) check(value);
     }
   }
 }

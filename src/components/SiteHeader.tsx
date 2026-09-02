@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { PRIMARY_NAV } from '@/content/site';
+import { MenuIcon, CloseIcon, ArrowUpRightIcon } from './Icons';
 
 /**
  * Institutional header. One dominant CTA, consistently "Apply for HSE".
@@ -44,7 +45,7 @@ export function SiteHeader() {
 
   return (
     <header className="site-header">
-      <div className="shell nav">
+      <div className="wrap nav">
         <Link className="wordmark" href="/" aria-label="Pixelette Holdings home">
           {logoFailed ? (
             <span>PIXELETTE HOLDINGS</span>
@@ -61,7 +62,7 @@ export function SiteHeader() {
 
         <nav
           id="primary-menu"
-          className={`nav-links${open ? ' is-open' : ''}`}
+          className={open ? 'nav-links is-open' : 'nav-links'}
           aria-label="Primary navigation"
         >
           {PRIMARY_NAV.map((item) => (
@@ -83,11 +84,11 @@ export function SiteHeader() {
           aria-label={open ? 'Close navigation' : 'Open navigation'}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? '✕' : '☰'}
+          {open ? <CloseIcon /> : <MenuIcon />}
         </button>
 
-        <Link className="button primary nav-cta" href="/apply">
-          Check if you qualify <span className="arrow" aria-hidden="true">↗</span>
+        <Link className="btn2 nav-cta" href="/apply">
+          Check if you qualify <ArrowUpRightIcon />
         </Link>
       </div>
     </header>

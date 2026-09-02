@@ -33,7 +33,7 @@ function Item({ c }: { c: { key: string; name: string; sub: string; href: string
 export function GroupStrip() {
   return (
     <div className="group-strip">
-      <span className="group-eyebrow">The Pixelette Group</span>
+      <span className="eyebrow group-eyebrow">The Pixelette Group</span>
       <div className="group-items">
         {GROUP_COMPANIES.map((c) => (
           <Item key={c.key} c={c} />

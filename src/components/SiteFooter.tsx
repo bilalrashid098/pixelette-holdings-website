@@ -37,15 +37,15 @@ function LinkedInIcon() {
  */
 export function SiteFooter() {
   return (
-    <footer className="site-footer">
-      <div className="shell">
+    <footer className="footer">
+      <div className="wrap">
         <GroupStrip />
         <div className="footer-cols">
           {FOOTER_NAV.map((col) => (
             <div key={col.heading}>
-              <h4>{col.heading}</h4>
+              <h4 className="h4">{col.heading}</h4>
               {col.links.map((l) => (
-                <Link key={l.href} href={l.href}>
+                <Link className="small flink" key={l.href} href={l.href}>
                   {l.label}
                 </Link>
               ))}
@@ -60,11 +60,11 @@ export function SiteFooter() {
             wording still requires counsel sign-off before public launch. */}
         <div className="footer-contact">
           {CONTACT.phone ? (
-            <a href={`tel:${CONTACT.phoneTel}`}><PhoneIcon /> {CONTACT.phone}</a>
+            <a className="small flink" href={`tel:${CONTACT.phoneTel}`}><PhoneIcon /> {CONTACT.phone}</a>
           ) : null}
-          <a href={`mailto:${CONTACT.email}`}><MailIcon /> {CONTACT.email}</a>
+          <a className="small flink" href={`mailto:${CONTACT.email}`}><MailIcon /> {CONTACT.email}</a>
           {SOCIALS.map((s) => (
-            <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer">
+            <a className="small flink" key={s.href} href={s.href} target="_blank" rel="noopener noreferrer">
               <LinkedInIcon /> {s.label}
             </a>
           ))}

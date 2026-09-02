@@ -503,4 +503,224 @@ button { cursor: pointer; }
 
 /* ==========================================================================
    SITE LAYER — composition only. Declares no colour of its own.
+
+   Everything below is grid, gap, order and spacing for the parts of this site
+   the pattern guide has no pattern for. Colour, radius, shadow and type all
+   come from the two layers above. Keeping that boundary is what makes the
+   next site's conversion cheap.
+
+   The ONE exception is the classification block immediately below, and it is
+   marked as such.
    ========================================================================== */
+
+/* ---------------------------------------------- classification colours
+   These encode MEANING, not brand: a relationship type, a held claim, a
+   legal gate. [[20-Brand-layer]] exempts them from the brand layer for that
+   reason but does not say where they live, so they live here, marked.
+
+   They are exempt from the palette, NOT from the arithmetic. All fifteen
+   pairs were measured and all fifteen pass, range 4.51 to 11.87. Every one
+   sets text at ~10.7px, so every one needs 4.5:1. If a ground moves,
+   re-measure before assuming they still clear. */
+
+.rel-equity-investment       { background: #D8ECFF; color: #10456F; border-color: transparent; }
+.rel-direct-hse-venture      { background: #DFF3E6; color: #14512E; border-color: transparent; }
+.rel-project-in-development  { background: #FFF1D6; color: #6B4A10; border-color: transparent; }
+.rel-delivered-venture       { background: #ECE7FF; color: #362A6B; border-color: transparent; }
+.rel-capital-relationship    { background: #E6E9EE; color: #2B3543; border-color: transparent; }
+
+.flag-held  { background: #F0D3A0; color: #6B4A10; border-color: transparent; }
+.flag-legal { background: #D8ECFF; color: #10456F; border-color: transparent; }
+
+.held        { border: 1px solid #E7C98F; background: #FFF8EC; }
+.held.legal  { border-color: #C9D5E3; background: var(--color-brand-tint); }
+
+/* ------------------------------------------------------------ wrappers */
+
+.section-head {
+  display: grid; grid-template-columns: 1.15fr .75fr; gap: 60px;
+  align-items: end; margin-bottom: 44px;
+}
+.section-head .eyebrow { display: block; margin-bottom: 18px; }
+
+/* The hero's ground is .wash-left, in the common layer. This is its rhythm. */
+.hero { padding: var(--sec-y) 0 var(--sec-y-sm); }
+.hero .eyebrow { display: block; margin-bottom: 22px; }
+.hero .lead    { margin-top: 22px; }
+.hero .btn-row { margin-top: 30px; }
+.hero .list    { margin-top: 26px; }
+
+.breadcrumb { margin-bottom: 18px; font-size: .875rem; color: var(--color-muted); }
+.breadcrumb a { color: var(--color-brand); }
+.breadcrumb a:hover { color: var(--color-brand-hover); }
+
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 28px; }
+
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 22px; margin-top: 40px;
+}
+.card { display: flex; flex-direction: column; }
+.card .pill, .card .pill-brand { align-self: flex-start; margin-bottom: 14px; }
+.card .h3 { margin-bottom: 10px; }
+.card .body + .body, .card .small + .body { margin-top: 12px; }
+.card .flink { margin-top: 14px; }
+
+/* Fixed-height logo slot on every venture card so the tag, name and text all
+   start at the same place whether or not a logo exists. */
+.logo-slot { display: flex; align-items: center; min-height: 52px; margin-bottom: 16px; }
+.venture-logo { height: 40px; width: auto; max-width: 160px; object-fit: contain; }
+
+.held { margin-top: 26px; padding: 22px 26px; border-radius: var(--radius-card); }
+.held .pill { margin-bottom: 12px; }
+.held .h3 { margin-bottom: 10px; }
+.held p + p { margin-top: 12px; }
+
+.qualifier {
+  margin-top: 26px; padding: 20px 24px;
+  border-left: 3px solid var(--color-brand-signal);
+  border-radius: 0 var(--radius-card) var(--radius-card) 0;
+  background: var(--color-brand-tint);
+  font-size: .95rem; color: var(--color-body);
+}
+.qualifier p + p { margin-top: 12px; }
+.qualifier strong { color: var(--color-ink); }
+
+/* -------------------------------------------------------------- header
+   Light, following the guide: white ground, one hairline along the bottom,
+   muted links, a bordered rather than filled CTA. Sticky, which the guide is
+   not only because a static mockup cannot be. */
+
+.site-header {
+  position: sticky; top: 0; z-index: 20;
+  background: var(--color-page);
+  border-bottom: 1px solid var(--color-line);
+}
+.nav {
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 24px;
+  min-height: var(--header-h);
+}
+
+.wordmark {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em;
+}
+.brand-logo { height: 30px; width: auto; display: block; }
+
+.nav-links { display: flex; justify-content: flex-end; align-items: center; gap: clamp(14px, 1.6vw, 28px); }
+.nav-links a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: .9375rem; color: var(--color-muted);
+}
+.nav-links a:hover, .nav-links a[aria-current='page'] { color: var(--color-ink); }
+
+/* .btn2 metrics, reduced to the guide's header height. 44px, not the 42px it
+   used to be — that was one of the two sub-floor tap targets in the register. */
+.nav-cta { min-height: 44px; padding: 0 18px; font-size: .9375rem; }
+
+.menu-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  place-items: center;
+  border: 1px solid var(--color-line-strong); border-radius: var(--radius-btn);
+  background: transparent; color: var(--color-ink);
+}
+.menu-toggle:hover { border-color: var(--color-brand); }
+
+body.menu-open { overflow: hidden; }
+
+/* -------------------------------------------------------------- footer */
+
+.footer { padding: var(--sec-y-sm) 0 40px; }
+.footer .flink { color: var(--color-panel-fg); font-size: .9375rem; }
+.footer .flink:hover { color: var(--color-page); }
+
+.footer-cols {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 34px; margin-bottom: 42px;
+}
+.footer-cols .h4 { margin-bottom: 10px; letter-spacing: .01em; }
+.footer-cols a { display: flex; }
+
+.footer-contact { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; }
+.contact-ic { width: 17px; height: 17px; flex: none; }
+
+.footer-legal {
+  margin-bottom: 32px; padding: 22px 26px;
+  border: 1px solid var(--color-line-dark); border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, .03);
+  font-size: .875rem; line-height: 1.6;
+}
+.footer-legal strong { color: var(--color-page); }
+
+.footer-base {
+  display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;
+  padding-top: 26px; border-top: 1px solid var(--color-line-dark);
+  font-size: .875rem;
+}
+
+/* ---------------------------------------------------------- group strip */
+
+.group-strip { margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid var(--color-line-dark); }
+.group-eyebrow { display: block; margin-bottom: 18px; }
+.group-items { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; }
+
+/* White chips deliberately: the group logos keep their REAL brand colours and
+   would not survive being placed straight onto the footer's ground. */
+.group-item {
+  display: flex; align-items: center; gap: 12px;
+  min-height: 66px; flex: 1 1 200px;
+  padding: 14px 22px;
+  background: var(--color-page);
+  border: 1px solid transparent; border-radius: var(--radius-card);
+}
+.group-item:hover { border-color: var(--color-brand-signal); }
+.group-mark { height: 38px; width: 38px; object-fit: contain; flex: none; }
+.group-word { display: flex; flex-direction: column; line-height: 1.05; }
+.group-word-main { color: var(--color-ink); font-size: 1.0625rem; font-weight: 600; }
+.group-word-sub {
+  margin-top: 3px;
+  font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--color-muted);
+}
+
+/* --------------------------------------------------------- credentials */
+
+.cred-eyebrow { display: block; margin-bottom: 20px; }
+.credentials-strip { display: flex; flex-wrap: wrap; gap: 32px 40px; align-items: center; }
+.cred { display: flex; align-items: center; gap: 14px; }
+.cred img { height: 52px; width: auto; max-width: 64px; object-fit: contain; }
+.cred-text { display: flex; flex-direction: column; }
+.cred-text strong { font-size: .95rem; font-weight: 600; color: var(--color-ink); }
+.cred-text span { font-size: .8rem; color: var(--color-muted); }
+
+/* ==========================================================================
+   THE ONE MEDIA QUERY
+   Everything else interpolates. Resist adding a second — the stylesheet this
+   replaced had two, at 1000px and 860px, and both went.
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* Display tracking and leading do not scale linearly with size. */
+  .h1, .h1p, .h2 { letter-spacing: -.01em; line-height: 1.12; }
+
+  /* The wash is drawn for a wide two-column hero; at this width it needs to
+     sit above the copy rather than beside it. */
+  .wash-left { background: radial-gradient(620px 380px at 30% -12%, var(--color-brand-wash) 0%, var(--color-page) 62%); }
+
+  .section-head { grid-template-columns: 1fr; gap: 20px; }
+
+  .nav { grid-template-columns: 1fr auto auto; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    padding: 8px 20px 20px;
+    background: var(--color-page);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .nav-links.is-open { display: flex; }
+  .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--color-line); font-size: 1rem; }
+  .menu-toggle { display: grid; }
+}

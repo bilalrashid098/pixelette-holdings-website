@@ -1,11 +1,29 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { ArrowUpRightIcon } from './Icons';
 import { RELATIONSHIP_LABEL, ventureMeta, ventureLogo, type Relationship, type Venture } from '@/content/ventures';
 
 // Testimonials moved to its own client component (components/Testimonials.tsx) so
 // it can show real founder photos with an onError fallback to a monogram.
 
 /* -------------------------------------------------------------- primitives */
+
+/**
+ * Class maps.
+ *
+ * Written as whole literal strings rather than assembled by interpolation, so
+ * the token gate can see every class that will reach the DOM. A class built by
+ * interpolation is invisible to a static check, which is exactly how a rule
+ * that no longer exists survives a stylesheet rewrite. The `_CLASS` suffix is
+ * the convention the gate looks for — see scripts/token-gate.mjs.
+ */
+const SECTION_CLASS = {
+  // `warm` was the old warm-white default and is now simply the page ground.
+  warm: { normal: 'sec', tight: 'sec-sm' },
+  ice: { normal: 'sec band-alt', tight: 'sec-sm band-alt' },
+  navy: { normal: 'sec band-closing', tight: 'sec-sm band-closing' },
+  deep: { normal: 'sec band-closing deep', tight: 'sec-sm band-closing deep' },
+} as const;
 
 export function Section({
   children,
@@ -19,17 +37,24 @@ export function Section({
   tight?: boolean;
 }) {
   return (
-    <section id={id} className={`section${tight ? ' tight' : ''} surface-${surface}`}>
-      <div className="shell">{children}</div>
+    <section id={id} className={SECTION_CLASS[surface][tight ? 'tight' : 'normal']}>
+      <div className="wrap">{children}</div>
     </section>
   );
 }
 
+/**
+ * `light` is retired and ignored.
+ *
+ * Dark grounds now recolour their own children in the common layer, so a
+ * section moved onto a dark band cannot end up half-inverted. The prop stays
+ * in the signature only so the ~20 existing call sites keep compiling; it and
+ * they are removed together at D8.
+ */
 export function SectionHead({
   eyebrow,
   title,
   lead,
-  light,
 }: {
   eyebrow: string;
   title: string;
@@ -39,21 +64,32 @@ export function SectionHead({
   return (
     <div className="section-head">
       <div>
-        <p className={`eyebrow${light ? ' light' : ''}`}>{eyebrow}</p>
-        <h2>{title}</h2>
+        <p className="eyebrow">{eyebrow}</p>
+        <h2 className="h2">{title}</h2>
       </div>
-      {lead ? <p className={`lead${light ? ' light' : ''}`}>{lead}</p> : null}
+      {lead ? <p className="lead">{lead}</p> : null}
     </div>
   );
 }
 
+/**
+ * The interior-page hero. Drives 25 of the 26 routes; the homepage hand-rolls
+ * its own.
+ *
+ * The ground is the offset light wash on every route, by user decision. That
+ * inverts what used to be a dark navy hero, so the breadcrumb, eyebrow, lead
+ * and heading all read on light now.
+ *
+ * `small` is retired and ignored: every interior hero takes .h1p, which is the
+ * scale's interior variant and the token with the most call sites in the whole
+ * system. Removed with its call sites at D8.
+ */
 export function PageHero({
   eyebrow,
   title,
   lead,
   breadcrumb,
   children,
-  small,
 }: {
   eyebrow: string;
   title: string;
@@ -63,8 +99,8 @@ export function PageHero({
   small?: boolean;
 }) {
   return (
-    <section className="hero">
-      <div className="shell hero-grid single">
+    <section className="hero wash-left">
+      <div className="wrap">
         <div>
           {breadcrumb ? (
             <p className="breadcrumb">
@@ -76,9 +112,9 @@ export function PageHero({
               ))}
             </p>
           ) : null}
-          <p className="eyebrow light">{eyebrow}</p>
-          <h1 className={`display${small ? ' sm' : ''}`}>{title}</h1>
-          {lead ? <p className="lead light">{lead}</p> : null}
+          <p className="eyebrow">{eyebrow}</p>
+          <h1 className="h1p">{title}</h1>
+          {lead ? <p className="lead">{lead}</p> : null}
           {children}
         </div>
       </div>
@@ -87,8 +123,14 @@ export function PageHero({
 }
 
 export function Buttons({ children }: { children: ReactNode }) {
-  return <div className="button-row">{children}</div>;
+  return <div className="btn-row">{children}</div>;
 }
+
+const BTN_CLASS = {
+  primary: 'btn',
+  secondary: 'btn2',
+  ghost: 'btn-ghost',
+} as const;
 
 export function Btn({
   href,
@@ -100,11 +142,11 @@ export function Btn({
   variant?: 'primary' | 'secondary' | 'ghost';
 }) {
   return (
-    <Link className={`button ${variant}`} href={href}>
-      {children}{' '}
-      <span className="arrow" aria-hidden="true">
-        ↗
-      </span>
+    <Link className={BTN_CLASS[variant]} href={href}>
+      {children}
+      {/* The guide's own traced arrow, replacing the ↗ text glyph. Decorative
+          and aria-hidden either way, so the label the user reads is unchanged. */}
+      <ArrowUpRightIcon />
     </Link>
   );
 }
@@ -119,6 +161,16 @@ export function Btn({
  * without reading the evidence register. Delete it only when the gate has
  * actually closed, never to make a page look finished.
  */
+const HELD_CLASS = {
+  normal: 'held',
+  legal: 'held legal',
+} as const;
+
+const HELD_FLAG_CLASS = {
+  normal: 'pill flag-held',
+  legal: 'pill flag-legal',
+} as const;
+
 export function EvidenceGate({
   flag,
   title,
@@ -130,11 +182,12 @@ export function EvidenceGate({
   children: ReactNode;
   legal?: boolean;
 }) {
+  const key = legal ? 'legal' : 'normal';
   return (
-    <div className={`held-block${legal ? ' legal' : ''}`}>
-      <span className="held-flag">{flag}</span>
-      {title ? <h3>{title}</h3> : null}
-      {typeof children === 'string' ? <p>{children}</p> : children}
+    <div className={HELD_CLASS[key]}>
+      <span className={HELD_FLAG_CLASS[key]}>{flag}</span>
+      {title ? <h3 className="h3">{title}</h3> : null}
+      {typeof children === 'string' ? <p className="body">{children}</p> : children}
     </div>
   );
 }
@@ -145,6 +198,21 @@ export function Qualifier({ children }: { children: ReactNode }) {
 
 /* ------------------------------------------------------------- portfolio  */
 
+/**
+ * Classification tags.
+ *
+ * The tag is a .pill carrying a classification colour. Those colours encode
+ * meaning rather than brand, so they live in the site layer's marked
+ * classification block rather than reading a brand token.
+ */
+const REL_CLASS: Record<Relationship, string> = {
+  'equity-investment': 'pill rel-equity-investment',
+  'direct-hse-venture': 'pill rel-direct-hse-venture',
+  'project-in-development': 'pill rel-project-in-development',
+  'delivered-venture': 'pill rel-delivered-venture',
+  'capital-relationship': 'pill rel-capital-relationship',
+};
+
 export function RelationshipTag({
   relationship,
   flagship,
@@ -153,9 +221,9 @@ export function RelationshipTag({
   flagship?: boolean;
 }) {
   if (flagship) {
-    return <span className="rel-label rel-flagship">Flagship · {RELATIONSHIP_LABEL[relationship]}</span>;
+    return <span className="pill-brand">Flagship · {RELATIONSHIP_LABEL[relationship]}</span>;
   }
-  return <span className={`rel-label rel-${relationship}`}>{RELATIONSHIP_LABEL[relationship]}</span>;
+  return <span className={REL_CLASS[relationship]}>{RELATIONSHIP_LABEL[relationship]}</span>;
 }
 
 /**
@@ -167,25 +235,27 @@ export function RelationshipTag({
  */
 export function VentureCard({ venture, href }: { venture: Venture; href?: string }) {
   return (
-    <article className="p-card">
+    <article className="card">
       {/* Fixed-height logo slot on EVERY card so the tag, name and text always start
           at the same place, whether or not the venture has a logo (keeps the grid aligned). */}
-      <div className="venture-logo-slot">
+      <div className="logo-slot">
         {ventureLogo(venture.slug) ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img className="venture-logo" src={ventureLogo(venture.slug)} alt={`${venture.name} logo`} loading="lazy" />
         ) : null}
       </div>
       <RelationshipTag relationship={venture.relationship} flagship={venture.flagship} />
-      <h3>{venture.name}</h3>
-      {ventureMeta(venture.slug) ? <p className="venture-meta">{ventureMeta(venture.slug)}</p> : null}
-      {venture.oneLine ? <p>{venture.oneLine}</p> : null}
-      {venture.detail ? <p>{venture.detail}</p> : null}
+      <h3 className="h3">{venture.name}</h3>
+      {ventureMeta(venture.slug) ? <p className="small">{ventureMeta(venture.slug)}</p> : null}
+      {venture.oneLine ? <p className="body">{venture.oneLine}</p> : null}
+      {venture.detail ? <p className="body">{venture.detail}</p> : null}
       {/* gateNote is an INTERNAL editorial note (evidence/consent still owed) and is
           deliberately NOT rendered to the public. It stays in the data for the team. */}
       {href ? (
-        <p style={{ marginTop: 14 }}>
-          <Link href={href}>Read more ↗</Link>
+        <p>
+          <Link className="link flink" href={href}>
+            Read more <ArrowUpRightIcon />
+          </Link>
         </p>
       ) : null}
     </article>
@@ -198,9 +268,9 @@ export function CardGrid({ children }: { children: ReactNode }) {
 
 export function Card({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <article className="p-card">
-      <h3>{title}</h3>
-      {typeof children === 'string' ? <p>{children}</p> : children}
+    <article className="card">
+      <h3 className="h3">{title}</h3>
+      {typeof children === 'string' ? <p className="body">{children}</p> : children}
     </article>
   );
 }
@@ -223,7 +293,7 @@ export function ConversionClose({
           Explore the HSE model
         </Btn>
       </Buttons>
-      <p className="consent-note">
+      <p className="small">
         Short first-stage assessment. No pitch-deck upload. No automatic acceptance. The form does not
         request payment.
       </p>
