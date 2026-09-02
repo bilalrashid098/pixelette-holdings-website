@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
+import { Newsreader, Outfit, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { ScrollEffects } from '@/components/ScrollEffects';
@@ -13,18 +13,34 @@ import './globals.css';
  * a third-party font CDN, so no third-party data flow to disclose and no
  * render-blocking external fetch. `display: swap` protects against invisible
  * text while loading.
+ *
+ * The three faces are group property, taken from the pattern guide: Newsreader
+ * for display, Outfit for body, IBM Plex Mono for eyebrows, figures and small
+ * labels. Self-hosting means the strict CSP (font-src 'self') needs no change.
+ * Do NOT add a Google Fonts <link>; it will be blocked.
+ *
+ * Display weight is 400, not the guide's stylesheet's 300. Appendix E records
+ * the group moving to 400 because the light cut read as too fragile at desktop
+ * sizes. If the weight ever moves again, it moves everywhere at once.
  */
-const jakarta = Plus_Jakarta_Sans({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  variable: '--font-jakarta',
+  weight: ['400'],
+  variable: '--font-newsreader',
   display: 'swap',
 });
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600'],
+  variable: '--font-outfit',
+  display: 'swap',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
   display: 'swap',
 });
 
@@ -117,7 +133,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={SITE.lang} className={`${jakarta.variable} ${inter.variable}`}>
+    <html lang={SITE.lang} className={`${newsreader.variable} ${outfit.variable} ${plexMono.variable}`}>
       <body>
         <SiteHeader />
         <main id="top">{children}</main>

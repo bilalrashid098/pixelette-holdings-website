@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "compare:palette": "node scripts/build-palette-compare.mjs"
   },
   "dependencies": {
     "next": "^15.0.0",

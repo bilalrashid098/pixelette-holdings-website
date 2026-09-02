@@ -2,7 +2,7 @@
 # Netlify / Cloudflare Pages format.
 #
 # The site loads no third-party scripts, fonts or images — next/font self-hosts
-# Plus Jakarta Sans and Inter at build time — so the content security policy can
+# Newsreader, Outfit and IBM Plex Mono at build time — so the content security policy can
 # be genuinely strict rather than permissive-by-default. If analytics or a tag
 # manager is added later, its host must be added here explicitly, and only fire
 # after cookie consent.

@@ -33,3 +33,9 @@ desktop.ini
 # Deployment
 .vercel
 .netlify
+
+#Obsdian vault
+/vault
+
+# Palette comparison output (Phase B decision instrument, regenerated on demand)
+.palette/
