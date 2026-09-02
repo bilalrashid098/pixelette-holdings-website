@@ -15,17 +15,27 @@ const LINES = [
     body: 'How fee-to-equity works, where it fails, and the protections that make it safe for a founder to enter.',
     href: '/insights/services-for-equity-properly-structured',
   },
+  /* PLACEHOLDER LINKS — the three articles below have no route yet; only the
+     services-for-equity piece exists. `href: '#'` is a deliberate reminder to
+     write them, added at the user's request. It ships a CTA that goes nowhere,
+     so it must NOT reach production unresolved: either the article lands and
+     the '#' becomes its route, or the entry is removed. Do not "tidy" these
+     back to a missing href — the visible dead CTA is the point.
+     → vault 50-Known-bugs-and-deviations, bug 2 */
   {
     title: 'Agentic AI delivery in production',
     body: 'What it actually takes to ship an agentic product: architecture boundaries, retrieval, evaluation and the honest limits.',
+    href: '#',
   },
   {
     title: 'Validating before you build',
     body: 'Why a paid validation stage is cheaper than a wrong build, and what evidence a go decision actually needs.',
+    href: '#',
   },
   {
     title: 'Compliance readiness as a growth lever',
     body: 'How security and governance readiness opens enterprise and regulated revenue rather than blocking it.',
+    href: '#',
   },
 ];
 
