@@ -540,10 +540,11 @@ button { cursor: pointer; }
 }
 .table tr:last-child td { border-bottom: 0; }
 
-/* In the inventory, and built so the common layer is complete for the next
-   site. NOT wired up here: this site has no skip link, and adding one needs
-   new visible text, which is out of the conversion's remit. <main id="top">
-   already exists as a valid target. Logged, not shipped. */
+/* WIRED UP 2 September 2026, at the user's request — the copy "Skip to content"
+   is their sign-off, which is what this class was waiting on. Rendered as the
+   first child of <body> in layout.tsx, targeting the <main id="top"> that was
+   already there. z-index 100 clears the sticky header's 20, so the control is
+   visible on focus rather than behind it. */
 .skip-to-content {
   position: absolute; left: -9999px; top: 0; z-index: 100;
   padding: 12px 18px;

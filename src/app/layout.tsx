@@ -145,6 +145,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang={SITE.lang} className={`${newsreader.variable} ${outfit.variable} ${plexMono.variable}`}>
       <body>
+        {/* First focusable element on every route, so a keyboard or screen-reader
+            visitor can bypass the header nav rather than tabbing it on all 26 pages.
+            A plain <a>, not next/link: this is a same-page fragment, not a route. */}
+        <a className="skip-to-content" href="#top">Skip to content</a>
         <SiteHeader />
         <main id="top">{children}</main>
         <SiteFooter />
