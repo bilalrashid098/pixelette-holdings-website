@@ -82,7 +82,7 @@ export default function TwoConnectPage() {
         <SectionHead eyebrow="How it works" title="From what you are looking for, to who you should meet." />
         <div className="steps">
           {HOW.map(([n, title, body]) => (
-            <div key={n} className="step reveal">
+            <div key={n} className="step">
               <b>{n}</b>
               <div>
                 <h3>{title}</h3>

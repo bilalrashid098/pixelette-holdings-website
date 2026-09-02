@@ -161,7 +161,7 @@ export default function HseModelPage() {
         />
         <div className="gate-list">
           {GATES.map((g) => (
-            <article key={g.n} className="gate reveal">
+            <article key={g.n} className="gate">
               <div className="gate-num">{g.n}</div>
               <div>
                 <h3>{g.name}</h3>

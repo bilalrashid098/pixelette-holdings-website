@@ -84,7 +84,7 @@ export default function ValidationSprintPage() {
         <SectionHead eyebrow="What happens" title="Four workstreams, one decision." />
         <div className="steps">
           {WORKSTREAMS.map((w) => (
-            <div key={w.n} className="step reveal">
+            <div key={w.n} className="step">
               <b>{w.n}</b>
               <div>
                 <h3>{w.title}</h3>

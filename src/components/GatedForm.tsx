@@ -38,7 +38,7 @@ export function GatedForm({
   const [blocked, setBlocked] = useState(false);
 
   return (
-    <div className="form-wrap reveal">
+    <div className="form-wrap">
       <form
         id={id}
         noValidate

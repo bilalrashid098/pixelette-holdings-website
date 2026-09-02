@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Newsreader, Outfit, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
-import { ScrollEffects } from '@/components/ScrollEffects';
 import { SITE } from '@/content/site';
 import './globals.css';
 
@@ -138,7 +137,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="top">{children}</main>
         <SiteFooter />
-        <ScrollEffects />
         <script
           type="application/ld+json"
           // Static, author-controlled JSON. No user input reaches this.

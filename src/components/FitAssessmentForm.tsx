@@ -83,7 +83,7 @@ export function FitAssessmentForm() {
   const [blocked, setBlocked] = useState(false);
 
   return (
-    <div className="form-wrap reveal">
+    <div className="form-wrap">
       <form
         id="fit-assessment"
         noValidate

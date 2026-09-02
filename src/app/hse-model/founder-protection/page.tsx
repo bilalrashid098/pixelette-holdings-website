@@ -57,9 +57,7 @@ export default function FounderProtectionPage() {
         />
         <ol className="charter">
           {FOUNDER_CHARTER.map((c) => (
-            <li key={c} className="reveal">
-              {c}
-            </li>
+            <li key={c}>{c}</li>
           ))}
         </ol>
         <Qualifier>

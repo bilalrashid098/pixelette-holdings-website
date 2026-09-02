@@ -77,7 +77,7 @@ export default function ApplyPage() {
         <SectionHead eyebrow="What happens next" title="A human decision, not an algorithm." />
         <div className="steps">
           {STEPS.map((s) => (
-            <div key={s.n} className="step reveal">
+            <div key={s.n} className="step">
               <b>{s.n}</b>
               <div>
                 <h3>{s.title}</h3>
