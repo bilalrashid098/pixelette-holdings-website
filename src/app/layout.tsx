@@ -18,13 +18,24 @@ import './globals.css';
  * labels. Self-hosting means the strict CSP (font-src 'self') needs no change.
  * Do NOT add a Google Fonts <link>; it will be blocked.
  *
- * Display weight is 400, not the guide's stylesheet's 300. Appendix E records
- * the group moving to 400 because the light cut read as too fragile at desktop
- * sizes. If the weight ever moves again, it moves everywhere at once.
+ * Display weight is 500. The guide's stylesheet says 300; Appendix E records
+ * the group moving to 400 during the first conversion because the light cut
+ * read as too fragile at desktop sizes. This site moved again, to 500, on the
+ * user's by-eye call after seeing it rendered: at 42px the 400 cut of a serif
+ * read as washed out beside the brand marks it sits above.
+ *
+ * It moved EVERYWHERE at once, which is the rule — .h1, .h1p, .h2, .h3, the
+ * prose heading, the validation-route lead-in and the orbit core. Leaving one
+ * behind is how an interior page ends up with a heading lighter than the
+ * subheadings underneath it.
+ *
+ * This is now a GROUP-LEVEL divergence. It needs carrying to Appendix E and to
+ * the guide's author exactly as the 300 -> 400 move was. Until it is, Holdings
+ * and Certified render the same class at different weights.
  */
 const newsreader = Newsreader({
   subsets: ['latin'],
-  weight: ['400'],
+  weight: ['500'],
   variable: '--font-newsreader',
   display: 'swap',
 });

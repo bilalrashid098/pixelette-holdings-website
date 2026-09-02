@@ -129,7 +129,14 @@
 
   /* ------------------------------------------------------------ faces
      The faces are group property. Weight is the only typographic dial to
-     expect to turn — and if it turns, it turns everywhere at once. */
+     expect to turn — and if it turns, it turns everywhere at once.
+
+     IT HAS TURNED. Display weight on this site is 500, not the 400 Appendix E
+     records. The guide's own stylesheet says 300; the group moved to 400 on
+     the first conversion; Holdings moved to 500 on the user's by-eye call,
+     because at 42px the 400 cut of a serif read as washed out. All seven
+     display call sites moved together. This is a group-level divergence and
+     belongs in Appendix E, not just here. */
   --font-display: var(--font-newsreader), Georgia, 'Times New Roman', serif;
   --font-body:    var(--font-outfit), 'Helvetica Neue', Arial, sans-serif;
   --font-mono:    var(--font-plex-mono), 'SFMono-Regular', Consolas, monospace;
@@ -228,22 +235,22 @@ button { cursor: pointer; }
 /* ------------------------------------------------------------------ type */
 
 .h1 {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -.016em;
   text-wrap: balance;
 }
 .h1p {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--fs-h1p); line-height: 1.07; letter-spacing: -.015em;
   text-wrap: balance;
 }
 .h2 {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--fs-h2); line-height: 1.14; letter-spacing: -.014em;
   text-wrap: balance;
 }
 .h3 {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--fs-h3); line-height: 1.26; letter-spacing: -.008em;
 }
 /* The one heading that is sans. */
@@ -297,7 +304,7 @@ button { cursor: pointer; }
 /* Article bodies. This is where inline links get their colour automatically. */
 .prose { max-width: 66ch; color: var(--color-body); font-size: var(--fs-body); line-height: 1.65; }
 .prose h2 {
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--fs-h3); line-height: 1.26; letter-spacing: -.008em;
   color: var(--color-ink);
   margin: 44px 0 12px;
@@ -956,7 +963,7 @@ body.menu-open { overflow: hidden; }
 }
 .validation-route strong {
   display: block;
-  font-family: var(--font-display); font-weight: 400;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--fs-h3); line-height: 1.26; letter-spacing: -.008em;
   color: var(--color-ink);
 }

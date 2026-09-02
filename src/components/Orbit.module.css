@@ -79,7 +79,7 @@
 .core strong {
   display: block;
   font-family: var(--font-display);
-  font-weight: 400;
+  font-weight: 500;
   font-size: 1.5rem;
   letter-spacing: -.02em;
   color: var(--color-ink);
