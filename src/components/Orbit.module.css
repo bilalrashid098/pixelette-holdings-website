@@ -1,0 +1,150 @@
+/*
+ * The hero orbit — a SCOPED MOTION EXCEPTION.
+ *
+ * The group rule is flat and static. The user asked for this animation to be
+ * kept, explicitly, on 2 September 2026: "Keep its animation dont make it flat
+ * and static." So it is an exception, and the playbook requires an exception to
+ * be scoped like one. This file is that scoping.
+ *
+ * IT IS NOT LEFTOVER DECORATION. A later pass will read a rotating ring as
+ * something the conversion forgot to delete. It was asked for. Do not remove it
+ * without asking.
+ *
+ * The seven conditions an exception has to meet, and where each is met:
+ *
+ *   1  nothing under prefers-reduced-motion      the block at the foot of this file
+ *   2  removable in a single revert              delete this file and Orbit.tsx
+ *   3  the global stylesheet never learns of it  it is a CSS Module; @keyframes
+ *                                                spin lives HERE, not in
+ *                                                globals.css, and the grep
+ *                                                assertion checks exactly that
+ *   4  pauses when off-screen                    IntersectionObserver in Orbit.tsx
+ *   5  gated away from touch                     (hover: hover) and (pointer: fine)
+ *   6  colours from live tokens, no literals     every value below is a var() or
+ *                                                a color-mix of one
+ *   7  thin strokes take the reading tone        the rings are 1px borders, so
+ *                                                they take --color-brand; only
+ *                                                the core's ring carries the
+ *                                                signal, and only as a non-text
+ *                                                mark
+ *
+ * THE PART THAT WAS NOT OBVIOUS. The orbit's entire styling was built for a
+ * dark ground — white rings at 16% opacity, near-black node fills at 78%, pale
+ * blue labels, white text. The hero ground is now a light wash, so every one of
+ * those inverts. This is not "the orbit kept". It is the orbit RE-DERIVED on a
+ * light ground with its motion preserved.
+ *
+ * The arithmetic pushes harder than it looks. The signal tone cannot set the
+ * node labels (10px mono needs 4.5:1; the signal gives 4.28:1 on white) and by
+ * the palette rule it cannot stroke the rings either. So on light the orbit is
+ * mostly the reading tone, and the signal appears only where it is a non-text
+ * mark. That is correct by the rules and is the single thing here whose look
+ * could not be predicted from a terminal.
+ */
+
+.orbit {
+  position: relative;
+  aspect-ratio: 1;
+  width: min(100%, 440px);
+  margin-inline: auto;
+}
+
+/* 1px borders — thin strokes, so the reading tone, softened through the token
+   rather than through a literal rgba(). */
+.ring {
+  position: absolute;
+  inset: 8%;
+  border: 1px solid color-mix(in srgb, var(--color-brand) 24%, transparent);
+  border-radius: 50%;
+}
+.ringTwo {
+  inset: 22%;
+  border-style: dashed;
+  border-color: color-mix(in srgb, var(--color-brand) 30%, transparent);
+}
+
+.core {
+  position: absolute;
+  inset: 34%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 50%;
+  background: var(--color-page);
+  /* The one place the signal appears: a non-text mark at 4.28:1 against a 3:1
+     threshold. It cannot set any of the text here. */
+  border: 1px solid var(--color-brand-signal);
+  box-shadow: var(--shadow-tile);
+}
+.core strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: -.02em;
+  color: var(--color-ink);
+}
+.core span {
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Nodes read as tiles, which is the vocabulary the rest of the site already
+   uses for a small labelled figure. */
+.node {
+  position: absolute;
+  min-width: 116px;
+  padding: 12px 14px;
+  text-align: center;
+  border: 1px solid var(--color-line-strong);
+  border-radius: var(--radius-tile);
+  background: var(--color-page);
+  box-shadow: var(--shadow-tile);
+}
+.node span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+}
+.node strong {
+  font-size: .86rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.nodeBuild  { top: 0;   left: 50%;  transform: translate(-50%, -10%); }
+.nodeLaunch { top: 50%; right: 0;   transform: translate(10%, -50%); }
+.nodeAssure { bottom: 0; left: 50%; transform: translate(-50%, 10%); }
+.nodeOwn    { top: 50%; left: 0;    transform: translate(-10%, -50%); }
+
+/* MOVED, not deleted. This keyframe used to live in globals.css. It is here so
+   the common layer never learns about the exception, and the grep assertion
+   expects exactly one @keyframes in the repo and expects it NOT to be in
+   globals.css. */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Condition 5: gated away from touch. On a coarse pointer the orbit is a
+   static diagram, which is all it ever needed to be. */
+@media (hover: hover) and (pointer: fine) {
+  .ring { animation: spin 42s linear infinite; }
+  .ringTwo { animation-duration: 62s; animation-direction: reverse; }
+
+  /* Condition 4: the observer in Orbit.tsx adds this when the widget leaves
+     the viewport, so a CSS animation does not run forever on a page nobody is
+     looking at. */
+  .paused .ring { animation-play-state: paused; }
+}
+
+/* Condition 1. Declared here as well as gated above, so the exception cannot
+   outlive a change to the media query. */
+@media (prefers-reduced-motion: reduce) {
+  .ring { animation: none; }
+}

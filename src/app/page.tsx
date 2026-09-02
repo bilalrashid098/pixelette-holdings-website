@@ -12,6 +12,7 @@ import { ventures } from '@/content/ventures';
 import { TESTIMONIALS } from '@/content/testimonials';
 import { CapabilityBrand } from '@/components/CapabilityBrand';
 import { Credentials } from '@/components/Credentials';
+import { Orbit } from '@/components/Orbit';
 
 export default function HomePage() {
   const bic = ventures.find((v) => v.slug === 'big-innovation-centre')!;
@@ -45,24 +46,10 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div
-            className="orbit"
-            role="img"
-            aria-label="Four integrated Pixelette capabilities: Build, Launch, Assure and Own"
-          >
-            <div className="orbit-ring" />
-            <div className="orbit-ring two" />
-            <div className="orbit-core">
-              <div>
-                <strong>HSE</strong>
-                <span>Execution engine</span>
-              </div>
-            </div>
-            <div className="orbit-node node-build"><span>01 · Build</span><strong>Technology</strong></div>
-            <div className="orbit-node node-launch"><span>02 · Launch</span><strong>Marketing</strong></div>
-            <div className="orbit-node node-assure"><span>03 · Assure</span><strong>Certified</strong></div>
-            <div className="orbit-node node-own"><span>04 · Own</span><strong>Holdings</strong></div>
-          </div>
+          {/* Same markup, same order, same words — moved into its own component
+              so the motion exception and its keyframe stay out of the global
+              stylesheet, and so the pause observer has somewhere to live. */}
+          <Orbit />
         </div>
       </section>
 
