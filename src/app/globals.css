@@ -545,6 +545,46 @@ button { cursor: pointer; }
 .held        { border: 1px solid #E7C98F; background: #FFF8EC; }
 .held.legal  { border-color: #C9D5E3; background: var(--color-brand-tint); }
 
+/* ============================================================ SIGNATURE
+   THE PIXEL TICK.
+
+   Three small squares stepped upward at each section opening, echoing the
+   pixel canopy of the Holdings wordmark. Derived from the MARK rather than
+   from the pattern guide, which is what stops it colliding with a sibling
+   site's device — the first conversion's two rejected candidates (a capped
+   section rule, and a card accent moved from the top edge to the left) were
+   both guide-derived, and the sibling site had already shipped something
+   near-identical to each.
+
+   Exactly one device. Two mannerisms read as decoration and the register
+   goes flat.
+
+   It is three background-image declarations and one position rule. To revert
+   it, delete this block; nothing else in the stylesheet refers to it.
+
+   It carries the SIGNAL tone, which is what the signal is for: a solid
+   non-text mark, 4.28:1 on white against a 3:1 threshold. On the dark bands
+   it switches to the tone that speaks there. */
+
+.sec, .sec-sm { position: relative; --tick-tone: var(--color-brand-signal); }
+.band-closing { --tick-tone: var(--color-brand-signal-dark); }
+
+.sec::before, .sec-sm::before {
+  content: '';
+  position: absolute; top: 0;
+  /* Anchored to the content column, not the viewport edge, so it lines up
+     with the eyebrow beneath it at every width. */
+  left: max(20px, calc((100% - var(--container-wrap)) / 2));
+  width: 18px; height: 9px;
+  background-image:
+    linear-gradient(var(--tick-tone), var(--tick-tone)),
+    linear-gradient(var(--tick-tone), var(--tick-tone)),
+    linear-gradient(var(--tick-tone), var(--tick-tone));
+  background-repeat: no-repeat;
+  background-size: 4px 3px, 4px 6px, 4px 9px;
+  background-position: 0 100%, 7px 100%, 14px 100%;
+}
+
 /* ------------------------------------------------------------ wrappers */
 
 .section-head {
