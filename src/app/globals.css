@@ -138,6 +138,20 @@
      The guide's interior-page variant, promoted to every route. Its origin
      sits under the copy column, leaving the widget cell on clean ground. */
   --wash-left: radial-gradient(900px 420px at 14% -20%, var(--color-brand-wash) 0%, var(--color-page) 60%);
+
+  /* ------------------------------------------------------------- icons
+     Traced from the pattern guide's own markup, path data unchanged. These
+     four are applied as CSS masks because their call sites are pseudo-
+     elements — list markers, the accordion glyph, the quote mark — where an
+     inline SVG would mean touching every item of markup. A mask reads alpha,
+     so the stroke colour inside the data URI is arbitrary and the visible
+     tone comes from the `background` at the call site.
+     The remaining icons are React components in components/Icons.tsx. */
+  --icon-check: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 8l3 3 6-7'/%3E%3C/svg%3E");
+  --icon-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 15' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4l7 7M11 4l-7 7'/%3E%3C/svg%3E");
+  --icon-plus:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M8.5 3v11M3 8.5h11'/%3E%3C/svg%3E");
+  --icon-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 17 17' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Cpath d='M3 8.5h11'/%3E%3C/svg%3E");
+  --icon-quote: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 22' fill='black'%3E%3Cpath d='M10 0C4.5 2.5 1 7 1 13c0 4 2.5 7 6 7s6-2.7 6-6.2c0-3.3-2.3-5.8-5.4-5.8-.6 0-1.2.1-1.6.2C6.8 5.6 8.2 3.4 10 2V0z'/%3E%3Cpath d='M23 0c-5.5 2.5-9 7-9 13 0 4 2.5 7 6 7s6-2.7 6-6.2c0-3.3-2.3-5.8-5.4-5.8-.6 0-1.2.1-1.6.2 .8-2.6 2.2-4.8 4-6.2V0z'/%3E%3C/svg%3E");
 }
 
 /* ------------------------------------------------------------------ base */
@@ -185,8 +199,307 @@ button { cursor: pointer; }
 }
 
 /* ==========================================================================
-   COMMON LAYER — the 41 shared classes land here at D1.
+   COMMON LAYER — the 41 shared classes
+   Layout 4 · Type 15 · Surfaces 9 · Controls 13.
+   Geometry from the pattern guide's own stylesheet; sizes from the tokens
+   above. Hover changes BORDER COLOUR ONLY — no lift, no shadow change, no
+   scale. That is the rule most often broken by reflex.
    ========================================================================== */
+
+/* ---------------------------------------------------------------- layout */
+
+.wrap { width: min(var(--container-wrap), 100% - 40px); margin-inline: auto; }
+
+.sec    { padding: var(--sec-y) 0;    border-top: 1px solid var(--color-line); }
+.sec-sm { padding: var(--sec-y-sm) 0; border-top: 1px solid var(--color-line); }
+
+.rule { height: 1px; border: 0; margin: 0; background: var(--color-line); }
+
+/* ------------------------------------------------------------------ type */
+
+.h1 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -.016em;
+  text-wrap: balance;
+}
+.h1p {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-h1p); line-height: 1.07; letter-spacing: -.015em;
+  text-wrap: balance;
+}
+.h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-h2); line-height: 1.14; letter-spacing: -.014em;
+  text-wrap: balance;
+}
+.h3 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-h3); line-height: 1.26; letter-spacing: -.008em;
+}
+/* The one heading that is sans. */
+.h4 { font-size: var(--fs-h4); font-weight: 600; line-height: 1.3; }
+
+.lead  { font-size: var(--fs-lead); line-height: 1.55; color: var(--color-body);  max-width: 62ch; }
+.body  { font-size: var(--fs-body); line-height: 1.65; color: var(--color-body);  max-width: 66ch; }
+.small { font-size: .875rem;        line-height: 1.6;  color: var(--color-muted); }
+
+/* The most distinctive small element in the system. */
+.eyebrow {
+  font-family: var(--font-mono); font-weight: 400;
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--color-brand);
+}
+
+.src  { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: .02em; color: var(--color-src); }
+.mono { font-family: var(--font-mono); }
+
+/* Inline links OPT IN. The guide's global coloured-link rule is not copied —
+   it would turn the navigation, breadcrumbs and footer brand-coloured. */
+.link { color: var(--color-brand); text-decoration: underline; text-underline-offset: 3px; }
+.link:hover { color: var(--color-brand-hover); }
+
+.list, .list-num { margin: 0; padding-left: 0; list-style: none; }
+.list > li, .list-num > li {
+  position: relative; padding-left: 30px; margin-bottom: 11px;
+  color: var(--color-body);
+}
+/* The guide's traced check, path data unchanged, applied as a mask so the
+   marker takes currentColor without an inline SVG on every list item. The
+   stroke inside the data URI is arbitrary — a mask reads alpha, not colour. */
+.list > li::before {
+  content: '';
+  position: absolute; left: 0; top: .3em;
+  width: 15px; height: 15px;
+  background: var(--color-brand);
+  -webkit-mask: var(--icon-check) no-repeat center / contain;
+          mask: var(--icon-check) no-repeat center / contain;
+}
+/* Icons and markers take the READING tone, never the signal — at these weights
+   the signal reads washed out even where the ratio technically passes. */
+.list-num { counter-reset: listnum; }
+.list-num > li::before {
+  counter-increment: listnum;
+  content: counter(listnum, decimal-leading-zero);
+  position: absolute; left: 0; top: 0;
+  font-family: var(--font-mono); font-size: 13px; color: var(--color-brand);
+}
+
+/* Article bodies. This is where inline links get their colour automatically. */
+.prose { max-width: 66ch; color: var(--color-body); font-size: var(--fs-body); line-height: 1.65; }
+.prose > h2 {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: var(--fs-h3); line-height: 1.26; letter-spacing: -.008em;
+  color: var(--color-ink);
+  margin: 44px 0 12px;
+}
+.prose > h2:first-child { margin-top: 0; }
+.prose > h3 { font-size: var(--fs-h4); font-weight: 600; line-height: 1.3; color: var(--color-ink); margin: 30px 0 10px; }
+.prose p { margin-bottom: 16px; }
+.prose ul, .prose ol { margin: 0 0 18px; padding-left: 20px; }
+.prose li { margin-bottom: 8px; }
+.prose dl { margin: 0 0 20px; }
+.prose dt { margin-top: 16px; font-weight: 600; color: var(--color-ink); }
+.prose dd { margin: 6px 0 0; }
+.prose a { color: var(--color-brand); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: var(--color-brand-hover); }
+.prose code { font-family: var(--font-mono); font-size: .9em; }
+
+/* -------------------------------------------------------------- surfaces */
+
+.card {
+  background: var(--color-page);
+  border: 1px solid var(--color-line-card);
+  border-radius: var(--radius-card);
+  padding: 28px;
+  box-shadow: var(--shadow-card);
+}
+.card:hover { border-color: var(--color-line-strong); }
+
+/* The 3px brand rule on the top edge is the feature card's whole signal. */
+.card-feature {
+  background: var(--color-page);
+  border: 1px solid var(--color-line-strong);
+  border-top: 3px solid var(--color-brand-signal);
+  border-radius: var(--radius-card);
+  padding: 34px 30px 30px;
+  box-shadow: var(--shadow-feature);
+}
+
+.tile {
+  background: var(--color-page);
+  border: 1px solid var(--color-line-card);
+  border-radius: var(--radius-tile);
+  padding: 20px 22px;
+  box-shadow: var(--shadow-tile);
+}
+/* The guide writes `b`; this site's markup writes `strong`. Same spec.
+   26px clears the large-text threshold, which is why the numeral may carry
+   the signal tone at 4.28:1 where 11px mono may not. */
+.tile b, .tile strong {
+  display: block;
+  font-family: var(--font-mono); font-size: 26px; font-weight: 500;
+  letter-spacing: -.02em; line-height: 1;
+  color: var(--color-brand-signal);
+}
+.tile span { display: block; font-size: 13px; line-height: 1.4; margin-top: 9px; color: var(--color-muted); }
+
+/* A quiet inset block on a light ground. */
+.panel {
+  background: var(--color-band);
+  border: 1px solid var(--color-line-card);
+  border-radius: var(--radius-card);
+  padding: 26px 24px;
+}
+
+.band-alt { background: var(--color-band); }
+
+/* The two dark grounds. `.deep` is the deeper of the pair and shares the
+   footer's ground, which is how the guide treats its own closing band. */
+.band-closing      { background: var(--color-panel);  color: var(--color-panel-fg); }
+.band-closing.deep { background: var(--color-footer); }
+.footer            { background: var(--color-footer); color: var(--color-panel-fg); }
+
+/* Hero grounds. `.wash` is the guide's centred homepage default and is NOT in
+   use — Holdings' hero is two-column, so a centred wash would fall under the
+   widget as much as the copy. `.wash-left` is the offset variant, which is the
+   locked ground for all 26 routes. */
+.wash      { background: radial-gradient(1200px 560px at 50% -20%, var(--color-brand-wash) 0%, var(--color-page) 65%); }
+.wash-left { background: var(--wash-left); }
+
+/* --------------------------------------------------- dark-ground context
+   The guide is drawn light and says nothing about this. Recolouring by
+   CONTEXT rather than by a `.light` modifier means a section moved onto a
+   dark band cannot be left half-inverted, which is the failure the modifier
+   invites. It also retires the `light` prop the wrappers used to take. */
+
+.band-closing .h1, .band-closing .h1p, .band-closing .h2,
+.band-closing .h3, .band-closing .h4,
+.footer .h4 {
+  /* White. Taken from the page token: on a dark ground the heading colour is
+     the page ground inverted, so there is no new value here. */
+  color: var(--color-page);
+}
+.band-closing .lead,
+.band-closing .body,
+.band-closing .small,
+.band-closing .src,
+.band-closing .list > li,
+.band-closing .prose { color: var(--color-panel-fg); }
+
+.band-closing .eyebrow,
+.footer .eyebrow { color: var(--color-panel-accent); }
+
+.band-closing .link,
+.band-closing .list > li::before,
+.band-closing .list-num > li::before,
+.footer .link { color: var(--color-panel-accent); }
+
+.band-closing .rule { background: var(--color-line-dark); }
+
+.band-closing .card,
+.band-closing .tile {
+  background: rgba(255, 255, 255, .05);
+  border-color: var(--color-line-dark);
+  box-shadow: none;
+  color: var(--color-panel-fg);
+}
+.band-closing .card:hover { border-color: var(--color-panel-accent); }
+.band-closing .tile b,
+.band-closing .tile strong { color: var(--color-panel-accent); }
+
+/* The focus ring recolours over dark grounds so it stays visible everywhere. */
+.band-closing :focus-visible,
+.footer :focus-visible { outline-color: var(--color-panel-accent); }
+
+/* -------------------------------------------------------------- controls */
+
+.btn, .btn2, .btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 16px 26px;
+  border: 1px solid transparent; border-radius: var(--radius-btn);
+  font-size: var(--fs-body); line-height: 1.2;
+  text-align: center; text-decoration: none;
+}
+
+.btn { background: var(--color-brand); color: var(--color-page); font-weight: 600; }
+.btn:hover { background: var(--color-brand-hover); }
+
+/* An explicit disabled fill. Reduced opacity alone is near-invisible on a
+   light button, and both forms on this site ship disabled by design. */
+.btn:disabled, .btn[aria-disabled='true'] {
+  background: var(--color-line-strong);
+  color: var(--color-body);
+  cursor: not-allowed;
+}
+
+.btn2 {
+  background: transparent; color: var(--color-ink); font-weight: 500;
+  border-color: var(--color-line-strong);
+}
+.btn2:hover { border-color: var(--color-brand); }
+
+.btn-ghost { background: transparent; color: var(--color-brand); font-weight: 500; }
+.btn-ghost:hover { border-color: var(--color-line-strong); }
+
+/* On dark grounds the secondary control's ink label would disappear. */
+.band-closing .btn2, .footer .btn2 { color: var(--color-page); border-color: var(--color-line-dark); }
+.band-closing .btn2:hover, .footer .btn2:hover { border-color: var(--color-panel-accent); }
+.band-closing .btn-ghost, .footer .btn-ghost { color: var(--color-panel-accent); }
+
+.pill, .pill-brand {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+  letter-spacing: .08em; text-transform: uppercase;
+  border: 1px solid var(--color-line-pill); border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--color-muted);
+}
+/* Filled with the READING tone, not the signal: the label is 11px mono, and
+   white on the signal measures 4.28:1 — short of the 4.5 that 11px needs.
+   White on the reading tone measures 5.73:1. */
+.pill-brand { background: var(--color-brand); border-color: transparent; color: var(--color-page); }
+
+/* 44px tap target by construction, so the floor is met without thinking about
+   it at every call site. */
+.flink { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+
+.label { display: block; margin-bottom: 8px; font-size: .875rem; font-weight: 600; color: var(--color-ink); }
+
+.input, .textarea, .select {
+  width: 100%; padding: 14px 16px;
+  border: 1px solid var(--color-line-strong); border-radius: var(--radius-btn);
+  background: var(--color-page); color: var(--color-ink);
+  font-size: var(--fs-body);
+}
+.input:hover, .textarea:hover, .select:hover { border-color: var(--color-brand); }
+.textarea { min-height: 120px; resize: vertical; }
+
+.field-error { display: block; margin-top: 6px; font-size: .875rem; color: var(--color-danger); }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th {
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  letter-spacing: .09em; text-transform: uppercase; text-align: left;
+  color: var(--color-muted);
+  padding: 12px 16px; border-bottom: 1px solid var(--color-line-pill);
+}
+.table td {
+  padding: 14px 16px; border-bottom: 1px solid var(--color-line);
+  font-size: 14.5px; color: var(--color-body); vertical-align: top;
+}
+.table tr:last-child td { border-bottom: 0; }
+
+/* In the inventory, and built so the common layer is complete for the next
+   site. NOT wired up here: this site has no skip link, and adding one needs
+   new visible text, which is out of the conversion's remit. <main id="top">
+   already exists as a valid target. Logged, not shipped. */
+.skip-to-content {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  padding: 12px 18px;
+  background: var(--color-page); color: var(--color-brand);
+  border: 1px solid var(--color-line-strong); border-radius: var(--radius-btn);
+}
+.skip-to-content:focus { left: 8px; top: 8px; }
 
 /* ==========================================================================
    SITE LAYER — composition only. Declares no colour of its own.

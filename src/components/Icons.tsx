@@ -18,6 +18,70 @@ const base: SVGProps<SVGSVGElement> = {
   focusable: false,
 };
 
+/* ------------------------------------------------- the guide's icon set
+ *
+ * Traced from the pattern guide's own markup, path data unchanged. Every one
+ * takes `currentColor`, so the call site decides the tone — and the tone is
+ * always the READING tone, never the signal: at these stroke weights the
+ * signal reads washed out even where the ratio technically passes.
+ *
+ * Only icons with a real call site are built. The guide also draws a star and
+ * a set of chevrons; this site has nowhere to put them, and a primitive
+ * nobody imports is the failure mode Appendix E warns about.
+ *
+ * The check, the plus, the minus and the quote glyph are drawn from the same
+ * traced paths but applied as CSS masks in globals.css, because their call
+ * sites are ::before pseudo-elements on list items, accordions and blockquotes
+ * where an inline SVG would mean touching every item of markup.
+ */
+
+const guideBase: SVGProps<SVGSVGElement> = {
+  viewBox: '0 0 17 17',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.7,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  'aria-hidden': true,
+  focusable: false,
+};
+
+/** Arrow up-right — outbound and forward actions. The guide's own button arrow. */
+export function ArrowUpRightIcon({ size = 15 }: { size?: number }) {
+  return (
+    <svg {...guideBase} width={size} height={size}>
+      <path d="M5 12L12 5M6 5h6v6" />
+    </svg>
+  );
+}
+
+/** Arrow right — inline continuation. */
+export function ArrowRightIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg {...guideBase} width={size} height={size}>
+      <path d="M3 8.5h10M9 4.5l4 4-4 4" />
+    </svg>
+  );
+}
+
+/** Menu, three rules. The guide has no mobile drawer; this is the group's. */
+export function MenuIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg {...guideBase} width={size} height={size}>
+      <path d="M2.5 4.5h12M2.5 8.5h12M2.5 12.5h12" />
+    </svg>
+  );
+}
+
+/** Close. */
+export function CloseIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg {...guideBase} width={size} height={size}>
+      <path d="M4 4l9 9M13 4l-9 9" />
+    </svg>
+  );
+}
+
 /** Build, stacked layers (product assembled from parts). */
 export function BuildIcon() {
   return (
