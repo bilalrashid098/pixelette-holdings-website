@@ -32,10 +32,10 @@ export default function ApplyThankYouPage() {
 
         <div style={{ marginTop: 34 }}>
           <Buttons>
-            <Btn href="/hse-model" variant="ghost">
+            <Btn href="/hse-model">
               Read the HSE model
             </Btn>
-            <Btn href="/portfolio" variant="ghost">
+            <Btn href="/portfolio">
               Explore the portfolio
             </Btn>
           </Buttons>

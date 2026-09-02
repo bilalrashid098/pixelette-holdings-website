@@ -26,19 +26,19 @@ export default function NotFound() {
         <CardGrid>
           <Card title="The HSE model">
             <p>How cash-funded delivery and capped, milestone-earned equity fit together.</p>
-            <p style={{ marginTop: 14 }}><Btn href="/hse-model" variant="ghost">HSE model</Btn></p>
+            <p style={{ marginTop: 14 }}><Btn href="/hse-model">HSE model</Btn></p>
           </Card>
           <Card title="Portfolio">
             <p>Equity investments, HSE ventures, delivered work and capital relationships.</p>
-            <p style={{ marginTop: 14 }}><Btn href="/portfolio" variant="ghost">Portfolio</Btn></p>
+            <p style={{ marginTop: 14 }}><Btn href="/portfolio">Portfolio</Btn></p>
           </Card>
           <Card title="Apply for HSE">
             <p>The short fit assessment. No pitch deck, no automatic acceptance.</p>
-            <p style={{ marginTop: 14 }}><Btn href="/apply" variant="ghost">Apply</Btn></p>
+            <p style={{ marginTop: 14 }}><Btn href="/apply">Apply</Btn></p>
           </Card>
           <Card title="Contact">
             <p>Route a general enquiry to the right person.</p>
-            <p style={{ marginTop: 14 }}><Btn href="/contact" variant="ghost">Contact</Btn></p>
+            <p style={{ marginTop: 14 }}><Btn href="/contact">Contact</Btn></p>
           </Card>
         </CardGrid>
       </Section>

@@ -238,7 +238,7 @@ export default function HseModelPage() {
               acceptance process remain explicit, while no HSE equity is considered for that work.
             </p>
           </div>
-          <Btn href="/contact" variant="ghost">
+          <Btn href="/contact">
             Discuss full-cash delivery
           </Btn>
         </aside>

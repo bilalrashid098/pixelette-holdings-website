@@ -40,8 +40,8 @@ export default function CapitalThankYouPage() {
 
         <div style={{ marginTop: 34 }}>
           <Buttons>
-            <Btn href="/portfolio" variant="ghost">Explore the public portfolio</Btn>
-            <Btn href="/hse-model" variant="ghost">Read the HSE model</Btn>
+            <Btn href="/portfolio">Explore the public portfolio</Btn>
+            <Btn href="/hse-model">Read the HSE model</Btn>
           </Buttons>
         </div>
       </Section>

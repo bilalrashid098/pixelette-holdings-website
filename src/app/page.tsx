@@ -233,7 +233,7 @@ export default function HomePage() {
         </div>
         <div style={{ marginTop: 34 }}>
           <Buttons>
-            <Btn href="/portfolio" variant="ghost">Explore the portfolio</Btn>
+            <Btn href="/portfolio">Explore the portfolio</Btn>
           </Buttons>
         </div>
       </Section>

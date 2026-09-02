@@ -448,8 +448,19 @@ button { cursor: pointer; }
 }
 .btn2:hover { border-color: var(--color-brand); }
 
-.btn-ghost { background: transparent; color: var(--color-brand); font-weight: 500; }
-.btn-ghost:hover { border-color: var(--color-line-strong); }
+/* The quietest control in the set. It has NO CALL SITE on this site — all 14
+   were changed to the primary button because a transparent control on a light
+   ground did not read as a control at all. The class stays because the 41-class
+   inventory is group property and has to be complete for the next site, but the
+   border is no longer transparent-until-hover: a control that is invisible
+   until you touch it is a defect, and that is what it was. */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-brand);
+  font-weight: 500;
+  border-color: var(--color-line-pill);
+}
+.btn-ghost:hover { border-color: var(--color-brand); }
 
 /* On dark grounds the secondary control's ink label would disappear. */
 .band-closing .btn2, .footer .btn2 { color: var(--color-page); border-color: var(--color-line-dark); }

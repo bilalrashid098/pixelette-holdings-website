@@ -67,7 +67,7 @@ export default function ContactPage() {
             </p>
             <div style={{ marginTop: 20 }}>
               <Buttons>
-                <Btn href="/partners/capital" variant="ghost">Capital Partner overview</Btn>
+                <Btn href="/partners/capital">Capital Partner overview</Btn>
               </Buttons>
             </div>
           </article>

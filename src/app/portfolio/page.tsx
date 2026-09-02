@@ -61,9 +61,9 @@ export default function PortfolioPage() {
         </div>
         <div style={{ marginTop: 34 }}>
           <Buttons>
-            <Btn href="/portfolio/investments" variant="ghost">Equity investments</Btn>
-            <Btn href="/portfolio/hse-ventures" variant="ghost">Direct HSE ventures</Btn>
-            <Btn href="/portfolio/delivered-ventures" variant="ghost">Delivered ventures</Btn>
+            <Btn href="/portfolio/investments">Equity investments</Btn>
+            <Btn href="/portfolio/hse-ventures">Direct HSE ventures</Btn>
+            <Btn href="/portfolio/delivered-ventures">Delivered ventures</Btn>
           </Buttons>
         </div>
       </Section>
