@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowUpRightIcon } from './Icons';
 
 /**
  * A form that renders and validates but cannot submit.
@@ -38,7 +39,7 @@ export function GatedForm({
   const [blocked, setBlocked] = useState(false);
 
   return (
-    <div className="form-wrap">
+    <div className="form">
       <form
         id={id}
         noValidate
@@ -51,15 +52,15 @@ export function GatedForm({
       >
         {fields.map((f) => (
           <div key={f.id} className="field">
-            <label htmlFor={f.id}>
+            <label className="label" htmlFor={f.id}>
               {f.label} {f.required ? <span className="req">*</span> : null}
             </label>
-            {f.hint ? <span className="hint">{f.hint}</span> : null}
+            {f.hint ? <span className="small hint">{f.hint}</span> : null}
 
             {f.kind === 'textarea' ? (
-              <textarea id={f.id} name={f.id} required={f.required} />
+              <textarea className="textarea" id={f.id} name={f.id} required={f.required} />
             ) : f.kind === 'select' ? (
-              <select id={f.id} name={f.id} required={f.required} defaultValue="">
+              <select className="select" id={f.id} name={f.id} required={f.required} defaultValue="">
                 <option value="">Please select</option>
                 {f.options.map((o) => (
                   <option key={o}>{o}</option>
@@ -67,6 +68,7 @@ export function GatedForm({
               </select>
             ) : (
               <input
+                className="input"
                 id={f.id}
                 name={f.id}
                 type={f.kind}
@@ -86,22 +88,22 @@ export function GatedForm({
           </div>
         ))}
 
-        <div className="button-row" style={{ marginTop: 20 }}>
-          <button className="button primary" type="submit" disabled={!approved}>
-            {submitLabel} <span className="arrow" aria-hidden="true">↗</span>
+        <div className="btn-row">
+          <button className="btn" type="submit" disabled={!approved}>
+            {submitLabel} <ArrowUpRightIcon />
           </button>
         </div>
 
-        {note ? <p className="form-note">{note}</p> : null}
+        {note ? <p className="small form-note">{note}</p> : null}
 
         {blocked ? (
-          <p className="form-note" role="status">
+          <p className="small form-note" role="status">
             This form is not yet accepting submissions.
           </p>
         ) : null}
       </form>
 
-      {!approved ? <p className="form-note" style={{ marginTop: 18 }}>{heldBody}</p> : null}
+      {!approved ? <p className="small form-note" style={{ marginTop: 18 }}>{heldBody}</p> : null}
     </div>
   );
 }

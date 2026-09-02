@@ -695,6 +695,31 @@ body.menu-open { overflow: hidden; }
 .cred-text strong { font-size: .95rem; font-weight: 600; color: var(--color-ink); }
 .cred-text span { font-size: .8rem; color: var(--color-muted); }
 
+/* ----------------------------------------------------------------- forms
+   Composition only. Every control's appearance is .input / .select /
+   .textarea / .label / .btn in the common layer.
+
+   Nothing here touches the form's gate. Both forms ship deliberately inert —
+   FORM_APPROVED is false, the submit control is disabled, there is no action
+   attribute — because no data controller, lawful basis, retention period or
+   routing destination has been approved. The Python test that guards those 27
+   assertions cannot run on this machine, so treat that boundary as untested
+   and leave it alone. */
+
+.form { max-width: 780px; margin-top: 40px; }
+.field { margin-bottom: 22px; }
+.field .hint { display: block; margin: -2px 0 8px; }
+.req { color: var(--color-danger); }
+
+.consent-row {
+  display: grid; grid-template-columns: 22px 1fr; gap: 12px;
+  align-items: start; margin-bottom: 18px;
+  font-size: .9rem; color: var(--color-body);
+}
+.consent-row input { width: 20px; height: 20px; margin-top: 2px; }
+
+.form-note { margin-top: 12px; }
+
 /* ------------------------------------------------------------- homepage */
 
 .hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 60px; align-items: center; }

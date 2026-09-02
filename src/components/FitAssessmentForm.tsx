@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowUpRightIcon } from './Icons';
 
 /**
  * HSE Fit Assessment.
@@ -65,11 +66,11 @@ function Select({ id, name, label, hint, options }: {
 }) {
   return (
     <div className="field">
-      <label htmlFor={id}>
+      <label className="label" htmlFor={id}>
         {label} <span className="req">*</span>
       </label>
-      {hint ? <span className="hint">{hint}</span> : null}
-      <select id={id} name={name} required defaultValue="">
+      {hint ? <span className="small hint">{hint}</span> : null}
+      <select className="select" id={id} name={name} required defaultValue="">
         <option value="">Please select</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
@@ -83,7 +84,7 @@ export function FitAssessmentForm() {
   const [blocked, setBlocked] = useState(false);
 
   return (
-    <div className="form-wrap">
+    <div className="form">
       <form
         id="fit-assessment"
         noValidate
@@ -95,29 +96,29 @@ export function FitAssessmentForm() {
         }}
       >
         <div className="field">
-          <label htmlFor="f-name">Founder name <span className="req">*</span></label>
-          <input id="f-name" name="name" type="text" autoComplete="name" required />
+          <label className="label" htmlFor="f-name">Founder name <span className="req">*</span></label>
+          <input className="input" id="f-name" name="name" type="text" autoComplete="name" required />
         </div>
 
         <div className="field">
-          <label htmlFor="f-email">Work email <span className="req">*</span></label>
-          <input id="f-email" name="email" type="email" autoComplete="email" required />
+          <label className="label" htmlFor="f-email">Work email <span className="req">*</span></label>
+          <input className="input" id="f-email" name="email" type="email" autoComplete="email" required />
         </div>
 
         <div className="field">
-          <label htmlFor="f-company">Company or venture <span className="req">*</span></label>
-          <input id="f-company" name="company" type="text" autoComplete="organization" required />
+          <label className="label" htmlFor="f-company">Company or venture <span className="req">*</span></label>
+          <input className="input" id="f-company" name="company" type="text" autoComplete="organization" required />
         </div>
 
         <div className="field">
-          <label htmlFor="f-website">Website</label>
-          <span className="hint">Leave blank if the venture is not yet online.</span>
-          <input id="f-website" name="website" type="url" inputMode="url" />
+          <label className="label" htmlFor="f-website">Website</label>
+          <span className="small hint">Leave blank if the venture is not yet online.</span>
+          <input className="input" id="f-website" name="website" type="url" inputMode="url" />
         </div>
 
         <div className="field">
-          <label htmlFor="f-market">Country or principal market <span className="req">*</span></label>
-          <input id="f-market" name="market" type="text" required />
+          <label className="label" htmlFor="f-market">Country or principal market <span className="req">*</span></label>
+          <input className="input" id="f-market" name="market" type="text" required />
         </div>
 
         <Select id="f-sector" name="sector" label="Sector" options={SECTORS} />
@@ -131,9 +132,9 @@ export function FitAssessmentForm() {
         />
 
         <div className="field">
-          <label htmlFor="f-description">Venture description <span className="req">*</span></label>
-          <span className="hint">One or two sentences: the problem, who it serves and the outcome.</span>
-          <textarea id="f-description" name="description" required />
+          <label className="label" htmlFor="f-description">Venture description <span className="req">*</span></label>
+          <span className="small hint">One or two sentences: the problem, who it serves and the outcome.</span>
+          <textarea className="textarea" id="f-description" name="description" required />
         </div>
 
         <Select id="f-constraint" name="constraint" label="Biggest current constraint" options={CONSTRAINTS} />
@@ -164,24 +165,24 @@ export function FitAssessmentForm() {
           </label>
         </div>
 
-        <div className="button-row" style={{ marginTop: 26 }}>
-          <button className="button primary" type="submit" disabled={!FORM_APPROVED}>
-            Submit my HSE Fit Assessment <span className="arrow" aria-hidden="true">↗</span>
+        <div className="btn-row">
+          <button className="btn" type="submit" disabled={!FORM_APPROVED}>
+            Submit my HSE Fit Assessment <ArrowUpRightIcon />
           </button>
         </div>
 
-        <p className="form-note">
+        <p className="small form-note">
           Submission does not create an engagement, meeting entitlement or offer.
         </p>
 
         {blocked ? (
-          <p className="form-note" role="status">
+          <p className="small form-note" role="status">
             This form is not yet accepting submissions.
           </p>
         ) : null}
       </form>
 
-      <p className="form-note" style={{ marginTop: 22 }}>
+      <p className="small form-note" style={{ marginTop: 22 }}>
         This assessment is being finalised. In the meantime, email us at{' '}
         <a href="mailto:info@pixeletteholdings.com">info@pixeletteholdings.com</a> and we will pick up
         your enquiry.
