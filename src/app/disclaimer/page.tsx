@@ -14,7 +14,7 @@ export default function DisclaimerPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Disclaimer' }]}
         eyebrow="Legal"
-        title="Website and Investment Disclaimer"
+        title="Website and investment disclaimer"
       />
 
       <Section>

@@ -15,7 +15,7 @@ export default function AccessibilityPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Accessibility' }]}
         eyebrow="Legal"
-        title="Accessibility Statement"
+        title="Accessibility statement"
       />
 
       <Section>

@@ -96,7 +96,7 @@ export default function PrivacyPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Privacy Notice' }]}
         eyebrow="Legal"
-        title="Privacy Notice"
+        title="Privacy notice"
       />
 
       <Section>

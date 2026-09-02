@@ -99,7 +99,7 @@ export default function TermsPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Terms of Use' }]}
         eyebrow="Legal"
-        title="Terms of Use"
+        title="Terms of use"
       />
 
       <Section>

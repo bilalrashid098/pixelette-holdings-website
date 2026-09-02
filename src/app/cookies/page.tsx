@@ -15,7 +15,7 @@ export default function CookiesPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Cookie Policy' }]}
         eyebrow="Legal"
-        title="Cookie Policy"
+        title="Cookie policy"
       />
 
       <Section>
