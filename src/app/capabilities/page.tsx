@@ -99,7 +99,7 @@ export default function CapabilitiesPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Capabilities' }]}
         eyebrow="One partner, the whole way"
         title="Four capabilities. One venture-building system."
-        lead="Most builders hand you a product and walk away. Pixelette takes you the whole way, we build it, take it to market, and get it enterprise-ready, and you keep control the entire time."
+        lead="Most builders hand you a product and walk away. Pixelette takes you the whole way, we build it, take it to market, and get it enterprise ready, and you keep control the entire time."
       >
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>

@@ -72,14 +72,14 @@ export const metadata: Metadata = {
     url: SITE.url,
     title: 'Pixelette Holdings | HSE Venture Partnership',
     description:
-      'Get your company built, launched and enterprise-ready, and keep control. Pixelette Holdings partners with founders through its Hybrid Sweat Equity model.',
+      'Get your company built, launched and enterprise ready, and keep control. Pixelette Holdings partners with founders through its Hybrid Sweat Equity model.',
     images: [{ url: '/media/og-image.png', width: 1200, height: 630, alt: 'Pixelette Holdings, Hybrid Sweat Equity' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Pixelette Holdings | HSE Venture Partnership',
     description:
-      'Get your company built, launched and enterprise-ready, and keep control, through the Hybrid Sweat Equity model.',
+      'Get your company built, launched and enterprise ready, and keep control, through the Hybrid Sweat Equity model.',
     images: ['/media/og-image.png'],
   },
   robots: {

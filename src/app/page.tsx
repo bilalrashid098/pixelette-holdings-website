@@ -33,7 +33,7 @@ export default function HomePage() {
             <h1 className="h1">Build and launch your company, without giving a studio a quarter of it.</h1>
             <p className="lead">
               Venture studios can look cash-free up front, then cost you 25&ndash;90% of your company.
-              Pixelette gives you the build team, the launch, and the enterprise-readiness work for a
+              Pixelette gives you the build team, the launch, and the enterprise readiness work for a
               clear fee plus a capped, earned share of the upside. You approve every stage, you keep
               control, and you can buy us out at fair value.
             </p>
@@ -106,7 +106,7 @@ export default function HomePage() {
         </table>
         <Qualifier>
           <strong>A comparison of models, not a specific offer.</strong> Figures describe common
-          venture-studio structures; Pixelette&rsquo;s stage ceilings are maxima, not prices. Final
+          venture studio structures; Pixelette&rsquo;s stage ceilings are maxima, not prices. Final
           terms require valuation, scope and signed documentation.
         </Qualifier>
       </Section>
@@ -147,7 +147,7 @@ export default function HomePage() {
       <Section>
         <SectionHead
           eyebrow="The HSE model"
-          title="Cash-funded delivery. Equity earned through execution."
+          title="Cash funded delivery. Equity earned through execution."
           lead="How the money works, and why you keep more of your company: you fund the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open."
         />
         <div className="card-grid">
@@ -213,7 +213,7 @@ export default function HomePage() {
       <Section surface="deep">
         <SectionHead
           eyebrow="Flagship direct HSE venture · Agentic AI"
-          title="2Connect: intent-led AI for better introductions."
+          title="2Connect: intent led AI for better introductions."
           lead="A networking agent built around a simple idea: people should meet because the connection makes sense for both sides. Users express what they need, the platform evaluates reciprocal fit, and each suggested match includes an explanation."
         />
         <div className="tile-strip">
@@ -238,8 +238,8 @@ export default function HomePage() {
       <Section surface="ice">
         <SectionHead
           eyebrow="One partner, the whole way"
-          title="We don&rsquo;t just ship software. We build it, launch it, and get it enterprise-ready."
-          lead="Most builders hand you a product and walk away. Pixelette takes you the whole journey, build, go-to-market and enterprise-readiness, and you keep control the entire time."
+          title="We don&rsquo;t just ship software. We build it, launch it, and get it enterprise ready."
+          lead="Most builders hand you a product and walk away. Pixelette takes you the whole journey, build, go-to-market and enterprise readiness, and you keep control the entire time."
         />
         <CardGrid>
           {CAPABILITIES.map((c) => (
@@ -277,7 +277,7 @@ export default function HomePage() {
       <Section surface="ice">
         <SectionHead
           eyebrow="Institutional standing"
-          title="More than a venture builder, a policy-credentialed institution."
+          title="More than a venture builder, a policy credentialed institution."
           lead="Authority almost no venture builder can claim: a seat inside UK Parliament, an investment in a national innovation think tank, and enterprise-grade certification."
         />
         <CardGrid>

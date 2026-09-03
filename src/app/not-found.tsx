@@ -25,7 +25,7 @@ export default function NotFound() {
         <SectionHead eyebrow="Where to go instead" title="The main routes." />
         <CardGrid>
           <Card title="The HSE model">
-            <p>How cash-funded delivery and capped, milestone-earned equity fit together.</p>
+            <p>How cash funded delivery and capped, milestone-earned equity fit together.</p>
             <p style={{ marginTop: 14 }}><Btn href="/hse-model">HSE model</Btn></p>
           </Card>
           <Card title="Portfolio">

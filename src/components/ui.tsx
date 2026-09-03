@@ -292,7 +292,7 @@ export function ConversionClose({
         </Btn>
       </Buttons>
       <p className="small">
-        Short first-stage assessment. No pitch-deck upload. No automatic acceptance. The form does not
+        Short first stage assessment. No pitch-deck upload. No automatic acceptance. The form does not
         request payment.
       </p>
     </Section>

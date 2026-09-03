@@ -14,12 +14,12 @@
 export const ECONOMICS = [
   {
     figure: '50%',
-    title: 'Founder-funded cash',
+    title: 'Founder funded cash',
     body: 'The founder funds half of the agreed professional fee across approved milestone tranches.',
   },
   {
     figure: '≤50%',
-    title: 'Eligible fee-to-equity',
+    title: 'Eligible fee to equity',
     body: 'The remaining eligible fee may convert into capped equity, subject to valuation, stage ceilings, accepted milestones and signed documentation.',
   },
   {
@@ -29,7 +29,7 @@ export const ECONOMICS = [
   },
   {
     figure: '100%',
-    title: 'Full-cash alternative',
+    title: 'Full cash alternative',
     body: 'A founder may choose to pay the complete professional fee and retain the equity that would otherwise be considered.',
   },
 ] as const;
@@ -221,11 +221,11 @@ export const CREDENTIALS = [
 export const INSTITUTIONAL = [
   {
     title: 'Inside UK Parliament',
-    body: 'Secretariat to the All-Party Parliamentary Group on Artificial Intelligence, and previously to the APPG on Blockchain, a seat inside the regulatory conversation, not on the receiving end of it.',
+    body: 'Secretariat to the All Party Parliamentary Group on Artificial Intelligence, and previously to the APPG on Blockchain, a seat inside the regulatory conversation, not on the receiving end of it.',
   },
   {
     title: 'Big Innovation Centre',
-    body: 'An equity investment in the cross-sector innovation think tank shaping AI, blockchain and digital-economy policy. A structural relationship, not advisory.',
+    body: 'An equity investment in the cross-sector innovation think tank shaping AI, blockchain and digital economy policy. A structural relationship, not advisory.',
   },
   {
     title: 'Certified and secure',
@@ -246,11 +246,11 @@ export const INSTITUTIONAL = [
  */
 export const WHY_CHOOSE = [
   {
-    title: 'We deploy top-tier technical talent',
+    title: 'We deploy top tier technical talent',
     body: 'Our in-house teams specialise in AI, blockchain and product. We don’t outsource, we build with senior engineers and strategic operators.',
   },
   {
-    title: 'We craft investor-ready ventures',
+    title: 'We craft investor ready ventures',
     body: 'From market positioning to pitch creation, we prepare founders to raise with clarity and confidence, turning bold ideas into investable stories.',
   },
   {
@@ -258,8 +258,8 @@ export const WHY_CHOOSE = [
     body: 'Beyond engineering, we cover go-to-market, legal, compliance and governance, the ground most venture partners ignore.',
   },
   {
-    title: 'We give you policy-level access',
-    body: 'As Secretariat to the UK Parliament’s APPG on AI, and previously on Blockchain, we bring founders close to where emerging-tech regulation is formed.',
+    title: 'We give you policy level access',
+    body: 'As Secretariat to the UK Parliament’s APPG on AI, and previously on Blockchain, we bring founders close to where emerging tech regulation is formed.',
   },
   {
     title: 'We unlock global reach',

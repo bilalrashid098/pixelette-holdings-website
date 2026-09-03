@@ -80,7 +80,7 @@ export const ventures: Venture[] = [
     // House records use this name, so the founder should confirm the exact investee
     // entity and have counsel bless the final wording in the standing legal review.
     oneLine:
-      'Pixelette Holdings holds a 12% equity investment in Big Innovation Centre, a cross-sector think tank and innovation hub shaping AI, blockchain and digital-economy policy.',
+      'Pixelette Holdings holds a 12% equity investment in Big Innovation Centre, a cross-sector think tank and innovation hub shaping AI, blockchain and digital economy policy.',
     detail:
       'The relationship connects the portfolio to a serious innovation and policy ecosystem. It is a structural minority investment position, not control of the organisation.',
     avoid: 'Do not imply control, ownership of the whole organisation, or endorsement of Pixelette by BIC.',

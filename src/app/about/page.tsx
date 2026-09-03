@@ -25,7 +25,7 @@ const CREDENTIALS = [
   },
   {
     title: 'Policy ecosystem',
-    body: "Secretariat to the UK Parliament's All-Party Parliamentary Group on Artificial Intelligence; previously Secretariat to the APPG on Blockchain.",
+    body: "Secretariat to the UK Parliament's All Party Parliamentary Group on Artificial Intelligence; previously Secretariat to the APPG on Blockchain.",
   },
   {
     title: 'Innovation ecosystem',

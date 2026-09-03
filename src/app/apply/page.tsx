@@ -42,7 +42,7 @@ export default function ApplyPage() {
         lead="This is a commercial qualification for an execution partnership. It is not a pitch competition, a grant application or a request for Pixelette to invest cash."
       >
         <ul className="list">
-          <li>Short first-stage assessment.</li>
+          <li>Short first stage assessment.</li>
           <li>No pitch deck required at this stage.</li>
           <li>No automatic acceptance or rejection.</li>
           <li>The form does not request payment.</li>

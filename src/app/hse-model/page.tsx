@@ -10,14 +10,14 @@ import {
 export const metadata: Metadata = {
   title: 'The HSE Model | Milestone-Earned Equity',
   description:
-    "Understand how Pixelette's Hybrid Sweat Equity model combines cash-funded venture execution with capped, milestone-earned equity and a full-cash alternative.",
+    "Understand how Pixelette's Hybrid Sweat Equity model combines cash funded venture execution with capped, milestone-earned equity and a full-cash alternative.",
   alternates: { canonical: '/hse-model' },
 };
 
 const FAQS = [
   {
     q: 'Does Pixelette invest cash?',
-    a: 'No. Under the founder-funded HSE route, Pixelette may convert an eligible portion of its professional fee into equity. It does not provide a cash cheque.',
+    a: 'No. Under the founder funded HSE route, Pixelette may convert an eligible portion of its professional fee into equity. It does not provide a cash cheque.',
   },
   {
     q: 'Is the equity automatically 30%?',
@@ -68,7 +68,7 @@ export default function HseModelPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'HSE Model' }]}
         eyebrow="Hybrid Sweat Equity"
         title="Build your company without giving it away."
-        lead="HSE combines cash-funded execution with a capped, earned equity slice, so you get a senior build, launch and enterprise-readiness team without handing over control or a large share of your company. Built for founders who intend to stay owners."
+        lead="HSE combines cash funded execution with a capped, earned equity slice, so you get a senior build, launch and enterprise readiness team without handing over control or a large share of your company. Built for founders who intend to stay owners."
       >
         <Buttons>
           <Btn href="/apply">Check if you qualify</Btn>
