@@ -26,6 +26,7 @@ export const SITE = {
  * the Launch capability, but must NOT carry "Ltd" or an active-company claim
  * on legal pages until its restoration is independently confirmed.
  */
+
 export const GROUP = {
   technologies: {
     name: 'Pixelette Technologies Ltd',
