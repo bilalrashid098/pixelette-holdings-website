@@ -80,53 +80,68 @@ export interface Gate {
   note?: string;
 }
 
+/**
+ * The five stages, per section 05 of the 8 Sep 2026 copy brief:
+ * Validate, Design, Build, Launch, Scale.
+ *
+ * CAUTION. These are STAGE names. They are not the CAPABILITY names, which are
+ * Build / Launch / Assure / Own and are used as object KEYS by
+ * CapabilityBrand.tsx and Icons.tsx to look up each group company's brand mark.
+ * The stage formerly called "Assure" has gone; the capability called "Assure"
+ * (Pixelette Certified) must survive. Renaming the capability drops its logo
+ * with no error and no build failure.
+ *
+ * The `note` on each stage is a claim gate, not decoration. The two stages the
+ * brief retires carried notes that must not be lost, so both now sit on Scale,
+ * which is where enterprise readiness and capital preparation ended up.
+ */
 export const GATES: Gate[] = [
   {
     n: '01',
     name: 'Validate',
-    body: 'Prove the problem before funding the product. Customer, commercial, product and technical validation turn the founder’s thesis into an evidence-backed scope.',
-    evidence: 'Validation findings, product blueprint, technical architecture, roadmap',
+    body: 'Prove the problem, the target customer and the commercial outcome before anyone funds a product. The founder’s thesis becomes an evidence-backed scope.',
+    evidence: 'Evidence-backed opportunity thesis and scope',
     decision: 'Stop, revise or proceed',
     note: 'No delivery equity vests merely because validation completed.',
   },
   {
     n: '02',
+    name: 'Design',
+    body: 'Define the product, the architecture, the commercial model, the risks and the milestones, so that what follows is a plan rather than an open-ended engagement.',
+    evidence: 'Build and launch blueprint',
+    decision: 'Approve the blueprint, revise or stop',
+  },
+  {
+    n: '03',
     name: 'Build',
-    body: 'Deliver the agreed product increment against explicit acceptance criteria: product design, UX, architecture, engineering, security and quality assurance.',
-    evidence: 'Accepted increments, test evidence, architecture records, delivery history',
+    body: 'Deliver the agreed MVP or core product against explicit acceptance criteria: product design, UX, architecture, engineering, security and quality assurance.',
+    evidence: 'A usable, testable product',
     decision: 'Accept, remedy or stop',
     note: 'Only accepted delivery milestones can vest delivery equity.',
   },
   {
-    n: '03',
+    n: '04',
     name: 'Launch',
-    body: 'Build and operate the agreed commercialisation system for a defined period: positioning, launch assets, pilot strategy, demand systems, CRM structure and traction measurement.',
-    evidence: 'Launch plan, market assets, pipeline records, campaign evidence, pilot activity',
+    body: 'Prepare go-to-market, sales assets and operating workflows, and close the enterprise gaps that would otherwise stall the first serious buyer.',
+    evidence: 'A launch-ready venture',
     decision: 'Continue, reposition or stop',
     note: 'The contracted launch system is delivered. Customers, revenue and product-market fit are not guaranteed.',
   },
   {
-    n: '04',
-    name: 'Assure',
-    body: 'Prepare the product and organisation for enterprise, security, governance and relevant regulatory scrutiny: readiness assessment, control design, policy and evidence support.',
-    evidence: 'Gap register, implementation evidence, readiness pack, risk record',
-    decision: 'Ready or remediate',
-    note: 'Independent certification is not a Pixelette milestone unless an external accredited body awards it.',
-  },
-  {
     n: '05',
-    name: 'Capitalise',
-    body: 'Decide how the venture should fund its next stage of growth: evidence-room structure, diligence support, operating metrics and capital-readiness preparation.',
-    evidence: 'Current diligence pack, decision-ready growth plan, explicit recommendation',
+    name: 'Scale',
+    body: 'Harden the technology, automate operations, improve enterprise readiness and support growth and capital preparation.',
+    evidence: 'A business built to scale',
     decision: 'Bootstrap, extend or pursue external capital',
-    note: 'No investment, fundraising or introduction result is guaranteed.',
+    note: 'Independent certification is not a Pixelette milestone unless an external accredited body awards it. No investment, fundraising or introduction result is guaranteed.',
   },
 ];
 
 /**
- * The five gate names as a sentence: "Validate, Build, Launch, Assure and
- * Capitalise". Derived, because /partners/capital used to hand-type it and a
- * rename would have left that page contradicting the two that render GATES.
+ * The five stage names as a sentence: "Validate, Design, Build, Launch and
+ * Scale". Derived, because /partners/capital used to hand-type it — and the
+ * rename in this commit is exactly the change that would have left that page
+ * contradicting the two pages that render GATES.
  */
 export const gateSentence = () => {
   const n = GATES.map((g) => g.name);
@@ -134,8 +149,8 @@ export const gateSentence = () => {
 };
 
 /**
- * "Validate-to-Capitalise" — the programme's first and last gate. Derived for
- * the same reason as gateSentence().
+ * "Validate-to-Scale" — the programme's first and last stage. Derived for the
+ * same reason as gateSentence().
  */
 export const PROGRAMME_NAME = `${GATES[0]!.name}-to-${GATES[GATES.length - 1]!.name}`;
 

@@ -175,9 +175,9 @@ export default function HomePage() {
       {/* --------------------------------------------------- five gates */}
       <Section surface="navy">
         <SectionHead
-          eyebrow="One system · five decision gates"
+          eyebrow="Stage-gated execution"
           title="Progress is earned at every stage."
-          lead="Each stage produces evidence and a fresh go, revise or stop decision. Neither party is committed to a weak next phase simply because the previous phase was completed."
+          lead="We do not treat venture building as one long development contract. Each stage has a defined decision, output and evidence threshold. The venture progresses when the next investment of time, cash and equity is justified."
         />
         <div className="gate-list">
           {GATES.map((g) => (
