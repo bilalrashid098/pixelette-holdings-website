@@ -3,6 +3,7 @@ import Link from 'next/link';
 import {
   Section, SectionHead, PageHero, Buttons, Btn, EvidenceGate, Qualifier,
 } from '@/components/ui';
+import { CEILING_SENTENCE } from '@/content/hse';
 
 export const metadata: Metadata = {
   title: 'Services-for-equity, properly structured',
@@ -121,7 +122,7 @@ export default function ServicesForEquityArticle() {
         <div style={{ maxWidth: 760 }}>
           <Qualifier>
             <strong>How this applies at Pixelette.</strong> The HSE model uses all four structures:
-            milestone vesting, clawback, stage ceilings of up to 30%, 20% and 12%, and a full-cash
+            milestone vesting, clawback, stage ceilings of up to {CEILING_SENTENCE}, and a full-cash
             alternative that is always available. The{' '}
             <Link className="link" href="/hse-model/founder-protection">Founder Protection Charter</Link> states the
             commitments in eight lines. Final contractual language, vesting mechanics and tax treatment

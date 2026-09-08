@@ -6,6 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, CEILINGS_QUALIFIER,
+  CEILING_FIGURES, CEILING_SENTENCE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, WHY_CHOOSE,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
@@ -85,7 +86,7 @@ export default function HomePage() {
             <tr>
               <td>Equity taken</td>
               <td>25&ndash;90% of your company</td>
-              <td>Capped at 12/20/30% by stage, a ceiling, never automatic</td>
+              <td>Capped at {CEILING_FIGURES} by stage, a ceiling, never automatic</td>
             </tr>
             <tr>
               <td>Control</td>
@@ -160,7 +161,7 @@ export default function HomePage() {
           ))}
         </div>
         <Qualifier>
-          <strong>The 30%, 20% and 12% figures are maximum stage ceilings, not automatic offers.</strong>{' '}
+          <strong>The {CEILING_SENTENCE} figures are maximum stage ceilings, not automatic offers.</strong>{' '}
           {CEILINGS_QUALIFIER}
         </Qualifier>
       </Section>

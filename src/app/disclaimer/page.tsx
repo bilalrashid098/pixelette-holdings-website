@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Section, PageHero } from '@/components/ui';
+import { DISCLAIMER } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Website and Investment Disclaimer',
@@ -23,9 +24,8 @@ export default function DisclaimerPage() {
             <h2>No offer or inducement</h2>
             <p>
               This website is provided for information only and is{' '}
-              <strong>not an offer, invitation or inducement to invest</strong>. Any investment
-              opportunity is available only to professional, high-net-worth or self-certified
-              sophisticated investors, subject to eligibility verification and formal documentation.
+              <strong>not an offer, invitation or inducement to invest</strong>.{' '}
+              {DISCLAIMER.eligibility.investment}
             </p>
 
             <h2>No advice</h2>

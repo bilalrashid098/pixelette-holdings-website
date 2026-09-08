@@ -206,8 +206,39 @@ export const NOINDEX_ROUTES = [
  * HELD FOR COUNSEL. Load-bearing for the s.21 FSMA position — it must appear
  * in the footer of every page and be approved before publication.
  */
+const DISCLAIMER_HEADLINE =
+  'This website is provided for information only and is not an offer, invitation or inducement to invest.';
+
+/**
+ * ELIGIBILITY WORDING IS NOT YET SINGLE-SOURCED — deliberately.
+ *
+ * Two variants are live and they differ in scope:
+ *
+ *   investment  "Any INVESTMENT opportunity is available only to…"  (footer, /disclaimer)
+ *   any         "Any opportunity is available only to…"             (the three capital routes)
+ *
+ * The second is broader. Collapsing the capital routes onto the first would
+ * NARROW the wording on precisely the pages most exposed under s.21 FSMA, and
+ * that is a decision for counsel, not for a refactor. Both are reproduced here
+ * verbatim so the choice is visible in one place and can be resolved with a
+ * single edit once counsel rules. See the handover note.
+ */
+const DISCLAIMER_ELIGIBILITY = {
+  investment:
+    'Any investment opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation.',
+  any: 'Any opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation.',
+} as const;
+
+const DISCLAIMER_NO_ADVICE =
+  'Nothing on this website constitutes investment, legal, tax or financial advice.';
+
 export const DISCLAIMER = {
-  short:
-    'This website is provided for information only and is not an offer, invitation or inducement to invest. Any investment opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation. Nothing on this website constitutes investment, legal, tax or financial advice.',
+  headline: DISCLAIMER_HEADLINE,
+  eligibility: DISCLAIMER_ELIGIBILITY,
+  noAdvice: DISCLAIMER_NO_ADVICE,
+  /** The FCA / s.21 explanation. Shown on the capital routes, not in the footer. */
+  s21: 'The FCA treats websites and online materials as capable of constituting financial promotions; section 21 of the Financial Services and Markets Act 2000 restricts unauthorised invitations or inducements to engage in investment activity.',
+  /** The footer line. Output is byte-identical to the previous hand-written string. */
+  short: `${DISCLAIMER_HEADLINE} ${DISCLAIMER_ELIGIBILITY.investment} ${DISCLAIMER_NO_ADVICE}`,
   gate: 'HELD FOR COUNSEL — this wording must be approved before the site is published.',
 } as const;

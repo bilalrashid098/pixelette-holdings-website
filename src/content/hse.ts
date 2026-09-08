@@ -34,11 +34,39 @@ export const ECONOMICS = [
   },
 ] as const;
 
+/**
+ * Stage ceilings.
+ *
+ * `pct` is a NUMBER, not a formatted string. Three sites need the same figures
+ * in three different shapes — a table cell, a slash list and a prose sentence —
+ * and a pre-formatted string cannot be reshaped, which is exactly why those
+ * sites drifted into hand-typed literals. Derive; never retype.
+ */
 export const CEILINGS = [
-  { stage: 'Pre-seed or concept', ceiling: 'Up to 30%', need: 'Validation, product, launch, assurance and venture-building' },
-  { stage: 'Post-MVP or funded founder', ceiling: 'Up to 20%', need: 'Product advancement, launch, traction and assurance' },
-  { stage: 'Traction or Series A-ready', ceiling: 'Up to 12%', need: 'Targeted execution and readiness work' },
+  { stage: 'Pre-seed or concept', pct: 30, need: 'Validation, product, launch, assurance and venture-building' },
+  { stage: 'Post-MVP or funded founder', pct: 20, need: 'Product advancement, launch, traction and assurance' },
+  { stage: 'Traction or Series A-ready', pct: 12, need: 'Targeted execution and readiness work' },
 ] as const;
+
+/** "12/20/30%" — ascending, for the comparison table. */
+export const CEILING_FIGURES = `${[...CEILINGS].map((c) => c.pct).sort((a, b) => a - b).join('/')}%`;
+
+/** "30%, 20% and 12%" — descending, for prose. */
+export const CEILING_SENTENCE = (() => {
+  const p = CEILINGS.map((c) => `${c.pct}%`);
+  return `${p.slice(0, -1).join(', ')} and ${p[p.length - 1]}`;
+})();
+
+/** The highest ceiling, for any copy that names a single maximum. */
+export const CEILING_MAX_PCT = Math.max(...CEILINGS.map((c) => c.pct));
+
+/**
+ * The founder's cash share of the agreed professional fee.
+ *
+ * Load-bearing: it appears in the site-wide meta description as well as on
+ * /hse-model, so a change here is a change to every route's metadata.
+ */
+export const FOUNDER_CASH_PCT = 50;
 
 export const CEILINGS_QUALIFIER =
   'These are ceilings, not standard prices or offers. The actual equity requires an agreed valuation or conversion mechanism, scope, risk assessment and signed legal documentation.';
@@ -94,6 +122,22 @@ export const GATES: Gate[] = [
     note: 'No investment, fundraising or introduction result is guaranteed.',
   },
 ];
+
+/**
+ * The five gate names as a sentence: "Validate, Build, Launch, Assure and
+ * Capitalise". Derived, because /partners/capital used to hand-type it and a
+ * rename would have left that page contradicting the two that render GATES.
+ */
+export const gateSentence = () => {
+  const n = GATES.map((g) => g.name);
+  return `${n.slice(0, -1).join(', ')} and ${n[n.length - 1]}`;
+};
+
+/**
+ * "Validate-to-Capitalise" — the programme's first and last gate. Derived for
+ * the same reason as gateSentence().
+ */
+export const PROGRAMME_NAME = `${GATES[0]!.name}-to-${GATES[GATES.length - 1]!.name}`;
 
 export const CAPABILITIES = [
   {
@@ -188,31 +232,6 @@ export const PROOF_TIMELINE_NOTE =
   'Target timeframes, not guarantees: outcomes depend on execution, market conditions, founder responsiveness and venture complexity.';
 
 /**
- * Group credentials shown as a trust strip. Names only, certificate numbers and
- * issuing bodies are added once the current certificates are attached (see /about).
- * "Previously" on the Blockchain APPG is load-bearing and must stay accurate.
- */
-export const CREDENTIALS_STRIP = [
-  'ISO 9001',
-  'ISO 27001',
-  'Cyber Essentials Plus',
-  'APPG on AI, Secretariat (UK Parliament)',
-] as const;
-
-/**
- * Credential badges, the real accreditation marks. Rendered as images from
- * public/media/credentials/ (fetched by download-assets.ps1) with a text-pill
- * fallback when a file is absent. Certificate NUMBERS stay off until attached;
- * the marks themselves are Pixelette's own held credentials.
- */
-export const CREDENTIALS = [
-  { label: 'ISO 9001', img: '/media/credentials/iso-9001.png' },
-  { label: 'ISO 27001', img: '/media/credentials/iso-27001.png' },
-  { label: 'Cyber Essentials Plus', img: '/media/credentials/cyber-essentials.png' },
-  { label: 'APPG on AI, Secretariat', img: '/media/credentials/appg.png' },
-] as const;
-
-/**
  * Institutional standing, the authority signals that set Pixelette apart from
  * an ordinary venture builder. All accurate and gate-safe: APPG tense preserved
  * (AI current, Blockchain previous), BIC stated as an investment with NO
@@ -266,6 +285,3 @@ export const WHY_CHOOSE = [
     body: 'Our international network spans multiple markets and includes venture investors, regulators and industry leaders.',
   },
 ] as const;
-
-export const QUALIFICATION_MESSAGE =
-  'HSE is designed for founders with a committed operator, a defined technology opportunity and capital available for professional execution. For an approved programme, the founder funds the agreed cash portion while Pixelette may convert an eligible part of its professional fee into capped, milestone-earned equity. Applying does not mean Pixelette has accepted the venture, will invest cash, will raise funding or will provide investor introductions.';

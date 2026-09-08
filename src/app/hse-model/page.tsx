@@ -4,6 +4,7 @@ import {
 } from '@/components/ui';
 import {
   CEILINGS, CEILINGS_QUALIFIER, GATES, NOT_PROMISED,
+  CEILING_MAX_PCT, FOUNDER_CASH_PCT, PROGRAMME_NAME,
   CONTINUATION_EQUITY_HELD,
 } from '@/content/hse';
 
@@ -20,11 +21,11 @@ const FAQS = [
     a: 'No. Under the founder funded HSE route, Pixelette may convert an eligible portion of its professional fee into equity. It does not provide a cash cheque.',
   },
   {
-    q: 'Is the equity automatically 30%?',
-    a: 'No. Thirty per cent is the maximum ceiling for the earliest stage. The final economics depend on valuation, scope, risk, cash coverage and legal documentation.',
+    q: `Is the equity automatically ${CEILING_MAX_PCT}%?`,
+    a: `No. The ${CEILING_MAX_PCT}% figure is the maximum ceiling for the earliest stage. The final economics depend on valuation, scope, risk, cash coverage and legal documentation.`,
   },
   {
-    q: 'What does the 50% cash cover?',
+    q: `What does the ${FOUNDER_CASH_PCT}% cash cover?`,
     a: "The founder's cash portion must cover Pixelette's delivery costs, required margin and operating risk for the agreed programme. External services and third-party costs remain with the venture unless expressly agreed otherwise.",
   },
   {
@@ -83,7 +84,7 @@ export default function HseModelPage() {
         <SectionHead
           eyebrow="What HSE is"
           title="Not a cash investment. Not discounted delivery. Not a studio that takes your company."
-          lead="Every engagement is valued at full commercial rates. For an approved HSE programme, the founder pays 50% of the agreed professional fee in cash. Pixelette may convert the remaining eligible fee into capped equity that is earned through accepted delivery. Pixelette deploys no cash."
+          lead={`Every engagement is valued at full commercial rates. For an approved HSE programme, the founder pays ${FOUNDER_CASH_PCT}% of the agreed professional fee in cash. Pixelette may convert the remaining eligible fee into capped equity that is earned through accepted delivery. Pixelette deploys no cash.`}
         />
         <CardGrid>
           <Card title="The founder contributes">
@@ -95,8 +96,7 @@ export default function HseModelPage() {
             placed at risk.
           </Card>
           <Card title="The venture gains">
-            A structured Validate-to-Capitalise programme with aligned execution and a continuously
-            built evidence base.
+            {`A structured ${PROGRAMME_NAME} programme with aligned execution and a continuously built evidence base.`}
           </Card>
         </CardGrid>
       </Section>
@@ -120,7 +120,7 @@ export default function HseModelPage() {
             {CEILINGS.map((c) => (
               <tr key={c.stage}>
                 <td>{c.stage}</td>
-                <td className="ceiling">{c.ceiling}</td>
+                <td className="ceiling">Up to {c.pct}%</td>
                 <td>{c.need}</td>
               </tr>
             ))}

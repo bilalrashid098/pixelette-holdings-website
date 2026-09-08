@@ -2,6 +2,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowUpRightIcon } from './Icons';
 import { RELATIONSHIP_LABEL, ventureMeta, ventureLogo, type Relationship, type Venture } from '@/content/ventures';
+import { DISCLAIMER } from '@/content/site';
 
 // Testimonials moved to its own client component (components/Testimonials.tsx) so
 // it can show real founder photos with an onError fallback to a monogram.
@@ -189,6 +190,41 @@ export function EvidenceGate({
 
 export function Qualifier({ children }: { children: ReactNode }) {
   return <div className="qualifier">{children}</div>;
+}
+
+/**
+ * The financial-promotion notice.
+ *
+ * One component so that when counsel returns approved wording, editing
+ * DISCLAIMER moves every surface at once. Before this existed the notice was
+ * hand-written on five pages and had already drifted — and the pages carrying
+ * the unapproved variant were the three capital routes, i.e. the ones most
+ * exposed under s.21 FSMA.
+ *
+ * `eligibility` selects between the two live scope variants; see the comment on
+ * DISCLAIMER_ELIGIBILITY in content/site.ts for why they are not yet collapsed.
+ * `extra` is the page-specific sentence that sits between the headline and the
+ * eligibility wording. `showS21` adds the FCA explanation as a .small line.
+ */
+export function FinancialPromotionNotice({
+  eligibility = 'investment',
+  extra,
+  showS21,
+}: {
+  eligibility?: keyof typeof DISCLAIMER.eligibility;
+  extra?: ReactNode;
+  showS21?: boolean;
+}) {
+  return (
+    <Qualifier>
+      <p>
+        <strong>{DISCLAIMER.headline}</strong>{' '}
+        {extra ? <>{extra} </> : null}
+        {DISCLAIMER.eligibility[eligibility]}
+      </p>
+      {showS21 ? <p className="small">{DISCLAIMER.s21}</p> : null}
+    </Qualifier>
+  );
 }
 
 /* ------------------------------------------------------------- portfolio  */

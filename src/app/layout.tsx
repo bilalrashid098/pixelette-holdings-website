@@ -4,6 +4,7 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { SITE } from '@/content/site';
+import { FOUNDER_CASH_PCT } from '@/content/hse';
 import './globals.css';
 
 /**
@@ -62,7 +63,7 @@ export const metadata: Metadata = {
     template: '%s | Pixelette Holdings',
   },
   description:
-    'Pixelette Holdings validates, builds, launches and prepares selected technology ventures for enterprise growth. Founders fund 50% of the agreed professional fee in cash; we earn the remainder through capped, milestone-linked equity.',
+    `Pixelette Holdings validates, builds, launches and prepares selected technology ventures for enterprise growth. Founders fund ${FOUNDER_CASH_PCT}% of the agreed professional fee in cash; we earn the remainder through capped, milestone-linked equity.`,
   applicationName: SITE.name,
   authors: [{ name: SITE.legalName }],
   openGraph: {

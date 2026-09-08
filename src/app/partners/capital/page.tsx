@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import {
-  Section, SectionHead, PageHero, Buttons, Btn, CardGrid, Card, Qualifier,
+  Section, SectionHead, PageHero, Buttons, Btn, CardGrid, Card, FinancialPromotionNotice,
 } from '@/components/ui';
+import { gateSentence } from '@/content/hse';
 
 /**
  * Capital partners.
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 
 const PLATFORM = [
   ['Selective intake', 'Ventures enter through a qualification assessment and an investment-committee decision, not an open application funnel.'],
-  ['Five decision gates', 'Validate, Build, Launch, Assure and Capitalise. Each produces evidence and a fresh stop, revise or proceed decision.'],
+  ['Five decision gates', `${gateSentence()}. Each produces evidence and a fresh stop, revise or proceed decision.`],
   ['Evidence built continuously', 'Diligence material is assembled during delivery rather than reconstructed before a raise.'],
   ['Classified portfolio', 'Equity investments, HSE ventures, projects in development, delivered relationships and capital relationships are never presented as one undifferentiated group.'],
 ] as const;
@@ -50,23 +51,11 @@ export default function CapitalPartnersPage() {
       {/* The disclaimer sits above the fold of the page body, not in the footer
           alone. Position is part of the containment. */}
       <Section tight>
-        <Qualifier>
-          <p>
-            <strong>
-              This website is provided for information only and is not an offer, invitation or
-              inducement to invest.
-            </strong>{' '}
-            No investment opportunity, deal terms, ticket sizes, returns or portfolio allocations are
-            offered on this page. Any opportunity is available only to professional, high-net-worth or
-            self-certified sophisticated investors, subject to eligibility verification and formal
-            documentation.
-          </p>
-          <p className="small">
-            The FCA treats websites and online materials as capable of constituting financial
-            promotions; section 21 of the Financial Services and Markets Act 2000 restricts
-            unauthorised invitations or inducements to engage in investment activity.
-          </p>
-        </Qualifier>
+        <FinancialPromotionNotice
+          eligibility="any"
+          extra="No investment opportunity, deal terms, ticket sizes, returns or portfolio allocations are offered on this page."
+          showS21
+        />
       </Section>
 
       <Section>
