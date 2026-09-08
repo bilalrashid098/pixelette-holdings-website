@@ -12,6 +12,30 @@
  */
 
 /**
+ * The HSE proposition in plain English — section 03 of the 8 Sep 2026 copy
+ * brief.
+ *
+ * Must render BEFORE the worked example, the structures and anything that
+ * quotes a percentage. The brief: "This should come before detailed
+ * percentages, valuation examples or technical terminology." The reviewer's
+ * complaint was that the page reached the mechanics before the reader had been
+ * given the idea.
+ *
+ * Note what the closing line rules out in both directions. It is there to stop
+ * the model being read as free work by founders, and as passive investment by
+ * everyone else — including, later on the page, capital partners.
+ */
+export const HSE_PROPOSITION = [
+  'You pay an agreed portion of approved delivery fees in cash.',
+  'The agreed balance can convert into equity against defined milestones and delivered work.',
+  'Pixelette shares execution risk and participates in the upside it helps create.',
+  'The commercial terms, valuation basis and governance are agreed before work begins.',
+] as const;
+
+export const HSE_PROPOSITION_CLOSE =
+  'HSE is not free development and it is not passive investment. It is an aligned delivery-and-equity model.';
+
+/**
  * The worked example.
  *
  * The 50 / ≤50 split is ONE illustrative structure, not the universal HSE

@@ -6,6 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
+  HSE_PROPOSITION, HSE_PROPOSITION_CLOSE,
   FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
@@ -157,8 +158,25 @@ export default function HomePage() {
         </CardGrid>
       </Section>
 
-      {/* ------------------------------------------------------ economics */}
+      {/* ------------------------------------------------ HSE proposition */}
+      {/* Must stay ahead of the worked example below it. The brief puts the
+          plain-English idea before any percentage, valuation or mechanism. */}
       <Section>
+        <SectionHead
+          eyebrow="Hybrid Sweat Equity"
+          title="Capital should not force you to choose between dilution and delivery."
+          lead="Founders are often pushed into an ugly trade-off: pay the full cost of serious product and growth capability in cash, or give away meaningful equity before enough value has been created. Hybrid Sweat Equity creates a third route."
+        />
+        <ul className="list">
+          {HSE_PROPOSITION.map((p) => (
+            <li key={p}>{p}</li>
+          ))}
+        </ul>
+        <p className="small">{HSE_PROPOSITION_CLOSE}</p>
+      </Section>
+
+      {/* ------------------------------------------------------ economics */}
+      <Section surface="ice">
         <SectionHead
           eyebrow="The HSE model"
           title="Cash funded delivery. Equity earned through execution."
