@@ -7,6 +7,7 @@ import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
   HSE_PROPOSITION, HSE_PROPOSITION_CLOSE, DIAGNOSTIC, DIAGNOSTIC_NOTE,
+  CAPITAL_PARTNERS, CAPITAL_PARTNERS_NOTE,
   FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
@@ -373,6 +374,30 @@ export default function HomePage() {
         </p>
       </Section>
 
+      {/* ------------------------------------------------- capital partners */}
+      {/* PUBLICATION-GATED, COUNSEL — §13. This section, the Capital Partners
+          nav entry and the capitalRoute CTA below ship together and must be
+          released together or not at all: each one promotes /partners/capital,
+          which is noindexed for s.21 FSMA containment. Reverting this single
+          commit restores the previous posture, footer link only. The four
+          noindex mechanisms are deliberately untouched. */}
+      <Section>
+        <SectionHead
+          eyebrow="Capital partners"
+          title="Invest alongside an execution layer."
+          lead="Pixelette Holdings is also the group-level home for investor and strategic-capital relationships. For selected ventures, capital partners can engage with opportunities where product, growth, governance and enterprise-readiness capability are already connected to the build plan."
+        />
+        <ul className="list">
+          {CAPITAL_PARTNERS.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+        <Buttons>
+          <Btn href="/partners/capital">Discuss capital partnerships</Btn>
+        </Buttons>
+        <Qualifier>{CAPITAL_PARTNERS_NOTE}</Qualifier>
+      </Section>
+
       {/* ----------------------------------------------------------- fit */}
       <Section surface="ice">
         <SectionHead
@@ -400,7 +425,8 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <ConversionClose />
+      {/* capitalRoute ships with the §13 section above — gated together. */}
+      <ConversionClose capitalRoute />
     </>
   );
 }

@@ -379,6 +379,43 @@ export const FOUNDER_CONTROL_NOTE =
   'Final ownership, reserved matters and governance rights are determined by the signed commercial and shareholder documents.';
 
 /**
+ * Capital partners — section 13 of the 8 Sep 2026 copy brief.
+ *
+ * PUBLICATION-GATED, COUNSEL. This is the one section in the brief whose own
+ * text defers to a lawyer: "Final wording should be reviewed for the applicable
+ * regulatory position", and the brief's publication gate repeats it — "Capital
+ * partner section: legal review for financial-promotion, investment-advice and
+ * securities-offer wording."
+ *
+ * Publishing it changes the site's s.21 FSMA posture. /partners/capital is
+ * currently reachable only from the footer and is noindexed by four independent
+ * mechanisms. This section, plus the nav entry and the closing CTA that ship
+ * with it, promote that page to the homepage and the primary navigation of
+ * every route. That is what the brief asks for, and it is not a developer's
+ * decision to release.
+ *
+ * Note the hedging in every line — "selected", "subject to independent due
+ * diligence", "potential", "agreed case by case". None of it is decorative. No
+ * return, ticket size, allocation or timeline is offered anywhere.
+ */
+export const CAPITAL_PARTNERS = [
+  'Selected venture opportunities, subject to independent due diligence.',
+  'Milestone visibility and execution reporting.',
+  'Access to specialist group capability around the venture.',
+  'Potential co-investment and strategic-partnership structures, agreed case by case.',
+] as const;
+
+/**
+ * Only the first sentence of the brief's §13 note is public copy. The brief's
+ * second sentence — "Final wording should be reviewed for the applicable
+ * regulatory position" — addresses whoever implements this section, not a
+ * website visitor, and is honoured by gating the section rather than by
+ * printing it on the page.
+ */
+export const CAPITAL_PARTNERS_NOTE =
+  'Nothing on this website should constitute investment advice, a financial promotion or an offer of securities.';
+
+/**
  * Founder fit — section 14.
  *
  * The brief: "Keep the two-column fit / not-fit visual. It increases

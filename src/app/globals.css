@@ -1090,9 +1090,22 @@ body.menu-open { overflow: hidden; }
    THE ONE MEDIA QUERY
    Everything else interpolates. Resist adding a second — the stylesheet this
    replaced had two, at 1000px and 860px, and both went.
+
+   BOUNDARY MOVED 767 -> 899, September 2026. Still one query; only its edge
+   changed. The copy brief's navigation carries six items plus a long CTA
+   ("Start Venture Diagnostic"), and measured in headless Chrome that set
+   collides with the wordmark from about 890px down — at 768px the logo is
+   pushed off the header entirely and every label wraps to two lines. Gap and
+   font interpolation were already at their floor, so the honest fix is to hand
+   tablet widths the menu panel rather than a broken row.
+
+   Consequence, deliberately accepted: 768-899px now takes the mobile
+   treatment throughout — single-column hero, stacked two-col and charter,
+   collapsed taxonomy. That reads correctly at tablet width. If the nav ever
+   loses an item, this boundary should come back down.
    ========================================================================== */
 
-@media (max-width: 767px) {
+@media (max-width: 899px) {
   /* Display tracking and leading do not scale linearly with size. */
   .h1, .h1p, .h2 { letter-spacing: -.01em; line-height: 1.12; }
 

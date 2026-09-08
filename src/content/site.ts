@@ -130,6 +130,10 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: 'HSE', href: '/hse-model' },
   { label: 'How It Works', href: '/hse-model#how-it-works' },
   { label: 'Portfolio / Proof', href: '/portfolio' },
+  // PUBLICATION-GATED, COUNSEL. Ships with the §13 homepage section and the
+  // closing capital CTA; see that section's comment. /partners/capital stays
+  // noindexed — this promotes the route in navigation, nothing else.
+  { label: 'Capital Partners', href: '/partners/capital' },
   { label: 'The Group', href: '/capabilities' },
   { label: 'About', href: '/about' },
 ];
