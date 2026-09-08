@@ -5,7 +5,8 @@ import {
 } from '@/components/ui';
 import { Testimonials } from '@/components/Testimonials';
 import {
-  ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
+  ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
+  FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
 } from '@/content/hse';
@@ -71,6 +72,38 @@ export default function HomePage() {
           ))}
         </div>
         <p className="small" style={{ marginTop: 20 }}>{PROOF_TIMELINE_NOTE}</p>
+      </Section>
+
+      {/* ------------------------------------------- why Holdings exists */}
+      {/* Position 2, immediately after the hero and trust strip, per the brief:
+          a visitor should learn what Holdings IS before anything else is sold
+          to them. This is the group-company block moved up from position 9. */}
+      <Section>
+        <SectionHead
+          eyebrow="Why Holdings"
+          title="One venture partner. Three specialist execution companies."
+          lead="Holdings is where the venture relationship, equity alignment and group-level governance sit. When a company needs to be built, launched and made enterprise-ready, Holdings can coordinate the specialist Pixelette businesses behind one plan instead of leaving founders to assemble and manage multiple suppliers."
+        />
+        <CardGrid>
+          {GROUP_PROPOSITION.map((g) => (
+            <article key={g.key} className="card">
+              {/* g.key, never g.verb — the mark lookup is keyed on the canonical
+                  capability name and misses silently on anything else. */}
+              <CapabilityBrand name={g.key} />
+              <p className="eyebrow">{g.verb}</p>
+              <h3 className="h3">{g.company}</h3>
+              <p className="body">{g.body}</p>
+              {g.url.startsWith('http') ? (
+                <p>
+                  <a className="link flink" href={g.url} target="_blank" rel="noopener noreferrer">
+                    Visit {g.company} ↗
+                  </a>
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </CardGrid>
+        <p className="small">{GROUP_PROPOSITION_CLOSE}</p>
       </Section>
 
       {/* --------------------------------------------- relationship economics */}
@@ -221,28 +254,16 @@ export default function HomePage() {
         </Buttons>
       </Section>
 
-      {/* -------------------------------------------------- capabilities */}
+      {/* ---------------------------------------------- execution capability */}
       <Section surface="ice">
         <SectionHead
-          eyebrow="One partner, the whole way"
-          title="We don&rsquo;t just ship software. We build it, launch it, and get it enterprise ready."
-          lead="Most builders hand you a product and walk away. Pixelette takes you the whole journey, build, go-to-market and enterprise readiness, and you keep control the entire time."
+          eyebrow="Execution"
+          title="We do not just ship software. We build the company around the product."
+          lead="Technology is only one part of getting a venture into the market. The Holdings model connects product, commercial growth, enterprise readiness and venture governance so the company can move forward as one operating plan."
         />
         <CardGrid>
-          {CAPABILITIES.map((c) => (
-            <article key={c.capability} className="card">
-              <CapabilityBrand name={c.capability} />
-              <p className="eyebrow">{c.n} · {c.capability}</p>
-              <h3 className="h3">{c.arm}</h3>
-              <p className="body">{c.body}</p>
-              {c.url.startsWith('http') ? (
-                <p>
-                  <a className="link flink" href={c.url} target="_blank" rel="noopener noreferrer">
-                    Visit {c.arm.replace(' Ltd', '')} ↗
-                  </a>
-                </p>
-              ) : null}
-            </article>
+          {EXECUTION.map((e) => (
+            <Card key={e.title} title={e.title}>{e.body}</Card>
           ))}
         </CardGrid>
       </Section>

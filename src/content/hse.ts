@@ -219,36 +219,81 @@ export const gateSentence = () => {
  */
 export const PROGRAMME_NAME = `${GATES[0]!.name}-to-${GATES[GATES.length - 1]!.name}`;
 
-export const CAPABILITIES = [
+/**
+ * Why Holdings exists — section 02 of the 8 Sep 2026 copy brief.
+ *
+ * `key` is the CANONICAL capability name and is what CapabilityBrand.tsx and
+ * Icons.tsx look up to resolve each company's brand mark. `verb` is the brief's
+ * DISPLAY word for the same thing. They differ for three of the four, and
+ * conflating them silently drops a logo — the same failure the stage rename in
+ * section 05 had to avoid.
+ *
+ * The two are separate rather than renamed because the brief itself does not
+ * treat these verbs as a taxonomy: section 02 calls them Build / Grow / Ready /
+ * Align, and section 08 calls the same four capabilities "Product and
+ * engineering", "Go-to-market and growth", "Enterprise readiness" and "Venture
+ * governance". Two label sets for one set of capabilities, in adjacent
+ * sections, is descriptive writing rather than a rename directive — so the
+ * site's canonical vocabulary (Build / Launch / Assure / Own, used by the Orbit,
+ * /about and /capabilities) is left alone. Worth confirming with the copy owner.
+ */
+export const GROUP_PROPOSITION = [
   {
-    n: '01',
-    capability: 'Build',
-    arm: 'Pixelette Technologies Ltd',
-    body: 'Product, AI, blockchain, architecture, engineering, infrastructure, security and launch-ready technology.',
+    key: 'Build',
+    company: 'Pixelette Technologies',
+    verb: 'Build',
+    body: 'AI, software, automation and product engineering.',
     url: 'https://pixelettetech.com/',
   },
   {
-    n: '02',
-    capability: 'Launch',
-    arm: 'Pixelette Marketing',
-    body: 'Positioning, brand, campaigns, demand generation, sales infrastructure, partnerships and early traction.',
-    gate: 'Naming rule: use as the commercial capability and brand. Do not use "Ltd", a company number or an active-company claim on legal pages until restoration is independently verified.',
+    key: 'Launch',
+    company: 'Pixelette Marketing',
+    verb: 'Grow',
+    body: 'Brand, go-to-market, demand generation and commercial growth.',
     url: 'https://pixelettemarketing.com/',
   },
   {
-    n: '03',
-    capability: 'Assure',
-    arm: 'Pixelette Certified',
-    body: 'Security, governance, compliance implementation, certification readiness and evidence preparation.',
-    gate: 'Independent certification remains external. Never imply Pixelette awards ISO certification or accreditation.',
+    key: 'Assure',
+    company: 'Pixelette Certified',
+    verb: 'Ready',
+    body: 'Compliance, assurance and enterprise readiness.',
     url: 'https://pixelettecertified.com/',
   },
   {
-    n: '04',
-    capability: 'Own',
-    arm: 'Pixelette Holdings Ltd',
-    body: 'Venture selection, commercial structuring, services-for-equity participation, governance and capital readiness.',
+    key: 'Own',
+    company: 'Pixelette Holdings',
+    verb: 'Align',
+    body: 'Venture structure, equity, governance, group orchestration and capital relationships.',
     url: '/',
+  },
+] as const;
+
+export const GROUP_PROPOSITION_CLOSE = 'Holdings aligns the venture. The group executes it.';
+
+/**
+ * Execution capability — section 08.
+ *
+ * Deliberately carries NO company names. The brief: "This section should show
+ * outcomes and capabilities, not repeat the group-company introductions." The
+ * group companies are introduced once, in section 02, and this section says
+ * what the model does.
+ */
+export const EXECUTION = [
+  {
+    title: 'Product and engineering',
+    body: 'AI, software, data, platforms and automation.',
+  },
+  {
+    title: 'Go-to-market and growth',
+    body: 'Positioning, demand, sales enablement and commercial systems.',
+  },
+  {
+    title: 'Enterprise readiness',
+    body: 'Compliance, assurance, security and operational readiness.',
+  },
+  {
+    title: 'Venture governance',
+    body: 'Milestone control, commercial alignment, reporting and capital preparation.',
   },
 ] as const;
 
