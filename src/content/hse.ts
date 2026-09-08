@@ -337,31 +337,28 @@ export const INSTITUTIONAL = [
 ] as const;
 
 /**
- * Why founders choose Pixelette. Ported from the live site's differentiators.
- * Two live-site specifics are deliberately softened pending evidence and flagged
- * in the content audit: "top 5% of engineers" -> "senior"; "13+ countries" ->
- * "multiple markets"; named individuals (Dr Edward Zuckerberg, Dr Hatem Bugshan)
- * are omitted pending consent. Restore on explicit founder confirmation.
+ * The operating model, per section 09 of the 8 Sep 2026 copy brief.
+ *
+ * Replaces the old WHY_CHOOSE differentiator cards. Two things went with them
+ * and should not come back by accident:
+ *
+ *  1. "We give you policy level access" — the APPG / UK Parliament claim. It is
+ *     removed HERE rather than in the section 10 commit, because section 10
+ *     strips the same claim from INSTITUTIONAL, and removing it in one place
+ *     while it stayed live two sections above would have been worse than
+ *     leaving both.
+ *  2. "We unlock global reach" — an unevidenced international-network claim.
+ *
+ * Every line below describes Pixelette's own operating model. The brief is
+ * explicit about why: "Avoid claims that every other studio is advice-only;
+ * make the contrast about Pixelette's own operating model." The old copy said
+ * competitors "ignore" this ground. That is a claim about other firms and it
+ * has gone.
  */
-export const WHY_CHOOSE = [
-  {
-    title: 'We deploy top tier technical talent',
-    body: 'Our in-house teams specialise in AI, blockchain and product. We don’t outsource, we build with senior engineers and strategic operators.',
-  },
-  {
-    title: 'We craft investor ready ventures',
-    body: 'From market positioning to pitch creation, we prepare founders to raise with clarity and confidence, turning bold ideas into investable stories.',
-  },
-  {
-    title: 'We execute across the full venture stack',
-    body: 'Beyond engineering, we cover go-to-market, legal, compliance and governance, the ground most venture partners ignore.',
-  },
-  {
-    title: 'We give you policy level access',
-    body: 'As Secretariat to the UK Parliament’s APPG on AI, and previously on Blockchain, we bring founders close to where emerging tech regulation is formed.',
-  },
-  {
-    title: 'We unlock global reach',
-    body: 'Our international network spans multiple markets and includes venture investors, regulators and industry leaders.',
-  },
+export const OPERATING_MODEL = [
+  'Named delivery ownership and milestone accountability.',
+  'Specialists deployed around the venture need, not a generic team template.',
+  'Commercial and product work connected to the same venture plan.',
+  'Governance, reporting and decision gates visible to founder and Pixelette.',
+  'Scale, enterprise and capital readiness designed in rather than bolted on later.',
 ] as const;

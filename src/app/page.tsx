@@ -7,7 +7,7 @@ import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
-  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, WHY_CHOOSE,
+  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, OPERATING_MODEL,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
 import { TESTIMONIALS } from '@/content/testimonials';
@@ -247,17 +247,18 @@ export default function HomePage() {
         </CardGrid>
       </Section>
 
-      {/* --------------------------------------------- why founders choose */}
+      {/* ------------------------------------------------- operating model */}
       <Section>
         <SectionHead
-          eyebrow="Why founders choose us"
-          title="Execution most venture partners don&rsquo;t offer."
+          eyebrow="Operating model"
+          title="Execution is the product, not advice."
+          lead="Founders do not need another deck, mentor network or strategy workshop. They need accountable specialists moving defined outcomes forward. Our model is built around delivery that can be evidenced, accepted and linked to venture milestones."
         />
-        <CardGrid>
-          {WHY_CHOOSE.map((w) => (
-            <Card key={w.title} title={w.title}>{w.body}</Card>
+        <ul className="list">
+          {OPERATING_MODEL.map((m) => (
+            <li key={m}>{m}</li>
           ))}
-        </CardGrid>
+        </ul>
       </Section>
 
       {/* ------------------------------------------- institutional standing */}
