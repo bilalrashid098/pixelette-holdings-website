@@ -7,7 +7,7 @@ import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
   HSE_PROPOSITION, HSE_PROPOSITION_CLOSE,
-  FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
+  FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
 } from '@/content/hse';
@@ -324,20 +324,16 @@ export default function HomePage() {
       {/* ------------------------------------------------------- charter */}
       <Section>
         <SectionHead
-          eyebrow="Alignment that can be understood"
-          title="You keep control. Your equity is earned, never taken."
-          lead="HSE is built to remove the fears founders have about giving equity to a delivery partner: a capped ceiling agreed before we start, equity earned only against accepted work, and the right to buy us out at fair value."
+          eyebrow="Alignment"
+          title="You keep control. We earn our position."
+          lead="HSE is designed to align founder ownership with delivered value. Equity, governance and decision rights are documented in advance and linked to the agreed venture structure."
         />
-        <ol className="charter">
-          {FOUNDER_CHARTER.map((c) => (
+        <ul className="list">
+          {FOUNDER_CONTROL.map((c) => (
             <li key={c}>{c}</li>
           ))}
-        </ol>
-        <Qualifier>
-          <strong>Legal note.</strong> Final contractual language, buyback terms, vesting, clawback, IP
-          transfer and dispute provisions require counsel approval. These are the intended charter
-          principles, not the executed instrument.
-        </Qualifier>
+        </ul>
+        <Qualifier>{FOUNDER_CONTROL_NOTE}</Qualifier>
       </Section>
 
       {/* --------------------------------------------------- testimonials */}
@@ -355,26 +351,26 @@ export default function HomePage() {
 
       {/* ----------------------------------------------------------- fit */}
       <Section surface="ice">
-        <SectionHead eyebrow="Is HSE the right route?" title="Built for founders ready to execute." />
+        <SectionHead
+          eyebrow="Fit"
+          title="Built for founders ready to execute."
+          lead="HSE works when there is a serious founder, a real problem and a willingness to build against evidence. Selectivity is part of the model."
+        />
         <div className="two-col">
           <article>
             <h3 className="h3">Good fit</h3>
             <ul className="list">
-              <li>A defined problem with a plausible commercial market.</li>
-              <li>A committed founder or operator.</li>
-              <li>A buildable technology opportunity.</li>
-              <li>Capital available for the agreed cash delivery portion.</li>
-              <li>Willingness to consider a structured cash and equity partnership.</li>
+              {FIT_GOOD.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
             </ul>
           </article>
           <article>
-            <h3 className="h3">Not currently a fit</h3>
+            <h3 className="h3">Not a fit</h3>
             <ul className="list list-cross">
-              <li>The primary request is for Pixelette to provide or find cash.</li>
-              <li>There is no committed operator.</li>
-              <li>No capital is available for professional execution.</li>
-              <li>The opportunity cannot yet be scoped or validated.</li>
-              <li>The founder expects guaranteed customers, revenue or fundraising.</li>
+              {FIT_NOT.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
             </ul>
           </article>
         </div>

@@ -321,6 +321,50 @@ export const EXECUTION = [
   },
 ] as const;
 
+/**
+ * Founder control — section 11 of the 8 Sep 2026 copy brief.
+ *
+ * The brief's instruction is "KEEP SECTION - MAKE GOVERNANCE PRECISE", and the
+ * precision is the point: every line is qualified by the documents that
+ * actually determine the outcome. Note what is NOT claimed — no percentage, no
+ * guaranteed retained stake. The brief: "Avoid absolute promises such as 'you
+ * will always retain X%' unless the legal structure guarantees that outcome
+ * across every HSE deal."
+ *
+ * These replace the eight-commitment charter on the HOMEPAGE only.
+ * FOUNDER_CHARTER is unchanged and still renders in full on
+ * /hse-model/founder-protection, which is the page the charter belongs to.
+ */
+export const FOUNDER_CONTROL = [
+  'Founder: leads the vision, company and day-to-day decisions, subject to the agreed shareholder and governance documents.',
+  'Founder: sees the commercial model, milestone conditions and equity mechanics before delivery starts.',
+  'Pixelette: earns only the equity and rights agreed under the signed structure and milestone framework.',
+  'Both sides: share defined information, governance and decision responsibilities appropriate to the venture stage.',
+] as const;
+
+export const FOUNDER_CONTROL_NOTE =
+  'Final ownership, reserved matters and governance rights are determined by the signed commercial and shareholder documents.';
+
+/**
+ * Founder fit — section 14.
+ *
+ * The brief: "Keep the two-column fit / not-fit visual. It increases
+ * credibility because Pixelette is visibly selective rather than trying to
+ * convert every visitor." The asymmetry is deliberate — four qualifying
+ * criteria against two disqualifying ones is the brief's own balance.
+ */
+export const FIT_GOOD = [
+  'Committed founder or decision-making team.',
+  'Clear problem, credible insight or evidence to validate.',
+  'Ambition to build a scalable company, not simply outsource a project.',
+  'Willingness to engage customers, share evidence and work to milestones.',
+] as const;
+
+export const FIT_NOT = [
+  'Seeking free development or a passive “build it for me” relationship.',
+  'No committed owner, no willingness to validate, or no realistic route to execution.',
+] as const;
+
 /** The eight commitments. The primary conversion mechanism on the site. */
 export const FOUNDER_CHARTER = [
   'Equity vests only against accepted milestones.',
