@@ -3,6 +3,7 @@ import {
   Section, SectionHead, PageHero, Buttons, Btn, CardGrid, Card, Qualifier,
 } from '@/components/ui';
 import { GROUP } from '@/content/site';
+import { ECOSYSTEM_NOTE } from '@/content/hse';
 
 export const metadata: Metadata = {
   title: 'About | An execution-led venture-building group',
@@ -21,7 +22,7 @@ const PHILOSOPHY = [
 const CREDENTIALS = [
   {
     title: 'Quality and security standards',
-    body: 'ISO 9001, ISO 27001 and Cyber Essentials accreditations held within the group.',
+    body: 'ISO 9001, ISO 27001 and Cyber Essentials certifications held within the group.',
   },
   {
     title: 'Policy ecosystem',
@@ -113,6 +114,10 @@ export default function AboutPage() {
             </article>
           ))}
         </CardGrid>
+        {/* This page names the APPG, so it carries the same endorsement gate as
+            the homepage ecosystem section. The gate follows the claim, not the
+            page it was first written on. */}
+        <p className="small">{ECOSYSTEM_NOTE}</p>
       </Section>
 
       <Section surface="deep">

@@ -7,7 +7,7 @@ import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
-  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, OPERATING_MODEL,
+  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
 import { TESTIMONIALS } from '@/content/testimonials';
@@ -264,15 +264,16 @@ export default function HomePage() {
       {/* ------------------------------------------- institutional standing */}
       <Section surface="ice">
         <SectionHead
-          eyebrow="Institutional standing"
-          title="More than a venture builder, a policy credentialed institution."
-          lead="Authority almost no venture builder can claim: a seat inside UK Parliament, an investment in a national innovation think tank, and enterprise-grade certification."
+          eyebrow="Network and reach"
+          title="Built inside a wider innovation ecosystem."
+          lead="Pixelette Holdings engages across technology, industry, academic and innovation-policy networks. For selected portfolio companies, that can create useful routes to expertise, strategic introductions and market insight while every commercial, investment and governance decision remains independently made."
         />
-        <CardGrid>
-          {INSTITUTIONAL.map((c) => (
-            <Card key={c.title} title={c.title}>{c.body}</Card>
+        <ul className="list">
+          {ECOSYSTEM.map((e) => (
+            <li key={e}>{e}</li>
           ))}
-        </CardGrid>
+        </ul>
+        <p className="small">{ECOSYSTEM_NOTE}</p>
       </Section>
 
       {/* --------------------------------------------------- credentials */}

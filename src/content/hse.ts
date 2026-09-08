@@ -312,29 +312,51 @@ export const PROOF_TIMELINE_NOTE =
   'Target timeframes, not guarantees: outcomes depend on execution, market conditions, founder responsiveness and venture complexity.';
 
 /**
- * Institutional standing, the authority signals that set Pixelette apart from
- * an ordinary venture builder. All accurate and gate-safe: APPG tense preserved
- * (AI current, Blockchain previous), BIC stated as an investment with NO
- * percentage (standing directive), no head-of-state named (Cyprus held).
+ * Network and reach, per section 10 of the 8 Sep 2026 copy brief.
+ *
+ * This REPLACES the "institutional standing" cards, which claimed authority
+ * rather than describing relationships. What went, and why:
+ *
+ *   "Inside UK Parliament" / "a seat inside the regulatory conversation, not
+ *   on the receiving end of it" — being secretariat to an APPG is an
+ *   administrative role. The old phrasing implied a legislative position, and
+ *   APPGs are not parliamentary bodies. The role itself is real and is still
+ *   stated, accurately, on /about and in the credentials strip.
+ *
+ *   "Government engagement ... including national development and skills
+ *   programmes" — no source, no named programme, no date. Unevidenced.
+ *
+ *   "Certified and secure ... with Cyber Essentials Plus" — the certifications
+ *   are real, but this card was the ONLY place the site claimed "Plus", while
+ *   the credentials strip beside it (CREDENTIALS in content/site.ts) said plain
+ *   "Cyber Essentials". Two different certificates, contradicting each other on
+ *   one page. Removing this card resolves that in the conservative direction:
+ *   the surviving claim is the weaker one. Which is actually held is still an
+ *   open question for the group — do NOT re-add "Plus" to satisfy the symmetry
+ *   without checking the certificate. See the handover note.
+ *
+ * The brief's instruction: "Keep only logos, roles, named relationships and
+ * claims that can be independently evidenced and are approved for public use."
+ * Each line below is a category of relationship, not an assertion of standing.
  */
-export const INSTITUTIONAL = [
-  {
-    title: 'Inside UK Parliament',
-    body: 'Secretariat to the All Party Parliamentary Group on Artificial Intelligence, and previously to the APPG on Blockchain, a seat inside the regulatory conversation, not on the receiving end of it.',
-  },
-  {
-    title: 'Big Innovation Centre',
-    body: 'An equity investment in the cross-sector innovation think tank shaping AI, blockchain and digital economy policy. A structural relationship, not advisory.',
-  },
-  {
-    title: 'Certified and secure',
-    body: 'ISO 9001 and ISO 27001 certified, with Cyber Essentials Plus, the quality and security posture that regulated and enterprise buyers require before they engage.',
-  },
-  {
-    title: 'Government engagement',
-    body: 'Institutional and government engagement across multiple markets, including national development and skills programmes.',
-  },
+export const ECOSYSTEM = [
+  'Technology and industry relationships.',
+  'Academic and specialist expertise.',
+  'International innovation collaboration.',
+  'Policy and research engagement.',
+  'Investor and strategic-capital relationships.',
 ] as const;
+
+/**
+ * Load-bearing. The brief's publication gate: "Policy / parliamentary /
+ * institutional references: describe roles precisely and do not imply
+ * endorsement, official parliamentary status or government backing."
+ *
+ * Must render wherever the APPG or a named institution appears — this section
+ * and /about — not only here.
+ */
+export const ECOSYSTEM_NOTE =
+  'Participation in a network, event, secretariat or programme does not imply endorsement by that organisation or any public body.';
 
 /**
  * The operating model, per section 09 of the 8 Sep 2026 copy brief.
