@@ -10,7 +10,7 @@ import {
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
-import { TESTIMONIALS } from '@/content/testimonials';
+import { HOMEPAGE_TESTIMONIALS } from '@/content/testimonials';
 import { CapabilityBrand } from '@/components/CapabilityBrand';
 import { Credentials } from '@/components/Credentials';
 import { Orbit } from '@/components/Orbit';
@@ -304,11 +304,14 @@ export default function HomePage() {
       {/* --------------------------------------------------- testimonials */}
       <Section surface="navy">
         <SectionHead
-          eyebrow="Trusted by founders"
-          title="Founders who built with us, in their words."
+          eyebrow="Proof"
+          title="Founders and partners, in their words."
           lead="Real founders across the portfolio on what the Hybrid Sweat Equity partnership changed for them."
         />
-        <Testimonials items={TESTIMONIALS} />
+        <Testimonials items={HOMEPAGE_TESTIMONIALS} />
+        <p className="small">
+          <Link className="link flink" href="/portfolio">Read further references on the portfolio ↗</Link>
+        </p>
       </Section>
 
       {/* ----------------------------------------------------------- fit */}

@@ -4,6 +4,8 @@ import {
   VentureCard, ConversionClose,
 } from '@/components/ui';
 import { byRelationship, publishableCount } from '@/content/ventures';
+import { Testimonials } from '@/components/Testimonials';
+import { FURTHER_TESTIMONIALS } from '@/content/testimonials';
 
 export const metadata: Metadata = {
   title: 'Portfolio | Proof with the labels left on',
@@ -146,6 +148,18 @@ export default function PortfolioPage() {
             <VentureCard key={v.slug} venture={v} />
           ))}
         </CardGrid>
+      </Section>
+
+      {/* The homepage leads with three testimonials and links here for the
+          rest, per section 12 of the copy brief. Before this section existed
+          that link promised references the site did not publish anywhere. */}
+      <Section surface="navy">
+        <SectionHead
+          eyebrow="Further references"
+          title="More founders, in their words."
+          lead="The homepage carries three. These are the rest, reproduced verbatim."
+        />
+        <Testimonials items={FURTHER_TESTIMONIALS} />
       </Section>
 
       <ConversionClose />
