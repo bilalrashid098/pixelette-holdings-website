@@ -104,39 +104,34 @@ export const GROUP_COMPANIES = [
 export interface NavItem {
   label: string;
   href: string;
-  children?: { label: string; href: string }[];
 }
 
+/**
+ * Primary navigation — the 8 Sep 2026 copy brief.
+ *
+ * The brief's nav is: Home | HSE | How It Works | Portfolio / Proof |
+ * Capital Partners | The Group | About | Start.
+ *
+ *   Home   is the wordmark (SiteHeader), not a nav item.
+ *   Start  is the header CTA button, not a nav item.
+ *   Capital Partners is added with the rest of the capital surface, which is
+ *          held for counsel under s.21 FSMA. Until then it stays footer-only.
+ *
+ * Labels are relabels, not new routes: "How It Works" is the five-gate section
+ * on /hse-model (vercel.json already 301s /how-it-works there), and "The Group"
+ * is /capabilities.
+ *
+ * NOTE: SiteHeader renders top-level items only. There is no dropdown and no
+ * `dropdown` rule in globals.css, so the sub-item arrays that used to sit here
+ * were never displayed. They have been removed rather than carried forward as
+ * dead data; those routes remain reachable from FOOTER_NAV.
+ */
 export const PRIMARY_NAV: NavItem[] = [
-  { label: 'HSE Model', href: '/hse-model' },
-  {
-    label: 'Portfolio',
-    href: '/portfolio',
-    children: [
-      { label: 'Equity Investments', href: '/portfolio/investments' },
-      { label: 'Direct HSE Ventures', href: '/portfolio/hse-ventures' },
-      { label: 'Delivered Ventures', href: '/portfolio/delivered-ventures' },
-      { label: '2Connect case study', href: '/portfolio/2connect' },
-    ],
-  },
-  { label: 'Capabilities', href: '/capabilities' },
-  {
-    label: 'Partners',
-    href: '/partners/accelerators',
-    children: [
-      { label: 'Incubators & Accelerators', href: '/partners/accelerators' },
-      { label: 'Capital Partners', href: '/partners/capital' },
-    ],
-  },
-  { label: 'Insights', href: '/insights' },
-  {
-    label: 'About',
-    href: '/about',
-    children: [
-      { label: 'About Pixelette', href: '/about' },
-      { label: 'Social Impact', href: '/social-impact' },
-    ],
-  },
+  { label: 'HSE', href: '/hse-model' },
+  { label: 'How It Works', href: '/hse-model#how-it-works' },
+  { label: 'Portfolio / Proof', href: '/portfolio' },
+  { label: 'The Group', href: '/capabilities' },
+  { label: 'About', href: '/about' },
 ];
 
 export const FOOTER_NAV = [

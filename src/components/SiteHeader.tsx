@@ -7,11 +7,14 @@ import { PRIMARY_NAV } from '@/content/site';
 import { MenuIcon, CloseIcon, ArrowUpRightIcon } from './Icons';
 
 /**
- * Institutional header. One dominant CTA, consistently "Apply for HSE".
+ * Institutional header. One dominant CTA, "Start Venture Diagnostic", which
+ * routes to the /apply fit assessment.
  *
  * The mobile menu is keyboard operable, closes on Escape and on navigation,
- * and locks background scroll while open. Dropdown behaviour never depends on
- * hover, that was a defect on the previous site.
+ * and locks background scroll while open.
+ *
+ * There is no dropdown: PRIMARY_NAV is rendered flat, one link per top-level
+ * item. The brief's navigation is flat by design, so nothing is hidden here.
  */
 export function SiteHeader() {
   const pathname = usePathname();
@@ -74,6 +77,14 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+
+          {/* The CTA repeats inside the menu panel because at phone widths the
+              header CTA is hidden: the label is long enough that it overflowed
+              the viewport beside the wordmark and the menu button. Exactly one
+              of the two is ever visible — see .nav-cta / .nav-cta-mobile. */}
+          <Link className="btn nav-cta-mobile" href="/apply">
+            Start Venture Diagnostic <ArrowUpRightIcon />
+          </Link>
         </nav>
 
         <button
@@ -88,7 +99,7 @@ export function SiteHeader() {
         </button>
 
         <Link className="btn2 nav-cta" href="/apply">
-          Check if you qualify <ArrowUpRightIcon />
+          Start Venture Diagnostic <ArrowUpRightIcon />
         </Link>
       </div>
     </header>

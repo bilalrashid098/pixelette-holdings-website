@@ -152,7 +152,8 @@ export default function HseModelPage() {
       </Section>
 
       {/* ------------------------------------------------------ five gates */}
-      <Section surface="navy">
+      {/* id is the target of the "How It Works" primary-nav item. */}
+      <Section surface="navy" id="how-it-works">
         <SectionHead
           eyebrow="Five gates"
           title="Five gates. Five evidence-based decisions."
