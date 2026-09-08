@@ -79,7 +79,7 @@ const CAPABILITY_DETAIL = [
     surface: 'ice' as const,
     cards: [
       ['Selection', 'Qualification, fit assessment and the investment-committee decision.'],
-      ['Structuring', 'Stage ceilings, milestone definition, vesting and clawback design.'],
+      ['Structuring', 'Equity ceilings, milestone definition, vesting and clawback design.'],
       ['Governance', 'Portfolio review, KPI visibility and honest gate reporting.'],
       ['Capital readiness', 'Evidence-room structure and diligence support, without promising an outcome.'],
     ],

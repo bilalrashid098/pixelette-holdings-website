@@ -34,7 +34,7 @@ export const ECONOMICS = [
   {
     figure: '≤50%',
     title: 'Eligible fee to equity',
-    body: 'The agreed balance may convert into capped equity, subject to valuation, stage ceilings, accepted milestones and signed documentation.',
+    body: 'The agreed balance may convert into capped equity, subject to valuation, the agreed ceiling, accepted milestones and signed documentation.',
   },
   {
     figure: '£0',
@@ -49,30 +49,38 @@ export const ECONOMICS = [
 ] as const;
 
 /**
- * Stage ceilings.
+ * HSE structures, per section 04 of the 8 Sep 2026 copy brief.
  *
- * `pct` is a NUMBER, not a formatted string. Three sites need the same figures
- * in three different shapes — a table cell, a slash list and a prose sentence —
- * and a pre-formatted string cannot be reshaped, which is exactly why those
- * sites drifted into hand-typed literals. Derive; never retype.
+ * These REPLACE the published stage ceilings (30% / 20% / 12% by stage). The
+ * brief's instruction is "REWRITE EXISTING OPTION CARDS", and its lead keeps
+ * stage as one input among several rather than as the published axis: "The
+ * right cash/equity mix depends on stage, evidence, valuation, delivery scope
+ * and capital position. Every structure is agreed venture by venture."
+ *
+ * Consequence worth knowing before anyone "restores" the numbers: the site no
+ * longer publishes an equity percentage anywhere. The CAP itself is still a
+ * founder protection and is still claimed — capped, agreed before work begins,
+ * earned against accepted delivery — it simply is not quantified in public.
+ * The only percentage left in the content layer is the BIC shareholding in
+ * ventures.ts, which is a different claim entirely.
+ *
+ * `eligibility` is not decoration. The brief: "Avoid implying that every
+ * founder can select any option without assessment."
  */
-export const CEILINGS = [
-  { stage: 'Pre-seed or concept', pct: 30, need: 'Validation, product, launch, assurance and venture-building' },
-  { stage: 'Post-MVP or funded founder', pct: 20, need: 'Product advancement, launch, traction and assurance' },
-  { stage: 'Traction or Series A-ready', pct: 12, need: 'Targeted execution and readiness work' },
+export const STRUCTURES = [
+  {
+    name: 'Cash-led HSE',
+    body: 'More cash, less equity. Best suited to funded or revenue-generating ventures that want alignment without unnecessary dilution.',
+  },
+  {
+    name: 'Balanced HSE',
+    body: 'A measured blend of cash and milestone-earned equity. Designed for founders protecting runway while still funding serious execution.',
+  },
+  {
+    name: 'Equity-led HSE',
+    body: 'A greater share of approved delivery value converts into equity, subject to eligibility, valuation, governance and an agreed minimum cash contribution.',
+  },
 ] as const;
-
-/** "12/20/30%" — ascending, for the comparison table. */
-export const CEILING_FIGURES = `${[...CEILINGS].map((c) => c.pct).sort((a, b) => a - b).join('/')}%`;
-
-/** "30%, 20% and 12%" — descending, for prose. */
-export const CEILING_SENTENCE = (() => {
-  const p = CEILINGS.map((c) => `${c.pct}%`);
-  return `${p.slice(0, -1).join(', ')} and ${p[p.length - 1]}`;
-})();
-
-/** The highest ceiling, for any copy that names a single maximum. */
-export const CEILING_MAX_PCT = Math.max(...CEILINGS.map((c) => c.pct));
 
 /**
  * The founder's cash share of the agreed professional fee.
@@ -82,8 +90,8 @@ export const CEILING_MAX_PCT = Math.max(...CEILINGS.map((c) => c.pct));
  */
 export const FOUNDER_CASH_PCT = 50;
 
-export const CEILINGS_QUALIFIER =
-  'These are ceilings, not standard prices or offers. The actual equity requires an agreed valuation or conversion mechanism, scope, risk assessment and signed legal documentation.';
+export const STRUCTURES_QUALIFIER =
+  'Which structure is available depends on stage, evidence, valuation, delivery scope and capital position, and is decided by assessment rather than by preference. The actual equity requires an agreed valuation or conversion mechanism, scope, risk assessment and signed legal documentation.';
 
 /**
  * Travels with the ECONOMICS cards. Without it those figures read as the
@@ -213,7 +221,7 @@ export const FOUNDER_CHARTER = [
   'Equity vests only against accepted milestones.',
   'No equity is earned for rejected or undelivered work.',
   'Unvested equity returns when the relevant delivery stops.',
-  'A stage-based equity ceiling is agreed before work begins.',
+  'An equity ceiling is agreed before work begins.',
   'The founder retains operational control.',
   'Material scope changes require written agreement.',
   'A full-cash route is always available.',

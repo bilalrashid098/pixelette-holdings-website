@@ -3,8 +3,8 @@ import {
   Section, SectionHead, PageHero, Buttons, Btn, CardGrid, Card, Qualifier,
 } from '@/components/ui';
 import {
-  CEILINGS, CEILINGS_QUALIFIER, GATES, NOT_PROMISED,
-  CEILING_MAX_PCT, FOUNDER_CASH_PCT, PROGRAMME_NAME,
+  STRUCTURES, STRUCTURES_QUALIFIER, GATES, NOT_PROMISED,
+  FOUNDER_CASH_PCT, PROGRAMME_NAME,
   CONTINUATION_EQUITY_HELD,
 } from '@/content/hse';
 
@@ -21,8 +21,8 @@ const FAQS = [
     a: 'No. Under the founder funded HSE route, Pixelette may convert an eligible portion of its professional fee into equity. It does not provide a cash cheque.',
   },
   {
-    q: `Is the equity automatically ${CEILING_MAX_PCT}%?`,
-    a: `No. The ${CEILING_MAX_PCT}% figure is the maximum ceiling for the earliest stage. The final economics depend on valuation, scope, risk, cash coverage and legal documentation.`,
+    q: 'Is there a fixed equity percentage?',
+    a: 'No. A ceiling is agreed before work begins and the equity is earned against accepted delivery beneath it. The structure and the ceiling depend on stage, evidence, valuation, scope, risk, cash coverage and legal documentation, and are agreed venture by venture.',
   },
   {
     q: 'What does the cash portion cover?',
@@ -104,30 +104,17 @@ export default function HseModelPage() {
       {/* ------------------------------------------------------- economics */}
       <Section surface="ice">
         <SectionHead
-          eyebrow="Economics"
-          title="The stage sets the maximum ceiling."
-          lead="Earlier ventures carry more execution risk and may require a broader programme. More mature ventures usually require a narrower equity allocation."
+          eyebrow="Structure"
+          title="Choose the balance that fits the venture."
+          lead="The right cash/equity mix depends on stage, evidence, valuation, delivery scope and capital position. Every structure is agreed venture by venture."
         />
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Stage at signature</th>
-              <th scope="col">Indicative maximum ceiling</th>
-              <th scope="col">Typical need</th>
-            </tr>
-          </thead>
-          <tbody>
-            {CEILINGS.map((c) => (
-              <tr key={c.stage}>
-                <td>{c.stage}</td>
-                <td className="ceiling">Up to {c.pct}%</td>
-                <td>{c.need}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <CardGrid>
+          {STRUCTURES.map((s) => (
+            <Card key={s.name} title={s.name}>{s.body}</Card>
+          ))}
+        </CardGrid>
         <Qualifier>
-          <strong>These are ceilings, not standard prices or offers.</strong> {CEILINGS_QUALIFIER}
+          <strong>Subject to eligibility and agreed terms.</strong> {STRUCTURES_QUALIFIER}
         </Qualifier>
       </Section>
 
@@ -212,7 +199,7 @@ export default function HseModelPage() {
               <li>The accepted scope and delivery evidence.</li>
               <li>Technical, product, launch and assurance work expressly included.</li>
               <li>Transparent reporting and change control.</li>
-              <li>Protecting the stage ceiling and vesting rules.</li>
+              <li>Protecting the agreed equity ceiling and vesting rules.</li>
               <li>Maintaining the evidence room for agreed work.</li>
               <li>Pausing rather than concealing a failed gate.</li>
             </ul>

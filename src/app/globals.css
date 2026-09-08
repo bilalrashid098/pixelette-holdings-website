@@ -995,7 +995,13 @@ body.menu-open { overflow: hidden; }
 .list-plain { margin: 18px 0 0; padding-left: 20px; color: var(--color-body); }
 .list-plain li { margin-bottom: 9px; }
 
-/* The equity-ceiling cell. Mono and large, so the figure reads as a figure. */
+/* The equity-ceiling cell. Mono and large, so the figure reads as a figure.
+   ORPHANED as of the section 04 rewrite: the stage-ceiling table it styled was
+   replaced by the three HSE structure cards, and the site no longer publishes
+   an equity percentage. Kept as available vocabulary alongside .card-feature
+   and .list-num rather than deleted, but it has no call site — do not assume
+   this rule is exercised. The token gate checks markup against CSS, not the
+   reverse, so nothing will flag it. */
 .ceiling {
   font-family: var(--font-mono); font-size: 1.375rem; font-weight: 500;
   letter-spacing: -.02em; white-space: nowrap;

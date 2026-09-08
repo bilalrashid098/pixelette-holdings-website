@@ -5,8 +5,8 @@ import {
 } from '@/components/ui';
 import { Testimonials } from '@/components/Testimonials';
 import {
-  ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, CEILINGS_QUALIFIER,
-  CEILING_FIGURES, CEILING_SENTENCE, ECONOMICS_EXAMPLE_NOTE,
+  ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
+  ECONOMICS_EXAMPLE_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, WHY_CHOOSE,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
@@ -92,7 +92,7 @@ export default function HomePage() {
             <tr>
               <td>Equity taken</td>
               <td>25&ndash;90% of your company</td>
-              <td>Capped at {CEILING_FIGURES} by stage, a ceiling, never automatic</td>
+              <td>A ceiling agreed before work begins, earned against delivery, never automatic</td>
             </tr>
             <tr>
               <td>Control</td>
@@ -113,8 +113,8 @@ export default function HomePage() {
         </table>
         <Qualifier>
           <strong>A comparison of models, not a specific offer.</strong> Figures describe common
-          venture studio structures; Pixelette&rsquo;s stage ceilings are maxima, not prices. Final
-          terms require valuation, scope and signed documentation.
+          venture studio structures; Pixelette&rsquo;s equity ceiling is a maximum agreed in advance,
+          not a price. Final terms require valuation, scope and signed documentation.
         </Qualifier>
       </Section>
 
@@ -172,8 +172,8 @@ export default function HomePage() {
             {ECONOMICS_EXAMPLE_NOTE}
           </p>
           <p>
-            <strong>The {CEILING_SENTENCE} figures are maximum stage ceilings, not automatic offers.</strong>{' '}
-            {CEILINGS_QUALIFIER}
+            <strong>Subject to eligibility and agreed terms.</strong>{' '}
+            {STRUCTURES_QUALIFIER}
           </p>
         </Qualifier>
       </Section>

@@ -77,7 +77,7 @@ export default function CapitalPartnersPage() {
           <article>
             <h3 className="h3">Governance approach</h3>
             <ul className="list">
-              <li>Stage-based equity ceilings agreed before work begins.</li>
+              <li>Equity ceilings agreed before work begins.</li>
               <li>Milestone acceptance, vesting and clawback discipline.</li>
               <li>Founder retains operational control; Pixelette takes minority protections.</li>
               <li>Honest gate reporting, including paused and failed gates.</li>
