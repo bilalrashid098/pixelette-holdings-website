@@ -25,8 +25,8 @@ const FAQS = [
     a: `No. The ${CEILING_MAX_PCT}% figure is the maximum ceiling for the earliest stage. The final economics depend on valuation, scope, risk, cash coverage and legal documentation.`,
   },
   {
-    q: `What does the ${FOUNDER_CASH_PCT}% cash cover?`,
-    a: "The founder's cash portion must cover Pixelette's delivery costs, required margin and operating risk for the agreed programme. External services and third-party costs remain with the venture unless expressly agreed otherwise.",
+    q: 'What does the cash portion cover?',
+    a: `The founder's cash portion — ${FOUNDER_CASH_PCT}% in the worked example, though the proportion is agreed venture by venture — must cover Pixelette's delivery costs, required margin and operating risk for the agreed programme. External services and third-party costs remain with the venture unless expressly agreed otherwise.`,
   },
   {
     q: 'Can I pay entirely in cash?',
@@ -84,7 +84,7 @@ export default function HseModelPage() {
         <SectionHead
           eyebrow="What HSE is"
           title="Not a cash investment. Not discounted delivery. Not a studio that takes your company."
-          lead={`Every engagement is valued at full commercial rates. For an approved HSE programme, the founder pays ${FOUNDER_CASH_PCT}% of the agreed professional fee in cash. Pixelette may convert the remaining eligible fee into capped equity that is earned through accepted delivery. Pixelette deploys no cash.`}
+          lead={`Every engagement is valued at full commercial rates. For an approved HSE programme, the founder pays an agreed portion of the professional fee in cash — ${FOUNDER_CASH_PCT}% in the worked example below — and Pixelette may convert the eligible balance into capped equity that is earned through accepted delivery. Pixelette deploys no cash.`}
         />
         <CardGrid>
           <Card title="The founder contributes">

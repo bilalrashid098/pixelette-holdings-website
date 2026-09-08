@@ -11,16 +11,30 @@
  *     product-market fit and fundraising are explicitly not guaranteed.
  */
 
+/**
+ * The worked example.
+ *
+ * The 50 / ≤50 split is ONE illustrative structure, not the universal HSE
+ * model. Section 04 of the brief introduces cash-led, balanced and equity-led
+ * structures agreed venture by venture, so any copy that reads as "the founder
+ * always funds half" is wrong and contradicts the section below it.
+ *
+ * The brief's instruction is to label the split as an example rather than
+ * delete it: "label it clearly as an example rather than the universal HSE
+ * structure unless that split is contractually fixed." Hence the wording here
+ * and ECONOMICS_EXAMPLE_NOTE, which must travel with these cards wherever they
+ * are rendered.
+ */
 export const ECONOMICS = [
   {
     figure: '50%',
     title: 'Founder funded cash',
-    body: 'The founder funds half of the agreed professional fee across approved milestone tranches.',
+    body: 'In this example the founder funds half of the agreed professional fee across approved milestone tranches. The actual proportion is agreed venture by venture.',
   },
   {
     figure: '≤50%',
     title: 'Eligible fee to equity',
-    body: 'The remaining eligible fee may convert into capped equity, subject to valuation, stage ceilings, accepted milestones and signed documentation.',
+    body: 'The agreed balance may convert into capped equity, subject to valuation, stage ceilings, accepted milestones and signed documentation.',
   },
   {
     figure: '£0',
@@ -70,6 +84,13 @@ export const FOUNDER_CASH_PCT = 50;
 
 export const CEILINGS_QUALIFIER =
   'These are ceilings, not standard prices or offers. The actual equity requires an agreed valuation or conversion mechanism, scope, risk assessment and signed legal documentation.';
+
+/**
+ * Travels with the ECONOMICS cards. Without it those figures read as the
+ * standard terms of every HSE engagement, which they are not.
+ */
+export const ECONOMICS_EXAMPLE_NOTE =
+  'The cash and equity balance depends on stage, evidence, valuation, delivery scope and capital position, and is agreed venture by venture. It is not a fixed split.';
 
 export interface Gate {
   n: string;

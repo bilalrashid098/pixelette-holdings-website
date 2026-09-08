@@ -6,7 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, CEILINGS_QUALIFIER,
-  CEILING_FIGURES, CEILING_SENTENCE,
+  CEILING_FIGURES, CEILING_SENTENCE, ECONOMICS_EXAMPLE_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, WHY_CHOOSE,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
@@ -155,7 +155,7 @@ export default function HomePage() {
         <SectionHead
           eyebrow="The HSE model"
           title="Cash funded delivery. Equity earned through execution."
-          lead="How the money works, and why you keep more of your company: you fund the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open."
+          lead="How the money works, and why you keep more of your company: you fund an agreed portion of the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open. The figures below are one worked example."
         />
         <div className="card-grid">
           {ECONOMICS.map((e) => (
@@ -167,8 +167,14 @@ export default function HomePage() {
           ))}
         </div>
         <Qualifier>
-          <strong>The {CEILING_SENTENCE} figures are maximum stage ceilings, not automatic offers.</strong>{' '}
-          {CEILINGS_QUALIFIER}
+          <p>
+            <strong>One worked example, not a standard offer.</strong>{' '}
+            {ECONOMICS_EXAMPLE_NOTE}
+          </p>
+          <p>
+            <strong>The {CEILING_SENTENCE} figures are maximum stage ceilings, not automatic offers.</strong>{' '}
+            {CEILINGS_QUALIFIER}
+          </p>
         </Qualifier>
       </Section>
 

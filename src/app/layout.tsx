@@ -4,7 +4,6 @@ import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { ScrollReveal } from '@/components/ScrollReveal';
 import { SITE } from '@/content/site';
-import { FOUNDER_CASH_PCT } from '@/content/hse';
 import './globals.css';
 
 /**
@@ -62,8 +61,12 @@ export const metadata: Metadata = {
     default: 'Pixelette Holdings | HSE Venture Partnership',
     template: '%s | Pixelette Holdings',
   },
+  // No percentage here. This description is inherited by every route that does
+  // not set its own, and a bare figure in metadata cannot carry the "worked
+  // example" qualifier that the on-page copy does — it would read as the
+  // universal HSE structure, which it is not.
   description:
-    `Pixelette Holdings validates, builds, launches and prepares selected technology ventures for enterprise growth. Founders fund ${FOUNDER_CASH_PCT}% of the agreed professional fee in cash; we earn the remainder through capped, milestone-linked equity.`,
+    'Pixelette Holdings validates, builds, launches and prepares selected technology ventures for enterprise growth. Founders fund an agreed cash portion of the professional fee; we earn the remainder through capped, milestone-linked equity.',
   applicationName: SITE.name,
   authors: [{ name: SITE.legalName }],
   openGraph: {
