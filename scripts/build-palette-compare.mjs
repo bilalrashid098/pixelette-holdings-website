@@ -421,11 +421,11 @@ function specimens(id, t, opts = {}) {
        read differently from tokens judged in context -->
   <div class="compose">
     <div class="wash">
-      <p class="eyebrow">Hybrid Sweat Equity &middot; Build it, launch it, own it</p>
-      <h1 class="h1p">Build and launch your company, without giving a studio a quarter of it.</h1>
-      <p class="lead">Venture studios can look cash-free up front, then cost you 25&ndash;90% of
-      your company. Pixelette gives you the build team, the launch, and the enterprise-readiness
-      work for a clear fee plus a capped, earned share of the upside.</p>
+      <p class="eyebrow">Pixelette Holdings &middot; Venture building &amp; equity partnerships</p>
+      <h1 class="h1p">Build and launch your company, without giving away equity for promises.</h1>
+      <p class="lead">Pixelette Holdings is the group-level venture partner behind Pixelette
+      Technologies, Pixelette Marketing and Pixelette Certified. We partner with selected founders
+      to turn ambitious ideas into investable, launch-ready companies.</p>
       <div class="btns">
         <span class="btn">Check if you qualify</span>
         <span class="btn2">Compare what you keep</span>

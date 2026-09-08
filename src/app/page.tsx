@@ -30,20 +30,26 @@ export default function HomePage() {
       <section className="hero wash-left">
         <div className="wrap hero-grid">
           <div>
-            <p className="eyebrow">Hybrid Sweat Equity · Build it, launch it, own it</p>
-            <h1 className="h1">Build and launch your company, without giving a studio a quarter of it.</h1>
+            {/* Sentence case, not the brief's all-caps. Every other eyebrow on
+                the site is sentence case by decision (commit aac7783) and
+                .eyebrow carries no text-transform, so setting this one in caps
+                would make it the only shouted line on the page. Wording is the
+                brief's; only the case follows the house rule. */}
+            <p className="eyebrow">Pixelette Holdings · Venture building &amp; equity partnerships</p>
+            <h1 className="h1">Build and launch your company, without giving away equity for promises.</h1>
             <p className="lead">
-              Venture studios can look cash-free up front, then cost you 25&ndash;90% of your company.
-              Pixelette gives you the build team, the launch, and the enterprise readiness work for a
-              clear fee plus a capped, earned share of the upside. You approve every stage, you keep
-              control, and you can buy us out at fair value.
+              Pixelette Holdings is the group-level venture partner behind Pixelette Technologies,
+              Pixelette Marketing and Pixelette Certified. We partner with selected founders to turn
+              ambitious ideas into investable, launch-ready companies by combining product
+              engineering, growth, enterprise readiness and governance through one aligned venture
+              relationship.
             </p>
             <Buttons>
-              <Btn href="/apply">Check if you qualify</Btn>
-              <Btn href="/hse-model" variant="secondary">Compare what you keep</Btn>
+              <Btn href="/hse-model" variant="secondary">See how HSE works</Btn>
+              <Btn href="/apply">Apply to build with us</Btn>
             </Buttons>
             <p className="small">
-              Selective entry. Clear fees. Capped upside. You keep control.
+              Founder-led. Milestone-based. Equity aligned to delivered execution.
             </p>
           </div>
 
