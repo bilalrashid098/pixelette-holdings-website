@@ -6,7 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
-  HSE_PROPOSITION, HSE_PROPOSITION_CLOSE,
+  HSE_PROPOSITION, HSE_PROPOSITION_CLOSE, DIAGNOSTIC, DIAGNOSTIC_NOTE,
   FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
@@ -270,6 +270,30 @@ export default function HomePage() {
           <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
           <Btn href="/apply" variant="secondary">Check if you qualify</Btn>
         </Buttons>
+      </Section>
+
+      {/* ------------------------------------------------ venture diagnostic */}
+      {/* PUBLICATION-GATED — §07. Copy is the brief's, verbatim, and asserts
+          an AI-assisted 20-minute diagnostic producing a structured brief.
+          None of that is true of /apply today: static form, no AI, no timing,
+          FORM_APPROVED false so it accepts nothing. The brief's own gate says
+          every CTA must lead to a real workflow. Hold this section until the
+          form is live. See DIAGNOSTIC in content/hse.ts. */}
+      <Section>
+        <SectionHead
+          eyebrow="First step"
+          title="20 minutes to find out whether we should build together."
+          lead="Start with an AI-assisted venture diagnostic that captures the problem, product, evidence, team, market, delivery gap and funding position. It produces a structured brief for human review by Pixelette Holdings &mdash; not an automated investment decision."
+        />
+        <ul className="list">
+          {DIAGNOSTIC.map((d) => (
+            <li key={d}>{d}</li>
+          ))}
+        </ul>
+        <Buttons>
+          <Btn href="/apply">Start the 20-minute diagnostic</Btn>
+        </Buttons>
+        <p className="small">{DIAGNOSTIC_NOTE}</p>
       </Section>
 
       {/* ---------------------------------------------- execution capability */}

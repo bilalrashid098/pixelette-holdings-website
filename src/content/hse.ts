@@ -295,6 +295,39 @@ export const GROUP_PROPOSITION = [
 export const GROUP_PROPOSITION_CLOSE = 'Holdings aligns the venture. The group executes it.';
 
 /**
+ * The venture diagnostic — section 07 of the 8 Sep 2026 copy brief.
+ *
+ * PUBLICATION-GATED. This section is built to the brief's copy, and the brief's
+ * copy describes a product that does not exist yet. Three assertions here are
+ * not currently true of the thing the CTA points at:
+ *
+ *   "AI-assisted"   /apply renders a static form. There is no AI anywhere in
+ *                   this codebase.
+ *   "20 minutes"    no timing has been measured; the form is ten questions.
+ *   "It produces a structured brief for human review"
+ *                   the form produces nothing. FORM_APPROVED is false, the
+ *                   submit button is disabled, and there is no action, no
+ *                   endpoint and no storage.
+ *
+ * The brief's own publication gate covers this: "Every CTA should lead to a
+ * real workflow: venture diagnostic, founder application or capital-partner
+ * enquiry." Until the form accepts a submission — which needs a data
+ * controller, lawful basis, retention period and CRM destination — this section
+ * must not go live. Do not treat a passing build as clearance.
+ */
+export const DIAGNOSTIC = [
+  'Problem and customer pain.',
+  'Product and technical ambition.',
+  'Evidence, traction and market route.',
+  'Founder and team readiness.',
+  'Delivery and capability gaps.',
+  'Potential HSE fit and next step.',
+] as const;
+
+export const DIAGNOSTIC_NOTE =
+  'No obligation. No equity commitment. Human review before any proposal.';
+
+/**
  * Execution capability — section 08.
  *
  * Deliberately carries NO company names. The brief: "This section should show
