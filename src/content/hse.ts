@@ -94,6 +94,42 @@ export const STRUCTURES_QUALIFIER =
   'Which structure is available depends on stage, evidence, valuation, delivery scope and capital position, and is decided by assessment rather than by preference. The actual equity requires an agreed valuation or conversion mechanism, scope, risk assessment and signed legal documentation.';
 
 /**
+ * Relationship economics, per section 06 of the brief.
+ *
+ * Comparative claims about third parties are the highest-risk copy on the
+ * page, so the hedging here is deliberate and must survive editing. The
+ * brief's instruction: "Do not use sweeping statements such as 'studios take
+ * 25%' as a universal market fact. Use 'typical', 'may' or specific sourced
+ * examples when making comparative claims."
+ *
+ * This replaced a table asserting that a typical venture studio takes
+ * "25-90% of your company" — a market-wide claim about other people's
+ * commercial terms, stated without a source. Note the surviving verbs:
+ * "typical", "may combine", "varies". Do not sharpen them.
+ */
+export const RELATIONSHIP_ECONOMICS = [
+  {
+    name: 'Pixelette HSE',
+    body: 'Cash plus milestone-earned equity; integrated execution; upside aligned to delivery; founder-led venture governance.',
+  },
+  {
+    name: 'Typical agency',
+    body: 'Cash fees for a defined scope; execution ends at the contracted service boundary; no shared venture upside.',
+  },
+  {
+    name: 'Traditional venture studio',
+    body: 'May combine capital and central services with meaningful equity participation; structures and control rights vary widely.',
+  },
+  {
+    name: 'VC / angel capital',
+    body: 'Capital for equity; operational support varies; the founder still carries responsibility for assembling and leading execution.',
+  },
+] as const;
+
+export const RELATIONSHIP_ECONOMICS_NOTE =
+  'Comparisons are illustrative. Actual third-party terms vary and should be assessed on their own merits.';
+
+/**
  * Travels with the ECONOMICS cards. Without it those figures read as the
  * standard terms of every HSE engagement, which they are not.
  */

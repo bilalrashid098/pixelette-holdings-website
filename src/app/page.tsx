@@ -6,7 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, STRUCTURES_QUALIFIER,
-  ECONOMICS_EXAMPLE_NOTE,
+  ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
   PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, WHY_CHOOSE,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
@@ -73,48 +73,22 @@ export default function HomePage() {
         <p className="small" style={{ marginTop: 20 }}>{PROOF_TIMELINE_NOTE}</p>
       </Section>
 
-      {/* ------------------------------------------- why not a free studio */}
+      {/* --------------------------------------------- relationship economics */}
       <Section>
         <SectionHead
-          eyebrow="The real cost of &ldquo;free&rdquo;"
-          title="&ldquo;Free&rdquo; build can be the most expensive capital you ever take."
-          lead="A studio that fronts the build for no cash is paid in ownership of your company, typically a quarter to the majority of it, and often the control that comes with it. With Pixelette you pay for the work, share a capped and earned slice of the upside, and stay the owner."
+          eyebrow="Economics"
+          title="Every relationship should be clear about what it costs &mdash; and what you get."
+          lead="HSE should be compared on total economics, not just cash price or headline equity. What matters is what the equity is granted for, when it is earned, what execution is included and how much founder control remains."
         />
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">What you give up</th>
-              <th scope="col">A typical venture studio</th>
-              <th scope="col">Pixelette HSE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Equity taken</td>
-              <td>25&ndash;90% of your company</td>
-              <td>A ceiling agreed before work begins, earned against delivery, never automatic</td>
-            </tr>
-            <tr>
-              <td>Control</td>
-              <td>Often negotiated away</td>
-              <td>You keep operating control</td>
-            </tr>
-            <tr>
-              <td>Getting them out</td>
-              <td>Rarely, locked in as major owners</td>
-              <td>Full-cash route, or buy the earned stake back at fair value</td>
-            </tr>
-            <tr>
-              <td>Cash up front</td>
-              <td>Little or none</td>
-              <td>A clear fee that covers the work, across milestones</td>
-            </tr>
-          </tbody>
-        </table>
+        <CardGrid>
+          {RELATIONSHIP_ECONOMICS.map((r) => (
+            <Card key={r.name} title={r.name}>{r.body}</Card>
+          ))}
+        </CardGrid>
         <Qualifier>
-          <strong>A comparison of models, not a specific offer.</strong> Figures describe common
-          venture studio structures; Pixelette&rsquo;s equity ceiling is a maximum agreed in advance,
-          not a price. Final terms require valuation, scope and signed documentation.
+          <strong>A comparison of models, not a specific offer.</strong>{' '}
+          {RELATIONSHIP_ECONOMICS_NOTE} Pixelette&rsquo;s equity ceiling is a maximum agreed in
+          advance, not a price. Final terms require valuation, scope and signed documentation.
         </Qualifier>
       </Section>
 

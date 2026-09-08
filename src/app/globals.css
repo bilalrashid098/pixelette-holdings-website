@@ -530,6 +530,14 @@ button { cursor: pointer; }
 
 .field-error { display: block; margin-top: 6px; font-size: .875rem; color: var(--color-danger); }
 
+/* ORPHANED as of the section 06 rewrite. The comparison table was the site's
+   only table; section 06 replaced it with four comparator cards, so nothing
+   renders .table any more. Kept because a marketing site will want a table
+   again, but note two things before reusing it: there is no responsive rule
+   here and no .band-closing override, so it is light-ground only and will
+   overflow .wrap below roughly 900px past three columns. Wrap it in an
+   overflow-x container rather than adding a second media query — see the ONE
+   MEDIA QUERY note further down. */
 .table { width: 100%; border-collapse: collapse; }
 .table th {
   font-family: var(--font-mono); font-size: 11px; font-weight: 500;
