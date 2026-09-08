@@ -311,25 +311,55 @@ export function Card({ title, children }: { title: string; children: ReactNode }
 
 /* ------------------------------------------------------------------- CTA  */
 
+/**
+ * The closing conversion block — section 15 of the 8 Sep 2026 copy brief.
+ *
+ * The brief keeps the existing headline ("Retain the existing closing headline
+ * if already used") and rewrites the lead, the CTAs and the note.
+ *
+ * `capitalRoute` adds the second audience the brief asks for: "If you are an
+ * investor, family office or strategic partner, speak to Holdings about capital
+ * partnerships." It defaults to FALSE and is enabled only on the homepage,
+ * because this component renders on five other routes and the destination
+ * (/partners/capital) is noindexed and held for counsel under s.21 FSMA.
+ * Turning it on everywhere would promote that page from the foot of every
+ * portfolio route.
+ *
+ * The capital sentence and the capital button move together. A lead that
+ * invites investors to speak to Holdings, above a block with no route for them,
+ * would be worse than not making the offer.
+ */
 export function ConversionClose({
   title = 'Could we build this company together?',
-  lead = 'Complete a short HSE Fit Assessment to provide the venture, founder, execution-scope and available-capital information needed for qualification.',
+  lead = 'If you have a real problem, a committed founding team and the ambition to build something that can scale, start with the venture diagnostic.',
+  capitalRoute = false,
 }: {
   title?: string;
   lead?: string;
+  capitalRoute?: boolean;
 }) {
   return (
     <Section surface="deep">
-      <SectionHead eyebrow="Next step" title={title} lead={lead} />
+      <SectionHead
+        eyebrow="Next step"
+        title={title}
+        lead={
+          capitalRoute
+            ? `${lead} If you are an investor, family office or strategic partner, speak to Holdings about capital partnerships.`
+            : lead
+        }
+      />
       <Buttons>
-        <Btn href="/apply">Check if you qualify</Btn>
-        <Btn href="/hse-model" variant="secondary">
-          Explore the HSE model
-        </Btn>
+        <Btn href="/apply">Start venture diagnostic</Btn>
+        {capitalRoute ? (
+          <Btn href="/partners/capital" variant="secondary">
+            Talk to Pixelette Holdings
+          </Btn>
+        ) : null}
       </Buttons>
       <p className="small">
-        Short first stage assessment. No pitch-deck upload. No automatic acceptance. The form does not
-        request payment.
+        Selected opportunities only. Every HSE or investment relationship is subject to review, agreed
+        terms and formal documentation.
       </p>
     </Section>
   );
