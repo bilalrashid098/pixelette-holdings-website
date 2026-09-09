@@ -6,6 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import {
   ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
+  STRUCTURES,
   HSE_PROPOSITION, HSE_PROPOSITION_CLOSE, DIAGNOSTIC, DIAGNOSTIC_NOTE,
   CAPITAL_PARTNERS, CAPITAL_PARTNERS_NOTE,
   FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
@@ -108,61 +109,10 @@ export default function HomePage() {
         <p className="small">{GROUP_PROPOSITION_CLOSE}</p>
       </Section>
 
-      {/* --------------------------------------------- relationship economics */}
-      <Section>
-        <SectionHead
-          eyebrow="Economics"
-          title="Every relationship should be clear about what it costs &mdash; and what you get."
-          lead="HSE should be compared on total economics, not just cash price or headline equity. What matters is what the equity is granted for, when it is earned, what execution is included and how much founder control remains."
-        />
-        <CardGrid>
-          {RELATIONSHIP_ECONOMICS.map((r) => (
-            <Card key={r.name} title={r.name}>{r.body}</Card>
-          ))}
-        </CardGrid>
-        <Qualifier>
-          <strong>A comparison of models, not a specific offer.</strong>{' '}
-          {RELATIONSHIP_ECONOMICS_NOTE} Pixelette&rsquo;s equity ceiling is a maximum agreed in
-          advance, not a price. Final terms require valuation, scope and signed documentation.
-        </Qualifier>
-      </Section>
-
-      {/* ----------------------------------------------------- proof rail */}
-      <Section surface="ice" tight>
-        <CardGrid>
-          <article className="card">
-            <RelationshipTag relationship={twoConnect.relationship} flagship />
-            <h3 className="h3">{twoConnect.name}</h3>
-            <p className="body">{twoConnect.oneLine}</p>
-            <p><Link className="link flink" href="/portfolio/2connect">Explore 2Connect ↗</Link></p>
-          </article>
-
-          <article className="card">
-            <RelationshipTag relationship={bic.relationship} />
-            <h3 className="h3">{bic.name}</h3>
-            <p className="body">{bic.oneLine}</p>
-          </article>
-
-          <article className="card">
-            <RelationshipTag relationship={dav.relationship} />
-            <h3 className="h3">{dav.name}</h3>
-            <p className="body">{dav.oneLine}</p>
-          </article>
-
-          <Card title="Four integrated capabilities">
-            <p>
-              Product delivery, go-to-market systems, compliance readiness and portfolio governance
-              brought into one operating model.
-            </p>
-            <p><Link className="link flink" href="/capabilities">Explore capabilities ↗</Link></p>
-          </Card>
-        </CardGrid>
-      </Section>
-
       {/* ------------------------------------------------ HSE proposition */}
       {/* Must stay ahead of the worked example below it. The brief puts the
           plain-English idea before any percentage, valuation or mechanism. */}
-      <Section>
+      <Section surface="ice">
         <SectionHead
           eyebrow="Hybrid Sweat Equity"
           title="Capital should not force you to choose between dilution and delivery."
@@ -174,6 +124,23 @@ export default function HomePage() {
           ))}
         </ul>
         <p className="small">{HSE_PROPOSITION_CLOSE}</p>
+      </Section>
+
+      {/* ------------------------------------------------- HSE structures */}
+      <Section>
+        <SectionHead
+          eyebrow="Structure"
+          title="Choose the balance that fits the venture."
+          lead="The right cash/equity mix depends on stage, evidence, valuation, delivery scope and capital position. Every structure is agreed venture by venture."
+        />
+        <CardGrid>
+          {STRUCTURES.map((s) => (
+            <Card key={s.name} title={s.name}>{s.body}</Card>
+          ))}
+        </CardGrid>
+        <Qualifier>
+          <strong>Subject to eligibility and agreed terms.</strong> {STRUCTURES_QUALIFIER}
+        </Qualifier>
       </Section>
 
       {/* ------------------------------------------------------ economics */}
@@ -229,6 +196,145 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* --------------------------------------------- relationship economics */}
+      <Section>
+        <SectionHead
+          eyebrow="Economics"
+          title="Every relationship should be clear about what it costs &mdash; and what you get."
+          lead="HSE should be compared on total economics, not just cash price or headline equity. What matters is what the equity is granted for, when it is earned, what execution is included and how much founder control remains."
+        />
+        <CardGrid>
+          {RELATIONSHIP_ECONOMICS.map((r) => (
+            <Card key={r.name} title={r.name}>{r.body}</Card>
+          ))}
+        </CardGrid>
+        <Qualifier>
+          <strong>A comparison of models, not a specific offer.</strong>{' '}
+          {RELATIONSHIP_ECONOMICS_NOTE} Pixelette&rsquo;s equity ceiling is a maximum agreed in
+          advance, not a price. Final terms require valuation, scope and signed documentation.
+        </Qualifier>
+      </Section>
+
+      {/* ------------------------------------------------ venture diagnostic */}
+      {/* PUBLICATION-GATED — §07. Copy is the brief's, verbatim, and asserts
+          an AI-assisted 20-minute diagnostic producing a structured brief.
+          None of that is true of /apply today: static form, no AI, no timing,
+          FORM_APPROVED false so it accepts nothing. The brief's own gate says
+          every CTA must lead to a real workflow. Hold this section until the
+          form is live. See DIAGNOSTIC in content/hse.ts. */}
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="First step"
+          title="20 minutes to find out whether we should build together."
+          lead="Start with an AI-assisted venture diagnostic that captures the problem, product, evidence, team, market, delivery gap and funding position. It produces a structured brief for human review by Pixelette Holdings &mdash; not an automated investment decision."
+        />
+        <ul className="list">
+          {DIAGNOSTIC.map((d) => (
+            <li key={d}>{d}</li>
+          ))}
+        </ul>
+        <Buttons>
+          <Btn href="/apply">Start the 20-minute diagnostic</Btn>
+        </Buttons>
+        <p className="small">{DIAGNOSTIC_NOTE}</p>
+      </Section>
+
+      {/* ---------------------------------------------- execution capability */}
+      <Section>
+        <SectionHead
+          eyebrow="Execution"
+          title="We do not just ship software. We build the company around the product."
+          lead="Technology is only one part of getting a venture into the market. The Holdings model connects product, commercial growth, enterprise readiness and venture governance so the company can move forward as one operating plan."
+        />
+        <CardGrid>
+          {EXECUTION.map((e) => (
+            <Card key={e.title} title={e.title}>{e.body}</Card>
+          ))}
+        </CardGrid>
+      </Section>
+
+      {/* ------------------------------------------------- operating model */}
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="Operating model"
+          title="Execution is the product, not advice."
+          lead="Founders do not need another deck, mentor network or strategy workshop. They need accountable specialists moving defined outcomes forward. Our model is built around delivery that can be evidenced, accepted and linked to venture milestones."
+        />
+        <ul className="list">
+          {OPERATING_MODEL.map((m) => (
+            <li key={m}>{m}</li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* ------------------------------------------- institutional standing */}
+      <Section>
+        <SectionHead
+          eyebrow="Network and reach"
+          title="Built inside a wider innovation ecosystem."
+          lead="Pixelette Holdings engages across technology, industry, academic and innovation-policy networks. For selected portfolio companies, that can create useful routes to expertise, strategic introductions and market insight while every commercial, investment and governance decision remains independently made."
+        />
+        <ul className="list">
+          {ECOSYSTEM.map((e) => (
+            <li key={e}>{e}</li>
+          ))}
+        </ul>
+        <p className="small">{ECOSYSTEM_NOTE}</p>
+      </Section>
+
+      {/* --------------------------------------------------- credentials */}
+      <Section surface="ice" tight>
+        <p className="eyebrow cred-eyebrow">Verified credentials</p>
+        <Credentials />
+      </Section>
+
+      {/* ------------------------------------------------------- charter */}
+      <Section>
+        <SectionHead
+          eyebrow="Alignment"
+          title="You keep control. We earn our position."
+          lead="HSE is designed to align founder ownership with delivered value. Equity, governance and decision rights are documented in advance and linked to the agreed venture structure."
+        />
+        <ul className="list">
+          {FOUNDER_CONTROL.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+        <Qualifier>{FOUNDER_CONTROL_NOTE}</Qualifier>
+      </Section>
+
+      {/* ----------------------------------------------------- proof rail */}
+      <Section surface="ice" tight>
+        <CardGrid>
+          <article className="card">
+            <RelationshipTag relationship={twoConnect.relationship} flagship />
+            <h3 className="h3">{twoConnect.name}</h3>
+            <p className="body">{twoConnect.oneLine}</p>
+            <p><Link className="link flink" href="/portfolio/2connect">Explore 2Connect ↗</Link></p>
+          </article>
+
+          <article className="card">
+            <RelationshipTag relationship={bic.relationship} />
+            <h3 className="h3">{bic.name}</h3>
+            <p className="body">{bic.oneLine}</p>
+          </article>
+
+          <article className="card">
+            <RelationshipTag relationship={dav.relationship} />
+            <h3 className="h3">{dav.name}</h3>
+            <p className="body">{dav.oneLine}</p>
+          </article>
+
+          <Card title="Four integrated capabilities">
+            <p>
+              Product delivery, go-to-market systems, compliance readiness and portfolio governance
+              brought into one operating model.
+            </p>
+            <p><Link className="link flink" href="/capabilities">Explore capabilities ↗</Link></p>
+          </Card>
+        </CardGrid>
+      </Section>
+
       {/* ----------------------------------------------------- portfolio */}
       <Section>
         <SectionHead
@@ -271,94 +377,6 @@ export default function HomePage() {
           <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
           <Btn href="/apply" variant="secondary">Check if you qualify</Btn>
         </Buttons>
-      </Section>
-
-      {/* ------------------------------------------------ venture diagnostic */}
-      {/* PUBLICATION-GATED — §07. Copy is the brief's, verbatim, and asserts
-          an AI-assisted 20-minute diagnostic producing a structured brief.
-          None of that is true of /apply today: static form, no AI, no timing,
-          FORM_APPROVED false so it accepts nothing. The brief's own gate says
-          every CTA must lead to a real workflow. Hold this section until the
-          form is live. See DIAGNOSTIC in content/hse.ts. */}
-      <Section>
-        <SectionHead
-          eyebrow="First step"
-          title="20 minutes to find out whether we should build together."
-          lead="Start with an AI-assisted venture diagnostic that captures the problem, product, evidence, team, market, delivery gap and funding position. It produces a structured brief for human review by Pixelette Holdings &mdash; not an automated investment decision."
-        />
-        <ul className="list">
-          {DIAGNOSTIC.map((d) => (
-            <li key={d}>{d}</li>
-          ))}
-        </ul>
-        <Buttons>
-          <Btn href="/apply">Start the 20-minute diagnostic</Btn>
-        </Buttons>
-        <p className="small">{DIAGNOSTIC_NOTE}</p>
-      </Section>
-
-      {/* ---------------------------------------------- execution capability */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Execution"
-          title="We do not just ship software. We build the company around the product."
-          lead="Technology is only one part of getting a venture into the market. The Holdings model connects product, commercial growth, enterprise readiness and venture governance so the company can move forward as one operating plan."
-        />
-        <CardGrid>
-          {EXECUTION.map((e) => (
-            <Card key={e.title} title={e.title}>{e.body}</Card>
-          ))}
-        </CardGrid>
-      </Section>
-
-      {/* ------------------------------------------------- operating model */}
-      <Section>
-        <SectionHead
-          eyebrow="Operating model"
-          title="Execution is the product, not advice."
-          lead="Founders do not need another deck, mentor network or strategy workshop. They need accountable specialists moving defined outcomes forward. Our model is built around delivery that can be evidenced, accepted and linked to venture milestones."
-        />
-        <ul className="list">
-          {OPERATING_MODEL.map((m) => (
-            <li key={m}>{m}</li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* ------------------------------------------- institutional standing */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Network and reach"
-          title="Built inside a wider innovation ecosystem."
-          lead="Pixelette Holdings engages across technology, industry, academic and innovation-policy networks. For selected portfolio companies, that can create useful routes to expertise, strategic introductions and market insight while every commercial, investment and governance decision remains independently made."
-        />
-        <ul className="list">
-          {ECOSYSTEM.map((e) => (
-            <li key={e}>{e}</li>
-          ))}
-        </ul>
-        <p className="small">{ECOSYSTEM_NOTE}</p>
-      </Section>
-
-      {/* --------------------------------------------------- credentials */}
-      <Section surface="ice" tight>
-        <p className="eyebrow cred-eyebrow">Verified credentials</p>
-        <Credentials />
-      </Section>
-
-      {/* ------------------------------------------------------- charter */}
-      <Section>
-        <SectionHead
-          eyebrow="Alignment"
-          title="You keep control. We earn our position."
-          lead="HSE is designed to align founder ownership with delivered value. Equity, governance and decision rights are documented in advance and linked to the agreed venture structure."
-        />
-        <ul className="list">
-          {FOUNDER_CONTROL.map((c) => (
-            <li key={c}>{c}</li>
-          ))}
-        </ul>
-        <Qualifier>{FOUNDER_CONTROL_NOTE}</Qualifier>
       </Section>
 
       {/* --------------------------------------------------- testimonials */}
@@ -430,3 +448,4 @@ export default function HomePage() {
     </>
   );
 }
+
