@@ -15,6 +15,16 @@ export interface Testimonial {
   /** Self-hosted portrait. Rendered when the file exists; falls back to a
    *  monogram if it is missing. Files are fetched by download-assets.ps1. */
   avatar?: string;
+  /**
+   * Selected for the homepage. Section 12 of the 8 Sep 2026 copy brief asks for
+   * "the three strongest, most specific testimonials on the homepage. Each
+   * should explain an outcome, not simply praise the relationship."
+   *
+   * Marked here rather than sliced at the call site so that WHICH three were
+   * chosen is visible in the diff and can be argued with. The four that are not
+   * marked are not deleted — they render on /portfolio.
+   */
+  homepage?: true;
 }
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -41,6 +51,8 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'diverSCInnova',
     avatar: '/media/testimonials/emmanuelle-fernandes.png',
+    // Names the product and the outcome: an AI B2B tool, shortened time to market.
+    homepage: true,
   },
   {
     quote:
@@ -49,6 +61,8 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Co-founder',
     company: 'Fusio',
     avatar: '/media/testimonials/anthony-zirrolli.png',
+    // The only quantified outcome in the set: "cut development costs by half".
+    homepage: true,
   },
   {
     quote:
@@ -73,5 +87,18 @@ export const TESTIMONIALS: Testimonial[] = [
     role: 'Founder',
     company: 'QE Channel',
     avatar: '/media/testimonials/brenda-gilbert.png',
+    // "Most venture partners give advice. Pixelette gave us a full execution
+    // layer." Says in a founder's words what section 09 claims in ours.
+    homepage: true,
   },
 ];
+
+/**
+ * The three the homepage leads with, and the four it links to.
+ *
+ * Derived from the `homepage` flag rather than being two hand-maintained lists,
+ * so a quote cannot end up in both or in neither. Nothing is deleted: all seven
+ * remain published, and the split only decides where each one appears.
+ */
+export const HOMEPAGE_TESTIMONIALS = TESTIMONIALS.filter((t) => t.homepage);
+export const FURTHER_TESTIMONIALS = TESTIMONIALS.filter((t) => !t.homepage);

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Section, SectionHead, PageHero, Qualifier } from '@/components/ui';
+import { Section, SectionHead, PageHero, FinancialPromotionNotice } from '@/components/ui';
 import { GatedForm, type Field } from '@/components/GatedForm';
 import { CONTACT } from '@/content/site';
 
@@ -37,16 +37,7 @@ export default function CapitalQualificationPage() {
       />
 
       <Section>
-        <Qualifier>
-          <p>
-            <strong>
-              This website is provided for information only and is not an offer, invitation or
-              inducement to invest.
-            </strong>{' '}
-            Any opportunity is available only to professional, high-net-worth or self-certified
-            sophisticated investors, subject to eligibility verification and formal documentation.
-          </p>
-        </Qualifier>
+        <FinancialPromotionNotice eligibility="any" />
 
         <SectionHead eyebrow="The request" title="Tell us who you are and why." />
 

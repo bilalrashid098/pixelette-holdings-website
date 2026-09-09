@@ -104,39 +104,38 @@ export const GROUP_COMPANIES = [
 export interface NavItem {
   label: string;
   href: string;
-  children?: { label: string; href: string }[];
 }
 
+/**
+ * Primary navigation — the 8 Sep 2026 copy brief.
+ *
+ * The brief's nav is: Home | HSE | How It Works | Portfolio / Proof |
+ * Capital Partners | The Group | About | Start.
+ *
+ *   Home   is the wordmark (SiteHeader), not a nav item.
+ *   Start  is the header CTA button, not a nav item.
+ *   Capital Partners is added with the rest of the capital surface, which is
+ *          held for counsel under s.21 FSMA. Until then it stays footer-only.
+ *
+ * Labels are relabels, not new routes: "How It Works" is the five-gate section
+ * on /hse-model (vercel.json already 301s /how-it-works there), and "The Group"
+ * is /capabilities.
+ *
+ * NOTE: SiteHeader renders top-level items only. There is no dropdown and no
+ * `dropdown` rule in globals.css, so the sub-item arrays that used to sit here
+ * were never displayed. They have been removed rather than carried forward as
+ * dead data; those routes remain reachable from FOOTER_NAV.
+ */
 export const PRIMARY_NAV: NavItem[] = [
-  { label: 'HSE Model', href: '/hse-model' },
-  {
-    label: 'Portfolio',
-    href: '/portfolio',
-    children: [
-      { label: 'Equity Investments', href: '/portfolio/investments' },
-      { label: 'Direct HSE Ventures', href: '/portfolio/hse-ventures' },
-      { label: 'Delivered Ventures', href: '/portfolio/delivered-ventures' },
-      { label: '2Connect case study', href: '/portfolio/2connect' },
-    ],
-  },
-  { label: 'Capabilities', href: '/capabilities' },
-  {
-    label: 'Partners',
-    href: '/partners/accelerators',
-    children: [
-      { label: 'Incubators & Accelerators', href: '/partners/accelerators' },
-      { label: 'Capital Partners', href: '/partners/capital' },
-    ],
-  },
-  { label: 'Insights', href: '/insights' },
-  {
-    label: 'About',
-    href: '/about',
-    children: [
-      { label: 'About Pixelette', href: '/about' },
-      { label: 'Social Impact', href: '/social-impact' },
-    ],
-  },
+  { label: 'HSE', href: '/hse-model' },
+  { label: 'How It Works', href: '/hse-model#how-it-works' },
+  { label: 'Portfolio / Proof', href: '/portfolio' },
+  // PUBLICATION-GATED, COUNSEL. Ships with the §13 homepage section and the
+  // closing capital CTA; see that section's comment. /partners/capital stays
+  // noindexed — this promotes the route in navigation, nothing else.
+  { label: 'Capital Partners', href: '/partners/capital' },
+  { label: 'The Group', href: '/capabilities' },
+  { label: 'About', href: '/about' },
 ];
 
 export const FOOTER_NAV = [
@@ -206,8 +205,39 @@ export const NOINDEX_ROUTES = [
  * HELD FOR COUNSEL. Load-bearing for the s.21 FSMA position — it must appear
  * in the footer of every page and be approved before publication.
  */
+const DISCLAIMER_HEADLINE =
+  'This website is provided for information only and is not an offer, invitation or inducement to invest.';
+
+/**
+ * ELIGIBILITY WORDING IS NOT YET SINGLE-SOURCED — deliberately.
+ *
+ * Two variants are live and they differ in scope:
+ *
+ *   investment  "Any INVESTMENT opportunity is available only to…"  (footer, /disclaimer)
+ *   any         "Any opportunity is available only to…"             (the three capital routes)
+ *
+ * The second is broader. Collapsing the capital routes onto the first would
+ * NARROW the wording on precisely the pages most exposed under s.21 FSMA, and
+ * that is a decision for counsel, not for a refactor. Both are reproduced here
+ * verbatim so the choice is visible in one place and can be resolved with a
+ * single edit once counsel rules. See the handover note.
+ */
+const DISCLAIMER_ELIGIBILITY = {
+  investment:
+    'Any investment opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation.',
+  any: 'Any opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation.',
+} as const;
+
+const DISCLAIMER_NO_ADVICE =
+  'Nothing on this website constitutes investment, legal, tax or financial advice.';
+
 export const DISCLAIMER = {
-  short:
-    'This website is provided for information only and is not an offer, invitation or inducement to invest. Any investment opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation. Nothing on this website constitutes investment, legal, tax or financial advice.',
+  headline: DISCLAIMER_HEADLINE,
+  eligibility: DISCLAIMER_ELIGIBILITY,
+  noAdvice: DISCLAIMER_NO_ADVICE,
+  /** The FCA / s.21 explanation. Shown on the capital routes, not in the footer. */
+  s21: 'The FCA treats websites and online materials as capable of constituting financial promotions; section 21 of the Financial Services and Markets Act 2000 restricts unauthorised invitations or inducements to engage in investment activity.',
+  /** The footer line. Output is byte-identical to the previous hand-written string. */
+  short: `${DISCLAIMER_HEADLINE} ${DISCLAIMER_ELIGIBILITY.investment} ${DISCLAIMER_NO_ADVICE}`,
   gate: 'HELD FOR COUNSEL — this wording must be approved before the site is published.',
 } as const;

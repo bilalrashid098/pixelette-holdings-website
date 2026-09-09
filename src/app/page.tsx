@@ -5,11 +5,16 @@ import {
 } from '@/components/ui';
 import { Testimonials } from '@/components/Testimonials';
 import {
-  ECONOMICS, GATES, CAPABILITIES, FOUNDER_CHARTER, CEILINGS_QUALIFIER,
-  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, INSTITUTIONAL, WHY_CHOOSE,
+  ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
+  STRUCTURES,
+  HSE_PROPOSITION, HSE_PROPOSITION_CLOSE, DIAGNOSTIC, DIAGNOSTIC_NOTE,
+  CAPITAL_PARTNERS, CAPITAL_PARTNERS_NOTE,
+  FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
+  ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
+  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
-import { TESTIMONIALS } from '@/content/testimonials';
+import { HOMEPAGE_TESTIMONIALS } from '@/content/testimonials';
 import { CapabilityBrand } from '@/components/CapabilityBrand';
 import { Credentials } from '@/components/Credentials';
 import { Orbit } from '@/components/Orbit';
@@ -29,20 +34,26 @@ export default function HomePage() {
       <section className="hero wash-left">
         <div className="wrap hero-grid">
           <div>
-            <p className="eyebrow">Hybrid Sweat Equity · Build it, launch it, own it</p>
-            <h1 className="h1">Build and launch your company, without giving a studio a quarter of it.</h1>
+            {/* Sentence case, not the brief's all-caps. Every other eyebrow on
+                the site is sentence case by decision (commit aac7783) and
+                .eyebrow carries no text-transform, so setting this one in caps
+                would make it the only shouted line on the page. Wording is the
+                brief's; only the case follows the house rule. */}
+            <p className="eyebrow">Pixelette Holdings · Venture building &amp; equity partnerships</p>
+            <h1 className="h1">Build and launch your company, without giving away equity for promises.</h1>
             <p className="lead">
-              Venture studios can look cash-free up front, then cost you 25&ndash;90% of your company.
-              Pixelette gives you the build team, the launch, and the enterprise readiness work for a
-              clear fee plus a capped, earned share of the upside. You approve every stage, you keep
-              control, and you can buy us out at fair value.
+              Pixelette Holdings is the group-level venture partner behind Pixelette Technologies,
+              Pixelette Marketing and Pixelette Certified. We partner with selected founders to turn
+              ambitious ideas into investable, launch-ready companies by combining product
+              engineering, growth, enterprise readiness and governance through one aligned venture
+              relationship.
             </p>
             <Buttons>
-              <Btn href="/apply">Check if you qualify</Btn>
-              <Btn href="/hse-model" variant="secondary">Compare what you keep</Btn>
+              <Btn href="/hse-model" variant="secondary">See how HSE works</Btn>
+              <Btn href="/apply">Apply to build with us</Btn>
             </Buttons>
             <p className="small">
-              Selective entry. Clear fees. Capped upside. You keep control.
+              Founder-led. Milestone-based. Equity aligned to delivered execution.
             </p>
           </div>
 
@@ -66,49 +77,230 @@ export default function HomePage() {
         <p className="small" style={{ marginTop: 20 }}>{PROOF_TIMELINE_NOTE}</p>
       </Section>
 
-      {/* ------------------------------------------- why not a free studio */}
+      {/* ------------------------------------------- why Holdings exists */}
+      {/* Position 2, immediately after the hero and trust strip, per the brief:
+          a visitor should learn what Holdings IS before anything else is sold
+          to them. This is the group-company block moved up from position 9. */}
       <Section>
         <SectionHead
-          eyebrow="The real cost of &ldquo;free&rdquo;"
-          title="&ldquo;Free&rdquo; build can be the most expensive capital you ever take."
-          lead="A studio that fronts the build for no cash is paid in ownership of your company, typically a quarter to the majority of it, and often the control that comes with it. With Pixelette you pay for the work, share a capped and earned slice of the upside, and stay the owner."
+          eyebrow="Why Holdings"
+          title="One venture partner. Three specialist execution companies."
+          lead="Holdings is where the venture relationship, equity alignment and group-level governance sit. When a company needs to be built, launched and made enterprise-ready, Holdings can coordinate the specialist Pixelette businesses behind one plan instead of leaving founders to assemble and manage multiple suppliers."
         />
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">What you give up</th>
-              <th scope="col">A typical venture studio</th>
-              <th scope="col">Pixelette HSE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Equity taken</td>
-              <td>25&ndash;90% of your company</td>
-              <td>Capped at 12/20/30% by stage, a ceiling, never automatic</td>
-            </tr>
-            <tr>
-              <td>Control</td>
-              <td>Often negotiated away</td>
-              <td>You keep operating control</td>
-            </tr>
-            <tr>
-              <td>Getting them out</td>
-              <td>Rarely, locked in as major owners</td>
-              <td>Full-cash route, or buy the earned stake back at fair value</td>
-            </tr>
-            <tr>
-              <td>Cash up front</td>
-              <td>Little or none</td>
-              <td>A clear fee that covers the work, across milestones</td>
-            </tr>
-          </tbody>
-        </table>
+        <CardGrid>
+          {GROUP_PROPOSITION.map((g) => (
+            <article key={g.key} className="card">
+              {/* g.key, never g.verb — the mark lookup is keyed on the canonical
+                  capability name and misses silently on anything else. */}
+              <CapabilityBrand name={g.key} />
+              <p className="eyebrow">{g.verb}</p>
+              <h3 className="h3">{g.company}</h3>
+              <p className="body">{g.body}</p>
+              {g.url.startsWith('http') ? (
+                <p>
+                  <a className="link flink" href={g.url} target="_blank" rel="noopener noreferrer">
+                    Visit {g.company} ↗
+                  </a>
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </CardGrid>
+        <p className="small">{GROUP_PROPOSITION_CLOSE}</p>
+      </Section>
+
+      {/* ------------------------------------------------ HSE proposition */}
+      {/* Must stay ahead of the worked example below it. The brief puts the
+          plain-English idea before any percentage, valuation or mechanism. */}
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="Hybrid Sweat Equity"
+          title="Capital should not force you to choose between dilution and delivery."
+          lead="Founders are often pushed into an ugly trade-off: pay the full cost of serious product and growth capability in cash, or give away meaningful equity before enough value has been created. Hybrid Sweat Equity creates a third route."
+        />
+        <ul className="list">
+          {HSE_PROPOSITION.map((p) => (
+            <li key={p}>{p}</li>
+          ))}
+        </ul>
+        <p className="small">{HSE_PROPOSITION_CLOSE}</p>
+      </Section>
+
+      {/* ------------------------------------------------- HSE structures */}
+      <Section>
+        <SectionHead
+          eyebrow="Structure"
+          title="Choose the balance that fits the venture."
+          lead="The right cash/equity mix depends on stage, evidence, valuation, delivery scope and capital position. Every structure is agreed venture by venture."
+        />
+        <CardGrid>
+          {STRUCTURES.map((s) => (
+            <Card key={s.name} title={s.name}>{s.body}</Card>
+          ))}
+        </CardGrid>
         <Qualifier>
-          <strong>A comparison of models, not a specific offer.</strong> Figures describe common
-          venture studio structures; Pixelette&rsquo;s stage ceilings are maxima, not prices. Final
-          terms require valuation, scope and signed documentation.
+          <strong>Subject to eligibility and agreed terms.</strong> {STRUCTURES_QUALIFIER}
         </Qualifier>
+      </Section>
+
+      {/* ------------------------------------------------------ economics */}
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="The HSE model"
+          title="Cash funded delivery. Equity earned through execution."
+          lead="How the money works, and why you keep more of your company: you fund an agreed portion of the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open. The figures below are one worked example."
+        />
+        <div className="card-grid">
+          {ECONOMICS.map((e) => (
+            <article key={e.title} className="card">
+              <p className="stat">{e.figure}</p>
+              <h3 className="h3">{e.title}</h3>
+              <p className="body">{e.body}</p>
+            </article>
+          ))}
+        </div>
+        <Qualifier>
+          <p>
+            <strong>One worked example, not a standard offer.</strong>{' '}
+            {ECONOMICS_EXAMPLE_NOTE}
+          </p>
+          <p>
+            <strong>Subject to eligibility and agreed terms.</strong>{' '}
+            {STRUCTURES_QUALIFIER}
+          </p>
+        </Qualifier>
+      </Section>
+
+      {/* --------------------------------------------------- five gates */}
+      <Section surface="navy">
+        <SectionHead
+          eyebrow="Stage-gated execution"
+          title="Progress is earned at every stage."
+          lead="We do not treat venture building as one long development contract. Each stage has a defined decision, output and evidence threshold. The venture progresses when the next investment of time, cash and equity is justified."
+        />
+        <div className="gate-list">
+          {GATES.map((g) => (
+            <article key={g.n} className="gate">
+              <div className="gate-num">{g.n}</div>
+              <div>
+                <h3 className="h3">{g.name}</h3>
+                <p className="body">{g.body}</p>
+                <dl>
+                  <div><dt>Evidence produced</dt><dd>{g.evidence}</dd></div>
+                  <div><dt>Decision</dt><dd>{g.decision}</dd></div>
+                </dl>
+                {g.note ? <p className="small">{g.note}</p> : null}
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      {/* --------------------------------------------- relationship economics */}
+      <Section>
+        <SectionHead
+          eyebrow="Economics"
+          title="Every relationship should be clear about what it costs &mdash; and what you get."
+          lead="HSE should be compared on total economics, not just cash price or headline equity. What matters is what the equity is granted for, when it is earned, what execution is included and how much founder control remains."
+        />
+        <CardGrid>
+          {RELATIONSHIP_ECONOMICS.map((r) => (
+            <Card key={r.name} title={r.name}>{r.body}</Card>
+          ))}
+        </CardGrid>
+        <Qualifier>
+          <strong>A comparison of models, not a specific offer.</strong>{' '}
+          {RELATIONSHIP_ECONOMICS_NOTE} Pixelette&rsquo;s equity ceiling is a maximum agreed in
+          advance, not a price. Final terms require valuation, scope and signed documentation.
+        </Qualifier>
+      </Section>
+
+      {/* ------------------------------------------------ venture diagnostic */}
+      {/* PUBLICATION-GATED — §07. Copy is the brief's, verbatim, and asserts
+          an AI-assisted 20-minute diagnostic producing a structured brief.
+          None of that is true of /apply today: static form, no AI, no timing,
+          FORM_APPROVED false so it accepts nothing. The brief's own gate says
+          every CTA must lead to a real workflow. Hold this section until the
+          form is live. See DIAGNOSTIC in content/hse.ts. */}
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="First step"
+          title="20 minutes to find out whether we should build together."
+          lead="Start with an AI-assisted venture diagnostic that captures the problem, product, evidence, team, market, delivery gap and funding position. It produces a structured brief for human review by Pixelette Holdings &mdash; not an automated investment decision."
+        />
+        <ul className="list">
+          {DIAGNOSTIC.map((d) => (
+            <li key={d}>{d}</li>
+          ))}
+        </ul>
+        <Buttons>
+          <Btn href="/apply">Start the 20-minute diagnostic</Btn>
+        </Buttons>
+        <p className="small">{DIAGNOSTIC_NOTE}</p>
+      </Section>
+
+      {/* ---------------------------------------------- execution capability */}
+      <Section>
+        <SectionHead
+          eyebrow="Execution"
+          title="We do not just ship software. We build the company around the product."
+          lead="Technology is only one part of getting a venture into the market. The Holdings model connects product, commercial growth, enterprise readiness and venture governance so the company can move forward as one operating plan."
+        />
+        <CardGrid>
+          {EXECUTION.map((e) => (
+            <Card key={e.title} title={e.title}>{e.body}</Card>
+          ))}
+        </CardGrid>
+      </Section>
+
+      {/* ------------------------------------------------- operating model */}
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="Operating model"
+          title="Execution is the product, not advice."
+          lead="Founders do not need another deck, mentor network or strategy workshop. They need accountable specialists moving defined outcomes forward. Our model is built around delivery that can be evidenced, accepted and linked to venture milestones."
+        />
+        <ul className="list">
+          {OPERATING_MODEL.map((m) => (
+            <li key={m}>{m}</li>
+          ))}
+        </ul>
+      </Section>
+
+      {/* ------------------------------------------- institutional standing */}
+      <Section>
+        <SectionHead
+          eyebrow="Network and reach"
+          title="Built inside a wider innovation ecosystem."
+          lead="Pixelette Holdings engages across technology, industry, academic and innovation-policy networks. For selected portfolio companies, that can create useful routes to expertise, strategic introductions and market insight while every commercial, investment and governance decision remains independently made."
+        />
+        <ul className="list">
+          {ECOSYSTEM.map((e) => (
+            <li key={e}>{e}</li>
+          ))}
+        </ul>
+        <p className="small">{ECOSYSTEM_NOTE}</p>
+      </Section>
+
+      {/* --------------------------------------------------- credentials */}
+      <Section surface="ice" tight>
+        <p className="eyebrow cred-eyebrow">Verified credentials</p>
+        <Credentials />
+      </Section>
+
+      {/* ------------------------------------------------------- charter */}
+      <Section>
+        <SectionHead
+          eyebrow="Alignment"
+          title="You keep control. We earn our position."
+          lead="HSE is designed to align founder ownership with delivered value. Equity, governance and decision rights are documented in advance and linked to the agreed venture structure."
+        />
+        <ul className="list">
+          {FOUNDER_CONTROL.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+        <Qualifier>{FOUNDER_CONTROL_NOTE}</Qualifier>
       </Section>
 
       {/* ----------------------------------------------------- proof rail */}
@@ -141,53 +333,6 @@ export default function HomePage() {
             <p><Link className="link flink" href="/capabilities">Explore capabilities ↗</Link></p>
           </Card>
         </CardGrid>
-      </Section>
-
-      {/* ------------------------------------------------------ economics */}
-      <Section>
-        <SectionHead
-          eyebrow="The HSE model"
-          title="Cash funded delivery. Equity earned through execution."
-          lead="How the money works, and why you keep more of your company: you fund the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open."
-        />
-        <div className="card-grid">
-          {ECONOMICS.map((e) => (
-            <article key={e.title} className="card">
-              <p className="stat">{e.figure}</p>
-              <h3 className="h3">{e.title}</h3>
-              <p className="body">{e.body}</p>
-            </article>
-          ))}
-        </div>
-        <Qualifier>
-          <strong>The 30%, 20% and 12% figures are maximum stage ceilings, not automatic offers.</strong>{' '}
-          {CEILINGS_QUALIFIER}
-        </Qualifier>
-      </Section>
-
-      {/* --------------------------------------------------- five gates */}
-      <Section surface="navy">
-        <SectionHead
-          eyebrow="One system · five decision gates"
-          title="Progress is earned at every stage."
-          lead="Each stage produces evidence and a fresh go, revise or stop decision. Neither party is committed to a weak next phase simply because the previous phase was completed."
-        />
-        <div className="gate-list">
-          {GATES.map((g) => (
-            <article key={g.n} className="gate">
-              <div className="gate-num">{g.n}</div>
-              <div>
-                <h3 className="h3">{g.name}</h3>
-                <p className="body">{g.body}</p>
-                <dl>
-                  <div><dt>Evidence produced</dt><dd>{g.evidence}</dd></div>
-                  <div><dt>Decision</dt><dd>{g.decision}</dd></div>
-                </dl>
-                {g.note ? <p className="small">{g.note}</p> : null}
-              </div>
-            </article>
-          ))}
-        </div>
       </Section>
 
       {/* ----------------------------------------------------- portfolio */}
@@ -234,122 +379,73 @@ export default function HomePage() {
         </Buttons>
       </Section>
 
-      {/* -------------------------------------------------- capabilities */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="One partner, the whole way"
-          title="We don&rsquo;t just ship software. We build it, launch it, and get it enterprise ready."
-          lead="Most builders hand you a product and walk away. Pixelette takes you the whole journey, build, go-to-market and enterprise readiness, and you keep control the entire time."
-        />
-        <CardGrid>
-          {CAPABILITIES.map((c) => (
-            <article key={c.capability} className="card">
-              <CapabilityBrand name={c.capability} />
-              <p className="eyebrow">{c.n} · {c.capability}</p>
-              <h3 className="h3">{c.arm}</h3>
-              <p className="body">{c.body}</p>
-              {c.url.startsWith('http') ? (
-                <p>
-                  <a className="link flink" href={c.url} target="_blank" rel="noopener noreferrer">
-                    Visit {c.arm.replace(' Ltd', '')} ↗
-                  </a>
-                </p>
-              ) : null}
-            </article>
-          ))}
-        </CardGrid>
-      </Section>
-
-      {/* --------------------------------------------- why founders choose */}
-      <Section>
-        <SectionHead
-          eyebrow="Why founders choose us"
-          title="Execution most venture partners don&rsquo;t offer."
-        />
-        <CardGrid>
-          {WHY_CHOOSE.map((w) => (
-            <Card key={w.title} title={w.title}>{w.body}</Card>
-          ))}
-        </CardGrid>
-      </Section>
-
-      {/* ------------------------------------------- institutional standing */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Institutional standing"
-          title="More than a venture builder, a policy credentialed institution."
-          lead="Authority almost no venture builder can claim: a seat inside UK Parliament, an investment in a national innovation think tank, and enterprise-grade certification."
-        />
-        <CardGrid>
-          {INSTITUTIONAL.map((c) => (
-            <Card key={c.title} title={c.title}>{c.body}</Card>
-          ))}
-        </CardGrid>
-      </Section>
-
-      {/* --------------------------------------------------- credentials */}
-      <Section surface="ice" tight>
-        <p className="eyebrow cred-eyebrow">Verified credentials</p>
-        <Credentials />
-      </Section>
-
-      {/* ------------------------------------------------------- charter */}
-      <Section>
-        <SectionHead
-          eyebrow="Alignment that can be understood"
-          title="You keep control. Your equity is earned, never taken."
-          lead="HSE is built to remove the fears founders have about giving equity to a delivery partner: a capped ceiling agreed before we start, equity earned only against accepted work, and the right to buy us out at fair value."
-        />
-        <ol className="charter">
-          {FOUNDER_CHARTER.map((c) => (
-            <li key={c}>{c}</li>
-          ))}
-        </ol>
-        <Qualifier>
-          <strong>Legal note.</strong> Final contractual language, buyback terms, vesting, clawback, IP
-          transfer and dispute provisions require counsel approval. These are the intended charter
-          principles, not the executed instrument.
-        </Qualifier>
-      </Section>
-
       {/* --------------------------------------------------- testimonials */}
       <Section surface="navy">
         <SectionHead
-          eyebrow="Trusted by founders"
-          title="Founders who built with us, in their words."
+          eyebrow="Proof"
+          title="Founders and partners, in their words."
           lead="Real founders across the portfolio on what the Hybrid Sweat Equity partnership changed for them."
         />
-        <Testimonials items={TESTIMONIALS} />
+        <Testimonials items={HOMEPAGE_TESTIMONIALS} />
+        <p className="small">
+          <Link className="link flink" href="/portfolio">Read further references on the portfolio ↗</Link>
+        </p>
+      </Section>
+
+      {/* ------------------------------------------------- capital partners */}
+      {/* PUBLICATION-GATED, COUNSEL — §13. This section, the Capital Partners
+          nav entry and the capitalRoute CTA below ship together and must be
+          released together or not at all: each one promotes /partners/capital,
+          which is noindexed for s.21 FSMA containment. Reverting this single
+          commit restores the previous posture, footer link only. The four
+          noindex mechanisms are deliberately untouched. */}
+      <Section>
+        <SectionHead
+          eyebrow="Capital partners"
+          title="Invest alongside an execution layer."
+          lead="Pixelette Holdings is also the group-level home for investor and strategic-capital relationships. For selected ventures, capital partners can engage with opportunities where product, growth, governance and enterprise-readiness capability are already connected to the build plan."
+        />
+        <ul className="list">
+          {CAPITAL_PARTNERS.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+        <Buttons>
+          <Btn href="/partners/capital">Discuss capital partnerships</Btn>
+        </Buttons>
+        <Qualifier>{CAPITAL_PARTNERS_NOTE}</Qualifier>
       </Section>
 
       {/* ----------------------------------------------------------- fit */}
       <Section surface="ice">
-        <SectionHead eyebrow="Is HSE the right route?" title="Built for founders ready to execute." />
+        <SectionHead
+          eyebrow="Fit"
+          title="Built for founders ready to execute."
+          lead="HSE works when there is a serious founder, a real problem and a willingness to build against evidence. Selectivity is part of the model."
+        />
         <div className="two-col">
           <article>
             <h3 className="h3">Good fit</h3>
             <ul className="list">
-              <li>A defined problem with a plausible commercial market.</li>
-              <li>A committed founder or operator.</li>
-              <li>A buildable technology opportunity.</li>
-              <li>Capital available for the agreed cash delivery portion.</li>
-              <li>Willingness to consider a structured cash and equity partnership.</li>
+              {FIT_GOOD.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
             </ul>
           </article>
           <article>
-            <h3 className="h3">Not currently a fit</h3>
+            <h3 className="h3">Not a fit</h3>
             <ul className="list list-cross">
-              <li>The primary request is for Pixelette to provide or find cash.</li>
-              <li>There is no committed operator.</li>
-              <li>No capital is available for professional execution.</li>
-              <li>The opportunity cannot yet be scoped or validated.</li>
-              <li>The founder expects guaranteed customers, revenue or fundraising.</li>
+              {FIT_NOT.map((f) => (
+                <li key={f}>{f}</li>
+              ))}
             </ul>
           </article>
         </div>
       </Section>
 
-      <ConversionClose />
+      {/* capitalRoute ships with the §13 section above — gated together. */}
+      <ConversionClose capitalRoute />
     </>
   );
 }
+

@@ -3,7 +3,8 @@ import {
   Section, SectionHead, PageHero, Buttons, Btn, CardGrid, Card, Qualifier,
 } from '@/components/ui';
 import {
-  CEILINGS, CEILINGS_QUALIFIER, GATES, NOT_PROMISED,
+  STRUCTURES, STRUCTURES_QUALIFIER, GATES, NOT_PROMISED,
+  FOUNDER_CASH_PCT, PROGRAMME_NAME,
   CONTINUATION_EQUITY_HELD,
 } from '@/content/hse';
 
@@ -20,12 +21,12 @@ const FAQS = [
     a: 'No. Under the founder funded HSE route, Pixelette may convert an eligible portion of its professional fee into equity. It does not provide a cash cheque.',
   },
   {
-    q: 'Is the equity automatically 30%?',
-    a: 'No. Thirty per cent is the maximum ceiling for the earliest stage. The final economics depend on valuation, scope, risk, cash coverage and legal documentation.',
+    q: 'Is there a fixed equity percentage?',
+    a: 'No. A ceiling is agreed before work begins and the equity is earned against accepted delivery beneath it. The structure and the ceiling depend on stage, evidence, valuation, scope, risk, cash coverage and legal documentation, and are agreed venture by venture.',
   },
   {
-    q: 'What does the 50% cash cover?',
-    a: "The founder's cash portion must cover Pixelette's delivery costs, required margin and operating risk for the agreed programme. External services and third-party costs remain with the venture unless expressly agreed otherwise.",
+    q: 'What does the cash portion cover?',
+    a: `The founder's cash portion — ${FOUNDER_CASH_PCT}% in the worked example, though the proportion is agreed venture by venture — must cover Pixelette's delivery costs, required margin and operating risk for the agreed programme. External services and third-party costs remain with the venture unless expressly agreed otherwise.`,
   },
   {
     q: 'Can I pay entirely in cash?',
@@ -83,7 +84,7 @@ export default function HseModelPage() {
         <SectionHead
           eyebrow="What HSE is"
           title="Not a cash investment. Not discounted delivery. Not a studio that takes your company."
-          lead="Every engagement is valued at full commercial rates. For an approved HSE programme, the founder pays 50% of the agreed professional fee in cash. Pixelette may convert the remaining eligible fee into capped equity that is earned through accepted delivery. Pixelette deploys no cash."
+          lead={`Every engagement is valued at full commercial rates. For an approved HSE programme, the founder pays an agreed portion of the professional fee in cash — ${FOUNDER_CASH_PCT}% in the worked example below — and Pixelette may convert the eligible balance into capped equity that is earned through accepted delivery. Pixelette deploys no cash.`}
         />
         <CardGrid>
           <Card title="The founder contributes">
@@ -95,8 +96,7 @@ export default function HseModelPage() {
             placed at risk.
           </Card>
           <Card title="The venture gains">
-            A structured Validate-to-Capitalise programme with aligned execution and a continuously
-            built evidence base.
+            {`A structured ${PROGRAMME_NAME} programme with aligned execution and a continuously built evidence base.`}
           </Card>
         </CardGrid>
       </Section>
@@ -104,30 +104,17 @@ export default function HseModelPage() {
       {/* ------------------------------------------------------- economics */}
       <Section surface="ice">
         <SectionHead
-          eyebrow="Economics"
-          title="The stage sets the maximum ceiling."
-          lead="Earlier ventures carry more execution risk and may require a broader programme. More mature ventures usually require a narrower equity allocation."
+          eyebrow="Structure"
+          title="Choose the balance that fits the venture."
+          lead="The right cash/equity mix depends on stage, evidence, valuation, delivery scope and capital position. Every structure is agreed venture by venture."
         />
-        <table className="table">
-          <thead>
-            <tr>
-              <th scope="col">Stage at signature</th>
-              <th scope="col">Indicative maximum ceiling</th>
-              <th scope="col">Typical need</th>
-            </tr>
-          </thead>
-          <tbody>
-            {CEILINGS.map((c) => (
-              <tr key={c.stage}>
-                <td>{c.stage}</td>
-                <td className="ceiling">{c.ceiling}</td>
-                <td>{c.need}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <CardGrid>
+          {STRUCTURES.map((s) => (
+            <Card key={s.name} title={s.name}>{s.body}</Card>
+          ))}
+        </CardGrid>
         <Qualifier>
-          <strong>These are ceilings, not standard prices or offers.</strong> {CEILINGS_QUALIFIER}
+          <strong>Subject to eligibility and agreed terms.</strong> {STRUCTURES_QUALIFIER}
         </Qualifier>
       </Section>
 
@@ -152,7 +139,8 @@ export default function HseModelPage() {
       </Section>
 
       {/* ------------------------------------------------------ five gates */}
-      <Section surface="navy">
+      {/* id is the target of the "How It Works" primary-nav item. */}
+      <Section surface="navy" id="how-it-works">
         <SectionHead
           eyebrow="Five gates"
           title="Five gates. Five evidence-based decisions."
@@ -211,7 +199,7 @@ export default function HseModelPage() {
               <li>The accepted scope and delivery evidence.</li>
               <li>Technical, product, launch and assurance work expressly included.</li>
               <li>Transparent reporting and change control.</li>
-              <li>Protecting the stage ceiling and vesting rules.</li>
+              <li>Protecting the agreed equity ceiling and vesting rules.</li>
               <li>Maintaining the evidence room for agreed work.</li>
               <li>Pausing rather than concealing a failed gate.</li>
             </ul>

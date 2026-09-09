@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const FOUNDER_PROTECTIONS = [
   'Equity is never fully granted upfront.',
-  'Stage ceilings are known before work begins.',
+  'The equity ceiling is known before work begins.',
   'Unvested equity returns automatically when delivery stops.',
   'Operational control stays with the founder.',
   'Pixelette takes minority protections, not control.',

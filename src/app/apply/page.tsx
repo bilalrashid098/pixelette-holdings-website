@@ -3,7 +3,7 @@ import { Section, SectionHead, PageHero, Qualifier } from '@/components/ui';
 import { FitAssessmentForm } from '@/components/FitAssessmentForm';
 
 export const metadata: Metadata = {
-  title: 'Apply for HSE | Fit Assessment',
+  title: 'Venture Diagnostic | HSE Fit Assessment',
   description:
     'A short commercial qualification for an HSE execution partnership. Not a pitch competition, not a grant application, and not a request for Pixelette to invest cash.',
   alternates: { canonical: '/apply' },
@@ -36,8 +36,8 @@ export default function ApplyPage() {
   return (
     <>
       <PageHero
-        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Apply' }]}
-        eyebrow="HSE Fit Assessment"
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Venture diagnostic' }]}
+        eyebrow="Venture diagnostic"
         title="Tell us what you are ready to build."
         lead="This is a commercial qualification for an execution partnership. It is not a pitch competition, a grant application or a request for Pixelette to invest cash."
       >
