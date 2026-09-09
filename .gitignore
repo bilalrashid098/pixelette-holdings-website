@@ -34,8 +34,13 @@ desktop.ini
 .vercel
 .netlify
 
-#Obsdian vault
+# Obsidian vault.
+# /vault was the original location and no longer exists; the vault is /docs.
+# These notes carry the legal, consent and evidence gates in plain language —
+# s.21 FSMA positioning, unconfirmed certification wording, client consent that
+# has not been obtained. This repository is PUBLIC. Both paths stay ignored.
 /vault
+/docs
 
 # Palette comparison output (Phase B decision instrument, regenerated on demand)
 .palette/
