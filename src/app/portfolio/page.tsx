@@ -92,18 +92,10 @@ export default function PortfolioPage() {
           title="2Connect: intent led AI for better introductions."
           lead="An intent led AI networking agent that evaluates reciprocal fit and explains why an introduction may be valuable."
         />
-        <div className="tile-strip">
-          <div className="tile"><strong>12</strong><span>project repositories</span></div>
-          <div className="tile"><strong>1,891</strong><span>measured commits</span></div>
-          <div className="tile"><strong>122</strong><span>active development days</span></div>
-          <div className="tile"><strong>~217k</strong><span>lines of current code</span></div>
-          <div className="tile"><strong>95</strong><span>AI/backend test files</span></div>
-        </div>
-        <p className="small">
-          Repository-derived measures, approved for controlled design only. Client publication consent
-          is required before any public release of the figures, screens, outcome claims or founder
-          quotes.
-        </p>
+        {/* CONSENT GATE — see the matching note on the homepage. The metric
+            tiles were removed 2026-09-11 on instruction: no client publication
+            consent, and no measurement date to attach. Do not reinstate without
+            both. */}
         <Buttons>
           <Btn href="/portfolio/2connect">Explore the project</Btn>
         </Buttons>

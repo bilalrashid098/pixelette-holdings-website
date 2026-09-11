@@ -46,7 +46,7 @@ const CREDENTIALS = [
  */
 const ARCHITECTURE = [
   { entity: GROUP.technologies, body: 'Product, AI, blockchain, architecture, engineering and infrastructure.' },
-  { entity: GROUP.marketing, body: "The group's Launch and go-to-market capability. Positioning, campaigns, demand generation and early traction." },
+  { entity: GROUP.marketing, body: "The group's Grow and go-to-market capability. Positioning, campaigns, demand generation and early traction." },
   { entity: GROUP.certified, body: 'A capability and service brand for compliance readiness, security and governance preparation. Independent certification remains external.' },
   { entity: GROUP.holdings, body: 'Venture selection, structuring, governance and capital readiness.' },
 ];

@@ -11,7 +11,8 @@ import {
   CAPITAL_PARTNERS, CAPITAL_PARTNERS_NOTE,
   FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
   ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
-  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, OPERATING_MODEL,
+  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, APPG_NOTE,
+  OPERATING_MODEL,
 } from '@/content/hse';
 import { ventures } from '@/content/ventures';
 import { HOMEPAGE_TESTIMONIALS } from '@/content/testimonials';
@@ -216,12 +217,18 @@ export default function HomePage() {
       </Section>
 
       {/* ------------------------------------------------ venture diagnostic */}
-      {/* PUBLICATION-GATED — §07. Copy is the brief's, verbatim, and asserts
+      {/* AHEAD OF THE BUILD — §07. Copy is the brief's, verbatim, and asserts
           an AI-assisted 20-minute diagnostic producing a structured brief.
           None of that is true of /apply today: static form, no AI, no timing,
-          FORM_APPROVED false so it accepts nothing. The brief's own gate says
-          every CTA must lead to a real workflow. Hold this section until the
-          form is live. See DIAGNOSTIC in content/hse.ts. */}
+          FORM_APPROVED false so it accepts nothing.
+
+          Removed 2026-09-11 and restored the same day on an explicit
+          instruction: the diagnostic IS being built and this section is not to
+          come off the site. The brief's gate — every CTA must lead to a real
+          workflow — therefore stays failing until the build lands. Make the
+          three assertions true rather than deleting them; if the build ships
+          something different, edit this copy to match. See DIAGNOSTIC in
+          content/hse.ts. */}
       <Section surface="ice">
         <SectionHead
           eyebrow="First step"
@@ -283,9 +290,15 @@ export default function HomePage() {
       </Section>
 
       {/* --------------------------------------------------- credentials */}
+      {/* APPG_NOTE sits directly under the badge strip, in small print, as
+          instructed 2026-09-11. This is the only page that renders the APPG
+          logo — /about's credentials are text cards with no logos. The badge
+          itself is labelled "APPG AI Secretariat / UK Parliament", the
+          strongest form of the claim, so the disclaimer belongs beneath it. */}
       <Section surface="ice" tight>
         <p className="eyebrow cred-eyebrow">Verified credentials</p>
         <Credentials />
+        <p className="small cred-note">{APPG_NOTE}</p>
       </Section>
 
       {/* ------------------------------------------------------- charter */}
@@ -361,18 +374,12 @@ export default function HomePage() {
           title="2Connect: intent led AI for better introductions."
           lead="A networking agent built around a simple idea: people should meet because the connection makes sense for both sides. Users express what they need, the platform evaluates reciprocal fit, and each suggested match includes an explanation."
         />
-        <div className="tile-strip">
-          <div className="tile"><strong>12</strong><span>project repositories</span></div>
-          <div className="tile"><strong>1,891</strong><span>measured commits</span></div>
-          <div className="tile"><strong>122</strong><span>active development days</span></div>
-          <div className="tile"><strong>~217k</strong><span>lines of current code</span></div>
-          <div className="tile"><strong>95</strong><span>AI/backend test files</span></div>
-        </div>
-        <p className="small">
-          CONSENT GATE, repository-derived measures, not revenue, user-growth or commercial-outcome
-          claims. Client publication consent is required before any public release of these figures,
-          screens, outcomes or founder quotes.
-        </p>
+        {/* CONSENT GATE. The repository-derived metric tiles (12 / 1,891 / 122
+            / ~217k / 95) were removed 2026-09-11 on instruction: client
+            publication consent had not been obtained, and no measurement date
+            existed anywhere in the repo to attach to them. Do not reinstate
+            these or any screens, outcome claims or founder quotes for 2Connect
+            without written client consent AND an as-at date. */}
         <Buttons>
           <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
           <Btn href="/apply" variant="secondary">Check if you qualify</Btn>

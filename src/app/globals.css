@@ -836,6 +836,15 @@ body.menu-open { overflow: hidden; }
 .cred-text strong { font-size: .95rem; font-weight: 600; color: var(--color-ink); }
 .cred-text span { font-size: .8rem; color: var(--color-muted); }
 
+/* The APPG attribution and endorsement disclaimer, sat under the badge strip.
+   Asked for as "very, very small letters" (2026-09-11), so it goes a step below
+   .small — which it modifies rather than replaces, inheriting that colour and
+   line-height. .max is not used here: this is legal small print sitting under a
+   full-width strip of badges, and setting it to a reading measure would leave it
+   floating oddly short of the last badge. Light-ground only, like the rest of
+   .cred-*; the credentials section is `ice`. */
+.cred-note { font-size: .78rem; margin-top: 28px; }
+
 /* --------------------------------------------------------- testimonials
    The guide's testimonial card has no avatar. The photos STAY — imagery is
    content, and this is one of the four standing exceptions where the guide
@@ -922,7 +931,15 @@ body.menu-open { overflow: hidden; }
 .hero-grid { display: grid; grid-template-columns: 1.25fr .85fr; gap: 60px; align-items: center; }
 
 /* Tiles in a row, and tiles in a grid. Both read their whole appearance from
-   the common layer's .tile — this only decides how many sit side by side. */
+   the common layer's .tile — this only decides how many sit side by side.
+
+   .tile-strip has had NO CALL SITE since 2026-09-11, when the 2Connect metric
+   tiles came off the homepage and /portfolio pending client consent and a
+   measurement date. Kept as vocabulary, like .ceiling and .table below, and
+   because those tiles are expected back once both are in hand. It is still
+   named in the scroll-reveal selector list, so restoring markup needs no other
+   change. The token gate checks markup against CSS, not the reverse, so nothing
+   will flag this. */
 .tile-grid  { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px; }
 .tile-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 18px; margin-top: 38px; }
 

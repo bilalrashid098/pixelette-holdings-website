@@ -252,14 +252,21 @@ export const PROGRAMME_NAME = `${GATES[0]!.name}-to-${GATES[GATES.length - 1]!.n
  * conflating them silently drops a logo — the same failure the stage rename in
  * section 05 had to avoid.
  *
- * The two are separate rather than renamed because the brief itself does not
- * treat these verbs as a taxonomy: section 02 calls them Build / Grow / Ready /
- * Align, and section 08 calls the same four capabilities "Product and
- * engineering", "Go-to-market and growth", "Enterprise readiness" and "Venture
- * governance". Two label sets for one set of capabilities, in adjacent
- * sections, is descriptive writing rather than a rename directive — so the
- * site's canonical vocabulary (Build / Launch / Assure / Own, used by the Orbit,
- * /about and /capabilities) is left alone. Worth confirming with the copy owner.
+ * RESOLVED 2026-09-11. The copy owner confirmed the brief's vocabulary wins, so
+ * the DISPLAY names across the site are now Build / Grow / Ready / Align — the
+ * Orbit, /about and /capabilities were brought into line with the `verb` values
+ * below. Section 02 is the brief's only one-word set; section 08 describes the
+ * same four capabilities in phrases ("Product and engineering", "Go-to-market
+ * and growth", "Enterprise readiness", "Venture governance") and is not a
+ * competing taxonomy.
+ *
+ * `key` did NOT change and must not. It stays Build / Launch / Assure / Own
+ * because it is the brand-mark lookup, as is `capability` on GROUP in site.ts
+ * and the `id` values in /capabilities. Only rendered text moved.
+ *
+ * Note the five delivery STAGES are a different set again — Validate, Design,
+ * Build, Launch, Scale — and still legitimately contain "Build" and "Launch".
+ * See the CAUTION on GATES above.
  */
 export const GROUP_PROPOSITION = [
   {
@@ -297,9 +304,11 @@ export const GROUP_PROPOSITION_CLOSE = 'Holdings aligns the venture. The group e
 /**
  * The venture diagnostic — section 07 of the 8 Sep 2026 copy brief.
  *
- * PUBLICATION-GATED. This section is built to the brief's copy, and the brief's
- * copy describes a product that does not exist yet. Three assertions here are
- * not currently true of the thing the CTA points at:
+ * AHEAD OF THE BUILD. The diagnostic is agreed and is to be built; the section
+ * is published in the meantime on an explicit instruction (2026-09-11) that it
+ * is not to come off the site. It was briefly removed that day and restored the
+ * same day. Until the build lands, three assertions here are not true of the
+ * page this section's CTA points at:
  *
  *   "AI-assisted"   /apply renders a static form. There is no AI anywhere in
  *                   this codebase.
@@ -310,10 +319,18 @@ export const GROUP_PROPOSITION_CLOSE = 'Holdings aligns the venture. The group e
  *                   endpoint and no storage.
  *
  * The brief's own publication gate covers this: "Every CTA should lead to a
- * real workflow: venture diagnostic, founder application or capital-partner
- * enquiry." Until the form accepts a submission — which needs a data
- * controller, lawful basis, retention period and CRM destination — this section
- * must not go live. Do not treat a passing build as clearance.
+ * real workflow." That gate stays FAILING while this is up unbuilt — see
+ * [[publication-gates]] gate 9. Closing it needs the form live, which needs a
+ * data controller, lawful basis, retention period and CRM destination.
+ *
+ * WHAT THE BUILD MUST DELIVER for this copy to become true: an AI-assisted
+ * intake, a run that genuinely takes about twenty minutes and has been timed,
+ * and a structured brief emitted for human review. If any one of those is
+ * dropped in the build, edit the copy here to match what shipped.
+ *
+ * Note the name "venture diagnostic" is used independently of this section —
+ * /apply's title, the header CTA and ConversionClose all carry it. Only the AI,
+ * timing and structured-brief claims are load-bearing here.
  */
 export const DIAGNOSTIC = [
   'Problem and customer pain.',
@@ -540,6 +557,32 @@ export const ECOSYSTEM = [
  */
 export const ECOSYSTEM_NOTE =
   'Participation in a network, event, secretariat or programme does not imply endorsement by that organisation or any public body.';
+
+/**
+ * The APPG attribution, supplied by the group 2026-09-11 and required to sit in
+ * small print directly under the APPG badge. `<Credentials />` is the only place
+ * that badge renders, and it is used on the homepage only — /about's credentials
+ * section is text cards with no logos, so this does not belong there.
+ *
+ * ONE DELIBERATE CHANGE from the supplied wording. As given it read "the
+ * Pixelette Group founder's shareholding in Big Innovation Centre" — a personal
+ * holding. That contradicted ventures.ts, which publishes "Pixelette Holdings
+ * holds a 12% equity investment in Big Innovation Centre" under an equity
+ * investment pill on /portfolio: a company asset, not the founder's. The group
+ * confirmed on 2026-09-11 that Pixelette Holdings owns it, so the clause was
+ * corrected to match. The rest of the sentence is verbatim.
+ *
+ * Do not reword the final sentence. It is the endorsement disclaimer and it
+ * names Parliament and Government directly, which the shorter ECOSYSTEM_NOTE
+ * above does not. Both render — this one under the badge, that one under the
+ * ecosystem section and on /about.
+ *
+ * STILL OPEN: two Companies House records share the name "Big Innovation
+ * Centre". The exact investee entity is unconfirmed — see the note on the BIC
+ * entry in ventures.ts. That affects this sentence too.
+ */
+export const APPG_NOTE =
+  'Through Pixelette Holdings’ shareholding in Big Innovation Centre, Pixelette is connected to the wider UK AI policy ecosystem. Big Innovation Centre serves as Secretariat to the All-Party Parliamentary Group on Artificial Intelligence (APPG AI). This does not imply endorsement, appointment or formal affiliation with UK Parliament or Government.';
 
 /**
  * The operating model, per section 09 of the 8 Sep 2026 copy brief.
