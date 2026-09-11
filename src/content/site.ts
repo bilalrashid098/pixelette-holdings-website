@@ -23,8 +23,14 @@ export const SITE = {
  * NAMING DISCIPLINE: "Ltd" and a company number appear only where a registered
  * company is verified at Companies House. Pixelette Certified and Pixelette
  * Group are brands, not registered companies. Pixelette Marketing is named as
- * the Launch capability, but must NOT carry "Ltd" or an active-company claim
+ * the Grow capability, but must NOT carry "Ltd" or an active-company claim
  * on legal pages until its restoration is independently confirmed.
+ *
+ * `capability` is RENDERED — /about prints "{capability}: {name}" — so it moved
+ * to the brief's display words on 2026-09-11 (Build / Grow / Ready / Align).
+ * It is not a lookup key. The brand-mark keys are `key` on GROUP_PROPOSITION in
+ * hse.ts and `id` in /capabilities, and those still read Build / Launch /
+ * Assure / Own. Do not "align" them for tidiness — see [[codebase-gotchas]].
  */
 
 export const GROUP = {
@@ -36,20 +42,20 @@ export const GROUP = {
   },
   marketing: {
     name: 'Pixelette Marketing',
-    capability: 'Launch',
+    capability: 'Grow',
     isRegisteredCompany: false,
     note: 'Named as the commercial capability and brand. Do not add "Ltd", a company number or an active/restored-company claim until Companies House confirms restoration.',
   },
   certified: {
     name: 'Pixelette Certified',
-    capability: 'Assure',
+    capability: 'Ready',
     isRegisteredCompany: false,
     note: 'A capability and service brand. Never describe as a registered company or an independent certification body.',
   },
   holdings: {
     name: 'Pixelette Holdings Ltd',
     companyNumber: '14921782',
-    capability: 'Own',
+    capability: 'Align',
     isRegisteredCompany: true,
   },
 } as const;

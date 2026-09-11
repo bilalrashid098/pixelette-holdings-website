@@ -50,7 +50,7 @@ export function Orbit() {
       ref={ref}
       className={visible ? styles.orbit : `${styles.orbit} ${styles.paused}`}
       role="img"
-      aria-label="Four integrated Pixelette capabilities: Build, Launch, Assure and Own"
+      aria-label="Four integrated Pixelette capabilities: Build, Grow, Ready and Align"
     >
       <div className={styles.ring} />
       <div className={`${styles.ring} ${styles.ringTwo}`} />
@@ -61,9 +61,9 @@ export function Orbit() {
         </div>
       </div>
       <div className={`${styles.node} ${styles.nodeBuild}`}><span>01 · Build</span><strong>Technology</strong></div>
-      <div className={`${styles.node} ${styles.nodeLaunch}`}><span>02 · Launch</span><strong>Marketing</strong></div>
-      <div className={`${styles.node} ${styles.nodeAssure}`}><span>03 · Assure</span><strong>Certified</strong></div>
-      <div className={`${styles.node} ${styles.nodeOwn}`}><span>04 · Own</span><strong>Holdings</strong></div>
+      <div className={`${styles.node} ${styles.nodeLaunch}`}><span>02 · Grow</span><strong>Marketing</strong></div>
+      <div className={`${styles.node} ${styles.nodeAssure}`}><span>03 · Ready</span><strong>Certified</strong></div>
+      <div className={`${styles.node} ${styles.nodeOwn}`}><span>04 · Align</span><strong>Holdings</strong></div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import {
 import { CapabilityBrand } from '@/components/CapabilityBrand';
 
 export const metadata: Metadata = {
-  title: 'Capabilities | Build, Launch, Assure, Own',
+  title: 'Capabilities | Build, Grow, Ready, Align',
   description:
     'Four integrated Pixelette capabilities operating as a single venture-building system rather than four separate suppliers a founder has to coordinate.',
   alternates: { canonical: '/capabilities' },
@@ -34,7 +34,7 @@ const CAPABILITY_DETAIL = [
   },
   {
     id: 'launch',
-    n: '02 · Launch',
+    n: '02 · Grow',
     arm: 'Pixelette Marketing',
     lead: 'Positioning, brand, campaigns, demand generation, sales infrastructure, partnerships and early traction. The contracted work is the commercialisation system, customers, revenue and product-market fit are never guaranteed.',
     surface: 'ice' as const,
@@ -47,14 +47,14 @@ const CAPABILITY_DETAIL = [
     qualifier: (
       <>
         <strong>Naming rule.</strong> Pixelette Marketing is named throughout the commercial site as the
-        group&rsquo;s Launch capability. Company-registration wording is not used on legal pages until
+        group&rsquo;s Grow capability. Company-registration wording is not used on legal pages until
         restoration is independently evidenced.
       </>
     ),
   },
   {
     id: 'assure',
-    n: '03 · Assure',
+    n: '03 · Ready',
     arm: 'Pixelette Certified capability',
     lead: 'Security, governance, compliance implementation, certification readiness and evidence preparation.',
     surface: 'warm' as const,
@@ -73,7 +73,7 @@ const CAPABILITY_DETAIL = [
   },
   {
     id: 'own',
-    n: '04 · Own',
+    n: '04 · Align',
     arm: 'Pixelette Holdings Ltd',
     lead: 'Venture selection, commercial structuring, services-for-equity participation, governance and capital readiness.',
     surface: 'ice' as const,
