@@ -7,7 +7,7 @@ import { useEffect } from 'react';
  * Re-scan hook for scroll reveal. Mounted once in the layout.
  *
  * THE MECHANISM IS NOT HERE. It lives in the inline script in layout.tsx —
- * selectors, observer, stagger indices and the safety gate — and it starts at
+ * selectors, observer and the safety gate — and it starts at
  * DOMContentLoaded without waiting for React. This component exists for one
  * job: a client-side navigation renders nodes the original scan never saw, so
  * it asks the script to look again.
@@ -32,7 +32,13 @@ export function ScrollReveal() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const scan = (window as unknown as { __revealScan?: () => void }).__revealScan;
+    const w = window as unknown as { __revealScan?: () => void; __revealReady?: () => void };
+    // Effects run after hydration, so this is the moment the script may start
+    // adding is-revealed to React-rendered nodes. Before it, the script only
+    // queues — see the reveal script in layout.tsx. Idempotent.
+    w.__revealReady?.();
+
+    const scan = w.__revealScan;
     // Absent under reduced motion, on a browser without IntersectionObserver,
     // or if the script's own guard tore the mechanism down. All three mean the
     // page is static and there is nothing to re-scan.

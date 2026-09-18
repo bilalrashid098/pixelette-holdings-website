@@ -92,19 +92,39 @@ export const SOCIALS = [
 ] as const;
 
 /**
- * The Pixelette Group companies — for the header/footer cross-links and the
- * group logo strip. Logos live at public/media/brand/<key>.png (fetched by
- * download-assets.ps1) and fall back to the name when absent. Pixelette Certified
- * has no logo on the live site, so it renders as a text link.
+ * The footer's "Part of Pixelette Group" band — 18 Sep 2026.
+ *
+ * The group footer shared with the Pixelette Technologies and Pixelette
+ * Marketing sites. The `what` lines are the group's own wording, VERBATIM from
+ * the Technologies footer, so every sister site describes every company the
+ * same way.
+ *
+ * Brand names only — no "Ltd". Marketing is dissolved at Companies House
+ * (14925088, 24 Feb 2026) and Certified is a brand, so neither may be called
+ * a company; see GROUP above. The same is why the band's intro here does not
+ * copy the Technologies sentence "one of four companies in Pixelette Group".
  */
-// Uniform lockup: each company's SQUARE brand mark (one fixed size) + its name in
-// one consistent font. This replaces the inconsistent baked-in logo lockups so all
-// four match. Marks live at public/media/brand/ (fetched by download-assets.ps1).
-export const GROUP_COMPANIES = [
-  { key: 'holdings', name: 'Pixelette', sub: 'Holdings', href: '/', mark: 'mark-holdings.png' },
-  { key: 'technologies', name: 'Pixelette', sub: 'Technologies', href: 'https://pixelettetech.com/', mark: 'mark-technologies.png' },
-  { key: 'marketing', name: 'Pixelette', sub: 'Marketing', href: 'https://pixelettemarketing.com/', mark: 'mark-marketing.svg' },
-  { key: 'certified', name: 'Pixelette', sub: 'Certified', href: 'https://pixelettecertified.com/', mark: 'certified-icon.svg' },
+export const FOOTER_GROUP = [
+  {
+    name: 'Pixelette Holdings',
+    href: null,
+    what: 'Group-level venture partnerships, HSE/equity structures, portfolio and strategic relationships.',
+  },
+  {
+    name: 'Pixelette Technologies',
+    href: 'https://pixelettetech.com/',
+    what: 'Software engineering, AI & automation, blockchain and ongoing product engineering.',
+  },
+  {
+    name: 'Pixelette Marketing',
+    href: 'https://pixelettemarketing.com/',
+    what: 'Demand, pipeline, conversion, revenue and accountable growth systems.',
+  },
+  {
+    name: 'Pixelette Certified',
+    href: 'https://pixelettecertified.com/',
+    what: 'Compliance readiness, cyber assurance, privacy, AI governance and ongoing compliance support.',
+  },
 ] as const;
 
 export interface NavItem {
@@ -144,6 +164,19 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: 'About', href: '/about' },
 ];
 
+/**
+ * Footer link columns — the group footer structure, 18 Sep 2026.
+ *
+ * Technologies runs two columns, Services and Company, with its legal pages at
+ * the foot of Company. Holdings keeps that shape with one more column, because
+ * the portfolio and partner routes are crawl paths to indexed pages and folding
+ * them into the first column would make it twice the length of the others.
+ * Every route that was in the old five-column footer is still here.
+ *
+ * The "Privacy choices" control is not a link and is not in this list;
+ * SiteFooter renders it straight after the Cookies entry, where Technologies
+ * has it.
+ */
 export const FOOTER_NAV = [
   {
     heading: 'Build with Pixelette',
@@ -155,20 +188,14 @@ export const FOOTER_NAV = [
     ],
   },
   {
-    heading: 'Portfolio',
+    heading: 'Portfolio & partners',
     links: [
       { label: 'Equity Investments', href: '/portfolio/investments' },
       { label: 'HSE Ventures', href: '/portfolio/hse-ventures' },
       { label: 'Delivered Ventures', href: '/portfolio/delivered-ventures' },
       { label: '2Connect', href: '/portfolio/2connect' },
-    ],
-  },
-  {
-    heading: 'Partner with Pixelette',
-    links: [
       { label: 'Incubators & Accelerators', href: '/partners/accelerators' },
       { label: 'Capital Partners', href: '/partners/capital' },
-      { label: 'Contact', href: '/contact' },
     ],
   },
   {
@@ -178,14 +205,10 @@ export const FOOTER_NAV = [
       { label: 'About', href: '/about' },
       { label: 'Social Impact', href: '/social-impact' },
       { label: 'Insights', href: '/insights' },
-    ],
-  },
-  {
-    heading: 'Legal',
-    links: [
-      { label: 'Privacy', href: '/privacy' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Privacy Notice', href: '/privacy' },
+      { label: 'Cookies & analytics', href: '/cookies' },
       { label: 'Terms', href: '/terms' },
-      { label: 'Cookies', href: '/cookies' },
       { label: 'Disclaimer', href: '/disclaimer' },
       { label: 'Accessibility', href: '/accessibility' },
     ],

@@ -148,7 +148,14 @@ const organizationSchema = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang={SITE.lang} className={`${newsreader.variable} ${outfit.variable} ${plexMono.variable}`}>
+    // suppressHydrationWarning: the reveal script below sets data-reveal on
+    // <html> before React hydrates, by design. This silences that one
+    // attribute on this one element only; it does not reach the children.
+    <html
+      lang={SITE.lang}
+      className={`${newsreader.variable} ${outfit.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         {/*
           Scroll reveal, whole mechanism. FIRST in the body so it runs during
@@ -173,6 +180,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Both the catch and the 3s timer exist to remove the attribute if the
           scan never completes. Better a static page than a blank one.
 
+          IT WRITES NOTHING REACT RENDERS UNTIL REACT HAS HYDRATED (18 Sep
+          2026). Observing starts at once, but an element that intersects
+          before hydration is QUEUED, and its is-revealed class is added when
+          ScrollReveal calls window.__revealReady after hydrating. Adding the
+          class earlier made React report a hydration mismatch on any section
+          already in view at load. The stagger index is CSS (:nth-child) for
+          the same reason. If hydration never comes, the 2.5s timer flushes
+          the queue anyway, so a failed bundle cannot leave content hidden.
+
           Inline is permitted here: the CSP sets script-src 'self'
           'unsafe-inline'. Do not move this to an external file — a fetched
           script cannot beat first paint, which is the whole reason it exists.
@@ -184,15 +200,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "if(!('IntersectionObserver' in window))return;" +
               "if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;" +
               "var G='.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps';" +
-              "var I='.section-head, .prose';var MAX=7;var done=false;" +
+              "var I='.section-head, .prose';var done=false;" +
               "var e=document.documentElement;e.setAttribute('data-reveal','on');" +
+              "var ready=false,q=[];" +
+              "function show(el){if(ready)el.classList.add('is-revealed');else q.push(el);}" +
+              "window.__revealReady=function(){if(ready)return;ready=true;" +
+              "for(var n=0;n<q.length;n++)q[n].classList.add('is-revealed');q=[];};" +
+              "setTimeout(window.__revealReady,2500);" +
               "var io=new IntersectionObserver(function(es){es.forEach(function(en){" +
-              "if(!en.isIntersecting)return;en.target.classList.add('is-revealed');io.unobserve(en.target);" +
+              "if(!en.isIntersecting)return;show(en.target);io.unobserve(en.target);" +
               "});},{threshold:0,rootMargin:'0px 0px -12% 0px'});" +
-              "function scan(){var g=document.querySelectorAll(G),i,j,k;" +
-              "for(i=0;i<g.length;i++){var c=g[i].children;" +
-              "for(j=0;j<c.length;j++)c[j].style.setProperty('--reveal-i',String(j<MAX?j:MAX));" +
-              "io.observe(g[i]);}" +
+              "function scan(){var g=document.querySelectorAll(G),i,k;" +
+              "for(i=0;i<g.length;i++)io.observe(g[i]);" +
               "var t=document.querySelectorAll(I);for(k=0;k<t.length;k++)io.observe(t[k]);done=true;}" +
               "window.__revealScan=scan;" +
               "if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan);else scan();" +

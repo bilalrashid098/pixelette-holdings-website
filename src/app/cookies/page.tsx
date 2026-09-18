@@ -23,15 +23,25 @@ export default function CookiesPage() {
           <h2>The short version</h2>
           <p>
             This website sets <strong>no analytics, marketing or tracking cookies</strong>. Fonts are
-            self-hosted, so no third-party font request is made either. There is nothing to consent to,
-            which is why you see no cookie banner.
+            self-hosted, so no third-party font request is made either, and the site&rsquo;s security
+            policy does not allow third-party scripts to load. There is nothing to consent to, which is
+            why you see no cookie banner.
+          </p>
+
+          <h2>Privacy choices</h2>
+          <p>
+            <strong>Privacy choices</strong>, in the footer of every page, lets you turn website
+            analytics on or off in advance. No analytics are running today, so the setting has no
+            effect yet; it is off unless you turn it on. Your choice is kept in your browser&rsquo;s
+            local storage, not in a cookie, and is not sent to us. Clearing your browser&rsquo;s site
+            data removes it.
           </p>
 
           <h2>If that changes</h2>
           <p>
             If analytics or marketing cookies are ever introduced, they will be set only after you give
-            consent through a cookie control, rejecting them will be as easy as accepting them, and this
-            page will list every cookie with its provider, purpose and duration.
+            consent through Privacy choices, turning them off will be as easy as turning them on, and
+            this page will list every cookie with its provider, purpose and duration.
           </p>
 
           <h2>Who we are</h2>
