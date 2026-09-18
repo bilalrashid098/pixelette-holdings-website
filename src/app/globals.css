@@ -1315,9 +1315,23 @@ html[data-reveal='on'] .prose.is-revealed {
               transform var(--reveal-time) var(--reveal-ease);
 }
 
-/* --reveal-i is set per child by ScrollReveal and capped there, so a long grid
+/* --reveal-i is each child's place in the stagger, capped at 7 so a long grid
    cannot run a two-second tail. Unset means zero, so a single item and every
-   section head start immediately. */
+   section head start immediately.
+
+   Set HERE, by position, not by the inline script. The script used to write
+   style="--reveal-i:N" onto every child before React hydrated, which React
+   reports as a hydration mismatch on every grid of every page (18 Sep 2026).
+   The script must not touch anything React renders; :nth-child gives the same
+   indices with no DOM write at all. */
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(2) { --reveal-i: 1; }
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(3) { --reveal-i: 2; }
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(4) { --reveal-i: 3; }
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(5) { --reveal-i: 4; }
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(6) { --reveal-i: 5; }
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(7) { --reveal-i: 6; }
+:is(.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps) > :nth-child(n+8) { --reveal-i: 7; }
+
 html[data-reveal='on'] :is(
   .card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps
 ).is-revealed > * {
