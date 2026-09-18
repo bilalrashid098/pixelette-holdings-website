@@ -35,7 +35,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
     h: 'What we collect',
     body: [
       'Information you provide to us directly. When you submit an enquiry, for example the HSE Fit Assessment or a partnership enquiry, we collect the details you give us: your name, work email, company or venture, website, country or principal market, sector, current stage, an indication of the capital available for professional execution, your venture description and your current constraint. If you correspond with us, we hold that correspondence.',
-      'Information collected automatically. Our host records basic technical information needed to serve and secure the site, such as your IP address and standard server logs. This site does not use advertising, analytics or cross-site tracking cookies, and does not run a third-party tag manager. Only strictly necessary functionality is used. If analytics is ever introduced, this notice will be updated and consent obtained first.',
+      'Information collected automatically. Our host records basic technical information needed to serve and secure the site, such as your IP address and standard server logs. This site does not use advertising, analytics or cross-site tracking cookies, and does not run a third-party tag manager. Only strictly necessary functionality is used. If you set a preference under Privacy choices in the footer, it is kept in your own browser so it can be remembered; it is not sent to us. If analytics is ever introduced, this notice will be updated and consent obtained first.',
     ],
   },
   {

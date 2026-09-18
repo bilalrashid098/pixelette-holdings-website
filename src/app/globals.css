@@ -773,58 +773,143 @@ body.menu-open { overflow: hidden; }
 
 /* -------------------------------------------------------------- footer */
 
+/* 18 Sep 2026: THE GROUP FOOTER. Rebuilt to the Pixelette Technologies
+   footer's structure — brand-led grid, group band, legal line — which the
+   Marketing site shares. Their measurements are carried across; every colour
+   is this site's own footer token, never theirs (their accent is a mint from
+   their palette; ours is --color-panel-accent). */
+
 .footer { padding: var(--sec-y-sm) 0 40px; }
-.footer .flink { color: var(--color-panel-fg); font-size: .9375rem; }
+.footer .flink { color: var(--color-panel-fg); font-size: .875rem; }
 .footer .flink:hover { color: var(--color-page); }
 
-.footer-cols {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 34px; margin-bottom: 42px;
+/* 1. The grid. Theirs is 1.6fr + two columns; this is 1.6fr + three — see
+   FOOTER_NAV in site.ts for why. */
+.site-footer__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  gap: 40px 28px;
 }
-.footer-cols .h4 { margin-bottom: 10px; letter-spacing: .01em; }
-.footer-cols a { display: flex; }
+.site-footer__heading { display: block; margin-bottom: 12px; }
+.site-footer__list,
+.site-footer__contact { list-style: none; margin: 0; padding: 0; }
 
-.footer-contact { display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 26px; }
+/* The wordmark is slate ink, which measures near-invisible on the footer
+   ground. Theirs uses a white logo file; this renders the same file white. */
+.site-footer__logo { height: 34px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+.site-footer__brand .small { color: var(--color-panel-fg); max-width: 34ch; }
+.site-footer__contact { margin-top: 16px; }
 .contact-ic { width: 17px; height: 17px; flex: none; }
 
+/* "Privacy choices" is a <button> dressed as the links around it: .flink gives
+   the 44px target and the colour, this strips the button's own chrome. */
+.privacy-trigger { background: none; border: 0; padding: 0; text-align: left; }
+.privacy-trigger:hover { text-decoration: underline; }
+
+/* 2. The group band. A hairline, the intro at .85 and the list at 1.15, the
+   list two across. */
+.groupband {
+  margin-top: 56px; padding-top: 40px;
+  border-top: 1px solid var(--color-line-dark);
+  display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+  gap: 48px; align-items: start;
+}
+.groupband__intro .h4 { margin-bottom: 14px; }
+.groupband__intro .small { color: var(--color-panel-fg); max-width: 46ch; }
+.groupband__list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 32px;
+}
+.groupband__name {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px;
+  font-size: .9375rem; font-weight: 600; color: var(--color-panel-accent);
+}
+a.groupband__name:hover { color: var(--color-page); text-decoration: underline; }
+.groupband__name--current { color: var(--color-page); }
+.groupband__here {
+  font-family: var(--font-mono); font-size: 9.5px; font-weight: 400;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--color-panel-fg);
+  border: 1px solid var(--color-line-dark); border-radius: 3px; padding: 3px 7px;
+}
+.groupband__what {
+  display: block; margin-top: 7px; max-width: 42ch;
+  font-size: .8125rem; line-height: 1.55; color: var(--color-panel-fg);
+}
+
+/* The s.21 notice. Holdings-only — Technologies has no investment content. */
 .footer-legal {
-  margin-bottom: 32px; padding: 22px 26px;
+  margin-top: 40px; padding: 22px 26px;
   border: 1px solid var(--color-line-dark); border-radius: var(--radius-card);
   background: rgba(255, 255, 255, .03);
   font-size: .875rem; line-height: 1.6;
 }
 .footer-legal strong { color: var(--color-page); }
 
-.footer-base {
-  display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between;
-  padding-top: 26px; border-top: 1px solid var(--color-line-dark);
-  font-size: .875rem;
+/* 3. The legal line: the company identity, in two halves. */
+.site-footer__legal {
+  margin-top: 40px; padding-top: 24px;
+  border-top: 1px solid var(--color-line-dark);
+  display: flex; flex-wrap: wrap; gap: 12px 24px;
+  align-items: baseline; justify-content: space-between;
+  font-size: .8125rem;
 }
+.site-footer__id { display: flex; flex-wrap: wrap; gap: 4px 26px; max-width: 76ch; }
+.site-footer__id--end { margin-left: auto; text-align: right; justify-content: flex-end; }
 
-/* ---------------------------------------------------------- group strip */
+/* ------------------------------------------------------- privacy choices
+   The dialog opened from the footer. It sits on a white ground inside the
+   dark footer, so every colour it needs is stated here rather than inherited,
+   and the footer's focus ring and link tones are put back to the light-ground
+   ones. */
 
-.group-strip { margin-bottom: 36px; padding-bottom: 32px; border-bottom: 1px solid var(--color-line-dark); }
-.group-eyebrow { display: block; margin-bottom: 18px; }
-.group-items { display: flex; flex-wrap: wrap; gap: 16px; align-items: stretch; }
-
-/* White chips deliberately: the group logos keep their REAL brand colours and
-   would not survive being placed straight onto the footer's ground. */
-.group-item {
-  display: flex; align-items: center; gap: 12px;
-  min-height: 66px; flex: 1 1 200px;
-  padding: 14px 22px;
-  background: var(--color-page);
-  border: 1px solid transparent; border-radius: var(--radius-card);
+.privacy-panel {
+  border: 0; padding: 0;
+  width: calc(100% - 32px); max-width: 420px;
+  margin: auto auto 24px;
+  border-radius: var(--radius-card);
+  background: var(--color-page); color: var(--color-ink);
+  box-shadow: var(--shadow-feature);
 }
-.group-item:hover { border-color: var(--color-brand-signal); }
-.group-mark { height: 38px; width: 38px; object-fit: contain; flex: none; }
-.group-word { display: flex; flex-direction: column; line-height: 1.05; }
-.group-word-main { color: var(--color-ink); font-size: 1.0625rem; font-weight: 600; }
-.group-word-sub {
-  margin-top: 3px;
-  font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--color-muted);
+.privacy-panel::backdrop { background: rgba(6, 17, 31, .4); }
+.footer .privacy-panel :focus-visible { outline-color: var(--color-brand); }
+.privacy-panel__inner { padding: 24px 24px 22px; }
+.privacy-panel__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.privacy-panel__head h2 { font-size: 1.0625rem; font-weight: 600; }
+.privacy-panel__close {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 44px; min-height: 44px; margin: -10px -12px -10px 0;
+  background: none; border: 0; font-size: 22px; line-height: 1; color: var(--color-muted);
 }
+.privacy-panel__close:hover { color: var(--color-ink); }
+.privacy-panel__sub { margin-top: 18px; font-size: .8125rem; font-weight: 600; }
+.privacy-panel__body,
+.privacy-panel__state,
+.privacy-panel__note { margin-top: 8px; font-size: .8125rem; line-height: 1.55; color: var(--color-muted); }
+.privacy-panel__state { color: var(--color-ink); }
+.privacy-panel__control {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--color-line);
+  font-size: .8125rem;
+}
+/* Two segments in one pill; pressed is the filled reading tone. Each keeps the
+   44px tap floor. */
+.privacy-toggle {
+  display: inline-flex; overflow: hidden;
+  border: 1px solid var(--color-line-strong); border-radius: 999px;
+}
+.privacy-toggle button {
+  min-height: 44px; padding: 0 18px; border: 0; background: none;
+  font-size: .78125rem; color: var(--color-muted);
+}
+.privacy-toggle button[aria-pressed='true'] { background: var(--color-brand); color: var(--color-page); }
+.privacy-toggle button[aria-pressed='false']:hover { color: var(--color-ink); }
+.privacy-toggle button:disabled { cursor: default; opacity: .6; }
+.privacy-panel__link {
+  display: inline-block; margin-top: 16px; font-size: .8125rem;
+  color: var(--color-brand); text-decoration: underline; text-underline-offset: 3px;
+}
+.privacy-panel__link:hover { color: var(--color-brand-hover); }
 
 /* --------------------------------------------------------- credentials */
 
@@ -1164,6 +1249,18 @@ body.menu-open { overflow: hidden; }
   .nav-links.is-open { display: flex; }
   .nav-links a { padding: 14px 0; border-bottom: 1px solid var(--color-line); font-size: 1rem; }
   .menu-toggle { display: grid; }
+
+  /* The group footer folds once: brand across the top, the link columns two
+     across beneath it, the group band stacked. Theirs steps at 1000, 900 and
+     560px; this stylesheet allows one query. */
+  .site-footer__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 24px; }
+  .site-footer__brand { grid-column: 1 / -1; }
+  .groupband, .groupband__list { grid-template-columns: minmax(0, 1fr); }
+  .groupband { gap: 34px; }
+  .groupband__list { gap: 22px; }
+  .site-footer__id, .site-footer__id > span { display: block; }
+  .site-footer__id--end { margin-left: 0; text-align: left; }
+  .privacy-panel { margin-bottom: 12px; }
 }
 
 /* ==========================================================================
