@@ -199,7 +199,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               "(function(){try{" +
               "if(!('IntersectionObserver' in window))return;" +
               "if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;" +
-              "var G='.card-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps';" +
+              "var G='.card-grid, .quad-grid, .tile-grid, .tile-strip, .tstm-grid, .two-col, .charter, .steps';" +
               "var I='.section-head, .prose';var done=false;" +
               "var e=document.documentElement;e.setAttribute('data-reveal','on');" +
               "var ready=false,q=[];" +
