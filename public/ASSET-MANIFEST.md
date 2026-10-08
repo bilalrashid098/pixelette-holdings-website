@@ -43,13 +43,9 @@ Save each into: `NEXTJS/public/media/…` (create the folder). Keep the suggeste
 | Q~Zero | (no logo on live site) | — |
 | Zam Zam | (no logo on live site) | — |
 
-## Credential badges (4) → `public/media/credentials/`
-| Badge | Source URL | Save as |
-|---|---|---|
-| APPG | https://pixeletteholdings.com/wp-content/uploads/2025/08/appg.png | appg.png |
-| ISO 27001:2022 | https://pixeletteholdings.com/wp-content/uploads/2025/08/ISO-9001-1.png | iso-27001.png |
-| ISO 9001 | https://pixeletteholdings.com/wp-content/uploads/2025/08/ISO-9001-3.png | iso-9001.png |
-| Cyber Essentials | https://pixeletteholdings.com/wp-content/uploads/2025/08/CYBER-ESSENTIAL.png | cyber-essentials.png |
+## Credential badges
+
+Removed from `public/media/credentials/` on 8 October 2026. Do not download them back into this site. Cyber Essentials is not held. ISO and APPG marks are not shown as logos. ISO wording on the site is text, attributed to Pixelette Technologies.
 
 ## Event / programme photos (optional, homepage + social-impact) → `public/media/events/`
 - https://pixeletteholdings.com/wp-content/uploads/2025/08/image-312-3.png (Meta Earth conference, Türkiye)

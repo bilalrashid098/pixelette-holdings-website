@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRightIcon } from './Icons';
 import { CONTACT } from '@/content/site';
 import { AUDIENCE_LABEL, readAssessment, type PartnershipAssessment } from '@/lib/assessment';
+import { openEnquiryMailto } from '@/lib/enquiry-mail';
 
 /**
  * HSE Fit Assessment.
@@ -63,16 +64,16 @@ const CONSTRAINTS = [
   'Other',
 ];
 
-function Select({ id, name, label, hint, options, defaultValue = '' }: {
-  id: string; name: string; label: string; hint?: string; options: string[]; defaultValue?: string;
+function Select({ id, name, label, hint, options, defaultValue = '', required = true }: {
+  id: string; name: string; label: string; hint?: string; options: string[]; defaultValue?: string; required?: boolean;
 }) {
   return (
     <div className="field">
       <label className="label" htmlFor={id}>
-        {label} <span className="req">*</span>
+        {label} {required ? <span className="req">*</span> : null}
       </label>
       {hint ? <span className="small hint">{hint}</span> : null}
-      <select className="select" id={id} name={name} required defaultValue={defaultValue}>
+      <select className="select" id={id} name={name} required={required} defaultValue={defaultValue}>
         <option value="">Please select</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
@@ -150,8 +151,9 @@ export function FitAssessmentForm() {
           id="f-capital"
           name="capital"
           label="Capital currently available for professional execution"
-          hint="A qualification range, not a price. HSE requires a funded execution pathway."
+          hint="Optional context for the conversation. It is not a fee and it is not a requirement."
           options={CAPITAL}
+          required={false}
         />
 
         <div className="field">
@@ -189,13 +191,46 @@ export function FitAssessmentForm() {
         </div>
 
         <div className="btn-row">
-          <button className="btn" type="submit" disabled={!FORM_APPROVED}>
+          <button
+            className="btn"
+            type="button"
+            onClick={(event) => {
+              const form = event.currentTarget.form;
+              if (!form || !form.reportValidity()) return;
+              const data = new FormData(form);
+              const value = (key: string) => String(data.get(key) ?? '').trim();
+              openEnquiryMailto('Apply to partner', [
+                `Name: ${value('name')}`,
+                `Work email: ${value('email')}`,
+                `Company or venture: ${value('company')}`,
+                `Website: ${value('website')}`,
+                `Country or principal market: ${value('market')}`,
+                `Sector: ${value('sector')}`,
+                `Current stage: ${value('stage')}`,
+                `Capital currently available: ${value('capital')}`,
+                `Venture description: ${value('description')}`,
+                `Biggest current constraint: ${value('constraint')}`,
+                carried ? `Assessment visitor: ${AUDIENCE_LABEL[carried.audience]}` : '',
+                carried ? `Assessment need: ${carried.need}` : '',
+                carried ? `Assessment structure: ${carried.structure}` : '',
+                carried ? `Assessment context: ${carried.context}` : '',
+                `Marketing emails: ${data.get('marketing') ? 'yes' : 'no'}`,
+                'Sending this email does not create a partnership or an investment commitment.',
+              ], event.currentTarget);
+            }}
+          >
+            Email this application <ArrowUpRightIcon />
+          </button>
+          {/* Server submit stays disabled. The site has no approved place to store the form. */}
+          <button className="btn" type="submit" disabled={!FORM_APPROVED} hidden>
             Apply to partner <ArrowUpRightIcon />
           </button>
         </div>
 
         <p className="small form-note">
-          Submission does not create an engagement, meeting entitlement or offer.
+          Email this application opens a message in your own email program, addressed to {CONTACT.email}.
+          Pixelette receives it only if you send that message. Sending it does not create a partnership,
+          a meeting or an investment commitment.
         </p>
 
         {blocked ? (
@@ -206,9 +241,8 @@ export function FitAssessmentForm() {
       </form>
 
       <p className="small form-note" style={{ marginTop: 22 }}>
-        Email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> to send an application.
-        This form does not transmit what you type, because receipt and routing have not been confirmed.
-        An email does not create a partnership or an investment commitment.
+        If your email program does not open, write to <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> with
+        the same details. This website does not store the form.
       </p>
     </div>
   );

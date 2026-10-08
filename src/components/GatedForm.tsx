@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { ArrowUpRightIcon } from './Icons';
 import { CONTACT } from '@/content/site';
+import { openEnquiryMailto } from '@/lib/enquiry-mail';
 
 /**
  * A form that renders and validates but cannot submit.
@@ -26,9 +27,10 @@ export function GatedForm({
   consents,
   submitLabel,
   note,
-  heldBody = `Email ${CONTACT.email} to send this enquiry. This form does not transmit what you type, because receipt and routing have not been confirmed. An email does not create a partnership or an investment commitment.`,
+  heldBody = `Email this enquiry opens a message in your own email program, addressed to ${CONTACT.email}. Pixelette receives it only if you send that message. This website does not store the form. Sending it does not create a partnership or an investment commitment.`,
   approved = false,
   defaults,
+  mailSubject = 'Enquiry',
 }: {
   id: string;
   fields: Field[];
@@ -38,6 +40,7 @@ export function GatedForm({
   heldBody?: string;
   approved?: boolean;
   defaults?: Record<string, string>;
+  mailSubject?: string;
 }) {
   const [blocked, setBlocked] = useState(false);
 
@@ -92,7 +95,24 @@ export function GatedForm({
         ))}
 
         <div className="btn-row">
-          <button className="btn" type="submit" disabled={!approved}>
+          <button
+            className="btn"
+            type="button"
+            onClick={(event) => {
+              const form = event.currentTarget.form;
+              if (!form || !form.reportValidity()) return;
+              const data = new FormData(form);
+              const lines = [
+                ...fields.map((field) => `${field.label}: ${String(data.get(field.id) ?? '').trim()}`),
+                ...consents.map((consent) => `${consent.label} ${data.get(consent.id) ? 'Yes.' : 'No.'}`),
+                'Sending this email does not create a partnership or an investment commitment.',
+              ];
+              openEnquiryMailto(mailSubject, lines, event.currentTarget);
+            }}
+          >
+            Email this enquiry <ArrowUpRightIcon />
+          </button>
+          <button className="btn" type="submit" disabled={!approved} hidden>
             {submitLabel} <ArrowUpRightIcon />
           </button>
         </div>

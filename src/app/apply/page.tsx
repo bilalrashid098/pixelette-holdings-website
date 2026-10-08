@@ -75,7 +75,7 @@ export default function ApplyPage() {
         <SectionHead
           eyebrow="The application"
           title="The information to include"
-          lead={`Prepare the answers below, then email them to ${CONTACT.email}. This page does not send the form.`}
+          lead={`Use Email this application. It opens a message to ${CONTACT.email} in your own email program. This website does not store what you type, and Pixelette receives it only when you send that message.`}
         />
         <FitAssessmentForm />
       </Section>

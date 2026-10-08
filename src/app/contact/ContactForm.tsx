@@ -68,6 +68,7 @@ export function ContactForm() {
           },
         ]}
         submitLabel="Send enquiry"
+        mailSubject="Contact enquiry"
         note="Sending an enquiry does not create a partnership, an investment or a commitment by either side."
       />
     </>
