@@ -23,8 +23,9 @@ export default function AccessibilityPage() {
           <div className="prose">
             <h2>Our commitment</h2>
             <p>
-              {SITE.legalName} aims to meet <strong>WCAG 2.2 level AA</strong>. Accessibility is
-              treated as a build requirement, not a retrofit.
+              {SITE.legalName} designs this website for keyboard use, visible focus, labelled controls
+              and text that does not rely on colour alone. A formal accessibility audit has not been
+              completed. This page does not claim a WCAG conformance level.
             </p>
 
             <h2>What is built in</h2>
@@ -39,10 +40,7 @@ export default function AccessibilityPage() {
               </li>
               <li>Interactive states that remain clear without animation.</li>
               <li>Form labels, hints and error messages tied to their fields.</li>
-              <li>
-                Colour contrast checked against the AA threshold, using an accessible cobalt for text
-                on light surfaces.
-              </li>
+              <li>Text and interface colours come from the site palette. Contrast has not been re-audited for this revision.</li>
               <li>Meaningful alternative text; decorative images marked as decorative.</li>
             </ul>
           </div>

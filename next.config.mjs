@@ -38,9 +38,20 @@ const nextConfig = {
       { source: '/accelerator', destination: '/hse-model', permanent: true },
       { source: '/start-your-venture', destination: '/apply', permanent: true },
 
-      // COUNSEL GATE — /for-investors must NOT redirect to the new capital
-      // page until the s.21 FSMA position is cleared. Deliberately absent.
-      // { source: '/for-investors', destination: '/partners/capital', permanent: true },
+      { source: '/hse-model/founder-protection', destination: '/hse-model/#protecting-the-partnership', permanent: true },
+      { source: '/validation-sprint', destination: '/hse-model/#how-it-works', permanent: true },
+      { source: '/capabilities', destination: '/about/#the-group', permanent: true },
+      { source: '/portfolio/investments', destination: '/about/#relationships', permanent: true },
+      { source: '/portfolio/hse-ventures', destination: '/portfolio/#selected-ventures', permanent: true },
+      { source: '/portfolio/delivered-ventures', destination: '/portfolio/#selected-ventures', permanent: true },
+      { source: '/portfolio/2connect', destination: '/portfolio/#2connect', permanent: true },
+      { source: '/partners/capital', destination: '/contact/#capital-relationships', permanent: true },
+      { source: '/partners/capital/qualification', destination: '/contact/#capital-relationships', permanent: true },
+      { source: '/partners/capital/thank-you', destination: '/contact/', permanent: true },
+      { source: '/partners/accelerators', destination: '/startups/', permanent: true },
+      { source: '/social-impact', destination: '/about/#initiatives', permanent: true },
+
+      // /for-investors stays unredirected. It is not pointed at a capital page.
     ];
   },
 };

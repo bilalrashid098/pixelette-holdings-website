@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowUpRightIcon } from './Icons';
 import { CONTACT } from '@/content/site';
+import { AUDIENCE_LABEL, readAssessment, type PartnershipAssessment } from '@/lib/assessment';
 
 /**
  * HSE Fit Assessment.
@@ -62,8 +63,8 @@ const CONSTRAINTS = [
   'Other',
 ];
 
-function Select({ id, name, label, hint, options }: {
-  id: string; name: string; label: string; hint?: string; options: string[];
+function Select({ id, name, label, hint, options, defaultValue = '' }: {
+  id: string; name: string; label: string; hint?: string; options: string[]; defaultValue?: string;
 }) {
   return (
     <div className="field">
@@ -71,7 +72,7 @@ function Select({ id, name, label, hint, options }: {
         {label} <span className="req">*</span>
       </label>
       {hint ? <span className="small hint">{hint}</span> : null}
-      <select className="select" id={id} name={name} required defaultValue="">
+      <select className="select" id={id} name={name} required defaultValue={defaultValue}>
         <option value="">Please select</option>
         {options.map((o) => (
           <option key={o}>{o}</option>
@@ -83,9 +84,30 @@ function Select({ id, name, label, hint, options }: {
 
 export function FitAssessmentForm() {
   const [blocked, setBlocked] = useState(false);
+  const [carried, setCarried] = useState<PartnershipAssessment | null>(null);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const data = readAssessment();
+    if (data?.audience === 'founder') setCarried(data);
+    setReady(true);
+  }, []);
+
+  if (!ready) return <div className="form" aria-busy="true" />;
+
+  const stageDefault = carried && STAGES.includes(carried.stage) ? carried.stage : '';
 
   return (
     <div className="form">
+      {carried ? (
+        <div className="qualifier">
+          <p>
+            <strong>From your startup partnership assessment.</strong> Stage: {carried.stage}. Need: {carried.need}.
+            Structure: {carried.structure}. Context: {carried.context}. You are marked as a {AUDIENCE_LABEL[carried.audience].toLowerCase()}.
+            You can change the stage below. To change the earlier answers, return to the startups page.
+          </p>
+        </div>
+      ) : null}
       <form
         id="fit-assessment"
         noValidate
@@ -123,7 +145,7 @@ export function FitAssessmentForm() {
         </div>
 
         <Select id="f-sector" name="sector" label="Sector" options={SECTORS} />
-        <Select id="f-stage" name="stage" label="Current stage" options={STAGES} />
+        <Select id="f-stage" name="stage" label="Current stage" options={STAGES} defaultValue={stageDefault} />
         <Select
           id="f-capital"
           name="capital"
@@ -168,7 +190,7 @@ export function FitAssessmentForm() {
 
         <div className="btn-row">
           <button className="btn" type="submit" disabled={!FORM_APPROVED}>
-            Submit my HSE Fit Assessment <ArrowUpRightIcon />
+            Apply to partner <ArrowUpRightIcon />
           </button>
         </div>
 
@@ -184,9 +206,9 @@ export function FitAssessmentForm() {
       </form>
 
       <p className="small form-note" style={{ marginTop: 22 }}>
-        This assessment is being finalised. In the meantime, email us at{' '}
-        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> and we will pick up
-        your enquiry.
+        Email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> to send an application.
+        This form does not transmit what you type, because receipt and routing have not been confirmed.
+        An email does not create a partnership or an investment commitment.
       </p>
     </div>
   );

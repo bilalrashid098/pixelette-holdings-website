@@ -27,10 +27,33 @@
 # The old insight slug, now fully descriptive.
 /insights/services-for-equity/   /insights/services-for-equity-properly-structured/   301
 
-# COUNSEL GATE — do not enable until the replacement capital-partner page is
-# cleared under s.21 FSMA. Until then the old page is retired, not redirected
-# into an uncleared destination.
-# /for-investors           /partners/capital/     301
+# Consolidated routes. Fragments land on the section that received the content.
+/hse-model/founder-protection    /hse-model/#protecting-the-partnership    301
+/hse-model/founder-protection/   /hse-model/#protecting-the-partnership    301
+/validation-sprint               /hse-model/#how-it-works    301
+/validation-sprint/              /hse-model/#how-it-works    301
+/capabilities                    /about/#the-group    301
+/capabilities/                   /about/#the-group    301
+/portfolio/investments           /about/#relationships    301
+/portfolio/investments/          /about/#relationships    301
+/portfolio/hse-ventures          /portfolio/#selected-ventures    301
+/portfolio/hse-ventures/         /portfolio/#selected-ventures    301
+/portfolio/delivered-ventures    /portfolio/#selected-ventures    301
+/portfolio/delivered-ventures/   /portfolio/#selected-ventures    301
+/portfolio/2connect              /portfolio/#2connect    301
+/portfolio/2connect/             /portfolio/#2connect    301
+/partners/capital                /contact/#capital-relationships    301
+/partners/capital/               /contact/#capital-relationships    301
+/partners/capital/qualification  /contact/#capital-relationships    301
+/partners/capital/qualification/ /contact/#capital-relationships    301
+/partners/capital/thank-you      /contact/    301
+/partners/capital/thank-you/     /contact/    301
+/partners/accelerators           /startups/    301
+/partners/accelerators/          /startups/    301
+/social-impact                   /about/#initiatives    301
+/social-impact/                  /about/#initiatives    301
+
+# /for-investors is intentionally not redirected.
 
 # Removed brand. No equivalent destination exists, so this is GONE, not moved.
 # A 301 here would misrepresent the relationship.

@@ -1,13 +1,8 @@
 import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
 
-/**
- * Confirmation page. Excluded from the index, a thank-you page in search
- * results is a tracking and duplicate-content defect, and this one would also
- * expose a route that does not yet accept submissions.
- */
 export const metadata: Metadata = {
-  title: 'Assessment received',
+  title: 'Application',
   robots: { index: false, follow: false },
   alternates: { canonical: '/apply/thank-you' },
 };
@@ -16,27 +11,22 @@ export default function ApplyThankYouPage() {
   return (
     <>
       <PageHero
-        eyebrow="Assessment received"
-        title="Thank you. Your assessment is with us."
-        lead="A member of the Pixelette Holdings team will review what you have sent and respond if the venture is a plausible fit for a qualification conversation."
+        eyebrow="Apply to partner"
+        title="This page is not a receipt"
+        lead="The application form on this website does not send what you type. An email you send yourself is the message that can be received. This address does not confirm that a message has arrived."
       />
 
       <Section>
-        <SectionHead eyebrow="What happens now" title="What you should expect." />
+        <SectionHead eyebrow="What this does not mean" title="No partnership has been created" />
         <ul className="list">
-          <li>Your submission is reviewed by a person, not scored by an algorithm.</li>
-          <li>A response does not imply acceptance, an offer or an entitlement to a meeting.</li>
-          <li>We may recommend HSE, a paid Validation Sprint, full-cash delivery or no engagement.</li>
-          <li>Nothing is agreed until scope, economics and documentation are signed separately.</li>
+          <li>A page view is not a submission.</li>
+          <li>A reply, if one is sent, does not imply acceptance or a meeting.</li>
+          <li>There is no promised response time.</li>
+          <li>Nothing is agreed until scope and documentation are signed separately.</li>
         </ul>
-
         <Buttons>
-          <Btn href="/hse-model">
-            Read the HSE model
-          </Btn>
-          <Btn href="/portfolio">
-            Explore the portfolio
-          </Btn>
+          <Btn href="/apply">Return to the application</Btn>
+          <Btn href="/hse-model" variant="secondary">Hybrid Sweat Equity</Btn>
         </Buttons>
       </Section>
     </>

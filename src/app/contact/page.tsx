@@ -1,37 +1,14 @@
 import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
-import { GatedForm, type Field } from '@/components/GatedForm';
-import { SITE, CONTACT, SOCIALS } from '@/content/site';
+import { SITE, CONTACT, SOCIALS, CAPITAL_STATEMENT } from '@/content/site';
+import { ContactForm } from './ContactForm';
 
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Route your enquiry properly. Founder applications go through the HSE Fit Assessment; capital relationships follow a separate, controlled qualification route.',
+    'Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should use Apply to partner.',
   alternates: { canonical: '/contact' },
 };
-
-const FIELDS: Field[] = [
-  {
-    kind: 'select', id: 'c-type', label: 'Enquiry type', required: true,
-    options: [
-      'Enterprise pilot',
-      'Portfolio commercial partnership',
-      'Technology delivery (full-cash)',
-      'Assurance and compliance readiness',
-      'Social-impact partnership',
-      'Media or speaking',
-      'HSE application problem',
-      'Other',
-    ],
-  },
-  { kind: 'text', id: 'c-name', label: 'Name', required: true, autoComplete: 'name' },
-  { kind: 'email', id: 'c-email', label: 'Work email', required: true, autoComplete: 'email' },
-  { kind: 'text', id: 'c-org', label: 'Organisation', autoComplete: 'organization' },
-  {
-    kind: 'textarea', id: 'c-message', label: 'Message', required: true,
-    hint: 'Please do not send confidential documents or personal data through this form.',
-  },
-];
 
 export default function ContactPage() {
   return (
@@ -39,71 +16,63 @@ export default function ContactPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
         eyebrow="Contact"
-        title="Route your enquiry properly."
-        lead="Selecting the right route means the right person replies. Founder applications are handled through the HSE Fit Assessment, not this form."
+        title="Contact Pixelette Holdings"
+        lead="Choose the enquiry that fits. Founder partnerships have their own application, so the same questions are not asked twice."
       />
 
       <Section>
-        <SectionHead eyebrow="Before you write" title="Two enquiries have their own route." />
-        <div className="two-col">
-          <article>
-            <h3 className="h3">Founders seeking an HSE partnership</h3>
+        <SectionHead eyebrow="Routes" title="Where to send it" />
+        <div className="card-grid">
+          <article className="card">
+            <h3 className="h3">Founder partnerships</h3>
             <p className="body">
-              Use the short fit assessment. It gathers the venture, stage and execution-capital context
-              needed for a qualification decision, and it reaches the right reviewer directly.
+              If you are building a venture and want to discuss Hybrid Sweat Equity or delivery, use
+              Apply to partner. You can take the startup partnership assessment first.
             </p>
             <Buttons>
-              <Btn href="/apply">Check if you qualify</Btn>
+              <Btn href="/apply">Apply to partner</Btn>
             </Buttons>
           </article>
-          <article>
-            <h3 className="h3">Capital partners</h3>
+          <article className="card" id="incubators-and-accelerators">
+            <h3 className="h3">Incubators and accelerators</h3>
             <p className="body">
-              Capital relationships follow a separate, controlled qualification route under
-              counsel-approved terms. Please do not send investment enquiries through the general
-              contact form.
+              Programme operators can use the form below and choose Incubators and accelerators. If you
+              have already completed the assessment, those answers are carried into this page in your
+              browser only.
             </p>
-            <Buttons>
-              <Btn href="/partners/capital">Capital Partner overview</Btn>
-            </Buttons>
+          </article>
+          <article className="card" id="capital-relationships">
+            <h3 className="h3">Capital relationships</h3>
+            <p className="body">{CAPITAL_STATEMENT}</p>
+          </article>
+          <article className="card">
+            <h3 className="h3">General and strategic</h3>
+            <p className="body">
+              General enquiries and strategic partnerships that are not a founder application can use
+              the form below.
+            </p>
           </article>
         </div>
       </Section>
 
       <Section surface="ice">
         <SectionHead
-          eyebrow="General enquiries"
-          title="Everything else."
-          lead="Choose the enquiry type so your message routes internally rather than sitting in a shared inbox."
+          eyebrow="Enquiry"
+          title="Write to us"
+          lead="The categories are general enquiries, strategic partnerships, incubators and accelerators, and capital relationships."
         />
-        <GatedForm
-          id="contact-form"
-          fields={FIELDS}
-          consents={[
-            {
-              id: 'c-privacy',
-              required: true,
-              label:
-                'I have read the Privacy Notice and understand how the data controller named in it will use this information to respond to my enquiry.',
-            },
-          ]}
-          submitLabel="Send enquiry"
-          note="Submitting an enquiry does not create an engagement or offer."
-          heldBody={`This form is being finalised. In the meantime, email us directly at ${CONTACT.email} and we will route your enquiry to the right person.`}
-        />
+        <ContactForm />
       </Section>
 
       <Section tight>
         <div className="two-col">
           <article>
-            <h3 className="h3">Contact</h3>
+            <h3 className="h3">Direct contact</h3>
             <ul className="list-plain">
               <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
               <li><a href={`tel:${CONTACT.phoneTel}`}>{CONTACT.phone}</a></li>
               <li>
-                <a href={SOCIALS[0].href} target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>
+                <a href={SOCIALS[0].href} target="_blank" rel="noopener noreferrer">LinkedIn</a>
               </li>
             </ul>
           </article>

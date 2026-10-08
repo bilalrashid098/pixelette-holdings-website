@@ -19,11 +19,7 @@
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'
 
-# Gated routes must not be indexed even if a link leaks.
-# Belt-and-braces alongside robots.txt and the per-page robots metadata.
-/partners/capital/*
-  X-Robots-Tag: noindex, nofollow
-
+# The application receipt route is not a public page.
 /apply/thank-you/*
   X-Robots-Tag: noindex, nofollow
 

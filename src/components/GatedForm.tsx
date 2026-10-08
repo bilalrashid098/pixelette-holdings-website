@@ -26,8 +26,9 @@ export function GatedForm({
   consents,
   submitLabel,
   note,
-  heldBody = `This form is being finalised. In the meantime, email us at ${CONTACT.email} and we will route your enquiry to the right person.`,
+  heldBody = `Email ${CONTACT.email} to send this enquiry. This form does not transmit what you type, because receipt and routing have not been confirmed. An email does not create a partnership or an investment commitment.`,
   approved = false,
+  defaults,
 }: {
   id: string;
   fields: Field[];
@@ -36,6 +37,7 @@ export function GatedForm({
   note?: string;
   heldBody?: string;
   approved?: boolean;
+  defaults?: Record<string, string>;
 }) {
   const [blocked, setBlocked] = useState(false);
 
@@ -61,7 +63,7 @@ export function GatedForm({
             {f.kind === 'textarea' ? (
               <textarea className="textarea" id={f.id} name={f.id} required={f.required} />
             ) : f.kind === 'select' ? (
-              <select className="select" id={f.id} name={f.id} required={f.required} defaultValue="">
+              <select className="select" id={f.id} name={f.id} required={f.required} defaultValue={defaults?.[f.id] ?? ''}>
                 <option value="">Please select</option>
                 {f.options.map((o) => (
                   <option key={o}>{o}</option>

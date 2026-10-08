@@ -1,144 +1,97 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import {
-  Section, SectionHead, PageHero, Buttons, Btn, EvidenceGate, Qualifier,
-} from '@/components/ui';
+import { InsightArticle } from '@/components/InsightArticle';
 
 export const metadata: Metadata = {
-  title: 'Services-for-equity, properly structured',
+  title: 'Services for equity: how startup partnerships can be structured',
   description:
-    'Most services-for-equity arrangements fail for the same two reasons: the scope was never defined, and the equity was granted before the work was done. Both are structural, and both are fixable.',
+    'How a services-for-equity partnership can combine cash and shares, and why ownership, milestones and governance have to be written down for that venture.',
   alternates: { canonical: '/insights/services-for-equity-properly-structured' },
 };
 
-export default function ServicesForEquityArticle() {
+export default function ArticlePage() {
   return (
-    <>
-      <PageHero
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Insights', href: '/insights' },
-          { label: 'Services-for-equity' },
-        ]}
-        eyebrow="Insight · The HSE model"
-        title="Services-for-equity, properly structured."
-        lead="Most services-for-equity arrangements fail for the same two reasons: the scope was never defined, and the equity was granted before the work was done. Both are fixable, and the fixes are structural rather than cultural."
-      />
-
-      <Section>
-        <div className="prose">
-          <p className="lead" style={{ marginBottom: 34 }}>
-            <strong>
-              Services-for-equity is an arrangement in which a delivery partner accepts equity in place
-              of part of its fee.
-            </strong>{' '}
-            It is common, it is frequently mishandled, and the failure pattern is consistent enough to
-            be designed out.
-          </p>
-
-          <h2>Why most arrangements fail</h2>
-          <p>Two failure modes account for the majority of disputes.</p>
-          <p>
-            <strong>Undefined scope.</strong> &ldquo;Development support&rdquo; is not a deliverable.
-            When the work is not specified against acceptance criteria, both parties form different
-            expectations, and the disagreement surfaces only after the equity has moved. The founder
-            believes they bought a product; the partner believes they sold a period of effort.
-          </p>
-          <p>
-            <strong>Equity granted upfront.</strong> If shares are issued at signature, the
-            partner&rsquo;s incentive inverts on day two. Every hour after that is a cost against an
-            asset already held. The founder is diluted for work that may never arrive, and has no
-            mechanism to recover the position.
-          </p>
-
-          <h2>The four structures that fix it</h2>
-
-          <h3>1. Milestone vesting</h3>
-          <p>
-            Equity vests only when a defined milestone is delivered <em>and accepted</em>. Acceptance
-            is the load-bearing word: delivery asserted by the partner is not the same as delivery
-            accepted by the founder, and the agreement must say which one triggers vesting.
-          </p>
-
-          <h3>2. Clawback</h3>
-          <p>
-            Unvested equity returns automatically when delivery stops. Without it, a partner who
-            disengages at 40% completion keeps whatever vested and the founder carries the dilution
-            permanently. Clawback is what makes the arrangement survivable when it goes wrong.
-          </p>
-
-          <h3>3. Stage-based ceilings</h3>
-          <p>
-            A pre-seed venture carries more execution risk than one with revenue, so the defensible
-            ceiling differs. Agreeing the maximum before work begins removes the negotiation that would
-            otherwise happen at the worst possible moment: mid-delivery, when the founder has least
-            leverage.
-          </p>
-
-          <h3>4. A genuine full-cash alternative</h3>
-          <p>
-            If the partner will only work for equity, the arrangement is not a choice. A real cash
-            route, priced at commercial value, is what makes the equity route a decision rather than a
-            condition. It also disciplines the pricing: a fee that would be indefensible in cash is
-            indefensible in equity.
-          </p>
-        </div>
-
-        <div style={{ maxWidth: 760 }}>
-          <EvidenceGate flag="In practice" title="The question that exposes an unstructured deal" legal>
-            Ask what happens if the partner stops work at 40% completion. A properly structured
-            arrangement has a specific answer: this much vested, this much returns, these deliverables
-            are yours, this is the dispute route. An unstructured one produces a pause, and then a
-            reassurance about the relationship. The pause is the answer.
-          </EvidenceGate>
-        </div>
-
-        <div className="prose">
-          <h2>The valuation problem nobody solves early enough</h2>
-          <p>
-            Milestone-earned equity raises an obvious question: earned at what valuation? A cap table
-            records a fixed number. You cannot retroactively reprice a position as the venture de-risks.
-            The usual answer is a convertible instrument with a stage-banded cap, converting at the next
-            priced round, which defers the valuation argument to a point where there is evidence to
-            settle it. Until that instrument exists, stage ceilings are directional rather than
-            operable, and any percentage discussed is an intention, not a term.
-          </p>
-
-          <h2>What honest structuring cannot promise</h2>
-          <ul className="list list-cross">
-            <li>That the venture succeeds.</li>
-            <li>Customers, revenue or product-market fit.</li>
-            <li>Fundraising, investor introductions or an investment outcome.</li>
-            <li>That every milestone is accepted first time.</li>
-          </ul>
-          <p style={{ marginTop: 18 }}>
-            What it can do is ensure that if any of those go badly, the equity position reflects the
-            work actually delivered. That is the whole of the promise, and a partner offering more than
-            it is telling you something about how the arrangement will be run.
-          </p>
-        </div>
-
-        <div style={{ maxWidth: 760 }}>
-          <Qualifier>
-            <strong>How this applies at Pixelette.</strong> The HSE model uses all four structures:
-            milestone vesting, clawback, an equity ceiling agreed before work begins, and a full-cash
-            alternative that is always available. The{' '}
-            <Link className="link" href="/hse-model/founder-protection">Founder Protection Charter</Link> states the
-            commitments in eight lines. Final contractual language, vesting mechanics and tax treatment
-            require counsel approval before any instrument is signed.
-          </Qualifier>
-        </div>
-      </Section>
-
-      <Section surface="deep">
-        <SectionHead eyebrow="Next" title="See how the structures work in practice." />
-        <Buttons>
-          <Btn href="/hse-model">Explore the HSE model</Btn>
-          <Btn href="/hse-model/founder-protection" variant="secondary">
-            Read Founder Protection
-          </Btn>
-        </Buttons>
-      </Section>
-    </>
+    <InsightArticle
+      category="Equity and governance"
+      title="Services for equity: how startup partnerships can be structured"
+      prepared="8 October 2026"
+    >
+      <p>
+        This article is commercial commentary. It is not legal, tax or investment advice, and it does
+        not describe a structure that is suitable for every startup.
+      </p>
+      <p>
+        A services-for-equity arrangement is a way of paying for professional work with a mixture of
+        cash and a right to shares. The commercial reason is straightforward. A young company may not
+        be able to fund the whole fee in cash, and the firm doing the work may be willing to take part
+        of its reward as ownership if it believes the venture can grow. That exchange only works when
+        both sides can see what is being bought, what is being deferred, and what happens if the work
+        stops.
+      </p>
+      <h2>Cash and equity are one agreement, not two moods</h2>
+      <p>
+        The cash portion pays for capacity that has a real cost: people, time and risk. The equity
+        portion is not a discount sticker. It is consideration, and it has to be capable of being
+        documented. Pixelette&rsquo;s public description of{' '}
+        <Link href="/hse-model">Hybrid Sweat Equity</Link> is that professional services are
+        contributed in exchange for a combination of cash fees and equity participation, with the
+        allocation, milestones, founder rights and governance set out in the agreements. There is no
+        standard percentage on this website, because a standard percentage would be false.
+      </p>
+      <p>
+        A founder who wants less dilution pays more cash. A founder who wants to conserve cash may
+        discuss a larger equity component. Whether that option is available depends on the venture,
+        the scope and the risk. It is not a menu that every visitor can select.
+      </p>
+      <h2>Ownership is not the same thing as a headline percentage</h2>
+      <p>
+        A percentage only means something once you know the share class, the dilution that can still
+        happen, and whether the shares are issued now or earned later. Economic ownership and the
+        right to decide are different, which is the subject of the{' '}
+        <Link href="/insights/founder-control-and-equity-dilution">article on founder control</Link>.
+        Under the Companies Act 2006, a company&rsquo;s constitution and the agreements around it are
+        what members and directors have to live with. A conversation that never reaches those
+        documents has not agreed ownership.
+      </p>
+      <h2>Milestones and governance</h2>
+      <p>
+        If equity is linked to delivery, the milestone has to be describable by someone who was not in
+        the room. &ldquo;When the product is ready&rdquo; is not a milestone. A build that can be
+        demonstrated against a written acceptance note is closer. Governance should say who accepts
+        the work, what information is shared, and which decisions need more than one party. Those
+        clauses are how a partnership stays intelligible when the relationship is under pressure.
+      </p>
+      <p>
+        Termination belongs in the same draft. What is paid, what is vested, and what intellectual
+        property has transferred should not be left to goodwill. None of those outcomes is universal.
+        They are negotiated.
+      </p>
+      <h2>What this is not</h2>
+      <p>
+        It is not a promise of customers, revenue or a later investment. It is not an invitation to
+        the public to buy shares. Offering shares, or inducing someone to engage in investment
+        activity, can be a financial promotion under section 21 of the Financial Services and Markets
+        Act 2000, which is a reason to keep marketing language and the actual instrument apart. A
+        page that explains a commercial model is not a term sheet.
+      </p>
+      <p>
+        Founders who want to see whether a conversation is even relevant can start with the{' '}
+        <Link href="/startups">startups page</Link> or read how{' '}
+        <Link href="/portfolio">recorded venture relationships</Link> are classified. Classification
+        is not a measure of success.
+      </p>
+      <h2>References</h2>
+      <ul>
+        <li>
+          <a href="https://www.legislation.gov.uk/ukpga/2006/46/part/3">Companies Act 2006, Part 3, a company&rsquo;s constitution</a>
+        </li>
+        <li>
+          <a href="https://www.legislation.gov.uk/ukpga/2000/8/section/21">Financial Services and Markets Act 2000, section 21</a>
+        </li>
+        <li>
+          <a href="https://www.fca.org.uk/firms/financial-promotions-and-adverts">FCA, financial promotions and adverts</a>
+        </li>
+      </ul>
+    </InsightArticle>
   );
 }

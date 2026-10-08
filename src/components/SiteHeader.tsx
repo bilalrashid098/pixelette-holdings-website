@@ -83,7 +83,7 @@ export function SiteHeader() {
               the viewport beside the wordmark and the menu button. Exactly one
               of the two is ever visible — see .nav-cta / .nav-cta-mobile. */}
           <Link className="btn nav-cta-mobile" href="/apply">
-            Start Venture Diagnostic <ArrowUpRightIcon />
+            Apply to partner <ArrowUpRightIcon />
           </Link>
         </nav>
 
@@ -99,7 +99,7 @@ export function SiteHeader() {
         </button>
 
         <Link className="btn2 nav-cta" href="/apply">
-          Start Venture Diagnostic <ArrowUpRightIcon />
+          Apply to partner <ArrowUpRightIcon />
         </Link>
       </div>
     </header>

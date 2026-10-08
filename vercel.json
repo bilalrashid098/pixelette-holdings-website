@@ -5,7 +5,19 @@
     { "source": "/how-it-works", "destination": "/hse-model/", "statusCode": 301 },
     { "source": "/accelerator", "destination": "/hse-model/", "statusCode": 301 },
     { "source": "/start-your-venture", "destination": "/apply/", "statusCode": 301 },
-    { "source": "/insights/services-for-equity", "destination": "/insights/services-for-equity-properly-structured/", "statusCode": 301 }
+    { "source": "/insights/services-for-equity", "destination": "/insights/services-for-equity-properly-structured/", "statusCode": 301 },
+    { "source": "/hse-model/founder-protection", "destination": "/hse-model/#protecting-the-partnership", "statusCode": 301 },
+    { "source": "/validation-sprint", "destination": "/hse-model/#how-it-works", "statusCode": 301 },
+    { "source": "/capabilities", "destination": "/about/#the-group", "statusCode": 301 },
+    { "source": "/portfolio/investments", "destination": "/about/#relationships", "statusCode": 301 },
+    { "source": "/portfolio/hse-ventures", "destination": "/portfolio/#selected-ventures", "statusCode": 301 },
+    { "source": "/portfolio/delivered-ventures", "destination": "/portfolio/#selected-ventures", "statusCode": 301 },
+    { "source": "/portfolio/2connect", "destination": "/portfolio/#2connect", "statusCode": 301 },
+    { "source": "/partners/capital", "destination": "/contact/#capital-relationships", "statusCode": 301 },
+    { "source": "/partners/capital/qualification", "destination": "/contact/#capital-relationships", "statusCode": 301 },
+    { "source": "/partners/capital/thank-you", "destination": "/contact/", "statusCode": 301 },
+    { "source": "/partners/accelerators", "destination": "/startups/", "statusCode": 301 },
+    { "source": "/social-impact", "destination": "/about/#initiatives", "statusCode": 301 }
   ],
   "headers": [
     {
@@ -18,10 +30,6 @@
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
         { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'" }
       ]
-    },
-    {
-      "source": "/partners/capital/(.*)",
-      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
       "source": "/apply/thank-you/(.*)",

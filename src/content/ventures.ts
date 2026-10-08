@@ -19,6 +19,7 @@
 
 export type Relationship =
   | 'equity-investment'
+  | 'founder-relationship'
   | 'direct-hse-venture'
   | 'project-in-development'
   | 'delivered-venture'
@@ -46,6 +47,8 @@ export interface Venture {
   flagship?: boolean;
   /** Rendered as the visible amber gate note. */
   gateNote?: string;
+  /** Public operating-stage line. Omit to use the portfolio default. */
+  stageNote?: string;
   /** Wording that must never be used for this venture. */
   avoid?: string;
   /** Logo renders only when written permission is recorded. */
@@ -54,11 +57,12 @@ export interface Venture {
 }
 
 export const RELATIONSHIP_LABEL: Record<Relationship, string> = {
-  'equity-investment': 'Pixelette equity investment',
+  'equity-investment': 'Company equity interest',
+  'founder-relationship': 'Founder relationship',
   'direct-hse-venture': 'Direct HSE venture',
   'project-in-development': 'Project in development',
   'delivered-venture': 'Delivered venture',
-  'capital-relationship': 'Capital relationship',
+  'capital-relationship': 'Strategic association',
 };
 
 // Descriptions below were forensically extracted from the live pixeletteholdings.com
@@ -73,17 +77,15 @@ export const ventures: Venture[] = [
   {
     slug: 'big-innovation-centre',
     name: 'Big Innovation Centre',
-    relationship: 'equity-investment',
+    relationship: 'founder-relationship',
     evidence: 'founder-confirmed',
-    // 12% PUBLISHED per explicit founder authorisation 2026-08-08 (supersedes the
-    // prior withhold directive). Matches the live site's "12% stake". Two Companies
-    // House records use this name, so the founder should confirm the exact investee
-    // entity and have counsel bless the final wording in the standing legal review.
     oneLine:
-      'Pixelette Holdings holds a 12% equity investment in Big Innovation Centre, a cross-sector think tank and innovation hub shaping AI, blockchain and digital economy policy.',
+      "Pixelette Holdings' founder is also a founder and shareholder of Big Innovation Centre.",
     detail:
-      'The relationship connects the portfolio to a serious innovation and policy ecosystem. It is a structural minority investment position, not control of the organisation.',
-    avoid: 'Do not imply control, ownership of the whole organisation, or endorsement of Pixelette by BIC.',
+      'Big Innovation Centre is an organisation active in innovation, technology and artificial intelligence. This is a personal founder relationship. It is not described as a corporate equity investment by Pixelette Holdings.',
+    stageNote: 'A founder relationship. No corporate shareholding figure is published.',
+    externalUrl: 'https://biginnovationcentre.com/',
+    avoid: 'Do not publish a percentage, describe this as a Holdings equity investment, or imply control or endorsement.',
   },
 
   // ------------------------------------------------ project in development
@@ -131,7 +133,10 @@ export const ventures: Venture[] = [
     name: 'Digital Asset Vault',
     relationship: 'direct-hse-venture',
     evidence: 'verified-primary',
-    oneLine: 'Secure digital-asset storage, purchasing, real-time tracking and trading for global clients.',
+    oneLine:
+      'A direct Hybrid Sweat Equity relationship concerned with secure digital-asset storage and related services.',
+    stageNote:
+      'Launch, funding and commercial traction are not stated. The current operating stage has not been re-verified.',
     // The live site uses the word "custody". Softened to "storage" here because
     // "custody" of digital assets can carry regulatory-permission implications.
     avoid: 'Prefer "secure storage" over "custody"; make no regulatory, licensing or financial-permission claim.',
@@ -233,7 +238,8 @@ export const ventures: Venture[] = [
     relationship: 'capital-relationship',
     evidence: 'verified-primary',
     oneLine:
-      'A venture-capital firm investing in early-stage startups across fintech, AI, blockchain and entertainment.',
+      'Recorded as a strategic association. Any current investment relationship with Pixelette has not been re-verified, so none is stated here.',
+    stageNote: 'Association recorded. Current terms have not been re-verified.',
   },
 ];
 

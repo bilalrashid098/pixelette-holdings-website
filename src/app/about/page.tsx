@@ -1,131 +1,153 @@
 import type { Metadata } from 'next';
-import {
-  Section, SectionHead, PageHero, Buttons, Btn, CardGrid, Card, Qualifier,
-} from '@/components/ui';
-import { GROUP } from '@/content/site';
+import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
+import { BIC_STATEMENT, CAPITAL_STATEMENT, FOOTER_GROUP, SITE } from '@/content/site';
 import { ECOSYSTEM_NOTE } from '@/content/hse';
 
 export const metadata: Metadata = {
-  title: 'About | An execution-led venture-building group',
+  title: 'About',
   description:
-    'Pixelette Holdings selects a small number of technology ventures each year and builds them through a defined operating system, not a fund, not an agency, and not an accelerator making funding promises.',
+    'Pixelette Holdings coordinates venture partnerships for the Pixelette group. Technologies, Marketing and Certified deliver engineering, growth and enterprise readiness.',
   alternates: { canonical: '/about' },
 };
 
-const PHILOSOPHY = [
-  ['Selective by design', 'Capacity is deliberately limited. Ventures enter through qualification and an investment-committee decision.'],
-  ['Evidence over assertion', 'Claims are classified by evidence status before external use. Where proof is not attached, the claim is held.'],
-  ['Aligned, not extractive', 'Equity is earned against accepted delivery and returns when delivery stops. A full-cash route is always available.'],
-  ['Honest about limits', 'No promise of customers, revenue, certification or fundraising. What is contracted is the work.'],
-] as const;
-
-const CREDENTIALS = [
-  {
-    title: 'Quality and security standards',
-    body: 'ISO 9001, ISO 27001 and Cyber Essentials certifications held within the group.',
-  },
-  {
-    title: 'Policy ecosystem',
-    body: "Secretariat to the UK Parliament's All Party Parliamentary Group on Artificial Intelligence; previously Secretariat to the APPG on Blockchain.",
-  },
-  {
-    title: 'Innovation ecosystem',
-    body: 'An equity interest in Big Innovation Centre, connecting the portfolio to an established innovation and policy organisation.',
-  },
-  {
-    title: 'International reach',
-    body: "Delivery experience across multiple markets through the group's technology arm.",
-  },
-];
-
-/**
- * Group architecture rendered from `GROUP`.
- *
- * The company-number line appears only where `isRegisteredCompany` is true, so
- * a registration claim cannot be attached to a brand by editing copy.
- */
-const ARCHITECTURE = [
-  { entity: GROUP.technologies, body: 'Product, AI, blockchain, architecture, engineering and infrastructure.' },
-  { entity: GROUP.marketing, body: "The group's Grow and go-to-market capability. Positioning, campaigns, demand generation and early traction." },
-  { entity: GROUP.certified, body: 'A capability and service brand for compliance readiness, security and governance preparation. Independent certification remains external.' },
-  { entity: GROUP.holdings, body: 'Venture selection, structuring, governance and capital readiness.' },
-];
+const GROUP_COPY: Record<string, string> = {
+  'Pixelette Holdings':
+    'Coordinates venture partnerships, equity structures and group relationships. This website is the Holdings site.',
+  'Pixelette Technologies':
+    'Software engineering, AI, automation and product engineering. Delivery detail sits on the Technologies website.',
+  'Pixelette Marketing':
+    'Brand, marketing and commercial growth. Delivery detail sits on the Marketing website.',
+  'Pixelette Certified':
+    'Compliance readiness and enterprise readiness. Certified is a brand, not a registered company, and it does not itself award independent certification.',
+};
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'About' }]}
-        eyebrow="About Pixelette Holdings"
-        title="An execution-led venture-building group."
-        lead="Pixelette Holdings selects a small number of technology ventures each year and builds them through a defined operating system, not a fund, not an agency, and not an accelerator making funding promises."
+        eyebrow="About"
+        title="Who we are"
+        lead={`${SITE.name} coordinates venture partnerships for selected technology ventures. Engineering, commercial growth and enterprise readiness are delivered by the other businesses in the group.`}
       >
         <Buttons>
-          <Btn href="/apply">Check if you qualify</Btn>
-          <Btn href="/portfolio" variant="secondary">Explore the portfolio</Btn>
+          <Btn href="/hse-model">Hybrid Sweat Equity</Btn>
+          <Btn href="/contact" variant="secondary">Contact</Btn>
         </Buttons>
       </PageHero>
 
-      <Section>
+      <Section id="founder">
         <SectionHead
-          eyebrow="Operating philosophy"
-          title="Build the company, not just the product."
-          lead="Most ventures fail somewhere between a working product and a business that can withstand scrutiny. The group is organised around closing that distance: technology, commercialisation, assurance and governance under one operating model, with the incentive aligned through earned equity."
+          eyebrow="Leadership"
+          title="Our founder and leadership"
+          lead="Founder ownership and corporate holdings are not the same thing. A personal shareholding is not an asset of Pixelette Holdings Ltd unless the corporate records say so."
         />
-        <CardGrid>
-          {PHILOSOPHY.map(([title, body]) => (
-            <Card key={title} title={title}>{body}</Card>
-          ))}
-        </CardGrid>
-      </Section>
-
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Group architecture"
-          title="Four capabilities, correctly named."
-          lead="Capability names and legal-entity names are deliberately not used interchangeably."
-        />
-        <div className="taxonomy">
-          {ARCHITECTURE.map(({ entity, body }) => (
-            <div key={entity.name}>
-              <p>
-                <strong>
-                  {entity.capability}: {entity.name}
-                </strong>
-              </p>
-              <p>{body}</p>
-            </div>
-          ))}
+        <div className="prose">
+          <p>
+            Pixelette Holdings is led by its founder. {BIC_STATEMENT} That personal relationship is
+            not described here as a direct equity investment by the company.
+          </p>
+          <p>
+            Named leadership profiles are shown only with the person’s agreement and a confirmed role.
+            None are published on this page.
+          </p>
         </div>
-        <Qualifier>
-          <strong>Naming discipline.</strong> &ldquo;Pixelette Group&rdquo; is an umbrella brand.
-          Company-registration wording is used only where a registered company exists and is verified
-          at Companies House.
-        </Qualifier>
       </Section>
 
-      <Section>
-        <SectionHead eyebrow="Credentials" title="Verified, not asserted." />
-        <CardGrid>
-          {CREDENTIALS.map((c) => (
-            <article key={c.title} className="card">
-              <h3 className="h3">{c.title}</h3>
-              <p className="body">{c.body}</p>
+      <Section surface="ice" id="the-group">
+        <SectionHead
+          eyebrow="The group"
+          title="The Pixelette Group"
+          lead="Four names, with the artwork used for each. Descriptions stay short. The specialist websites carry the service detail."
+        />
+        <div className="quad-grid">
+          {FOOTER_GROUP.map((company) => (
+            <article key={company.name} className="card">
+              {company.mark ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img className="cap-mark" src={company.mark} alt="" />
+              ) : (
+                <span className="cap-mark" aria-hidden="true" />
+              )}
+              <h3 className="h3">{company.name}</h3>
+              <p className="body">{GROUP_COPY[company.name]}</p>
+              {company.href ? (
+                <p>
+                  <a className="link" href={company.href} target="_blank" rel="noopener noreferrer">
+                    Visit {company.name}
+                  </a>
+                </p>
+              ) : null}
             </article>
           ))}
-        </CardGrid>
-        {/* This page names the APPG, so it carries the same endorsement gate as
-            the homepage ecosystem section. The gate follows the claim, not the
-            page it was first written on. */}
-        <p className="small">{ECOSYSTEM_NOTE}</p>
+        </div>
       </Section>
 
-      <Section surface="deep">
-        <SectionHead eyebrow="Next step" title="Think your venture fits?" />
-        <Buttons>
-          <Btn href="/apply">Check if you qualify</Btn>
-          <Btn href="/hse-model" variant="secondary">Explore the HSE model</Btn>
-        </Buttons>
+      <Section id="credentials">
+        <SectionHead
+          eyebrow="Credentials"
+          title="Credentials and relationships"
+          lead="Certifications are named in text and attributed to the company that holds them. Third-party logos are not shown."
+        />
+        <div className="home-block">
+          <h3 className="h3">Quality and information security</h3>
+          <p className="body">
+            ISO 9001 and ISO/IEC 27001 certifications are held by Pixelette Technologies, reflecting
+            recognised standards for quality and information security management. They are not presented
+            as certifications of Pixelette Holdings, or of every company in the group.
+          </p>
+          <ul className="cred-list">
+            <li>
+              <strong>ISO 9001</strong>
+              <span>Quality management, Pixelette Technologies</span>
+            </li>
+            <li>
+              <strong>ISO/IEC 27001</strong>
+              <span>Information security management, Pixelette Technologies</span>
+            </li>
+          </ul>
+        </div>
+        <div className="home-block" id="relationships">
+          <h3 className="h3">Big Innovation Centre and APPG AI</h3>
+          <p className="body">
+            {BIC_STATEMENT}{' '}
+            <a className="link" href="https://biginnovationcentre.com/">Big Innovation Centre</a>
+            {' '}serves as Secretariat to the{' '}
+            <a className="link" href="https://bicpavilion.com/about_pavilion/appg-artificial-intelligence">
+              All-Party Parliamentary Group on Artificial Intelligence
+            </a>
+            . That secretariat role belongs to Big Innovation Centre. It is not an appointment of
+            Pixelette Holdings.
+          </p>
+          <p className="small">{ECOSYSTEM_NOTE}</p>
+        </div>
+        <div className="home-block">
+          <h3 className="h3">Capital relationships</h3>
+          <p className="body">{CAPITAL_STATEMENT}</p>
+          <p>
+            <a className="link" href="/contact#capital-relationships">Discuss a strategic partnership</a>
+          </p>
+        </div>
+      </Section>
+
+      <Section surface="ice" id="initiatives">
+        <SectionHead
+          eyebrow="Initiatives"
+          title="Verified initiatives"
+          lead="Only what can be said from the material available for this revision."
+        />
+        <div className="prose">
+          <p>
+            The group has previously referred to skills and development activity, including technology
+            training for young people. Specific delivery claims are not repeated here.
+          </p>
+          <p>
+            Earlier pages described a water project in Pakistan and innovation activity connected with
+            Cyprus, including references to public bodies. Those references are not restated as completed
+            delivery or as government endorsement. The records needed to confirm them are not part of
+            this revision.
+          </p>
+        </div>
       </Section>
     </>
   );

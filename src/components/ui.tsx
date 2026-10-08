@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { ArrowUpRightIcon } from './Icons';
-import { RELATIONSHIP_LABEL, ventureMeta, ventureLogo, type Relationship, type Venture } from '@/content/ventures';
+import { RELATIONSHIP_LABEL, VENTURE_META, ventureLogo, type Relationship, type Venture } from '@/content/ventures';
 import { DISCLAIMER } from '@/content/site';
 
 // Testimonials moved to its own client component (components/Testimonials.tsx) so
@@ -238,6 +238,7 @@ export function FinancialPromotionNotice({
  */
 const REL_CLASS: Record<Relationship, string> = {
   'equity-investment': 'pill rel-equity-investment',
+  'founder-relationship': 'pill rel-founder-relationship',
   'direct-hse-venture': 'pill rel-direct-hse-venture',
   'project-in-development': 'pill rel-project-in-development',
   'delivered-venture': 'pill rel-delivered-venture',
@@ -265,30 +266,33 @@ export function RelationshipTag({
  * description shows its name and label and nothing else, and says why.
  */
 export function VentureCard({ venture, href }: { venture: Venture; href?: string }) {
+  const sector = VENTURE_META[venture.slug]?.industry;
+  const showLogo = venture.relationship !== 'founder-relationship' && Boolean(ventureLogo(venture.slug));
   return (
-    <article className="card">
-      {/* Fixed-height logo slot on EVERY card so the tag, name and text always start
-          at the same place, whether or not the venture has a logo (keeps the grid aligned). */}
+    <article className="card" id={venture.slug}>
       <div className="logo-slot">
-        {ventureLogo(venture.slug) ? (
+        {showLogo ? (
           // eslint-disable-next-line @next/next/no-img-element
-          <img className="venture-logo" src={ventureLogo(venture.slug)} alt={`${venture.name} logo`} loading="lazy" />
+          <img className="venture-logo" src={ventureLogo(venture.slug)} alt="" loading="lazy" />
         ) : null}
       </div>
-      <RelationshipTag relationship={venture.relationship} flagship={venture.flagship} />
+      <RelationshipTag relationship={venture.relationship} />
       <h3 className="h3">{venture.name}</h3>
-      {ventureMeta(venture.slug) ? <p className="small">{ventureMeta(venture.slug)}</p> : null}
+      {sector ? <p className="small">Sector: {sector}</p> : null}
+      <p className="small">{venture.stageNote ?? 'Operating stage has not been re-verified for this page.'}</p>
       {venture.oneLine ? <p className="body">{venture.oneLine}</p> : null}
       {venture.detail ? <p className="body">{venture.detail}</p> : null}
-      {/* gateNote is an INTERNAL editorial note (evidence/consent still owed) and is
-          deliberately NOT rendered to the public. It stays in the data for the team. */}
+      {venture.externalUrl ? (
+        <p>
+          <a className="link flink" href={venture.externalUrl} target="_blank" rel="noopener noreferrer">
+            {venture.name} website
+          </a>
+        </p>
+      ) : null}
       {href ? (
         <p>
-          {/* The arrow is part of the visible label, so it stays as the
-              character it is. Only the arrows that were already aria-hidden
-              decoration became icons. */}
           <Link className="link flink" href={href}>
-            Read more ↗
+            Read more
           </Link>
         </p>
       ) : null}
@@ -330,8 +334,8 @@ export function Card({ title, children }: { title: string; children: ReactNode }
  * would be worse than not making the offer.
  */
 export function ConversionClose({
-  title = 'Could we build this company together?',
-  lead = 'If you have a real problem, a committed founding team and the ambition to build something that can scale, start with the venture diagnostic.',
+  title = 'Explore working with Pixelette',
+  lead = 'Read how Hybrid Sweat Equity works, or apply to partner if you are a founder. Programme operators can use the contact page.',
   capitalRoute = false,
 }: {
   title?: string;
@@ -340,26 +344,18 @@ export function ConversionClose({
 }) {
   return (
     <Section surface="deep">
-      <SectionHead
-        eyebrow="Next step"
-        title={title}
-        lead={
-          capitalRoute
-            ? `${lead} If you are an investor, family office or strategic partner, speak to Holdings about capital partnerships.`
-            : lead
-        }
-      />
+      <SectionHead eyebrow="Next step" title={title} lead={lead} />
       <Buttons>
-        <Btn href="/apply">Start venture diagnostic</Btn>
+        <Btn href="/hse-model">Hybrid Sweat Equity</Btn>
+        <Btn href="/apply" variant="secondary">Apply to partner</Btn>
         {capitalRoute ? (
-          <Btn href="/partners/capital" variant="secondary">
-            Talk to Pixelette Holdings
+          <Btn href="/contact#capital-relationships" variant="ghost">
+            Contact
           </Btn>
         ) : null}
       </Buttons>
       <p className="small">
-        Selected opportunities only. Every HSE or investment relationship is subject to review, agreed
-        terms and formal documentation.
+        An application does not create a partnership, an investment or a commitment by either side.
       </p>
     </Section>
   );

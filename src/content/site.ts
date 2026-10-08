@@ -80,12 +80,27 @@ export const CONTACT = {
  * final launch. Agency review-directory awards (Clutch/Manifest/DesignRush)
  * are deliberately NOT here — they belong on the Pixelette Technologies site.
  */
+/**
+ * Text-only credential labels. Do not render badge images from these keys.
+ * Cyber Essentials is not held and must not be listed.
+ * ISO lines are Pixelette Technologies' certificates, not a group-wide claim.
+ */
 export const CREDENTIALS = [
-  { key: 'appg', label: 'APPG AI Secretariat', note: 'UK Parliament' },
-  { key: 'iso-9001', label: 'ISO 9001', note: 'Quality management' },
-  { key: 'iso-27001', label: 'ISO 27001', note: 'Information security' },
-  { key: 'cyber-essentials', label: 'Cyber Essentials', note: 'UK cyber standard' },
+  { key: 'iso-9001', label: 'ISO 9001', note: 'Quality management, Pixelette Technologies' },
+  { key: 'iso-27001', label: 'ISO/IEC 27001', note: 'Information security management, Pixelette Technologies' },
 ] as const;
+
+/** Approved public description of capital relationships. Not a financial promotion. */
+export const CAPITAL_STATEMENT =
+  'Pixelette Holdings develops relationships with investors and strategic capital partners to support selected ventures. Any potential investment discussions are considered individually and are subject to appropriate eligibility checks, due diligence and legal requirements.';
+
+/** Approved public description of Hybrid Sweat Equity. */
+export const HSE_STATEMENT =
+  'Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.';
+
+/** Approved public description of the Big Innovation Centre relationship. */
+export const BIC_STATEMENT =
+  "Pixelette Holdings' founder is also a founder and shareholder of Big Innovation Centre.";
 
 export const SOCIALS = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/company/pixelette-holdings/' },
@@ -109,21 +124,26 @@ export const FOOTER_GROUP = [
     name: 'Pixelette Holdings',
     href: null,
     what: 'Group-level venture partnerships, HSE/equity structures, portfolio and strategic relationships.',
+    mark: '/media/brand/mark-holdings.png',
   },
   {
     name: 'Pixelette Technologies',
     href: 'https://pixelettetech.com/',
     what: 'Software engineering, AI & automation, blockchain and ongoing product engineering.',
+    mark: '/media/brand/mark-technologies.png',
   },
   {
     name: 'Pixelette Marketing',
     href: 'https://pixelettemarketing.com/',
     what: 'Demand, pipeline, conversion, revenue and accountable growth systems.',
+    mark: '/media/brand/mark-marketing.svg',
   },
   {
     name: 'Pixelette Certified',
     href: 'https://pixelettecertified.com/',
     what: 'Compliance readiness, cyber assurance, privacy, AI governance and ongoing compliance support.',
+    // Approved green tree logo is not in the project. Do not substitute the shield mark.
+    mark: null,
   },
 ] as const;
 
@@ -153,15 +173,12 @@ export interface NavItem {
  * dead data; those routes remain reachable from FOOTER_NAV.
  */
 export const PRIMARY_NAV: NavItem[] = [
-  { label: 'HSE', href: '/hse-model' },
-  { label: 'How It Works', href: '/hse-model#how-it-works' },
-  { label: 'Portfolio / Proof', href: '/portfolio' },
-  // PUBLICATION-GATED, COUNSEL. Ships with the §13 homepage section and the
-  // closing capital CTA; see that section's comment. /partners/capital stays
-  // noindexed — this promotes the route in navigation, nothing else.
-  { label: 'Capital Partners', href: '/partners/capital' },
-  { label: 'The Group', href: '/capabilities' },
+  { label: 'Hybrid Sweat Equity', href: '/hse-model' },
+  { label: 'For startups and venture programmes', href: '/startups' },
+  { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '/about' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 /**
@@ -179,35 +196,27 @@ export const PRIMARY_NAV: NavItem[] = [
  */
 export const FOOTER_NAV = [
   {
-    heading: 'Build with Pixelette',
+    heading: 'Work with Pixelette',
     links: [
-      { label: 'HSE Model', href: '/hse-model' },
-      { label: 'Founder Protection', href: '/hse-model/founder-protection' },
-      { label: 'Validation Sprint', href: '/validation-sprint' },
-      { label: 'Apply for HSE', href: '/apply' },
+      { label: 'Hybrid Sweat Equity', href: '/hse-model' },
+      { label: 'For startups and venture programmes', href: '/startups' },
+      { label: 'Apply to partner', href: '/apply' },
+      { label: 'Contact', href: '/contact' },
     ],
   },
   {
-    heading: 'Portfolio & partners',
+    heading: 'Portfolio',
     links: [
-      { label: 'Equity Investments', href: '/portfolio/investments' },
-      { label: 'HSE Ventures', href: '/portfolio/hse-ventures' },
-      { label: 'Delivered Ventures', href: '/portfolio/delivered-ventures' },
-      { label: '2Connect', href: '/portfolio/2connect' },
-      { label: 'Incubators & Accelerators', href: '/partners/accelerators' },
-      { label: 'Capital Partners', href: '/partners/capital' },
+      { label: 'Selected ventures', href: '/portfolio' },
+      { label: 'Insights', href: '/insights' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'Capabilities', href: '/capabilities' },
       { label: 'About', href: '/about' },
-      { label: 'Social Impact', href: '/social-impact' },
-      { label: 'Insights', href: '/insights' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Privacy Notice', href: '/privacy' },
-      { label: 'Cookies & analytics', href: '/cookies' },
+      { label: 'Privacy notice', href: '/privacy' },
+      { label: 'Cookies and analytics', href: '/cookies' },
       { label: 'Terms', href: '/terms' },
       { label: 'Disclaimer', href: '/disclaimer' },
       { label: 'Accessibility', href: '/accessibility' },
@@ -221,12 +230,7 @@ export const FOOTER_NAV = [
  * Enforced in code and in the generated robots file, not left to a plugin
  * setting or an editor's discretion.
  */
-export const NOINDEX_ROUTES = [
-  '/apply/thank-you',
-  '/partners/capital',
-  '/partners/capital/qualification',
-  '/partners/capital/thank-you',
-];
+export const NOINDEX_ROUTES = ['/apply/thank-you'];
 
 /**
  * The site-wide financial-promotion notice.
@@ -252,13 +256,20 @@ const DISCLAIMER_HEADLINE =
  * single edit once counsel rules. See the handover note.
  */
 const DISCLAIMER_ELIGIBILITY = {
-  investment:
-    'Any investment opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation.',
-  any: 'Any opportunity is available only to professional, high-net-worth or self-certified sophisticated investors, subject to eligibility verification and formal documentation.',
+  investment: CAPITAL_STATEMENT,
+  any: CAPITAL_STATEMENT,
 } as const;
 
 const DISCLAIMER_NO_ADVICE =
   'Nothing on this website constitutes investment, legal, tax or financial advice.';
+
+/**
+ * Footer informational notice. Replaces the investor-category eligibility line
+ * in the footer only. The disclaimer page and capital routes still read
+ * DISCLAIMER, which is unchanged.
+ */
+export const FOOTER_NOTICE =
+  'This website provides general information about Pixelette Holdings and its activities. It does not constitute investment advice or an offer of securities. Any investment-related communication is subject to applicable legal and regulatory requirements.';
 
 export const DISCLAIMER = {
   headline: DISCLAIMER_HEADLINE,

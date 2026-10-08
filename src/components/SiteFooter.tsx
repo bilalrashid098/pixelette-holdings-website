@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { FOOTER_NAV, FOOTER_GROUP, SITE, DISCLAIMER, CONTACT, SOCIALS } from '@/content/site';
+import { FOOTER_NAV, FOOTER_GROUP, SITE, FOOTER_NOTICE, CONTACT, SOCIALS } from '@/content/site';
 import { PrivacyChoices } from './PrivacyChoices';
 
 const svg = { viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true, className: 'contact-ic' };
@@ -129,6 +129,12 @@ export function SiteFooter() {
           <ul className="groupband__list">
             {FOOTER_GROUP.map((c) => (
               <li key={c.name}>
+                {c.mark ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="groupband__mark" src={c.mark} alt="" />
+                ) : (
+                  <span className="groupband__mark" aria-hidden="true" />
+                )}
                 {c.href ? (
                   <a className="groupband__name" href={c.href} target="_blank" rel="noopener noreferrer">
                     {c.name}
@@ -147,7 +153,7 @@ export function SiteFooter() {
         </section>
 
         <div className="footer-legal">
-          <strong>Important notice.</strong> {DISCLAIMER.short}
+          {FOOTER_NOTICE}
         </div>
 
         <div className="site-footer__legal">

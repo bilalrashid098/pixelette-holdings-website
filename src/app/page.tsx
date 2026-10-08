@@ -1,458 +1,344 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 import {
-  Section, SectionHead, Buttons, Btn, CardGrid, Card,
-  Qualifier, RelationshipTag, ConversionClose,
+  Section, SectionHead, Buttons, Btn, CardGrid, RelationshipTag,
 } from '@/components/ui';
 import { Testimonials } from '@/components/Testimonials';
-import {
-  ECONOMICS, GATES, GROUP_PROPOSITION, GROUP_PROPOSITION_CLOSE, EXECUTION,
-  STRUCTURES,
-  HSE_PROPOSITION, HSE_PROPOSITION_CLOSE, DIAGNOSTIC, DIAGNOSTIC_NOTE,
-  CAPITAL_PARTNERS, CAPITAL_PARTNERS_NOTE,
-  FOUNDER_CONTROL, FOUNDER_CONTROL_NOTE, FIT_GOOD, FIT_NOT, STRUCTURES_QUALIFIER,
-  ECONOMICS_EXAMPLE_NOTE, RELATIONSHIP_ECONOMICS, RELATIONSHIP_ECONOMICS_NOTE,
-  PROOF_TIMELINE, PROOF_TIMELINE_NOTE, ECOSYSTEM, ECOSYSTEM_NOTE, APPG_NOTE,
-  OPERATING_MODEL,
-} from '@/content/hse';
 import { ventures } from '@/content/ventures';
 import { HOMEPAGE_TESTIMONIALS } from '@/content/testimonials';
-import { CapabilityBrand } from '@/components/CapabilityBrand';
-import { Credentials } from '@/components/Credentials';
+import { FOOTER_NOTICE } from '@/content/site';
 import { Orbit } from '@/components/Orbit';
 
+export const metadata: Metadata = {
+  title: 'HSE venture partnership',
+  description:
+    'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.',
+  openGraph: {
+    title: 'Pixelette Holdings | HSE venture partnership',
+    description:
+      'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.',
+  },
+  twitter: {
+    title: 'Pixelette Holdings | HSE venture partnership',
+    description:
+      'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.',
+  },
+};
+
+const STAGES = ['Validate', 'Design', 'Build', 'Launch', 'Grow'] as const;
+
+const GROUP = [
+  {
+    name: 'Pixelette Holdings',
+    body: 'Venture partnerships, equity structures and group coordination',
+    mark: '/media/brand/mark-holdings.png',
+    href: null,
+  },
+  {
+    name: 'Pixelette Technologies',
+    body: 'Software engineering, AI, automation and blockchain',
+    mark: '/media/brand/mark-technologies.png',
+    href: 'https://pixelettetech.com/',
+  },
+  {
+    name: 'Pixelette Marketing',
+    body: 'Brand, marketing strategy and commercial growth',
+    mark: '/media/brand/mark-marketing.svg',
+    href: 'https://pixelettemarketing.com/',
+  },
+  {
+    name: 'Pixelette Certified',
+    body: 'Compliance, assurance and enterprise readiness',
+    // Approved green tree logo is not in the project. Leave the slot empty.
+    mark: null,
+    href: 'https://pixelettecertified.com/',
+  },
+] as const;
+
+const HSE_POINTS = [
+  {
+    title: 'Agreed cash contribution',
+    body: 'The cash fee is agreed individually for each venture.',
+  },
+  {
+    title: 'Professional delivery',
+    body: 'Pixelette provides the professional services described in the agreed scope.',
+  },
+  {
+    title: 'Contractual equity participation',
+    body: 'Any equity participation is set out in the relevant agreements, for Pixelette or the relevant Pixelette group entity.',
+  },
+  {
+    title: 'Milestones and governance',
+    body: 'Milestones, founder rights and decision-making arrangements are documented for the venture.',
+  },
+] as const;
+
+const DELIVERY = [
+  {
+    n: '01',
+    name: 'Validate',
+    body: 'Test the problem, the customer and the commercial case before delivery begins.',
+  },
+  {
+    n: '02',
+    name: 'Design',
+    body: 'Set the product, the commercial model and the milestones that will guide the work.',
+  },
+  {
+    n: '03',
+    name: 'Build',
+    body: 'Deliver the agreed product to the scope and acceptance criteria set in advance.',
+  },
+  {
+    n: '04',
+    name: 'Launch',
+    body: 'Prepare the go-to-market assets and operating workflows the venture needs to enter the market.',
+  },
+  {
+    n: '05',
+    name: 'Grow',
+    body: 'Continue delivery as the venture strengthens its product, operations and commercial position.',
+  },
+] as const;
+
+function ExtLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a className="link" href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+      <span aria-hidden="true"> ↗</span>
+    </a>
+  );
+}
+
+function GroupMark({ src }: { src: string | null }) {
+  if (!src) return <span className="cap-mark" aria-hidden="true" />;
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img className="cap-mark" src={src} alt="" />;
+}
+
 export default function HomePage() {
-  const bic = ventures.find((v) => v.slug === 'big-innovation-centre')!;
-  // Trust Layer Health is deliberately NOT featured on the homepage: it is an
-  // active legal matter (evidence: 'counsel', "no reference to any dispute").
-  // A clean direct-HSE venture takes the spotlight instead. TLH remains in the
-  // portfolio data, classified and gated, but off the marketing front page.
-  const dav = ventures.find((v) => v.slug === 'digital-asset-vault')!;
   const twoConnect = ventures.find((v) => v.slug === '2connect')!;
+  const dav = ventures.find((v) => v.slug === 'digital-asset-vault')!;
 
   return (
     <>
-      {/* ---------------------------------------------------------- hero */}
       <section className="hero wash-left">
         <div className="wrap hero-grid">
           <div>
-            {/* Sentence case, not the brief's all-caps. Every other eyebrow on
-                the site is sentence case by decision (commit aac7783) and
-                .eyebrow carries no text-transform, so setting this one in caps
-                would make it the only shouted line on the page. Wording is the
-                brief's; only the case follows the house rule. */}
-            <p className="eyebrow">Pixelette Holdings · Venture building &amp; equity partnerships</p>
-            <h1 className="h1">Build and launch your company, without giving away equity for promises.</h1>
+            <p className="eyebrow">Pixelette Holdings</p>
+            <h1 className="h1">Build your venture with the people who deliver it</h1>
             <p className="lead">
-              Pixelette Holdings is the group-level venture partner behind Pixelette Technologies,
-              Pixelette Marketing and Pixelette Certified. We partner with selected founders to turn
-              ambitious ideas into investable, launch-ready companies by combining product
-              engineering, growth, enterprise readiness and governance through one aligned venture
-              relationship.
+              Pixelette Holdings partners with selected founders to develop, launch and grow
+              technology ventures. Through our Hybrid Sweat Equity model, we combine agreed cash
+              contributions with equity participation, bringing together engineering, marketing,
+              enterprise readiness and venture governance.
             </p>
             <Buttons>
-              <Btn href="/hse-model" variant="secondary">See how HSE works</Btn>
-              <Btn href="/apply">Apply to build with us</Btn>
+              <Btn href="#hybrid-sweat-equity">Explore Hybrid Sweat Equity</Btn>
+              <Btn href="/contact" variant="secondary">Discuss your venture</Btn>
             </Buttons>
-            <p className="small">
-              Founder-led. Milestone-based. Equity aligned to delivered execution.
-            </p>
+            <ol className="stage-seq" aria-label="Delivery sequence">
+              {STAGES.map((stage) => (
+                <li key={stage}>{stage}</li>
+              ))}
+            </ol>
           </div>
-
-          {/* Same markup, same order, same words — moved into its own component
-              so the motion exception and its keyframe stay out of the global
-              stylesheet, and so the pause observer has somewhere to live. */}
           <Orbit />
         </div>
       </section>
 
-      {/* ------------------------------------------------- proof timeline */}
-      <Section surface="ice" tight>
-        <div className="tile-grid">
-          {PROOF_TIMELINE.map((m) => (
-            <article className="tile" key={m.label}>
-              <strong>{m.figure}</strong>
-              <span>{m.label}</span>
-            </article>
-          ))}
-        </div>
-        <p className="small" style={{ marginTop: 20 }}>{PROOF_TIMELINE_NOTE}</p>
-      </Section>
-
-      {/* ------------------------------------------- why Holdings exists */}
-      {/* Position 2, immediately after the hero and trust strip, per the brief:
-          a visitor should learn what Holdings IS before anything else is sold
-          to them. This is the group-company block moved up from position 9. */}
       <Section>
         <SectionHead
-          eyebrow="Why Holdings"
-          title="One venture partner. Three specialist execution companies."
-          lead="Holdings is where the venture relationship, equity alignment and group-level governance sit. When a company needs to be built, launched and made enterprise-ready, Holdings can coordinate the specialist Pixelette businesses behind one plan instead of leaving founders to assemble and manage multiple suppliers."
+          eyebrow="The group"
+          title="One venture partner, three specialist businesses"
+          lead="Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness."
         />
-        <CardGrid>
-          {GROUP_PROPOSITION.map((g) => (
-            <article key={g.key} className="card">
-              {/* g.key, never g.verb — the mark lookup is keyed on the canonical
-                  capability name and misses silently on anything else. */}
-              <CapabilityBrand name={g.key} />
-              <p className="eyebrow">{g.verb}</p>
-              <h3 className="h3">{g.company}</h3>
-              <p className="body">{g.body}</p>
-              {g.url.startsWith('http') ? (
+        <div className="quad-grid">
+          {GROUP.map((company) => (
+            <article key={company.name} className="card">
+              <GroupMark src={company.mark} />
+              <h3 className="h3">{company.name}</h3>
+              <p className="body">{company.body}</p>
+              {company.href ? (
                 <p>
-                  <a className="link flink" href={g.url} target="_blank" rel="noopener noreferrer">
-                    Visit {g.company} ↗
-                  </a>
+                  <ExtLink href={company.href}>Visit {company.name}</ExtLink>
                 </p>
               ) : null}
             </article>
           ))}
-        </CardGrid>
-        <p className="small">{GROUP_PROPOSITION_CLOSE}</p>
+        </div>
       </Section>
 
-      {/* ------------------------------------------------ HSE proposition */}
-      {/* Must stay ahead of the worked example below it. The brief puts the
-          plain-English idea before any percentage, valuation or mechanism. */}
-      <Section surface="ice">
+      <Section surface="ice" id="hybrid-sweat-equity">
         <SectionHead
           eyebrow="Hybrid Sweat Equity"
-          title="Capital should not force you to choose between dilution and delivery."
-          lead="Founders are often pushed into an ugly trade-off: pay the full cost of serious product and growth capability in cash, or give away meaningful equity before enough value has been created. Hybrid Sweat Equity creates a third route."
+          title="A partnership built around delivery and shared interests"
+          lead="Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements."
         />
-        <ul className="list">
-          {HSE_PROPOSITION.map((p) => (
-            <li key={p}>{p}</li>
-          ))}
-        </ul>
-        <p className="small">{HSE_PROPOSITION_CLOSE}</p>
-      </Section>
-
-      {/* ------------------------------------------------- HSE structures */}
-      <Section>
-        <SectionHead
-          eyebrow="Structure"
-          title="Choose the balance that fits the venture."
-          lead="The right cash/equity mix depends on stage, evidence, valuation, delivery scope and capital position. Every structure is agreed venture by venture."
-        />
-        <CardGrid>
-          {STRUCTURES.map((s) => (
-            <Card key={s.name} title={s.name}>{s.body}</Card>
-          ))}
-        </CardGrid>
-        <Qualifier>
-          <strong>Subject to eligibility and agreed terms.</strong> {STRUCTURES_QUALIFIER}
-        </Qualifier>
-      </Section>
-
-      {/* ------------------------------------------------------ economics */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="The HSE model"
-          title="Cash funded delivery. Equity earned through execution."
-          lead="How the money works, and why you keep more of your company: you fund an agreed portion of the work at a fair rate, and we may convert an eligible part of our fee into a capped, earned equity slice. We put in no cash and take no control, and a full-cash route is always open. The figures below are one worked example."
-        />
-        <div className="card-grid">
-          {ECONOMICS.map((e) => (
-            <article key={e.title} className="card">
-              <p className="stat">{e.figure}</p>
-              <h3 className="h3">{e.title}</h3>
-              <p className="body">{e.body}</p>
+        <div className="quad-grid">
+          {HSE_POINTS.map((point) => (
+            <article key={point.title} className="card">
+              <h3 className="h3">{point.title}</h3>
+              <p className="body">{point.body}</p>
             </article>
           ))}
         </div>
-        <Qualifier>
-          <p>
-            <strong>One worked example, not a standard offer.</strong>{' '}
-            {ECONOMICS_EXAMPLE_NOTE}
-          </p>
-          <p>
-            <strong>Subject to eligibility and agreed terms.</strong>{' '}
-            {STRUCTURES_QUALIFIER}
-          </p>
-        </Qualifier>
+        <p className="body home-follow">
+          Each arrangement is individually negotiated. Delivery scope and milestones are agreed in
+          advance, and equity participation is linked to the contractual terms and the delivery
+          arrangements for that venture. Governance, ownership and decision rights are documented.
+          The precise commercial model depends on the venture and its circumstances.
+        </p>
+        <p className="body home-follow">
+          <a className="link" href="/hse-model">How the partnership works</a>
+          {' '}is set out on the Hybrid Sweat Equity page.{' '}
+          <a className="link" href="/hse-model#protecting-the-partnership">Founder rights and governance</a>
+          {' '}are covered on that page.
+        </p>
       </Section>
 
-      {/* --------------------------------------------------- five gates */}
-      <Section surface="navy">
+      <Section>
         <SectionHead
-          eyebrow="Stage-gated execution"
-          title="Progress is earned at every stage."
-          lead="We do not treat venture building as one long development contract. Each stage has a defined decision, output and evidence threshold. The venture progresses when the next investment of time, cash and equity is justified."
+          eyebrow="From idea to launch"
+          title="Progress through defined milestones"
+          lead="Five stages take a selected venture from an early idea towards a position where it can grow. The purpose of each stage is agreed before the work for that stage begins."
         />
-        <div className="gate-list">
-          {GATES.map((g) => (
-            <article key={g.n} className="gate">
-              <div className="gate-num">{g.n}</div>
+        <div className="steps">
+          {DELIVERY.map((stage) => (
+            <article key={stage.n} className="step">
+              <b>{stage.n}</b>
               <div>
-                <h3 className="h3">{g.name}</h3>
-                <p className="body">{g.body}</p>
-                <dl>
-                  <div><dt>Evidence produced</dt><dd>{g.evidence}</dd></div>
-                  <div><dt>Decision</dt><dd>{g.decision}</dd></div>
-                </dl>
-                {g.note ? <p className="small">{g.note}</p> : null}
+                <h3 className="h3">{stage.name}</h3>
+                <p className="body">{stage.body}</p>
               </div>
             </article>
           ))}
         </div>
+        <p className="home-follow">
+          <a className="link" href="/hse-model#how-it-works">See the delivery methodology</a>
+        </p>
       </Section>
 
-      {/* --------------------------------------------- relationship economics */}
-      <Section>
-        <SectionHead
-          eyebrow="Economics"
-          title="Every relationship should be clear about what it costs &mdash; and what you get."
-          lead="HSE should be compared on total economics, not just cash price or headline equity. What matters is what the equity is granted for, when it is earned, what execution is included and how much founder control remains."
-        />
-        <CardGrid>
-          {RELATIONSHIP_ECONOMICS.map((r) => (
-            <Card key={r.name} title={r.name}>{r.body}</Card>
-          ))}
-        </CardGrid>
-        <Qualifier>
-          <strong>A comparison of models, not a specific offer.</strong>{' '}
-          {RELATIONSHIP_ECONOMICS_NOTE} Pixelette&rsquo;s equity ceiling is a maximum agreed in
-          advance, not a price. Final terms require valuation, scope and signed documentation.
-        </Qualifier>
-      </Section>
-
-      {/* ------------------------------------------------ venture diagnostic */}
-      {/* AHEAD OF THE BUILD — §07. Copy is the brief's, verbatim, and asserts
-          an AI-assisted 20-minute diagnostic producing a structured brief.
-          None of that is true of /apply today: static form, no AI, no timing,
-          FORM_APPROVED false so it accepts nothing.
-
-          Removed 2026-09-11 and restored the same day on an explicit
-          instruction: the diagnostic IS being built and this section is not to
-          come off the site. The brief's gate — every CTA must lead to a real
-          workflow — therefore stays failing until the build lands. Make the
-          three assertions true rather than deleting them; if the build ships
-          something different, edit this copy to match. See DIAGNOSTIC in
-          content/hse.ts. */}
       <Section surface="ice">
         <SectionHead
-          eyebrow="First step"
-          title="20 minutes to find out whether we should build together."
-          lead="Start with an AI-assisted venture diagnostic that captures the problem, product, evidence, team, market, delivery gap and funding position. It produces a structured brief for human review by Pixelette Holdings &mdash; not an automated investment decision."
+          eyebrow="Portfolio"
+          title="Clear distinctions across our portfolio"
+          lead="A short selection of ventures and relationships. Each reference is classified according to the relationship that can be described from the evidence held."
         />
-        <ul className="list">
-          {DIAGNOSTIC.map((d) => (
-            <li key={d}>{d}</li>
-          ))}
-        </ul>
-        <Buttons>
-          <Btn href="/apply">Start the 20-minute diagnostic</Btn>
-        </Buttons>
-        <p className="small">{DIAGNOSTIC_NOTE}</p>
-      </Section>
-
-      {/* ---------------------------------------------- execution capability */}
-      <Section>
-        <SectionHead
-          eyebrow="Execution"
-          title="We do not just ship software. We build the company around the product."
-          lead="Technology is only one part of getting a venture into the market. The Holdings model connects product, commercial growth, enterprise readiness and venture governance so the company can move forward as one operating plan."
-        />
-        <CardGrid>
-          {EXECUTION.map((e) => (
-            <Card key={e.title} title={e.title}>{e.body}</Card>
-          ))}
-        </CardGrid>
-      </Section>
-
-      {/* ------------------------------------------------- operating model */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Operating model"
-          title="Execution is the product, not advice."
-          lead="Founders do not need another deck, mentor network or strategy workshop. They need accountable specialists moving defined outcomes forward. Our model is built around delivery that can be evidenced, accepted and linked to venture milestones."
-        />
-        <ul className="list">
-          {OPERATING_MODEL.map((m) => (
-            <li key={m}>{m}</li>
-          ))}
-        </ul>
-      </Section>
-
-      {/* ------------------------------------------- institutional standing */}
-      <Section>
-        <SectionHead
-          eyebrow="Network and reach"
-          title="Built inside a wider innovation ecosystem."
-          lead="Pixelette Holdings engages across technology, industry, academic and innovation-policy networks. For selected portfolio companies, that can create useful routes to expertise, strategic introductions and market insight while every commercial, investment and governance decision remains independently made."
-        />
-        <ul className="list">
-          {ECOSYSTEM.map((e) => (
-            <li key={e}>{e}</li>
-          ))}
-        </ul>
-        <p className="small">{ECOSYSTEM_NOTE}</p>
-      </Section>
-
-      {/* --------------------------------------------------- credentials */}
-      {/* APPG_NOTE sits directly under the badge strip, in small print, as
-          instructed 2026-09-11. This is the only page that renders the APPG
-          logo — /about's credentials are text cards with no logos. The badge
-          itself is labelled "APPG AI Secretariat / UK Parliament", the
-          strongest form of the claim, so the disclaimer belongs beneath it. */}
-      <Section surface="ice" tight>
-        <p className="eyebrow cred-eyebrow">Verified credentials</p>
-        <Credentials />
-        <p className="small cred-note">{APPG_NOTE}</p>
-      </Section>
-
-      {/* ------------------------------------------------------- charter */}
-      <Section>
-        <SectionHead
-          eyebrow="Alignment"
-          title="You keep control. We earn our position."
-          lead="HSE is designed to align founder ownership with delivered value. Equity, governance and decision rights are documented in advance and linked to the agreed venture structure."
-        />
-        <ul className="list">
-          {FOUNDER_CONTROL.map((c) => (
-            <li key={c}>{c}</li>
-          ))}
-        </ul>
-        <Qualifier>{FOUNDER_CONTROL_NOTE}</Qualifier>
-      </Section>
-
-      {/* ----------------------------------------------------- proof rail */}
-      <Section surface="ice" tight>
         <CardGrid>
           <article className="card">
-            <RelationshipTag relationship={twoConnect.relationship} flagship />
+            <RelationshipTag relationship={twoConnect.relationship} flagship={twoConnect.flagship} />
             <h3 className="h3">{twoConnect.name}</h3>
             <p className="body">{twoConnect.oneLine}</p>
-            <p><Link className="link flink" href="/portfolio/2connect">Explore 2Connect ↗</Link></p>
+            <p>
+              <a className="link" href="/portfolio#2connect">Explore 2Connect</a>
+            </p>
           </article>
 
           <article className="card">
-            <RelationshipTag relationship={bic.relationship} />
-            <h3 className="h3">{bic.name}</h3>
-            <p className="body">{bic.oneLine}</p>
+            <p className="eyebrow">Founder relationship</p>
+            <h3 className="h3">Big Innovation Centre</h3>
+            <p className="body">
+              Pixelette Holdings&rsquo; founder is also a founder and shareholder of Big Innovation
+              Centre. The reference is shown as that personal relationship.
+            </p>
+            <p>
+              <ExtLink href="https://biginnovationcentre.com/">Big Innovation Centre</ExtLink>
+            </p>
           </article>
 
           <article className="card">
             <RelationshipTag relationship={dav.relationship} />
             <h3 className="h3">{dav.name}</h3>
-            <p className="body">{dav.oneLine}</p>
-          </article>
-
-          <Card title="Four integrated capabilities">
-            <p>
-              Product delivery, go-to-market systems, compliance readiness and portfolio governance
-              brought into one operating model.
+            <p className="body">
+              A direct Hybrid Sweat Equity venture in the portfolio, concerned with secure
+              digital-asset storage and related services.
             </p>
-            <p><Link className="link flink" href="/capabilities">Explore capabilities ↗</Link></p>
-          </Card>
+          </article>
         </CardGrid>
-      </Section>
-
-      {/* ----------------------------------------------------- portfolio */}
-      <Section>
-        <SectionHead
-          eyebrow="Proof, properly classified"
-          title="Every relationship shown for what it is."
-          lead="Our portfolio separates equity investments, direct HSE ventures, projects in development, delivered work and capital relationships. Classification creates credibility. It does not hide weak evidence behind a mixed logo wall."
-        />
-        <div className="taxonomy">
-          <div><p><strong>Equity Investments</strong></p><p>Founder-confirmed equity interests, with final documentary and legal checks completed before publication.</p></div>
-          <div><p><strong>Direct HSE Ventures</strong></p><p>Ventures selected for the Pixelette HSE portfolio.</p></div>
-          <div><p><strong>Projects in Development</strong></p><p>Current portfolio projects described without implying ownership, completion or a guaranteed outcome.</p></div>
-          <div><p><strong>Delivered Ventures</strong></p><p>Companies or products for which a Pixelette capability delivered evidenced work, without implying equity.</p></div>
-          <div><p><strong>Capital and Strategic Partners</strong></p><p>Organisations connected to capital, policy or institutional work, without implying ownership.</p></div>
-        </div>
-        <Buttons>
-          <Btn href="/portfolio">Explore the portfolio</Btn>
-        </Buttons>
-      </Section>
-
-      {/* ------------------------------------------------------ 2Connect */}
-      <Section surface="deep">
-        <SectionHead
-          eyebrow="Flagship direct HSE venture · Agentic AI"
-          title="2Connect: intent led AI for better introductions."
-          lead="A networking agent built around a simple idea: people should meet because the connection makes sense for both sides. Users express what they need, the platform evaluates reciprocal fit, and each suggested match includes an explanation."
-        />
-        {/* CONSENT GATE. The repository-derived metric tiles (12 / 1,891 / 122
-            / ~217k / 95) were removed 2026-09-11 on instruction: client
-            publication consent had not been obtained, and no measurement date
-            existed anywhere in the repo to attach to them. Do not reinstate
-            these or any screens, outcome claims or founder quotes for 2Connect
-            without written client consent AND an as-at date. */}
-        <Buttons>
-          <Btn href="/portfolio/2connect">Explore 2Connect</Btn>
-          <Btn href="/apply" variant="secondary">Check if you qualify</Btn>
-        </Buttons>
-      </Section>
-
-      {/* --------------------------------------------------- testimonials */}
-      <Section surface="navy">
-        <SectionHead
-          eyebrow="Proof"
-          title="Founders and partners, in their words."
-          lead="Real founders across the portfolio on what the Hybrid Sweat Equity partnership changed for them."
-        />
-        <Testimonials items={HOMEPAGE_TESTIMONIALS} />
-        <p className="small">
-          <Link className="link flink" href="/portfolio">Read further references on the portfolio ↗</Link>
+        <p className="home-follow">
+          <a className="link" href="/portfolio">Explore the portfolio</a>
         </p>
       </Section>
 
-      {/* ------------------------------------------------- capital partners */}
-      {/* PUBLICATION-GATED, COUNSEL — §13. This section, the Capital Partners
-          nav entry and the capitalRoute CTA below ship together and must be
-          released together or not at all: each one promotes /partners/capital,
-          which is noindexed for s.21 FSMA containment. Reverting this single
-          commit restores the previous posture, footer link only. The four
-          noindex mechanisms are deliberately untouched. */}
       <Section>
         <SectionHead
-          eyebrow="Capital partners"
-          title="Invest alongside an execution layer."
-          lead="Pixelette Holdings is also the group-level home for investor and strategic-capital relationships. For selected ventures, capital partners can engage with opportunities where product, growth, governance and enterprise-readiness capability are already connected to the build plan."
+          eyebrow="Credentials"
+          title="Group credentials and relationships"
+          lead="Certifications, institutional relationships and founder experiences are set out under separate headings."
         />
-        <ul className="list">
-          {CAPITAL_PARTNERS.map((c) => (
-            <li key={c}>{c}</li>
-          ))}
-        </ul>
-        <Buttons>
-          <Btn href="/partners/capital">Discuss capital partnerships</Btn>
-        </Buttons>
-        <Qualifier>{CAPITAL_PARTNERS_NOTE}</Qualifier>
-      </Section>
 
-      {/* ----------------------------------------------------------- fit */}
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Fit"
-          title="Built for founders ready to execute."
-          lead="HSE works when there is a serious founder, a real problem and a willingness to build against evidence. Selectivity is part of the model."
-        />
-        <div className="two-col">
-          <article>
-            <h3 className="h3">Good fit</h3>
-            <ul className="list">
-              {FIT_GOOD.map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-          </article>
-          <article>
-            <h3 className="h3">Not a fit</h3>
-            <ul className="list list-cross">
-              {FIT_NOT.map((f) => (
-                <li key={f}>{f}</li>
-              ))}
-            </ul>
-          </article>
+        <div className="home-block">
+          <h3 className="h3">Quality and information security</h3>
+          <p className="body">
+            ISO 9001 and ISO/IEC 27001 certifications are held by Pixelette Technologies, reflecting
+            recognised standards for quality and information security management.
+          </p>
+          <ul className="cred-list">
+            <li>
+              <strong>ISO 9001</strong>
+              <span>Quality management</span>
+            </li>
+            <li>
+              <strong>ISO/IEC 27001</strong>
+              <span>Information security management</span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="home-block">
+          <h3 className="h3">Innovation and strategic relationships</h3>
+          <p className="body">
+            Pixelette Holdings&rsquo; founder is also a founder and shareholder of{' '}
+            <ExtLink href="https://biginnovationcentre.com/">Big Innovation Centre</ExtLink>, an
+            organisation active in innovation, technology and artificial intelligence.{' '}
+            <ExtLink href="https://biginnovationcentre.com/">Big Innovation Centre</ExtLink>
+            {' '}serves as Secretariat to the{' '}
+            <ExtLink href="https://bicpavilion.com/about_pavilion/appg-artificial-intelligence">
+              All-Party Parliamentary Group on Artificial Intelligence
+            </ExtLink>{' '}
+            (APPG AI).
+          </p>
+          <p className="small home-follow">
+            The relationship does not imply endorsement of Pixelette Holdings by the APPG, UK
+            Parliament or the UK Government.
+          </p>
+        </div>
+
+        <div className="home-block">
+          <h3 className="h3">Founders and partners, in their words</h3>
+          <p className="body">
+            Real founders across the portfolio on what the Hybrid Sweat Equity partnership changed
+            for them.
+          </p>
+          <Testimonials items={HOMEPAGE_TESTIMONIALS} />
         </div>
       </Section>
 
-      {/* capitalRoute ships with the §13 section above — gated together. */}
-      <ConversionClose capitalRoute />
+      <Section surface="ice">
+        <SectionHead
+          eyebrow="Capital relationships"
+          title="Strategic capital relationships"
+          lead="Pixelette Holdings develops relationships with investors and strategic capital partners to support selected ventures. Any potential investment discussions are considered individually and are subject to appropriate eligibility checks, due diligence and legal requirements."
+        />
+        <Buttons>
+          <Btn href="/contact">Discuss a strategic partnership</Btn>
+        </Buttons>
+        <p className="small home-follow">{FOOTER_NOTICE}</p>
+      </Section>
+
+      <Section surface="deep">
+        <SectionHead
+          eyebrow="Next step"
+          title="Build your next venture with Pixelette"
+          lead="Tell us what you are building, the progress you have made and where additional delivery capability could make a difference. Our team will review the opportunity and discuss the next steps with you."
+        />
+        <Buttons>
+          <Btn href="/apply">Start your venture assessment</Btn>
+          <Btn href="/contact" variant="secondary">Contact Pixelette Holdings</Btn>
+        </Buttons>
+      </Section>
     </>
   );
 }
-

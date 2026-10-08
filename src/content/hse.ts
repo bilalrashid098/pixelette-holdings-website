@@ -218,10 +218,10 @@ export const GATES: Gate[] = [
   },
   {
     n: '05',
-    name: 'Scale',
-    body: 'Harden the technology, automate operations, improve enterprise readiness and support growth and capital preparation.',
-    evidence: 'A business built to scale',
-    decision: 'Bootstrap, extend or pursue external capital',
+    name: 'Grow',
+    body: 'Harden the technology, improve how the venture operates and prepare for further growth. The work in this stage is agreed for that venture. Completion time is not guaranteed.',
+    evidence: 'The growth work agreed for the venture',
+    decision: 'Continue, pause or stop',
     note: 'Independent certification is not a Pixelette milestone unless an external accredited body awards it. No investment, fundraising or introduction result is guaranteed.',
   },
 ];
@@ -458,7 +458,7 @@ export const FOUNDER_CHARTER = [
   'No equity is earned for rejected or undelivered work.',
   'Unvested equity returns when the relevant delivery stops.',
   'An equity ceiling is agreed before work begins.',
-  'The founder retains operational control.',
+  'How decisions are taken is set out in the governance documents for that venture.',
   'Material scope changes require written agreement.',
   'A full-cash route is always available.',
   'Commercial service value is documented transparently.',
@@ -488,14 +488,13 @@ export const NOT_PROMISED = [
 /**
  * Continuation equity.
  *
- * HELD. Tranche B is retained at up to 3%, but redefined as earned
- * continuation equity rather than an automatic advisory allocation. It must
- * NOT be presented as operable until the rate, period and vesting basis are
- * defined and counsel has approved the instrument.
+ * HELD. An unresolved continuation-equity idea must not be published as a
+ * percentage, rate or vesting term until counsel and the commercial definition
+ * exist. Do not put a figure back into public copy.
  */
 export const CONTINUATION_EQUITY_HELD = {
   flag: 'Held, counsel and commercial definition',
-  body: 'The current internal model contemplates a possible allocation of up to 3% for defined post-launch commercialisation, governance or scaling work, earned only while that work continues. The rate, period, vesting basis and legal treatment remain unresolved, so no operable term is published.',
+  body: 'An internal continuation-equity idea remains unresolved. No percentage, rate, period or vesting term is published, and none should be added until the commercial definition and legal treatment are agreed.',
 } as const;
 
 /**
@@ -559,30 +558,16 @@ export const ECOSYSTEM_NOTE =
   'Participation in a network, event, secretariat or programme does not imply endorsement by that organisation or any public body.';
 
 /**
- * The APPG attribution, supplied by the group 2026-09-11 and required to sit in
- * small print directly under the APPG badge. `<Credentials />` is the only place
- * that badge renders, and it is used on the homepage only — /about's credentials
- * section is text cards with no logos, so this does not belong there.
+ * APPG wording, revised 2026-10-08.
  *
- * ONE DELIBERATE CHANGE from the supplied wording. As given it read "the
- * Pixelette Group founder's shareholding in Big Innovation Centre" — a personal
- * holding. That contradicted ventures.ts, which publishes "Pixelette Holdings
- * holds a 12% equity investment in Big Innovation Centre" under an equity
- * investment pill on /portfolio: a company asset, not the founder's. The group
- * confirmed on 2026-09-11 that Pixelette Holdings owns it, so the clause was
- * corrected to match. The rest of the sentence is verbatim.
- *
- * Do not reword the final sentence. It is the endorsement disclaimer and it
- * names Parliament and Government directly, which the shorter ECOSYSTEM_NOTE
- * above does not. Both render — this one under the badge, that one under the
- * ecosystem section and on /about.
- *
- * STILL OPEN: two Companies House records share the name "Big Innovation
- * Centre". The exact investee entity is unconfirmed — see the note on the BIC
- * entry in ventures.ts. That affects this sentence too.
+ * Do not describe a Pixelette Holdings shareholding, and do not publish a
+ * percentage. The public relationship is the founder's personal connection
+ * with Big Innovation Centre. The secretariat role is Big Innovation Centre's,
+ * not an appointment of Pixelette. Do not render BIC or APPG logos.
+ * Two Companies House records share the name. The investee entity is unconfirmed.
  */
 export const APPG_NOTE =
-  'Through Pixelette Holdings’ shareholding in Big Innovation Centre, Pixelette is connected to the wider UK AI policy ecosystem. Big Innovation Centre serves as Secretariat to the All-Party Parliamentary Group on Artificial Intelligence (APPG AI). This does not imply endorsement, appointment or formal affiliation with UK Parliament or Government.';
+  'Big Innovation Centre serves as Secretariat to the All-Party Parliamentary Group on Artificial Intelligence (APPG AI). That is a role of Big Innovation Centre. It is not an appointment of Pixelette Holdings and it does not imply endorsement by the APPG, UK Parliament or the UK Government.';
 
 /**
  * The operating model, per section 09 of the 8 Sep 2026 copy brief.

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Section, PageHero } from '@/components/ui';
-import { DISCLAIMER } from '@/content/site';
+import { CAPITAL_STATEMENT, FOOTER_NOTICE } from '@/content/site';
 
 export const metadata: Metadata = {
   title: 'Website and Investment Disclaimer',
@@ -23,9 +23,8 @@ export default function DisclaimerPage() {
           <div className="prose">
             <h2>No offer or inducement</h2>
             <p>
-              This website is provided for information only and is{' '}
-              <strong>not an offer, invitation or inducement to invest</strong>.{' '}
-              {DISCLAIMER.eligibility.investment}
+              {FOOTER_NOTICE}{' '}
+              {CAPITAL_STATEMENT}
             </p>
 
             <h2>No advice</h2>
@@ -43,8 +42,8 @@ export default function DisclaimerPage() {
                 external accredited bodies.
               </li>
               <li>
-                Indicative equity ceilings are maxima, not offers, and depend on valuation, scope, risk
-                and signed documentation.
+                Equity, milestones and governance depend on the signed agreements for that venture.
+                This website does not publish a standard allocation.
               </li>
             </ul>
 
@@ -57,10 +56,11 @@ export default function DisclaimerPage() {
 
             <h2>Financial promotions</h2>
             <p>
-              Websites and online materials can constitute financial promotions. Section 21 of the
-              Financial Services and Markets Act 2000 restricts unauthorised invitations or inducements
-              to engage in investment activity. Capital-partner materials are provided only through a
-              qualified, controlled route under counsel-approved terms.
+              Websites can constitute financial promotions. Section 21 of the Financial Services and
+              Markets Act 2000 restricts unauthorised invitations or inducements to engage in investment
+              activity. This website describes capital relationships in general terms. It is not an
+              invitation to invest in a named opportunity. Any actual investment discussion needs its
+              own legal clearance.
             </p>
           </div>
         </div>

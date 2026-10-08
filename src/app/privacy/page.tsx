@@ -15,7 +15,7 @@ export const metadata: Metadata = {
  * string constants so the legal prose does not trip JSX entity linting.
  * Counsel should still confirm before publication.
  */
-const EFFECTIVE = '8 August 2026';
+const EFFECTIVE = '8 October 2026';
 
 const SECTIONS: { h: string; body: string[] }[] = [
   {
@@ -34,8 +34,9 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'What we collect',
     body: [
-      'Information you provide to us directly. When you submit an enquiry, for example the HSE Fit Assessment or a partnership enquiry, we collect the details you give us: your name, work email, company or venture, website, country or principal market, sector, current stage, an indication of the capital available for professional execution, your venture description and your current constraint. If you correspond with us, we hold that correspondence.',
-      'Information collected automatically. Our host records basic technical information needed to serve and secure the site, such as your IP address and standard server logs. This site does not use advertising, analytics or cross-site tracking cookies, and does not run a third-party tag manager. Only strictly necessary functionality is used. If you set a preference under Privacy choices in the footer, it is kept in your own browser so it can be remembered; it is not sent to us. If analytics is ever introduced, this notice will be updated and consent obtained first.',
+      'The startup partnership assessment runs in your browser. It asks about visitor type, stage, need and partnership structure. It does not ask for your name or email. The answers are kept in this browser’s session storage so they can be shown again on the application or contact page. They are not sent to us, and closing the tab removes them. We do not keep a copy.',
+      'Information you choose to send by email. If you email an application or another enquiry, we receive what you include, such as your name, work email, organisation and message. The forms on this website do not themselves transmit that information.',
+      'Information collected automatically. Our host records basic technical information needed to serve and secure the site, such as your IP address and standard server logs. This site does not use advertising, analytics or cross-site tracking cookies, and does not run a third-party tag manager. If you set a preference under Privacy choices in the footer, it is kept in your own browser and is not sent to us. If analytics is ever introduced, this notice will be updated and consent obtained first.',
     ],
   },
   {
@@ -60,7 +61,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'How long we keep it',
     body: [
-      'We keep personal data only as long as necessary for the purpose it was collected, taking account of our legal and contractual obligations. Enquiries that do not proceed are retained for up to 12 months from our last contact; where an engagement proceeds, records are kept for the life of the engagement plus any period required by law. Data is securely deleted when retention is no longer justified.',
+      'Assessment answers in session storage are not retained by us, because we do not receive them. Email you send us is kept only as long as needed to handle the enquiry and any later engagement, and for any period the law requires. A specific retention period for emailed enquiries has not been re-approved for this revision, so this notice does not state one as settled.',
     ],
   },
   {
@@ -73,7 +74,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'How we protect it',
     body: [
-      'We apply appropriate technical and organisational measures, including encryption in transit and at rest, role-based access controls, multi-factor authentication for administrative access, regular vulnerability assessment, secure development practices, and staff confidentiality obligations.',
+      'This website is a static site. It does not store assessment answers or form entries on our servers. Email you send is handled in ordinary business mail. We do not describe security controls on this page that have not been set out for this revision.',
     ],
   },
   {

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
  * sections that had been pasted into the live Terms in error are dropped.
  * Rendered from strings so the prose does not trip JSX entity linting.
  */
-const EFFECTIVE = '8 August 2026';
+const EFFECTIVE = '8 October 2026';
 
 const SECTIONS: { h: string; body: string[] }[] = [
   {
@@ -46,7 +46,7 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'Your ideas and materials stay yours',
     body: [
-      'Any business information, startup idea, pitch deck, financial model, intellectual property or related material you submit remains entirely your property. Submitting it does not transfer any intellectual property to us or grant us a licence, and this applies whether or not a formal engagement follows. We treat such material as confidential and will not share it without your explicit written consent. If you would like, we are happy to formalise this through a mutual non-disclosure agreement (NDA) before you send sensitive materials.',
+      'Sending an idea, a description or a document by email does not transfer your intellectual property to us and does not, by itself, grant us a licence. It also does not create a confidentiality obligation or a non-disclosure agreement. If you need confidentiality before you share sensitive material, ask for a mutual non-disclosure agreement first and wait until it is signed. Do not email material you are not willing to send without that agreement.',
     ],
   },
   {

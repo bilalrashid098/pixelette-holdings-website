@@ -1,41 +1,38 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Section, SectionHead, PageHero, CardGrid } from '@/components/ui';
+import { Section, SectionHead, PageHero } from '@/components/ui';
 
 export const metadata: Metadata = {
-  title: 'Insights | Evidence-led writing on venture execution',
+  title: 'Insights',
   description:
-    'Original expertise from delivery, not keyword pages. Each article carries named evidence and routes to the relevant proof or model explanation.',
+    'Four articles on venture formation, equity and governance, and building towards investment readiness. Commercial commentary from Pixelette Holdings, not legal advice.',
   alternates: { canonical: '/insights' },
 };
 
-const LINES = [
+const ARTICLES = [
   {
-    title: 'Services-for-equity, properly structured',
-    body: 'How fee-to-equity works, where it fails, and the protections that make it safe for a founder to enter.',
+    category: 'Venture formation',
+    title: 'Building a technology startup: what founders should validate before development begins',
+    body: 'Problem, customer, scope and the cost of building the wrong thing first.',
+    href: '/insights/building-a-technology-startup',
+  },
+  {
+    category: 'Equity and governance',
+    title: 'Services for equity: how startup partnerships can be structured',
+    body: 'Why cash and equity are combined, and why no single structure fits every venture.',
     href: '/insights/services-for-equity-properly-structured',
   },
-  /* PLACEHOLDER LINKS — the three articles below have no route yet; only the
-     services-for-equity piece exists. `href: '#'` is a deliberate reminder to
-     write them, added at the user's request. It ships a CTA that goes nowhere,
-     so it must NOT reach production unresolved: either the article lands and
-     the '#' becomes its route, or the entry is removed. Do not "tidy" these
-     back to a missing href — the visible dead CTA is the point.
-     → vault 50-Known-bugs-and-deviations, bug 2 */
   {
-    title: 'Agentic AI delivery in production',
-    body: 'What it actually takes to ship an agentic product: architecture boundaries, retrieval, evaluation and the honest limits.',
-    href: '#',
+    category: 'Equity and governance',
+    title: 'Founder control and equity dilution: what to consider before signing',
+    body: 'Economic ownership and decision-making rights are different questions.',
+    href: '/insights/founder-control-and-equity-dilution',
   },
   {
-    title: 'Validating before you build',
-    body: 'Why a paid validation stage is cheaper than a wrong build, and what evidence a go decision actually needs.',
-    href: '#',
-  },
-  {
-    title: 'Compliance readiness as a growth lever',
-    body: 'How security and governance readiness opens enterprise and regulated revenue rather than blocking it.',
-    href: '#',
+    category: 'Building and scaling',
+    title: 'From MVP to investment readiness: building evidence that matters',
+    body: 'A working product, user evidence and a repeatable commercial story are not the same thing.',
+    href: '/insights/from-mvp-to-investment-readiness',
   },
 ];
 
@@ -45,29 +42,27 @@ export default function InsightsPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Insights' }]}
         eyebrow="Insights"
-        title="Evidence-led writing on venture execution."
-        lead="Original expertise from delivery, not keyword pages. Each piece carries named evidence and routes to the relevant proof or model explanation."
+        title="Notes on building and owning a venture"
+        lead="Four articles on venture formation, equity and governance, and the evidence that sits between a product and a more serious commercial conversation."
       />
-
       <Section>
         <SectionHead
-          eyebrow="What we write about"
-          title="Subjects we cover with authority."
-          lead="Written from the group's actual delivery evidence and mapped to the real questions founders and partners ask."
+          eyebrow="Launch set"
+          title="Four articles"
+          lead="Written as commercial commentary. They are not legal advice, and they are not case studies."
         />
-        <CardGrid>
-          {LINES.map((l) => (
-            <article key={l.title} className="card">
-              <h3 className="h3">{l.title}</h3>
-              <p className="body">{l.body}</p>
-              {l.href ? (
-                <p>
-                  <Link className="link flink" href={l.href}>Read the article ↗</Link>
-                </p>
-              ) : null}
+        <div className="card-grid">
+          {ARTICLES.map((article) => (
+            <article key={article.href} className="card">
+              <p className="eyebrow">{article.category}</p>
+              <h3 className="h3">{article.title}</h3>
+              <p className="body">{article.body}</p>
+              <p>
+                <Link className="link" href={article.href}>Read the article</Link>
+              </p>
             </article>
           ))}
-        </CardGrid>
+        </div>
       </Section>
     </>
   );

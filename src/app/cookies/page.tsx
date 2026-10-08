@@ -28,6 +28,15 @@ export default function CookiesPage() {
             why you see no cookie banner.
           </p>
 
+          <h2>Session storage, which is not a cookie</h2>
+          <p>
+            The startup partnership assessment keeps its answers in your browser&rsquo;s session
+            storage under the key <code>ph-partnership-assessment</code>. That is not a cookie, it is
+            not sent to us, and it is removed when the tab closes. It does not contain your name or
+            email. The privacy-choices control uses local storage for the same reason: a preference
+            that stays on your device.
+          </p>
+
           <h2>Privacy choices</h2>
           <p>
             <strong>Privacy choices</strong>, in the footer of every page, lets you turn website
