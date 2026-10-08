@@ -56,7 +56,7 @@ export function SiteHeader() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               className="brand-logo"
-              src="/media/brand/holdings.png"
+              src="/media/brand/pixelette-holdings.svg"
               alt="Pixelette Holdings"
               onError={() => setLogoFailed(true)}
             />

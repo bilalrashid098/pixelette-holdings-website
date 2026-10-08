@@ -11,10 +11,10 @@ import { CapabilityIcon } from './Icons';
 // Square brand MARK per capability — one fixed size, so all four match. Falls back
 // to the bespoke line icon if the mark file is missing (never a broken image).
 const MARK: Record<string, string> = {
-  Build: 'mark-technologies.png',
-  Launch: 'mark-marketing.svg',
-  Assure: 'certified-icon.svg',
-  Own: 'mark-holdings.png',
+  Build: 'pixelette-technologies.svg',
+  Launch: 'pixelette-marketing.svg',
+  Assure: 'pixelette-certified.svg',
+  Own: 'pixelette-holdings.svg',
 };
 
 export function CapabilityBrand({ name }: { name: string }) {

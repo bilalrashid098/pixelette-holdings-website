@@ -124,26 +124,25 @@ export const FOOTER_GROUP = [
     name: 'Pixelette Holdings',
     href: null,
     what: 'Group-level venture partnerships, HSE/equity structures, portfolio and strategic relationships.',
-    mark: '/media/brand/mark-holdings.png',
+    mark: '/media/brand/pixelette-holdings-white.svg',
   },
   {
     name: 'Pixelette Technologies',
     href: 'https://pixelettetech.com/',
     what: 'Software engineering, AI & automation, blockchain and ongoing product engineering.',
-    mark: '/media/brand/mark-technologies.png',
+    mark: '/media/brand/pixelette-technologies-white.svg',
   },
   {
     name: 'Pixelette Marketing',
     href: 'https://pixelettemarketing.com/',
     what: 'Demand, pipeline, conversion, revenue and accountable growth systems.',
-    mark: '/media/brand/mark-marketing.svg',
+    mark: '/media/brand/pixelette-marketing-white.svg',
   },
   {
     name: 'Pixelette Certified',
     href: 'https://pixelettecertified.com/',
     what: 'Compliance readiness, cyber assurance, privacy, AI governance and ongoing compliance support.',
-    // Approved green tree logo is not in the project. Do not substitute the shield mark.
-    mark: null,
+    mark: '/media/brand/pixelette-certified-white.svg',
   },
 ] as const;
 

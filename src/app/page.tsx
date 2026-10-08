@@ -27,30 +27,29 @@ export const metadata: Metadata = {
 
 const STAGES = ['Validate', 'Design', 'Build', 'Launch', 'Grow'] as const;
 
-const GROUP = [
+export const GROUP = [
   {
     name: 'Pixelette Holdings',
     body: 'Venture partnerships, equity structures and group coordination',
-    mark: '/media/brand/mark-holdings.png',
+    mark: '/media/brand/pixelette-holdings.svg',
     href: null,
   },
   {
     name: 'Pixelette Technologies',
     body: 'Software engineering, AI, automation and blockchain',
-    mark: '/media/brand/mark-technologies.png',
+    mark: '/media/brand/pixelette-technologies.svg',
     href: 'https://pixelettetech.com/',
   },
   {
     name: 'Pixelette Marketing',
     body: 'Brand, marketing strategy and commercial growth',
-    mark: '/media/brand/mark-marketing.svg',
+    mark: '/media/brand/pixelette-marketing.svg',
     href: 'https://pixelettemarketing.com/',
   },
   {
     name: 'Pixelette Certified',
     body: 'Compliance, assurance and enterprise readiness',
-    // Approved green tree logo is not in the project. Leave the slot empty.
-    mark: null,
+    mark: '/media/brand/pixelette-certified.svg',
     href: 'https://pixelettecertified.com/',
   },
 ] as const;
@@ -114,7 +113,7 @@ function ExtLink({ href, children }: { href: string; children: ReactNode }) {
 function GroupMark({ src }: { src: string | null }) {
   if (!src) return <span className="cap-mark" aria-hidden="true" />;
   // eslint-disable-next-line @next/next/no-img-element
-  return <img className="cap-mark" src={src} alt="" />;
+  return <img className="cap-mark w-full" src={src} alt="" />;
 }
 
 export default function HomePage() {
@@ -158,7 +157,6 @@ export default function HomePage() {
           {GROUP.map((company) => (
             <article key={company.name} className="card">
               <GroupMark src={company.mark} />
-              <h3 className="h3">{company.name}</h3>
               <p className="body">{company.body}</p>
               {company.href ? (
                 <p>

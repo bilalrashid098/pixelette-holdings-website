@@ -67,7 +67,7 @@ export function SiteFooter() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className="site-footer__logo"
-              src="/media/brand/holdings.png"
+              src="/media/brand/pixelette-holdings-white.svg"
               alt={SITE.name}
               width={1000}
               height={254}

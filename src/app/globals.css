@@ -743,7 +743,7 @@ button { cursor: pointer; }
   justify-self: start;
   font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em;
 }
-.brand-logo { height: 30px; width: auto; display: block; }
+.brand-logo { height: 40px; width: auto; display: block; }
 
 .nav-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 4px clamp(10px, 1.2vw, 22px); }
 .nav-links a {
@@ -803,7 +803,7 @@ body.menu-open { overflow: hidden; }
 
 /* The wordmark is slate ink, which measures near-invisible on the footer
    ground. Theirs uses a white logo file; this renders the same file white. */
-.site-footer__logo { height: 34px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
+.site-footer__logo { height: 50px; width: auto; margin-bottom: 20px; filter: brightness(0) invert(1); }
 .site-footer__brand .small { color: var(--color-panel-fg); max-width: 34ch; }
 .site-footer__contact { margin-top: 16px; }
 .contact-ic { width: 17px; height: 17px; flex: none; }
@@ -828,7 +828,7 @@ body.menu-open { overflow: hidden; }
   display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 32px;
 }
 .groupband__mark {
-  display: block; height: 36px; width: 36px; object-fit: contain; margin-bottom: 12px;
+  display: block; height: auto; width: 10rem; object-fit: contain; margin-bottom: 12px;
 }
 .groupband__name {
   display: inline-flex; align-items: center; flex-wrap: wrap; gap: 6px;
@@ -978,7 +978,8 @@ a.groupband__name:hover { color: var(--color-page); text-decoration: underline; 
 
 /* --------------------------------------------------- capability marks */
 
-.cap-mark { display: block; height: 54px; width: 54px; object-fit: contain; margin-bottom: 22px; }
+.cap-mark { display: block; height: auto; width: 100%; object-fit: contain; margin-bottom: 22px; }
+.card .cap-mark~.body { flex-grow: 1; margin-bottom: 1rem }
 
 /* Homepage delivery sequence. Text only, kept light so the hero headline
    keeps its space. The arrow is a separator, not a claim of pace. */

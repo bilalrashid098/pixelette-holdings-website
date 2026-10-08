@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
-import { BIC_STATEMENT, CAPITAL_STATEMENT, FOOTER_GROUP, SITE } from '@/content/site';
+import { BIC_STATEMENT, CAPITAL_STATEMENT, SITE } from '@/content/site';
+import { GROUP } from '@/app/page';
 import { ECOSYSTEM_NOTE } from '@/content/hse';
 
 export const metadata: Metadata = {
@@ -61,7 +62,7 @@ export default function AboutPage() {
           lead="Four names, with the artwork used for each. Descriptions stay short. The specialist websites carry the service detail."
         />
         <div className="quad-grid">
-          {FOOTER_GROUP.map((company) => (
+          {GROUP.map((company) => (
             <article key={company.name} className="card">
               {company.mark ? (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -69,7 +70,6 @@ export default function AboutPage() {
               ) : (
                 <span className="cap-mark" aria-hidden="true" />
               )}
-              <h3 className="h3">{company.name}</h3>
               <p className="body">{GROUP_COPY[company.name]}</p>
               {company.href ? (
                 <p>
