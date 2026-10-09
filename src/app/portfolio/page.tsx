@@ -7,18 +7,13 @@ import { FURTHER_TESTIMONIALS } from '@/content/testimonials';
 export const metadata: Metadata = {
   title: 'Portfolio',
   description:
-    'Selected Pixelette venture relationships, founder relationships and strategic associations, described only to the extent the current evidence supports.',
+    'Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships.',
   alternates: { canonical: '/portfolio' },
 };
 
 export default function PortfolioPage() {
   const selected = ventures.filter(
     (v) => v.relationship === 'direct-hse-venture' && v.evidence !== 'counsel' && v.oneLine,
-  );
-  const relationships = ventures.filter(
-    (v) =>
-      (v.relationship === 'founder-relationship' || v.relationship === 'capital-relationship') &&
-      v.evidence !== 'counsel',
   );
 
   return (
@@ -27,21 +22,16 @@ export default function PortfolioPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Portfolio' }]}
         eyebrow="Portfolio"
         title="Selected ventures and projects"
-        lead="A record of relationships already described by Pixelette. An entry is not a statement that the project has launched, raised funding or become commercially successful."
-      />
-
-      <Section id="selected-ventures">
-        <SectionHead
-          eyebrow="Ventures"
-          title="Relationship, sector and what can be said"
-          lead="Each card names the relationship that can be described from the material held. Where the operating stage has not been re-verified, the card says so."
-        />
-        <CardGrid>
-          {selected.map((venture) => (
-            <VentureCard key={venture.slug} venture={venture} />
-          ))}
-        </CardGrid>
-      </Section>
+        lead="Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships."
+      >
+        <div id="selected-ventures">
+          <CardGrid>
+            {selected.map((venture) => (
+              <VentureCard key={venture.slug} venture={venture} />
+            ))}
+          </CardGrid>
+        </div>
+      </PageHero>
 
       {/* <Section surface="ice" id="relationships">
         <SectionHead
@@ -50,9 +40,16 @@ export default function PortfolioPage() {
           lead="Founder relationships and strategic associations are kept separate from direct Hybrid Sweat Equity ventures. No corporate shareholding figure is published."
         />
         <CardGrid>
-          {relationships.map((venture) => (
-            <VentureCard key={venture.slug} venture={venture} />
-          ))}
+          {ventures
+            .filter(
+              (v) =>
+                (v.relationship === 'founder-relationship' ||
+                  v.relationship === 'capital-relationship') &&
+                v.evidence !== 'counsel',
+            )
+            .map((venture) => (
+              <VentureCard key={venture.slug} venture={venture} />
+            ))}
         </CardGrid>
       </Section> */}
 
