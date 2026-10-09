@@ -7,8 +7,8 @@ import { PRIMARY_NAV } from '@/content/site';
 import { MenuIcon, CloseIcon, ArrowUpRightIcon } from './Icons';
 
 /**
- * Institutional header. One dominant CTA, "Start Venture Diagnostic", which
- * routes to the /apply fit assessment.
+ * Institutional header. One dominant CTA, "Explore a partnership", which
+ * routes to the /apply founder enquiry.
  *
  * The mobile menu is keyboard operable, closes on Escape and on navigation,
  * and locks background scroll while open.
@@ -83,7 +83,7 @@ export function SiteHeader() {
               the viewport beside the wordmark and the menu button. Exactly one
               of the two is ever visible — see .nav-cta / .nav-cta-mobile. */}
           <Link className="btn nav-cta-mobile" href="/apply">
-            Apply to partner <ArrowUpRightIcon />
+            Explore a partnership <ArrowUpRightIcon />
           </Link>
         </nav>
 
@@ -99,7 +99,7 @@ export function SiteHeader() {
         </button>
 
         <Link className="btn2 nav-cta" href="/apply">
-          Apply to partner <ArrowUpRightIcon />
+          Explore a partnership <ArrowUpRightIcon />
         </Link>
       </div>
     </header>

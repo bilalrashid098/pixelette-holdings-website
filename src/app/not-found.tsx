@@ -32,9 +32,9 @@ export default function NotFound() {
             <p>Equity investments, HSE ventures, delivered work and capital relationships.</p>
             <p style={{ marginTop: 14 }}><Btn href="/portfolio">Portfolio</Btn></p>
           </Card>
-          <Card title="Apply for HSE">
-            <p>The short fit assessment. No pitch deck, no automatic acceptance.</p>
-            <p style={{ marginTop: 14 }}><Btn href="/apply">Apply</Btn></p>
+          <Card title="Explore a partnership">
+            <p>Tell us about your venture. No pitch deck required.</p>
+            <p style={{ marginTop: 14 }}><Btn href="/apply">Explore a partnership</Btn></p>
           </Card>
           <Card title="Contact">
             <p>Route a general enquiry to the right person.</p>

@@ -5,9 +5,9 @@ import { FitAssessmentForm } from '@/components/FitAssessmentForm';
 import { CONTACT } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Apply to partner',
+  title: 'Explore a partnership',
   description:
-    'Founder application for a conversation with Pixelette Holdings. It does not create a partnership or an investment commitment, and it does not promise a reply by a set date.',
+    'Tell us about your venture. Share a few details and Pixelette Holdings will review your enquiry. It does not create a partnership or an investment commitment, and it does not promise a reply by a set date.',
   alternates: { canonical: '/apply' },
 };
 
@@ -20,12 +20,12 @@ const STEPS = [
   {
     n: '02',
     title: 'How it is used',
-    body: 'If you email the application, Pixelette Holdings Ltd uses it to decide whether a conversation is relevant and to reply. The privacy notice describes that handling.',
+    body: 'If you send the enquiry, Pixelette Holdings Ltd uses it to decide whether a conversation is relevant and to reply. The privacy notice describes that handling.',
   },
   {
     n: '03',
     title: 'What happens afterwards',
-    body: 'A person may review an enquiry that has actually been received. There is no promised response time. A reply does not mean the venture has been accepted.',
+    body: 'A person may review an enquiry that has actually been received. There is no promised response time. A reply does not create a partnership or commitment.',
   },
   {
     n: '04',
@@ -38,15 +38,15 @@ export default function ApplyPage() {
   return (
     <>
       <PageHero
-        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Apply to partner' }]}
-        eyebrow="Apply to partner"
-        title="Apply to discuss a founder partnership"
-        lead="This is the founder application. If you completed the startup partnership assessment, those answers are brought forward in this browser. You are not asked for them again."
+        breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Explore a partnership' }]}
+        eyebrow="Explore a partnership"
+        title="Tell us about your venture"
+        lead="Share a few details about your venture and what you are looking to achieve. We'll review your enquiry and explore whether there may be an opportunity to work together."
       >
         <ul className="list">
           <li>Use it if you are a founder. Programme operators should use the contact page.</li>
           <li>No pitch deck is required here.</li>
-          <li>Nothing is accepted or rejected by the form itself.</li>
+          <li>If you completed the startup partnership assessment, those answers are brought forward in this browser.</li>
           <li>The form does not ask for payment.</li>
         </ul>
       </PageHero>
@@ -54,7 +54,7 @@ export default function ApplyPage() {
       <Section>
         <SectionHead
           eyebrow="Before you write"
-          title="What this application is for"
+          title="What this enquiry is for"
           lead="A conversation about delivery and a possible Hybrid Sweat Equity arrangement. It is not a request for Pixelette to invest cash, and there is no standard paid pilot on this page."
         />
         <ul className="list">
@@ -73,9 +73,9 @@ export default function ApplyPage() {
 
       <Section surface="ice">
         <SectionHead
-          eyebrow="The application"
+          eyebrow="The enquiry"
           title="The information to include"
-          lead={`Use Email this application. It opens a message to ${CONTACT.email} in your own email program. This website does not store what you type, and Pixelette receives it only when you send that message.`}
+          lead={`The Send enquiry button opens a message to ${CONTACT.email} in your own email program. This website does not store what you type, and Pixelette receives it only when you send that message.`}
         />
         <FitAssessmentForm />
       </Section>

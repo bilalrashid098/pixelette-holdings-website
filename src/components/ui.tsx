@@ -335,7 +335,7 @@ export function Card({ title, children }: { title: string; children: ReactNode }
  */
 export function ConversionClose({
   title = 'Explore working with Pixelette',
-  lead = 'Read how Hybrid Sweat Equity works, or apply to partner if you are a founder. Programme operators can use the contact page.',
+  lead = 'Read how Hybrid Sweat Equity works, or explore a partnership if you are a founder. Programme operators can use the contact page.',
   capitalRoute = false,
 }: {
   title?: string;
@@ -347,7 +347,7 @@ export function ConversionClose({
       <SectionHead eyebrow="Next step" title={title} lead={lead} />
       <Buttons>
         <Btn href="/hse-model">Hybrid Sweat Equity</Btn>
-        <Btn href="/apply" variant="secondary">Apply to partner</Btn>
+        <Btn href="/apply" variant="secondary">Explore a partnership</Btn>
         {capitalRoute ? (
           <Btn href="/contact#capital-relationships" variant="ghost">
             Contact
@@ -355,7 +355,7 @@ export function ConversionClose({
         ) : null}
       </Buttons>
       <p className="small">
-        An application does not create a partnership, an investment or a commitment by either side.
+        An enquiry does not create a partnership, an investment or a commitment by either side.
       </p>
     </Section>
   );

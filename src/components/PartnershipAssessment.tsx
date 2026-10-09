@@ -167,16 +167,16 @@ export function PartnershipAssessment({
         <p className="body">
           You described yourself as {AUDIENCE_LABEL[done.audience].toLowerCase()}, at the stage
           &ldquo;{done.stage}&rdquo;, with a main interest in {done.need.toLowerCase()}. A useful next
-          step is {founder ? 'the founder application' : 'a programme partnership enquiry'}, where you
+          step is {founder ? 'a founder partnership enquiry' : 'a programme partnership enquiry'}, where you
           can add contact details if you want a conversation.
         </p>
         <p className="small">
-          This preliminary assessment is for guidance only. Partnership suitability depends on further
+          This preliminary assessment is for guidance only. Whether a partnership is a fit depends on further
           commercial, technical and legal review.
         </p>
         <div className="btn-row">
           <Link className="btn" href={href}>
-            {founder ? 'Apply to partner' : 'Programme partnership enquiry'}
+            {founder ? 'Explore a partnership' : 'Programme partnership enquiry'}
           </Link>
           <button type="button" className="btn2" onClick={revise}>
             Revise answers

@@ -120,10 +120,10 @@ export function StartupsBody() {
         <SectionHead
           eyebrow="Next step"
           title="Explore a partnership with Pixelette"
-          lead="Founders can apply. Incubators and accelerators can send a programme enquiry. Neither step creates a partnership."
+          lead="Founders can explore a partnership. Incubators and accelerators can send a programme enquiry. Neither step creates a partnership."
         />
         <Buttons>
-          <Btn href="/apply">Apply to partner</Btn>
+          <Btn href="/apply">Explore a partnership</Btn>
           <Btn href="/contact#incubators-and-accelerators" variant="secondary">
             Programme partnership enquiry
           </Btn>

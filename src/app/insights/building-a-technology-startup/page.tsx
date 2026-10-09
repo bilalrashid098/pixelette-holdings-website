@@ -86,8 +86,8 @@ export default function ArticlePage() {
         None of this guarantees a successful company. It reduces the chance of paying for a product
         that answers a question nobody is asking. Founders who want a structured view of fit can use
         the <Link href="/startups#partnership-assessment">startup partnership assessment</Link> and
-        then <Link href="/apply">apply to partner</Link>. That application is a conversation, not an
-        acceptance.
+        then <Link href="/apply">explore a partnership</Link>. That enquiry is a conversation, not a
+        commitment.
       </p>
     </InsightArticle>
   );

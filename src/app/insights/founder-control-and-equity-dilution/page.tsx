@@ -78,7 +78,7 @@ export default function ArticlePage() {
         companion article on{' '}
         <Link href="/insights/services-for-equity-properly-structured">how partnerships can be structured</Link>{' '}
         covers the commercial side. Founders who want to discuss a specific venture can{' '}
-        <Link href="/apply">apply to partner</Link>.
+        <Link href="/apply">explore a partnership</Link>.
       </p>
       <h2>References</h2>
       <ul>

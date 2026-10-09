@@ -79,7 +79,7 @@ const QUESTIONS: { q: string; a: string }[] = [
   },
   {
     q: 'What should I do if I want to discuss a partnership?',
-    a: 'Use Apply to partner. You can take the short startup partnership assessment first if you want a clearer next step. Submitting an enquiry does not create a partnership.',
+    a: 'Explore a partnership. You can take the short startup partnership assessment first if you want a clearer next step. Submitting an enquiry does not create a partnership.',
   },
 ];
 
@@ -93,7 +93,7 @@ export default function HsePage() {
         lead={HSE_STATEMENT}
       >
         <Buttons>
-          <Btn href="/apply">Apply to partner</Btn>
+          <Btn href="/apply">Explore a partnership</Btn>
           <Btn href="/startups" variant="secondary">For startups and venture programmes</Btn>
         </Buttons>
       </PageHero>
@@ -169,11 +169,11 @@ export default function HsePage() {
       <Section surface="deep" id="apply">
         <SectionHead
           eyebrow="Next step"
-          title="Apply to partner"
-          lead="Tell us about the venture. The application does not create a partnership, and it does not promise a reply within a set time."
+          title="Explore a partnership"
+          lead="Tell us about the venture. An enquiry does not create a partnership, and it does not promise a reply within a set time."
         />
         <Buttons>
-          <Btn href="/apply">Apply to partner</Btn>
+          <Btn href="/apply">Explore a partnership</Btn>
           <Btn href="/startups#partnership-assessment" variant="secondary">Startup partnership assessment</Btn>
         </Buttons>
       </Section>

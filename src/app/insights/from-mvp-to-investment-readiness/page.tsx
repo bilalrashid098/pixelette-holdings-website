@@ -79,7 +79,7 @@ export default function ArticlePage() {
       <p>
         Skipping ahead produces a polished description of a company that cannot yet show the
         underlying facts. That is a weaker position, not a faster one. Founders who want to discuss
-        delivery can <Link href="/apply">apply to partner</Link>. An application is not an investment
+        delivery can <Link href="/apply">explore a partnership</Link>. An enquiry is not an investment
         commitment in either direction.
       </p>
       <h2>References</h2>

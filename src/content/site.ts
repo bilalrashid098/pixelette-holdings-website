@@ -199,7 +199,7 @@ export const FOOTER_NAV = [
     links: [
       { label: 'Hybrid Sweat Equity', href: '/hse-model' },
       { label: 'For startups and venture programmes', href: '/startups' },
-      { label: 'Apply to partner', href: '/apply' },
+      { label: 'Explore a partnership', href: '/apply' },
       { label: 'Contact', href: '/contact' },
     ],
   },

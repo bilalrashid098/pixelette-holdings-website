@@ -28,14 +28,14 @@ const SECTIONS: { h: string; body: string[] }[] = [
   {
     h: 'Who this applies to',
     body: [
-      'This notice applies to everyone whose personal data we handle in connection with the site and our services, including founders and applicants, partners, clients, vendors and site visitors, regardless of location.',
+      'This notice applies to everyone whose personal data we handle in connection with the site and our services, including founders and enquirers, partners, clients, vendors and site visitors, regardless of location.',
     ],
   },
   {
     h: 'What we collect',
     body: [
-      'The startup partnership assessment runs in your browser. It asks about visitor type, stage, need and partnership structure. It does not ask for your name or email. The answers are kept in this browser’s session storage so they can be shown again on the application or contact page. They are not sent to us, and closing the tab removes them. We do not keep a copy.',
-      'Information you choose to send by email. If you email an application or another enquiry, we receive what you include, such as your name, work email, organisation and message. The forms on this website do not themselves transmit that information.',
+      'The startup partnership assessment runs in your browser. It asks about visitor type, stage, need and partnership structure. It does not ask for your name or email. The answers are kept in this browser’s session storage so they can be shown again on the partnership enquiry or contact page. They are not sent to us, and closing the tab removes them. We do not keep a copy.',
+      'Information you choose to send by email. If you email a partnership enquiry or another enquiry, we receive what you include, such as your name, work email, organisation and message. The forms on this website do not themselves transmit that information.',
       'Information collected automatically. Our host records basic technical information needed to serve and secure the site, such as your IP address and standard server logs. This site does not use advertising, analytics or cross-site tracking cookies, and does not run a third-party tag manager. If you set a preference under Privacy choices in the footer, it is kept in your own browser and is not sent to us. If analytics is ever introduced, this notice will be updated and consent obtained first.',
     ],
   },

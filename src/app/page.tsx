@@ -333,7 +333,7 @@ export default function HomePage() {
           lead="Tell us what you are building, the progress you have made and where additional delivery capability could make a difference. Our team will review the opportunity and discuss the next steps with you."
         />
         <Buttons>
-          <Btn href="/apply">Start your venture assessment</Btn>
+          <Btn href="/apply">Explore a partnership</Btn>
           <Btn href="/contact" variant="secondary">Contact Pixelette Holdings</Btn>
         </Buttons>
       </Section>

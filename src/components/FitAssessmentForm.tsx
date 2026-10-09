@@ -176,8 +176,8 @@ export function FitAssessmentForm() {
         <div className="consent-row">
           <input id="c-commercial" name="commercial" type="checkbox" required />
           <label htmlFor="c-commercial">
-            I understand that submitting this form does not mean Pixelette has accepted the venture,
-            will invest cash, will raise funding or will provide investor introductions.{' '}
+            I understand that sending this enquiry does not create a partnership, and does not mean
+            Pixelette will invest cash, raise funding or provide investor introductions.{' '}
             <span className="req">*</span>
           </label>
         </div>
@@ -199,7 +199,7 @@ export function FitAssessmentForm() {
               if (!form || !form.reportValidity()) return;
               const data = new FormData(form);
               const value = (key: string) => String(data.get(key) ?? '').trim();
-              openEnquiryMailto('Apply to partner', [
+              openEnquiryMailto('Partnership enquiry', [
                 `Name: ${value('name')}`,
                 `Work email: ${value('email')}`,
                 `Company or venture: ${value('company')}`,
@@ -219,16 +219,16 @@ export function FitAssessmentForm() {
               ], event.currentTarget);
             }}
           >
-            Email this application <ArrowUpRightIcon />
+            Send enquiry <ArrowUpRightIcon />
           </button>
           {/* Server submit stays disabled. The site has no approved place to store the form. */}
           <button className="btn" type="submit" disabled={!FORM_APPROVED} hidden>
-            Apply to partner <ArrowUpRightIcon />
+            Send enquiry <ArrowUpRightIcon />
           </button>
         </div>
 
         <p className="small form-note">
-          Email this application opens a message in your own email program, addressed to {CONTACT.email}.
+          Send enquiry opens a message in your own email program, addressed to {CONTACT.email}.
           Pixelette receives it only if you send that message. Sending it does not create a partnership,
           a meeting or an investment commitment.
         </p>

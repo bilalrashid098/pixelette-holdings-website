@@ -6,7 +6,7 @@ import { ContactForm } from './ContactForm';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should use Apply to partner.',
+    'Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership.',
   alternates: { canonical: '/contact' },
 };
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
         eyebrow="Contact"
         title="Contact Pixelette Holdings"
-        lead="Choose the enquiry that fits. Founder partnerships have their own application, so the same questions are not asked twice."
+        lead="Choose the enquiry that fits. Founder partnerships have their own enquiry page, so the same questions are not asked twice."
       />
 
       <Section>
@@ -26,11 +26,11 @@ export default function ContactPage() {
           <article className="card">
             <h3 className="h3">Founder partnerships</h3>
             <p className="body">
-              If you are building a venture and want to discuss Hybrid Sweat Equity or delivery, use
-              Apply to partner. You can take the startup partnership assessment first.
+              If you are building a venture and want to discuss Hybrid Sweat Equity or delivery, explore
+              a partnership. You can take the startup partnership assessment first.
             </p>
             <Buttons>
-              <Btn href="/apply">Apply to partner</Btn>
+              <Btn href="/apply">Explore a partnership</Btn>
             </Buttons>
           </article>
           <article className="card" id="incubators-and-accelerators">
@@ -48,8 +48,8 @@ export default function ContactPage() {
           <article className="card">
             <h3 className="h3">General and strategic</h3>
             <p className="body">
-              General enquiries and strategic partnerships that are not a founder application can use
-              the form below.
+              General enquiries and strategic partnerships that are not a founder partnership enquiry
+              can use the form below.
             </p>
           </article>
         </div>

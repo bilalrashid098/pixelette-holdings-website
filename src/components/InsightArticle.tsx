@@ -32,7 +32,7 @@ export function InsightArticle({
           <p>If the questions in this article match a venture you are building, the next step is a conversation, not a commitment.</p>
         </div>
         <Buttons>
-          <Btn href="/apply">Apply to partner</Btn>
+          <Btn href="/apply">Explore a partnership</Btn>
           <Btn href="/hse-model" variant="secondary">Hybrid Sweat Equity</Btn>
         </Buttons>
       </Section>

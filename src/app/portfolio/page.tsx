@@ -69,11 +69,11 @@ export default function PortfolioPage() {
         <SectionHead
           eyebrow="Next step"
           title="Explore working with Pixelette"
-          lead="The commercial model is explained on the Hybrid Sweat Equity page. Founders can apply to partner."
+          lead="The commercial model is explained on the Hybrid Sweat Equity page. Founders can explore a partnership."
         />
         <Buttons>
           <Btn href="/hse-model">Hybrid Sweat Equity</Btn>
-          <Btn href="/apply" variant="secondary">Apply to partner</Btn>
+          <Btn href="/apply" variant="secondary">Explore a partnership</Btn>
         </Buttons>
       </Section>
     </>
