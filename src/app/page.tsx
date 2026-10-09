@@ -73,34 +73,6 @@ const HSE_POINTS = [
   },
 ] as const;
 
-const DELIVERY = [
-  {
-    n: '01',
-    name: 'Validate',
-    body: 'Test the problem, the customer and the commercial case before delivery begins.',
-  },
-  {
-    n: '02',
-    name: 'Design',
-    body: 'Set the product, the commercial model and the milestones that will guide the work.',
-  },
-  {
-    n: '03',
-    name: 'Build',
-    body: 'Deliver the agreed product to the scope and acceptance criteria set in advance.',
-  },
-  {
-    n: '04',
-    name: 'Launch',
-    body: 'Prepare the go-to-market assets and operating workflows the venture needs to enter the market.',
-  },
-  {
-    n: '05',
-    name: 'Grow',
-    body: 'Continue delivery as the venture strengthens its product, operations and commercial position.',
-  },
-] as const;
-
 function ExtLink({ href, children }: { href: string; children: ReactNode }) {
   return (
     <a className="link" href={href} target="_blank" rel="noopener noreferrer">
@@ -193,28 +165,6 @@ export default function HomePage() {
           {' '}is set out on the Hybrid Sweat Equity page.{' '}
           <a className="link" href="/hse-model#protecting-the-partnership">Founder rights and governance</a>
           {' '}are covered on that page.
-        </p>
-      </Section>
-
-      <Section>
-        <SectionHead
-          eyebrow="From idea to launch"
-          title="Progress through defined milestones"
-          lead="Five stages take a selected venture from an early idea towards a position where it can grow. The purpose of each stage is agreed before the work for that stage begins."
-        />
-        <div className="steps">
-          {DELIVERY.map((stage) => (
-            <article key={stage.n} className="step">
-              <b>{stage.n}</b>
-              <div>
-                <h3 className="h3">{stage.name}</h3>
-                <p className="body">{stage.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-        <p className="home-follow">
-          <a className="link" href="/hse-model#how-it-works">See the delivery methodology</a>
         </p>
       </Section>
 

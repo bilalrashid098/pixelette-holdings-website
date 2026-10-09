@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
+import { DeliveryStages } from '@/components/DeliveryStages';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
-import { GATES } from '@/content/hse';
 import { HSE_STATEMENT } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -120,22 +120,7 @@ export default function HsePage() {
           title="From concept to launch"
           lead="Five stages, used to organise the work. They are not guaranteed completion times."
         />
-        <ol className="stage-seq" aria-label="Delivery sequence">
-          {GATES.map((stage) => (
-            <li key={stage.name}>{stage.name}</li>
-          ))}
-        </ol>
-        <div className="steps">
-          {GATES.map((stage) => (
-            <article key={stage.n} className="step">
-              <b>{stage.n}</b>
-              <div>
-                <h3 className="h3">{stage.name}</h3>
-                <p className="body">{stage.body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
+        <DeliveryStages />
       </Section>
 
       <Section id="protecting-the-partnership">
