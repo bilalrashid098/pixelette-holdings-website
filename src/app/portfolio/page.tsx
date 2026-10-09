@@ -43,7 +43,7 @@ export default function PortfolioPage() {
         </CardGrid>
       </Section>
 
-      <Section surface="ice" id="relationships">
+      {/* <Section surface="ice" id="relationships">
         <SectionHead
           eyebrow="Relationships"
           title="Investments and relationships"
@@ -54,7 +54,7 @@ export default function PortfolioPage() {
             <VentureCard key={venture.slug} venture={venture} />
           ))}
         </CardGrid>
-      </Section>
+      </Section> */}
 
       <Section id="founder-experiences">
         <SectionHead
