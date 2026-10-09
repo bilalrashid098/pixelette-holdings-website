@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { DeliveryStages } from '@/components/DeliveryStages';
+import { PartnershipProtection } from '@/components/PartnershipProtection';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
 import { HSE_STATEMENT } from '@/content/site';
 
@@ -26,33 +27,6 @@ const PARTNERSHIP = [
   {
     title: 'Milestones',
     body: 'Responsibilities can be linked to milestones defined in the agreements. What counts as acceptance is agreed for that venture, not assumed from this page.',
-  },
-];
-
-const PROTECTION = [
-  {
-    title: 'Agreed delivery scope',
-    body: 'The agreements should say what will be done, and what sits outside that scope.',
-  },
-  {
-    title: 'Milestone definitions',
-    body: 'Where equity or payment depends on a milestone, the agreements should say how that milestone is defined and accepted.',
-  },
-  {
-    title: 'Equity and ownership',
-    body: 'Who holds shares, on what terms, is a matter for the signed documents. This page does not set those terms.',
-  },
-  {
-    title: 'Governance and decision-making',
-    body: 'Voting, reserved matters and day-to-day authority depend on the agreements. Founder control is not guaranteed by this website.',
-  },
-  {
-    title: 'Intellectual property',
-    body: 'Ownership and licensing of work product should be written down, including what transfers and when.',
-  },
-  {
-    title: 'Exit and termination',
-    body: 'The agreements should cover what happens if the work stops, including any unvested rights. Those outcomes are not universal.',
   },
 ];
 
@@ -127,16 +101,9 @@ export default function HsePage() {
         <SectionHead
           eyebrow="The agreements"
           title="Protecting the partnership"
-          lead="These are subjects the agreements should address. They are not rights that exist on the same terms for every venture."
+          lead="Every venture is different. We establish clear commercial, delivery and governance arrangements through agreements tailored to the partnership."
         />
-        <div className="card-grid">
-          {PROTECTION.map((item) => (
-            <article key={item.title} className="card">
-              <h3 className="h3">{item.title}</h3>
-              <p className="body">{item.body}</p>
-            </article>
-          ))}
-        </div>
+        <PartnershipProtection />
       </Section>
 
       <Section surface="ice">

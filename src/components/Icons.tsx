@@ -118,6 +118,72 @@ export function OwnIcon() {
   );
 }
 
+/* Lucide-aligned outline icons for Protecting the partnership (24×24). */
+
+export function ClipboardListIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <rect width="8" height="4" x="8" y="2" rx="1" ry="1" />
+      <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+      <path d="M12 11h4" />
+      <path d="M12 16h4" />
+      <path d="M8 11h.01" />
+      <path d="M8 16h.01" />
+    </svg>
+  );
+}
+
+export function FlagIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+      <line x1="4" x2="4" y1="22" y2="15" />
+    </svg>
+  );
+}
+
+export function ChartPieIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1z" />
+      <path d="M21.21 15.89A10 10 0 1 1 8 2.83" />
+    </svg>
+  );
+}
+
+export function ScaleIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+      <path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
+      <path d="M7 21h10" />
+      <path d="M12 3v18" />
+      <path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
+    </svg>
+  );
+}
+
+export function FileCheck2Icon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="M4 22h14a2 2 0 0 0 2-2V7l-5-5H6a2 2 0 0 0-2 2v4" />
+      <path d="M14 2v4a2 2 0 0 0 2 2h4" />
+      <path d="m3 15 2 2 4-4" />
+    </svg>
+  );
+}
+
+export function ArrowRightLeftIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="m16 3 4 4-4 4" />
+      <path d="M20 7H4" />
+      <path d="m8 21-4-4 4-4" />
+      <path d="M4 17h16" />
+    </svg>
+  );
+}
+
 const MAP: Record<string, () => React.JSX.Element> = {
   Build: BuildIcon,
   Launch: LaunchIcon,
