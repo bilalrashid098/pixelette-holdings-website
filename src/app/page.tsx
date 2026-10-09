@@ -6,7 +6,7 @@ import {
 import { Testimonials } from '@/components/Testimonials';
 import { ventures } from '@/content/ventures';
 import { HOMEPAGE_TESTIMONIALS } from '@/content/testimonials';
-import { FOOTER_NOTICE } from '@/content/site';
+import { CAPITAL_STATEMENT, FOOTER_NOTICE } from '@/content/site';
 import { Orbit } from '@/components/Orbit';
 
 export const metadata: Metadata = {
@@ -263,48 +263,61 @@ export default function HomePage() {
       <Section>
         <SectionHead
           eyebrow="Credentials"
-          title="Group credentials and relationships"
-          lead="Certifications, institutional relationships and founder experiences are set out under separate headings."
+          title="Credentials and strategic relationships"
+          lead="Pixelette Holdings brings together specialist capabilities, established industry relationships and strategic capital connections to support the development of selected technology ventures."
         />
 
-        <div className="home-block">
-          <h3 className="h3">Quality and information security</h3>
-          <p className="body">
-            ISO 9001 and ISO/IEC 27001 certifications are held by Pixelette Technologies, reflecting
-            recognised standards for quality and information security management.
-          </p>
-          <ul className="cred-list">
-            <li>
-              <strong>ISO 9001</strong>
-              <span>Quality management</span>
-            </li>
-            <li>
-              <strong>ISO/IEC 27001</strong>
-              <span>Information security management</span>
-            </li>
-          </ul>
+        <div className="home-cred">
+          <div className="home-cred-main">
+            <div className="home-cred-block">
+              <h3 className="h3">Quality and information security</h3>
+              <p className="body">
+                ISO 9001 and ISO/IEC 27001 certifications are held by Pixelette Technologies, reflecting
+                recognised standards for quality and information security management.
+              </p>
+              <ul className="cred-list">
+                <li>
+                  <strong>ISO 9001</strong>
+                  <span>Quality management</span>
+                </li>
+                <li>
+                  <strong>ISO/IEC 27001</strong>
+                  <span>Information security management</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="home-cred-block">
+              <h3 className="h3">Innovation and strategic relationships</h3>
+              <p className="body">
+                Pixelette Holdings&rsquo; founder is also a founder and shareholder of{' '}
+                <ExtLink href="https://biginnovationcentre.com/">Big Innovation Centre</ExtLink>, an
+                organisation active in innovation, technology and artificial intelligence. Big Innovation
+                Centre serves as Secretariat to the{' '}
+                <ExtLink href="https://bicpavilion.com/about_pavilion/appg-artificial-intelligence">
+                  All-Party Parliamentary Group on Artificial Intelligence
+                </ExtLink>{' '}
+                (APPG AI).
+              </p>
+              <p className="small home-cred-note">
+                The relationship does not imply endorsement of Pixelette Holdings by the APPG, UK
+                Parliament or the UK Government.
+              </p>
+            </div>
+          </div>
+
+          <aside className="home-capital-panel" aria-labelledby="home-capital-heading">
+            <p className="eyebrow">Capital relationships</p>
+            <h3 className="h3" id="home-capital-heading">Strategic capital relationships</h3>
+            <p className="body">{CAPITAL_STATEMENT}</p>
+            <Buttons>
+              <Btn href="/contact">Discuss a strategic partnership</Btn>
+            </Buttons>
+            <p className="small home-capital-notice">{FOOTER_NOTICE}</p>
+          </aside>
         </div>
 
-        <div className="home-block">
-          <h3 className="h3">Innovation and strategic relationships</h3>
-          <p className="body">
-            Pixelette Holdings&rsquo; founder is also a founder and shareholder of{' '}
-            <ExtLink href="https://biginnovationcentre.com/">Big Innovation Centre</ExtLink>, an
-            organisation active in innovation, technology and artificial intelligence.{' '}
-            <ExtLink href="https://biginnovationcentre.com/">Big Innovation Centre</ExtLink>
-            {' '}serves as Secretariat to the{' '}
-            <ExtLink href="https://bicpavilion.com/about_pavilion/appg-artificial-intelligence">
-              All-Party Parliamentary Group on Artificial Intelligence
-            </ExtLink>{' '}
-            (APPG AI).
-          </p>
-          <p className="small home-follow">
-            The relationship does not imply endorsement of Pixelette Holdings by the APPG, UK
-            Parliament or the UK Government.
-          </p>
-        </div>
-
-        <div className="home-block">
+        <div className="home-cred-testimonials">
           <h3 className="h3">Founders and partners, in their words</h3>
           <p className="body">
             Real founders across the portfolio on what the Hybrid Sweat Equity partnership changed
@@ -312,18 +325,6 @@ export default function HomePage() {
           </p>
           <Testimonials items={HOMEPAGE_TESTIMONIALS} />
         </div>
-      </Section>
-
-      <Section surface="ice">
-        <SectionHead
-          eyebrow="Capital relationships"
-          title="Strategic capital relationships"
-          lead="Pixelette Holdings develops relationships with investors and strategic capital partners to support selected ventures. Any potential investment discussions are considered individually and are subject to appropriate eligibility checks, due diligence and legal requirements."
-        />
-        <Buttons>
-          <Btn href="/contact">Discuss a strategic partnership</Btn>
-        </Buttons>
-        <p className="small home-follow">{FOOTER_NOTICE}</p>
       </Section>
 
       <Section surface="deep">
