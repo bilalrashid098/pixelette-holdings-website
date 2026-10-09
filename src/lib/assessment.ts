@@ -1,5 +1,5 @@
 /**
- * Startup partnership assessment.
+ * Partnership questionnaire answers for /startups.
  *
  * Answers stay in sessionStorage on this browser. They are not personal data
  * and they are not sent to Pixelette unless the visitor later puts them in an

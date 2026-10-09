@@ -53,7 +53,7 @@ const QUESTIONS: { q: string; a: string }[] = [
   },
   {
     q: 'What should I do if I want to discuss a partnership?',
-    a: 'Explore a partnership. You can take the short startup partnership assessment first if you want a clearer next step. Submitting an enquiry does not create a partnership.',
+    a: 'Explore a partnership. You can start on the startups page first if you want a clearer next step. Submitting an enquiry does not create a partnership.',
   },
 ];
 
@@ -68,7 +68,7 @@ export default function HsePage() {
       >
         <Buttons>
           <Btn href="/apply">Explore a partnership</Btn>
-          <Btn href="/startups" variant="secondary">For startups and venture programmes</Btn>
+          <Btn href="/startups" variant="secondary">Startups and venture programmes</Btn>
         </Buttons>
       </PageHero>
 
@@ -126,7 +126,7 @@ export default function HsePage() {
         />
         <Buttons>
           <Btn href="/apply">Explore a partnership</Btn>
-          <Btn href="/startups#partnership-assessment" variant="secondary">Startup partnership assessment</Btn>
+          <Btn href="/startups#partnership-assessment" variant="secondary">Explore a partnership</Btn>
         </Buttons>
       </Section>
     </>

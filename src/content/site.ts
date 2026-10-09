@@ -173,7 +173,7 @@ export interface NavItem {
  */
 export const PRIMARY_NAV: NavItem[] = [
   { label: 'Hybrid Sweat Equity', href: '/hse-model' },
-  { label: 'For startups and venture programmes', href: '/startups' },
+  { label: 'Startups and venture programmes', href: '/startups' },
   { label: 'Portfolio', href: '/portfolio' },
   { label: 'About', href: '/about' },
   { label: 'Insights', href: '/insights' },
@@ -198,7 +198,7 @@ export const FOOTER_NAV = [
     heading: 'Work with Pixelette',
     links: [
       { label: 'Hybrid Sweat Equity', href: '/hse-model' },
-      { label: 'For startups and venture programmes', href: '/startups' },
+      { label: 'Startups and venture programmes', href: '/startups' },
       { label: 'Explore a partnership', href: '/apply' },
       { label: 'Contact', href: '/contact' },
     ],

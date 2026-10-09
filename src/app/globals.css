@@ -1705,6 +1705,7 @@ html[data-reveal='on'] :is(
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+  margin-top: 40px;
 }
 .pathway {
   display: flex;
@@ -1716,11 +1717,44 @@ html[data-reveal='on'] :is(
   border: 1px solid var(--color-line-card);
   border-radius: var(--radius-tile);
   background: var(--color-page);
+  box-shadow: var(--shadow-tile);
   color: inherit;
+  font: inherit;
   cursor: pointer;
+  min-height: 44px;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease;
 }
-.pathway.is-on { border-color: var(--color-brand); }
+.pathway:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-brand-hover);
+  box-shadow: var(--shadow-card);
+}
+.pathway.is-on {
+  border-color: var(--color-brand);
+  background: var(--color-brand-tint);
+  box-shadow: var(--shadow-card);
+}
+.pathway:focus-visible {
+  outline: 3px solid var(--color-brand);
+  outline-offset: 2px;
+}
 .pathway .body { color: var(--color-body); }
+.startups-q-heading {
+  margin: 8px 0 18px;
+  max-width: 36ch;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pathway {
+    transition: none;
+  }
+  .pathway:hover {
+    transform: none;
+  }
+}
 
 .assess { max-width: 760px; margin-top: 8px; }
 .assess-progress { margin: 8px 0 12px; font-family: var(--font-mono); font-size: .85rem; color: var(--color-muted); }
@@ -1744,6 +1778,6 @@ html[data-reveal='on'] :is(
 
 .btn:disabled, .btn2:disabled { opacity: .45; cursor: not-allowed; }
 
-@media (max-width: 800px) {
+@media (max-width: 960px) {
   .pathway-grid { grid-template-columns: 1fr; }
 }

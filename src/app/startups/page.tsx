@@ -3,7 +3,7 @@ import { PageHero, Buttons, Btn } from '@/components/ui';
 import { SITE } from '@/content/site';
 import { StartupsBody } from './StartupsBody';
 
-const TITLE = 'For startups and venture programmes';
+const TITLE = 'Startups and venture programmes';
 const DESCRIPTION =
   'Pixelette Holdings is a startup development partner for founders, incubators and accelerators, including startup equity partnership and support for venture programmes.';
 
