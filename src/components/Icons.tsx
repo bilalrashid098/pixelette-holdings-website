@@ -184,6 +184,47 @@ export function ArrowRightLeftIcon({ size = 24 }: { size?: number }) {
   );
 }
 
+/* Lucide-aligned outline icons for About — Our approach principles (24×24). */
+
+export function HandSupportIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14" />
+      <path d="m7 18 1.6-1.4c.3-.4.8-.6 1.2-.6H12a2 2 0 0 0 0-4h-1" />
+      <path d="m14 14 2.7-2.7a1.8 1.8 0 0 0 0-2.6 1.8 1.8 0 0 0-2.6 0L12 10.4" />
+      <path d="m5 14-1.5 1.5a1.5 1.5 0 0 0 0 2.1l3.4 3.4c.4.4 1 .6 1.5.4L14 19" />
+    </svg>
+  );
+}
+
+export function CheckCircleIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <circle cx="12" cy="12" r="10" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+export function SettingsIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
+export function HeartHandIcon({ size = 24 }: { size?: number }) {
+  return (
+    <svg {...base} width={size} height={size}>
+      <path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16" />
+      <path d="m7 20 1.6-1.4c.3-.4.8-.6 1.2-.6H12a2 2 0 0 0 0-4h-1" />
+      <path d="M19.5 8.5c.7-.7 1.1-1.6 1.1-2.6A3.4 3.4 0 0 0 17.2 2.5c-1 0-1.9.4-2.6 1.1L14 4.2l-.6-.6A3.7 3.7 0 0 0 8.2 9l5.8 5.8" />
+    </svg>
+  );
+}
+
 const MAP: Record<string, () => React.JSX.Element> = {
   Build: BuildIcon,
   Launch: LaunchIcon,

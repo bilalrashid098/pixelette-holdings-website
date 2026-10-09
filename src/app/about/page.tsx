@@ -1,26 +1,81 @@
 import type { Metadata } from 'next';
+import type { ComponentType } from 'react';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
-import { BIC_STATEMENT, CAPITAL_STATEMENT, SITE } from '@/content/site';
-import { GROUP } from '@/app/page';
-import { ECOSYSTEM_NOTE } from '@/content/hse';
+import {
+  CheckCircleIcon,
+  HandSupportIcon,
+  HeartHandIcon,
+  SettingsIcon,
+} from '@/components/Icons';
 
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Pixelette Holdings coordinates venture partnerships for the Pixelette group. Technologies, Marketing and Certified deliver engineering, growth and enterprise readiness.',
+    'Pixelette Holdings brings together venture partnership capabilities and specialist businesses supporting technology development, market growth and organisational readiness.',
   alternates: { canonical: '/about' },
 };
 
-const GROUP_COPY: Record<string, string> = {
-  'Pixelette Holdings':
-    'Coordinates venture partnerships, equity structures and group relationships. This website is the Holdings site.',
-  'Pixelette Technologies':
-    'Software engineering, AI, automation and product engineering. Delivery detail sits on the Technologies website.',
-  'Pixelette Marketing':
-    'Brand, marketing and commercial growth. Delivery detail sits on the Marketing website.',
-  'Pixelette Certified':
-    'Compliance readiness and enterprise readiness. Certified is a brand, not a registered company, and it does not itself award independent certification.',
-};
+const GROUP_COMPANIES = [
+  {
+    name: 'Pixelette Holdings',
+    role: 'Venture partnerships and group strategy',
+    body:
+      'Pixelette Holdings develops selected venture partnerships through its Hybrid Sweat Equity model, coordinating group strategy, commercial arrangements and governance.',
+    mark: '/media/brand/pixelette-holdings.svg',
+    href: null as string | null,
+  },
+  {
+    name: 'Pixelette Technologies',
+    role: 'Software engineering and emerging technologies',
+    body:
+      'Pixelette Technologies designs, builds and supports digital products, including custom software, SaaS platforms, AI automation, blockchain and ongoing engineering services.',
+    mark: '/media/brand/pixelette-technologies.svg',
+    href: 'https://pixelettetech.com/',
+  },
+  {
+    name: 'Pixelette Marketing',
+    role: 'Marketing and commercial growth',
+    body:
+      'Pixelette Marketing supports brand development, digital marketing, search visibility, content strategy and customer acquisition, helping organisations reach and engage their intended markets.',
+    mark: '/media/brand/pixelette-marketing.svg',
+    href: 'https://pixelettemarketing.com/',
+  },
+  {
+    name: 'Pixelette Certified',
+    role: 'Compliance and enterprise readiness',
+    body:
+      'Pixelette Certified supports organisations with compliance readiness, gap assessments, documentation and preparation for independent audits or certification.',
+    mark: '/media/brand/pixelette-certified.svg',
+    href: 'https://pixelettecertified.com/',
+  },
+] as const;
+
+const PRINCIPLES: {
+  title: string;
+  body: string;
+  Icon: ComponentType<{ size?: number }>;
+}[] = [
+  {
+    title: 'Practical support',
+    body: 'Hands-on expertise across engineering, commercial development and enterprise readiness.',
+    Icon: HandSupportIcon,
+  },
+  {
+    title: 'Aligned interests',
+    body: 'Commercial arrangements designed to align contributions, responsibilities and longer-term interests.',
+    Icon: CheckCircleIcon,
+  },
+  {
+    title: 'Disciplined delivery',
+    body: 'Clearly defined scope, agreed milestones and measurable delivery progress.',
+    Icon: SettingsIcon,
+  },
+  {
+    title: 'Real-world impact',
+    body: 'Supporting ventures developing products and services with practical commercial applications.',
+    Icon: HeartHandIcon,
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -29,52 +84,33 @@ export default function AboutPage() {
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'About' }]}
         eyebrow="About"
         title="Who we are"
-        lead={`${SITE.name} coordinates venture partnerships for selected technology ventures. Engineering, commercial growth and enterprise readiness are delivered by the other businesses in the group.`}
-      >
-        <Buttons>
-          <Btn href="/hse-model">Hybrid Sweat Equity</Btn>
-          <Btn href="/contact" variant="secondary">Contact</Btn>
-        </Buttons>
-      </PageHero>
-
-      <Section id="founder">
-        <SectionHead
-          eyebrow="Leadership"
-          title="Our founder and leadership"
-          lead="Founder ownership and corporate holdings are not the same thing. A personal shareholding is not an asset of Pixelette Holdings Ltd unless the corporate records say so."
-        />
-        <div className="prose">
-          <p>
-            Pixelette Holdings is led by its founder. {BIC_STATEMENT} That personal relationship is
-            not described here as a direct equity investment by the company.
-          </p>
-          <p>
-            Named leadership profiles are shown only with the person’s agreement and a confirmed role.
-            None are published on this page.
-          </p>
-        </div>
-      </Section>
+        lead="Pixelette Holdings brings together venture partnership capabilities and specialist businesses supporting technology development, market growth and organisational readiness. Through the Pixelette Group, we combine strategic coordination with practical delivery expertise to support selected technology ventures."
+      />
 
       <Section surface="ice" id="the-group">
         <SectionHead
           eyebrow="The group"
           title="The Pixelette Group"
-          lead="Four names, with the artwork used for each. Descriptions stay short. The specialist websites carry the service detail."
+          lead="Four businesses with distinct responsibilities, working independently or together according to the needs of each venture or client."
         />
-        <div className="quad-grid">
-          {GROUP.map((company) => (
+        <div className="about-group-grid">
+          {GROUP_COMPANIES.map((company) => (
             <article key={company.name} className="card">
-              {company.mark ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img className="cap-mark" src={company.mark} alt="" />
-              ) : (
-                <span className="cap-mark" aria-hidden="true" />
-              )}
-              <p className="body">{GROUP_COPY[company.name]}</p>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="cap-mark about-group-mark" src={company.mark} alt="" />
+              <h3 className="h3">{company.name}</h3>
+              <p className="about-group-role">{company.role}</p>
+              <p className="body">{company.body}</p>
               {company.href ? (
                 <p>
-                  <a className="link" href={company.href} target="_blank" rel="noopener noreferrer">
+                  <a
+                    className="link"
+                    href={company.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     Visit {company.name}
+                    <span aria-hidden="true"> ↗</span>
                   </a>
                 </p>
               ) : null}
@@ -83,70 +119,63 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section id="credentials">
+      <Section id="how-we-work" tight>
         <SectionHead
-          eyebrow="Credentials"
-          title="Credentials and relationships"
-          lead="Certifications are named in text and attributed to the company that holds them. Third-party logos are not shown."
+          eyebrow="Coordination"
+          title="How we work together"
+          lead="Each business brings its own expertise to an engagement. Pixelette Holdings coordinates selected venture partnerships, with the relevant group businesses contributing services according to the agreed requirements."
         />
-        <div className="home-block">
-          <h3 className="h3">Quality and information security</h3>
-          <p className="body">
-            ISO 9001 and ISO/IEC 27001 certifications are held by Pixelette Technologies, reflecting
-            recognised standards for quality and information security management. They are not presented
-            as certifications of Pixelette Holdings, or of every company in the group.
-          </p>
-          <ul className="cred-list">
-            <li>
-              <strong>ISO 9001</strong>
-              <span>Quality management, Pixelette Technologies</span>
-            </li>
-            <li>
-              <strong>ISO/IEC 27001</strong>
-              <span>Information security management, Pixelette Technologies</span>
-            </li>
-          </ul>
-        </div>
-        <div className="home-block" id="relationships">
-          <h3 className="h3">Big Innovation Centre and APPG AI</h3>
-          <p className="body">
-            {BIC_STATEMENT}{' '}
-            <a className="link" href="https://biginnovationcentre.com/">Big Innovation Centre</a>
-            {' '}serves as Secretariat to the{' '}
-            <a className="link" href="https://bicpavilion.com/about_pavilion/appg-artificial-intelligence">
-              All-Party Parliamentary Group on Artificial Intelligence
-            </a>
-            . That secretariat role belongs to Big Innovation Centre. It is not an appointment of
-            Pixelette Holdings.
-          </p>
-          <p className="small">{ECOSYSTEM_NOTE}</p>
-        </div>
-        <div className="home-block">
-          <h3 className="h3">Capital relationships</h3>
-          <p className="body">{CAPITAL_STATEMENT}</p>
-          <p>
-            <a className="link" href="/contact#capital-relationships">Discuss a strategic partnership</a>
-          </p>
-        </div>
+        <p className="body about-work-note">
+          Selected venture partnerships are structured through{' '}
+          <a className="link" href="/hse-model">Hybrid Sweat Equity</a>.
+        </p>
       </Section>
 
-      <Section surface="ice" id="initiatives">
+      <Section id="quality" tight>
         <SectionHead
-          eyebrow="Initiatives"
-          title="Verified initiatives"
-          lead="Only what can be said from the material available for this revision."
+          eyebrow="Credentials"
+          title="Quality and information security"
+          lead="Pixelette Technologies holds ISO 9001 and ISO/IEC 27001 certifications for quality and information security management."
         />
-        <div className="prose">
-          <p>
-            The group has previously referred to skills and development activity, including technology
-            training for young people. Specific delivery claims are not repeated here.
-          </p>
-          <p>
-            Earlier pages described a water project in Pakistan and innovation activity connected with
-            Cyprus, including references to public bodies. Those references are not restated as completed
-            delivery or as government endorsement. The records needed to confirm them are not part of
-            this revision.
-          </p>
+        <ul className="cred-list about-cred-list">
+          <li>
+            <strong>ISO 9001</strong>
+            <span>Quality management</span>
+          </li>
+          <li>
+            <strong>ISO/IEC 27001</strong>
+            <span>Information security management</span>
+          </li>
+        </ul>
+      </Section>
+
+      <Section surface="ice" id="our-approach">
+        <div className="about-approach">
+          <div className="about-approach-main">
+            <p className="eyebrow">Our approach</p>
+            <h2 className="h2">A long-term partner for ambitious ventures</h2>
+            <p className="lead">
+              We work with founders developing technology businesses with the potential to address
+              meaningful problems and create lasting commercial value. Through our Hybrid Sweat
+              Equity model and the capabilities of the Pixelette Group, we bring together practical
+              expertise, agreed delivery responsibilities and a shared interest in the venture&rsquo;s
+              progress.
+            </p>
+            <Buttons>
+              <Btn href="/apply">Explore a partnership</Btn>
+            </Buttons>
+          </div>
+          <ul className="about-principles">
+            {PRINCIPLES.map(({ title, body, Icon }) => (
+              <li key={title} className="about-principle">
+                <span className="about-principle-icon" aria-hidden="true">
+                  <Icon size={22} />
+                </span>
+                <h3 className="about-principle-title">{title}</h3>
+                <p className="body">{body}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
     </>
