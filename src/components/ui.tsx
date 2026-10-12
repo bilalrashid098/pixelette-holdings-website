@@ -279,7 +279,7 @@ export function VentureCard({ venture, href }: { venture: Venture; href?: string
       <RelationshipTag relationship={venture.relationship} />
       <h3 className="h3">{venture.name}</h3>
       {sector ? <p className="small">Sector: {sector}</p> : null}
-      <p className="small">{venture.stageNote ?? 'Operating stage has not been re-verified for this page.'}</p>
+      {venture.stageNote ? <p className="small">{venture.stageNote}</p> : null}
       {venture.oneLine ? <p className="body">{venture.oneLine}</p> : null}
       {venture.detail ? <p className="body">{venture.detail}</p> : null}
       {venture.externalUrl ? (

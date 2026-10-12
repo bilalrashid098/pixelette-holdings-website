@@ -11,9 +11,22 @@ export const metadata: Metadata = {
   alternates: { canonical: '/portfolio' },
 };
 
+const PORTFOLIO_EXCLUDED = new Set([
+  'accountability-intelligence',
+  'synthea',
+  'qe-channel',
+  'q-zero',
+  'mamosis',
+  'zam-zam',
+]);
+
 export default function PortfolioPage() {
   const selected = ventures.filter(
-    (v) => v.relationship === 'direct-hse-venture' && v.evidence !== 'counsel' && v.oneLine,
+    (v) =>
+      v.relationship === 'direct-hse-venture' &&
+      v.evidence !== 'counsel' &&
+      v.oneLine &&
+      !PORTFOLIO_EXCLUDED.has(v.slug),
   );
 
   return (
