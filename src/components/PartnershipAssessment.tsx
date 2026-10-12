@@ -131,7 +131,8 @@ export function PartnershipAssessment({ audience }: { audience: Audience | null 
     );
   }
 
-  const q = questionsFor(audience);
+  const selected: Audience = audience;
+  const q = questionsFor(selected);
   const total = STEP_LABELS.length;
 
   function canContinue() {
@@ -142,7 +143,13 @@ export function PartnershipAssessment({ audience }: { audience: Audience | null 
   }
 
   function finish() {
-    const result: PartnershipAssessment = { audience, stage, need, structure, context };
+    const result: PartnershipAssessment = {
+      audience: selected,
+      stage,
+      need,
+      structure,
+      context,
+    };
     writeAssessment(result);
     setDone(result);
   }

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 const STAGES = ['Validate', 'Design', 'Build', 'Launch', 'Grow'] as const;
 
-export const GROUP = [
+const GROUP = [
   {
     name: 'Pixelette Holdings',
     body: 'Venture partnerships, equity structures and group coordination',
