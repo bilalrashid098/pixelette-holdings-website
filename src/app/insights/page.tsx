@@ -1,38 +1,55 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Section, SectionHead, PageHero } from '@/components/ui';
+import { Section, PageHero } from '@/components/ui';
+import { InsightArticleCard } from '@/components/InsightArticleCard';
 
 export const metadata: Metadata = {
   title: 'Insights',
   description:
-    'Four articles on venture formation, equity and governance, and building towards investment readiness. Commercial commentary from Pixelette Holdings, not legal advice.',
+    'Explore practical perspectives on venture formation, equity partnerships, founder governance and the decisions involved in developing and growing technology businesses.',
   alternates: { canonical: '/insights' },
 };
 
-const ARTICLES = [
-  {
-    category: 'Venture formation',
-    title: 'Building a technology startup: what founders should validate before development begins',
-    body: 'Problem, customer, scope and the cost of building the wrong thing first.',
-    href: '/insights/building-a-technology-startup',
-  },
+const FEATURED = {
+  category: 'Venture formation',
+  title: 'Building a technology startup: what founders should validate before development begins',
+  summary:
+    'Before committing to development, founders need clarity on the problem, target customer, product scope and commercial assumptions. Explore the questions worth resolving before the first build.',
+  href: '/insights/building-a-technology-startup',
+  imageSrc: '/media/insights/foundations-validation.webp',
+  imageAlt:
+    'Architectural still life of an unfinished modular structural model on a pale surface, suggesting foundations and validation before construction.',
+};
+
+const SUPPORTING = [
   {
     category: 'Equity and governance',
     title: 'Services for equity: how startup partnerships can be structured',
-    body: 'Why cash and equity are combined, and why no single structure fits every venture.',
+    summary:
+      'Understand how cash contributions, professional services and equity participation can be combined in a venture partnership.',
     href: '/insights/services-for-equity-properly-structured',
+    imageSrc: '/media/insights/services-equity.webp',
+    imageAlt:
+      'Two complementary geometric sculptural forms balanced together, suggesting exchange of contributions and shared interests.',
   },
   {
     category: 'Equity and governance',
     title: 'Founder control and equity dilution: what to consider before signing',
-    body: 'Economic ownership and decision-making rights are different questions.',
+    summary:
+      'Explore the distinctions between share ownership, voting rights, governance arrangements and founder decision-making.',
     href: '/insights/founder-control-and-equity-dilution',
+    imageSrc: '/media/insights/founder-governance.webp',
+    imageAlt:
+      'Intersecting geometric structural forms in careful proportion, suggesting the distinction between ownership and control.',
   },
   {
     category: 'Building and scaling',
     title: 'From MVP to investment readiness: building evidence that matters',
-    body: 'A working product, user evidence and a repeatable commercial story are not the same thing.',
+    summary:
+      'Understand how product functionality, customer validation and commercial evidence contribute to preparing a venture for future investment discussions.',
     href: '/insights/from-mvp-to-investment-readiness',
+    imageSrc: '/media/insights/mvp-readiness.webp',
+    imageAlt:
+      'Ascending sequence of architectural stepping forms on a pale surface, suggesting progressive development and readiness.',
   },
 ];
 
@@ -42,26 +59,17 @@ export default function InsightsPage() {
       <PageHero
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Insights' }]}
         eyebrow="Insights"
-        title="Notes on building and owning a venture"
-        lead="Four articles on venture formation, equity and governance, and the evidence that sits between a product and a more serious commercial conversation."
+        title="Insights on building technology ventures"
+        lead="Explore practical perspectives on venture formation, equity partnerships, founder governance and the decisions involved in developing and growing technology businesses."
       />
       <Section>
-        <SectionHead
-          eyebrow="Launch set"
-          title="Four articles"
-          lead="Written as commercial commentary. They are not legal advice, and they are not case studies."
-        />
-        <div className="card-grid">
-          {ARTICLES.map((article) => (
-            <article key={article.href} className="card">
-              <p className="eyebrow">{article.category}</p>
-              <h3 className="h3">{article.title}</h3>
-              <p className="body">{article.body}</p>
-              <p>
-                <Link className="link" href={article.href}>Read the article</Link>
-              </p>
-            </article>
-          ))}
+        <div className="insights-editorial">
+          <InsightArticleCard {...FEATURED} variant="featured" />
+          <div className="insights-editorial__stack">
+            {SUPPORTING.map((article) => (
+              <InsightArticleCard key={article.href} {...article} variant="supporting" />
+            ))}
+          </div>
         </div>
       </Section>
     </>
