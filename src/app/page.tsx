@@ -172,7 +172,7 @@ export default function HomePage() {
         <SectionHead
           eyebrow="Portfolio"
           title="Clear distinctions across our portfolio"
-          lead="A short selection of ventures and relationships. Each reference is classified according to the relationship that can be described from the evidence held."
+          lead=""
         />
         <CardGrid>
           <article className="card">

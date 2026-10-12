@@ -15,7 +15,7 @@ const STEPS = [
   {
     n: '01',
     title: 'What to send',
-    body: 'Your name, a work email, the venture, its stage and a short description. You do not need a pitch deck or a cap table at this point.',
+    body: 'Your name, a email, the venture, its stage and a short description. You do not need a pitch deck or a cap table at this point.',
   },
   {
     n: '02',

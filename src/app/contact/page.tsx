@@ -59,7 +59,7 @@ export default function ContactPage() {
         <SectionHead
           eyebrow="Enquiry"
           title="Write to us"
-          lead="The categories are general enquiries, strategic partnerships, incubators and accelerators, and capital relationships."
+          lead=""
         />
         <ContactForm />
       </Section>

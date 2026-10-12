@@ -201,7 +201,7 @@ export function FitAssessmentForm() {
               const value = (key: string) => String(data.get(key) ?? '').trim();
               openEnquiryMailto('Partnership enquiry', [
                 `Name: ${value('name')}`,
-                `Work email: ${value('email')}`,
+                `Email: ${value('email')}`,
                 `Company or venture: ${value('company')}`,
                 `Website: ${value('website')}`,
                 `Country or principal market: ${value('market')}`,

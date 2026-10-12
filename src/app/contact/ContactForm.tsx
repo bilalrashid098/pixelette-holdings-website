@@ -18,7 +18,7 @@ const FIELDS: Field[] = [
     ],
   },
   { kind: 'text', id: 'c-name', label: 'Name', required: true, autoComplete: 'name' },
-  { kind: 'email', id: 'c-email', label: 'Work email', required: true, autoComplete: 'email' },
+  { kind: 'email', id: 'c-email', label: 'Email', required: true, autoComplete: 'email' },
   { kind: 'text', id: 'c-org', label: 'Organisation', autoComplete: 'organization' },
   {
     kind: 'textarea',

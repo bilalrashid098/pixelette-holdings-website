@@ -23,7 +23,7 @@ export function InsightArticle({
         eyebrow={category}
         title={title}
       >
-        <p className="small">Prepared {prepared}. Not attributed to a named author.</p>
+        <p className="small">Prepared {prepared}.</p>
       </PageHero>
       <Section>
         <div className="measure prose">
