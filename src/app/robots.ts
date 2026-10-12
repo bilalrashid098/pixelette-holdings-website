@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE, NOINDEX_ROUTES } from '@/content/site';
 
-// output: 'export' requires metadata routes to declare themselves static.
+// Keep the robots route static (no request-time data).
 export const dynamic = 'force-static';
 
 /**

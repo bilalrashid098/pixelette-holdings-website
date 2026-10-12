@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import type { ComponentType } from 'react';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
 import {
@@ -7,13 +6,25 @@ import {
   HeartHandIcon,
   SettingsIcon,
 } from '@/components/Icons';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'About',
   description:
     'Pixelette Holdings brings together venture partnership capabilities and specialist businesses supporting technology development, market growth and organisational readiness.',
-  alternates: { canonical: '/about' },
-};
+  path: '/about',
+});
+
+const faqs = [
+  {
+    q: 'What is Pixelette Holdings?',
+    a: 'Pixelette Holdings brings together venture partnership capabilities and specialist businesses supporting technology development, market growth and organisational readiness.',
+  },
+  {
+    q: 'What does each group business do?',
+    a: 'Pixelette Holdings develops selected venture partnerships through Hybrid Sweat Equity. Pixelette Technologies designs and builds digital products. Pixelette Marketing supports brand and commercial growth. Pixelette Certified supports compliance readiness and preparation for independent assessment.',
+  },
+];
 
 const GROUP_COMPANIES = [
   {

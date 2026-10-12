@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Enquiry',
-  robots: { index: false, follow: false },
-  alternates: { canonical: '/apply/thank-you' },
-};
+  description:
+    'This page is not a receipt. An email you send yourself is the message that can be received.',
+  path: '/apply/thank-you',
+  noIndex: true,
+});
 
 export default function ApplyThankYouPage() {
   return (

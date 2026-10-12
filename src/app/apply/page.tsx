@@ -1,15 +1,22 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Section, SectionHead, PageHero } from '@/components/ui';
 import { FitAssessmentForm } from '@/components/FitAssessmentForm';
 import { CONTACT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Explore a partnership',
   description:
     'Tell us about your venture. Share a few details and Pixelette Holdings will review your enquiry. It does not create a partnership or an investment commitment, and it does not promise a reply by a set date.',
-  alternates: { canonical: '/apply' },
-};
+  path: '/apply',
+});
+
+const faqs = [
+  {
+    q: 'How do I explore a partnership with Pixelette Holdings?',
+    a: 'Tell us about your venture on the apply page. Submitting an enquiry does not create a partnership or an investment commitment, and it does not promise a reply by a set date.',
+  },
+];
 
 const STEPS = [
   {

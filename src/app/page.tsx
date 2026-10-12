@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import {
   Section, SectionHead, Buttons, Btn, CardGrid, RelationshipTag,
@@ -8,22 +7,34 @@ import { ventures } from '@/content/ventures';
 import { HOMEPAGE_TESTIMONIALS } from '@/content/testimonials';
 import { CAPITAL_STATEMENT, FOOTER_NOTICE } from '@/content/site';
 import { Orbit } from '@/components/Orbit';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'HSE venture partnership',
+export const metadata = pageMetadata({
+  title: 'Pixelette Holdings | HSE venture partnership',
   description:
     'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.',
-  openGraph: {
-    title: 'Pixelette Holdings | HSE venture partnership',
-    description:
-      'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.',
+  path: '/',
+  absoluteTitle: true,
+});
+
+const faqs = [
+  {
+    q: 'What does Pixelette Holdings do?',
+    a: 'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model, combining agreed cash contributions with equity participation and coordinating engineering, marketing, enterprise readiness and venture governance.',
   },
-  twitter: {
-    title: 'Pixelette Holdings | HSE venture partnership',
-    description:
-      'Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.',
+  {
+    q: 'What is Hybrid Sweat Equity?',
+    a: 'Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.',
   },
-};
+  {
+    q: 'Who is in the Pixelette group?',
+    a: 'Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness.',
+  },
+  {
+    q: 'How do I explore a partnership?',
+    a: 'Founders can explore a partnership on the apply page. An enquiry does not create a partnership, and it does not promise a reply within a set time.',
+  },
+];
 
 const STAGES = ['Validate', 'Design', 'Build', 'Launch', 'Grow'] as const;
 

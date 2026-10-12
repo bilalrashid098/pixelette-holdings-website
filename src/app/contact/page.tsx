@@ -1,14 +1,21 @@
-import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
 import { SITE, CONTACT, SOCIALS, CAPITAL_STATEMENT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 import { ContactForm } from './ContactForm';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Contact',
   description:
     'Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership.',
-  alternates: { canonical: '/contact' },
-};
+  path: '/contact',
+});
+
+const faqs = [
+  {
+    q: 'How do I contact Pixelette Holdings?',
+    a: 'Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership on the apply page.',
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -59,7 +66,7 @@ export default function ContactPage() {
         <SectionHead
           eyebrow="Enquiry"
           title="Write to us"
-          lead=""
+          lead="Use the form for general, strategic, incubator or capital enquiries. Your answers are stored so we can reply, and the team is notified by email when that is configured. Founders should explore a partnership instead."
         />
         <ContactForm />
       </Section>

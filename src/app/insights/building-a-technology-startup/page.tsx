@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { InsightArticle } from '@/components/InsightArticle';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Building a technology startup: what founders should validate before development begins',
   description:
     'What a technology startup should test before engineering starts: the problem, the customer, the commercial assumption, MVP scope and the resources the work will actually take.',
-  alternates: { canonical: '/insights/building-a-technology-startup' },
-};
+  path: '/insights/building-a-technology-startup',
+});
 
 export default function ArticlePage() {
   return (

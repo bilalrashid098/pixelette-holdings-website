@@ -1,35 +1,27 @@
 /**
  * Pixelette Holdings — Next.js configuration.
  *
- * The site is fully static: no server-rendered data, no database, no runtime
- * API. `output: 'export'` therefore produces a plain static build that can be
- * hosted anywhere, which keeps hosting simple and the attack surface small.
- *
- * If a server-backed feature is added later (live form handling, a gated
- * investor area, a dashboard), remove `output: 'export'` and deploy to a Node
- * runtime instead. Nothing else in the codebase needs to change.
+ * Server Actions handle contact, partnership backup storage, and Pix H lead
+ * capture (Supabase + Resend). That requires a Node runtime on the host
+ * (e.g. Vercel), so `output: 'export'` was removed on 2026-10-12. Pages remain
+ * statically generated where possible; only the action endpoints need the
+ * server. Legacy redirects also live in `vercel.json` / `public/_redirects`.
  *
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  output: 'export',
   trailingSlash: true,
   reactStrictMode: true,
   poweredByHeader: false,
 
   images: {
-    // Required for a static export. Images are optimised at build time
-    // instead, so add width/height on every <Image> to protect CLS.
+    // Keep unoptimized until an image loader decision is approved. Add
+    // width/height on every <Image> to protect CLS.
     unoptimized: true,
   },
 
   // Legacy URLs from the previous website. Preserved to protect search
-  // authority through the rebuild.
-  //
-  // NOTE: redirects() does not apply to `output: 'export'` — for a static
-  // deploy these are served from _redirects / host config instead. They are
-  // declared here so the mapping lives in one reviewable place and works
-  // immediately if the site later moves to a Node runtime.
+  // authority through the rebuild. Also listed in vercel.json.
   async redirects() {
     return [
       { source: '/how-it-works', destination: '/hse-model', permanent: true },

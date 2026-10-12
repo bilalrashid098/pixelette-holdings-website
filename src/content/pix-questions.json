@@ -1,0 +1,50 @@
+{
+  "entries": [
+    {
+      "ask": ["what does pixelette do", "what do you do", "what is pixelette holdings"],
+      "answer": { "path": "/", "title": "What does Pixelette Holdings do?" }
+    },
+    {
+      "ask": ["what is hybrid sweat equity", "explain hse", "what is hse", "sweat equity model"],
+      "answer": { "path": "/", "title": "What is Hybrid Sweat Equity?" }
+    },
+    {
+      "ask": ["who is in the group", "group companies", "pixelette technologies marketing certified"],
+      "answer": { "path": "/", "title": "Who is in the Pixelette group?" }
+    },
+    {
+      "ask": ["how do I apply", "start a partnership", "explore partnership", "how do venture partnerships work"],
+      "answer": { "path": "/", "title": "How do I explore a partnership?" }
+    },
+    {
+      "ask": ["is hybrid sweat equity free", "is it free development"],
+      "answer": { "path": "/hse-model", "title": "Is Hybrid Sweat Equity free development?" }
+    },
+    {
+      "ask": ["standard equity percentage", "what equity percentage", "fixed equity split"],
+      "answer": { "path": "/hse-model", "title": "Is there a standard equity percentage?" }
+    },
+    {
+      "ask": ["founder control", "do founders keep control"],
+      "answer": { "path": "/hse-model", "title": "Do founders keep complete control?" }
+    },
+    {
+      "ask": ["contact you", "get in touch", "email holdings"],
+      "answer": { "path": "/contact", "title": "How do I contact Pixelette Holdings?" }
+    },
+    {
+      "ask": ["startups", "incubators", "accelerators", "venture programmes"],
+      "answer": {
+        "path": "/startups",
+        "title": "Does Pixelette Holdings work with startups and venture programmes?"
+      }
+    },
+    {
+      "ask": ["portfolio", "case studies", "ventures you partnered with"],
+      "answer": {
+        "path": "/portfolio",
+        "title": "What ventures has Pixelette partnered with?"
+      }
+    }
+  ]
+}

@@ -1,25 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRightIcon } from './Icons';
 import { CONTACT } from '@/content/site';
 import { AUDIENCE_LABEL, readAssessment, type PartnershipAssessment } from '@/lib/assessment';
 import { openEnquiryMailto } from '@/lib/enquiry-mail';
-
-/**
- * HSE Fit Assessment.
- *
- * DELIBERATELY INERT. The form renders and validates, but submission is
- * blocked in code and the submit control is disabled until the data controller,
- * lawful basis, retention period, CRM destination and triage owner are
- * approved. Collecting founder personal data with no approved controller would
- * be a UK GDPR defect, so the gate is enforced here rather than left to a
- * deployment step someone might skip.
- *
- * To go live: set FORM_APPROVED to true and wire `action` to the approved
- * endpoint. Nothing else in this component needs to change.
- */
-const FORM_APPROVED = false;
+import { submitPartnershipEnquiry } from '@/app/contact/actions';
 
 const SECTORS = [
   'Artificial intelligence',
@@ -83,10 +69,19 @@ function Select({ id, name, label, hint, options, defaultValue = '', required = 
   );
 }
 
+/**
+ * Founder partnership enquiry on /apply.
+ *
+ * Email stays mailto (opens the visitor's mail program). Before that, answers
+ * are stored in Supabase as a durable backup so the enquiry is not lost if the
+ * email is never sent.
+ */
 export function FitAssessmentForm() {
-  const [blocked, setBlocked] = useState(false);
   const [carried, setCarried] = useState<PartnershipAssessment | null>(null);
   const [ready, setReady] = useState(false);
+  const [pending, setPending] = useState(false);
+  const [note, setNote] = useState<string | null>(null);
+  const inFlight = useRef(false);
 
   useEffect(() => {
     const data = readAssessment();
@@ -98,50 +93,124 @@ export function FitAssessmentForm() {
 
   const stageDefault = carried && STAGES.includes(carried.stage) ? carried.stage : '';
 
+  const send = async (form: HTMLFormElement, control: HTMLElement) => {
+    if (inFlight.current) return;
+    if (!form.reportValidity()) return;
+
+    inFlight.current = true;
+    setPending(true);
+    setNote(null);
+
+    const data = new FormData(form);
+    if (carried) {
+      data.set('assessmentNeed', carried.need);
+      data.set('assessmentStructure', carried.structure);
+      data.set('assessmentContext', carried.context);
+    }
+
+    let storeStatus: 'ok' | 'unconfigured' | 'failed' | 'error' | 'limited' = 'failed';
+    try {
+      const result = await submitPartnershipEnquiry(data);
+      storeStatus = result.status;
+      if (result.status === 'error' || result.status === 'limited') {
+        setNote(result.message ?? 'Please check the form and try again.');
+        inFlight.current = false;
+        setPending(false);
+        return;
+      }
+    } catch {
+      storeStatus = 'failed';
+    }
+
+    const value = (key: string) => String(data.get(key) ?? '').trim();
+    openEnquiryMailto(
+      'Partnership enquiry',
+      [
+        `Name: ${value('name')}`,
+        `Email: ${value('email')}`,
+        `Company or venture: ${value('company')}`,
+        `Website: ${value('website')}`,
+        `Country or principal market: ${value('market')}`,
+        `Sector: ${value('sector')}`,
+        `Current stage: ${value('stage')}`,
+        `Capital currently available: ${value('capital')}`,
+        `Venture description: ${value('description')}`,
+        `Biggest current constraint: ${value('constraint')}`,
+        carried ? `Assessment visitor: ${AUDIENCE_LABEL[carried.audience]}` : '',
+        carried ? `Assessment need: ${carried.need}` : '',
+        carried ? `Assessment structure: ${carried.structure}` : '',
+        carried ? `Assessment context: ${carried.context}` : '',
+        `Marketing emails: ${data.get('marketing') ? 'yes' : 'no'}`,
+        'Sending this email does not create a partnership or an investment commitment.',
+      ],
+      control,
+    );
+
+    if (storeStatus === 'ok') {
+      setNote('A copy was saved. Please send the email that just opened so the team also receives it in the inbox.');
+    } else if (storeStatus === 'unconfigured' || storeStatus === 'failed') {
+      setNote(
+        `We could not save a backup copy just now. Please send the email that opened — that is how this enquiry reaches ${CONTACT.email}.`,
+      );
+    }
+
+    inFlight.current = false;
+    setPending(false);
+  };
+
   return (
     <div className="form">
       {carried ? (
         <div className="qualifier">
           <p>
-            <strong>From your startup partnership assessment.</strong> Stage: {carried.stage}. Need: {carried.need}.
-            Structure: {carried.structure}. Context: {carried.context}. You are marked as a {AUDIENCE_LABEL[carried.audience].toLowerCase()}.
-            You can change the stage below. To change the earlier answers, return to the startups page.
+            <strong>From your startup partnership assessment.</strong> Stage: {carried.stage}. Need:{' '}
+            {carried.need}. Structure: {carried.structure}. Context: {carried.context}. You are marked
+            as a {AUDIENCE_LABEL[carried.audience].toLowerCase()}. You can change the stage below. To
+            change the earlier answers, return to the startups page.
           </p>
         </div>
       ) : null}
-      <form
-        id="fit-assessment"
-        noValidate
-        onSubmit={(e) => {
-          if (!FORM_APPROVED) {
-            e.preventDefault();
-            setBlocked(true);
-          }
-        }}
-      >
+      <form id="fit-assessment" noValidate>
         <div className="field">
-          <label className="label" htmlFor="f-name">Founder name <span className="req">*</span></label>
+          <label className="label" htmlFor="f-name">
+            Founder name <span className="req">*</span>
+          </label>
           <input className="input" id="f-name" name="name" type="text" autoComplete="name" required />
         </div>
 
         <div className="field">
-          <label className="label" htmlFor="f-email">Work email <span className="req">*</span></label>
+          <label className="label" htmlFor="f-email">
+            Email <span className="req">*</span>
+          </label>
           <input className="input" id="f-email" name="email" type="email" autoComplete="email" required />
         </div>
 
         <div className="field">
-          <label className="label" htmlFor="f-company">Company or venture <span className="req">*</span></label>
-          <input className="input" id="f-company" name="company" type="text" autoComplete="organization" required />
+          <label className="label" htmlFor="f-company">
+            Company or venture <span className="req">*</span>
+          </label>
+          <input
+            className="input"
+            id="f-company"
+            name="company"
+            type="text"
+            autoComplete="organization"
+            required
+          />
         </div>
 
         <div className="field">
-          <label className="label" htmlFor="f-website">Website</label>
+          <label className="label" htmlFor="f-website">
+            Website
+          </label>
           <span className="small hint">Leave blank if the venture is not yet online.</span>
           <input className="input" id="f-website" name="website" type="url" inputMode="url" />
         </div>
 
         <div className="field">
-          <label className="label" htmlFor="f-market">Country or principal market <span className="req">*</span></label>
+          <label className="label" htmlFor="f-market">
+            Country or principal market <span className="req">*</span>
+          </label>
           <input className="input" id="f-market" name="market" type="text" required />
         </div>
 
@@ -157,7 +226,9 @@ export function FitAssessmentForm() {
         />
 
         <div className="field">
-          <label className="label" htmlFor="f-description">Venture description <span className="req">*</span></label>
+          <label className="label" htmlFor="f-description">
+            Venture description <span className="req">*</span>
+          </label>
           <span className="small hint">One or two sentences: the problem, who it serves and the outcome.</span>
           <textarea className="textarea" id="f-description" name="description" required />
         </div>
@@ -190,59 +261,45 @@ export function FitAssessmentForm() {
           </label>
         </div>
 
+        {/* Honeypot: website is a real field on this form, so the trap uses fax. */}
+        <div aria-hidden className="honeypot">
+          <label>
+            <span>Fax</span>
+            <input autoComplete="off" name="fax" tabIndex={-1} type="text" />
+          </label>
+        </div>
+
         <div className="btn-row">
           <button
             className="btn"
             type="button"
+            disabled={pending}
             onClick={(event) => {
               const form = event.currentTarget.form;
-              if (!form || !form.reportValidity()) return;
-              const data = new FormData(form);
-              const value = (key: string) => String(data.get(key) ?? '').trim();
-              openEnquiryMailto('Partnership enquiry', [
-                `Name: ${value('name')}`,
-                `Email: ${value('email')}`,
-                `Company or venture: ${value('company')}`,
-                `Website: ${value('website')}`,
-                `Country or principal market: ${value('market')}`,
-                `Sector: ${value('sector')}`,
-                `Current stage: ${value('stage')}`,
-                `Capital currently available: ${value('capital')}`,
-                `Venture description: ${value('description')}`,
-                `Biggest current constraint: ${value('constraint')}`,
-                carried ? `Assessment visitor: ${AUDIENCE_LABEL[carried.audience]}` : '',
-                carried ? `Assessment need: ${carried.need}` : '',
-                carried ? `Assessment structure: ${carried.structure}` : '',
-                carried ? `Assessment context: ${carried.context}` : '',
-                `Marketing emails: ${data.get('marketing') ? 'yes' : 'no'}`,
-                'Sending this email does not create a partnership or an investment commitment.',
-              ], event.currentTarget);
+              if (!form) return;
+              void send(form, event.currentTarget);
             }}
           >
-            Send enquiry <ArrowUpRightIcon />
-          </button>
-          {/* Server submit stays disabled. The site has no approved place to store the form. */}
-          <button className="btn" type="submit" disabled={!FORM_APPROVED} hidden>
-            Send enquiry <ArrowUpRightIcon />
+            {pending ? 'Saving…' : 'Send enquiry'} <ArrowUpRightIcon />
           </button>
         </div>
 
         <p className="small form-note">
-          Send enquiry opens a message in your own email program, addressed to {CONTACT.email}.
-          Pixelette receives it only if you send that message. Sending it does not create a partnership,
-          a meeting or an investment commitment.
+          Send enquiry saves a backup copy on our servers, then opens a message in your own email
+          program addressed to {CONTACT.email}. Pixelette receives that message only if you send it.
+          Sending it does not create a partnership, a meeting or an investment commitment.
         </p>
 
-        {blocked ? (
+        {note ? (
           <p className="small form-note" role="status">
-            This form is not yet accepting submissions.
+            {note}
           </p>
         ) : null}
       </form>
 
       <p className="small form-note" style={{ marginTop: 22 }}>
-        If your email program does not open, write to <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> with
-        the same details. This website does not store the form.
+        If your email program does not open, write to{' '}
+        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> with the same details.
       </p>
     </div>
   );

@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { InsightArticle } from '@/components/InsightArticle';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'From MVP to investment readiness: building evidence that matters',
   description:
     'Why a working product, user evidence, commercial validation and investment preparation are different stages, and why none of them guarantees external investment.',
-  alternates: { canonical: '/insights/from-mvp-to-investment-readiness' },
-};
+  path: '/insights/from-mvp-to-investment-readiness',
+});
 
 export default function ArticlePage() {
   return (

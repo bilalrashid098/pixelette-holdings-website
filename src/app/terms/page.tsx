@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Section, PageHero, Qualifier } from '@/components/ui';
 import { SITE, CONTACT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Terms of Use',
-  description: 'Terms governing use of the Pixelette Holdings website, including your ownership of anything you submit.',
-  alternates: { canonical: '/terms' },
-};
+  description:
+    'Terms governing use of the Pixelette Holdings website, including your ownership of anything you submit.',
+  path: '/terms',
+});
 
 /**
  * Ported from the live pixeletteholdings.com terms and ADAPTED to this rebuild:

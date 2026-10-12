@@ -3,8 +3,13 @@ import { Newsreader, Outfit, IBM_Plex_Mono } from 'next/font/google';
 import { SiteHeader } from '@/components/SiteHeader';
 import { SiteFooter } from '@/components/SiteFooter';
 import { ScrollReveal } from '@/components/ScrollReveal';
+import { AssistantBoundary } from '@/components/AssistantBoundary';
+import { SiteAssistant } from '@/components/SiteAssistant';
+import { pixContext } from '@/lib/pix/server-context';
 import { SITE } from '@/content/site';
 import './globals.css';
+import '@/components/pixsignal.css';
+import './asst.css';
 
 /**
  * Fonts are fetched at BUILD time and self-hosted in the output.
@@ -227,6 +232,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteHeader />
         <main id="top">{children}</main>
         <SiteFooter />
+        <AssistantBoundary>
+          <SiteAssistant context={pixContext()} />
+        </AssistantBoundary>
         <script
           type="application/ld+json"
           // Static, author-controlled JSON. No user input reaches this.

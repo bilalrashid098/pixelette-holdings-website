@@ -1,15 +1,22 @@
-import type { Metadata } from 'next';
 import { Section, SectionHead, PageHero, Buttons, Btn, CardGrid, VentureCard } from '@/components/ui';
 import { ventures } from '@/content/ventures';
 import { Testimonials } from '@/components/Testimonials';
 import { FURTHER_TESTIMONIALS } from '@/content/testimonials';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Portfolio',
   description:
     'Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships.',
-  alternates: { canonical: '/portfolio' },
-};
+  path: '/portfolio',
+});
+
+const faqs = [
+  {
+    q: 'What ventures has Pixelette partnered with?',
+    a: 'Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships on the portfolio page.',
+  },
+];
 
 const PORTFOLIO_EXCLUDED = new Set([
   'accountability-intelligence',

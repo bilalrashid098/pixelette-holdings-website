@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { InsightArticle } from '@/components/InsightArticle';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Founder control and equity dilution: what to consider before signing',
   description:
     'Economic ownership and decision-making rights are different. What to read in voting, reserved matters, vesting and exit clauses before signing a shareholder arrangement.',
-  alternates: { canonical: '/insights/founder-control-and-equity-dilution' },
-};
+  path: '/insights/founder-control-and-equity-dilution',
+});
 
 export default function ArticlePage() {
   return (

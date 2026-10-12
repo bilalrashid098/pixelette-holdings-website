@@ -10,7 +10,11 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "compare:palette": "node scripts/build-palette-compare.mjs",
-    "gate:tokens": "node scripts/token-gate.mjs"
+    "gate:tokens": "node scripts/token-gate.mjs",
+    "pix:build": "node scripts/build-pix-kb.mjs",
+    "pix:check": "node scripts/check-pix-kb.mjs",
+    "pix:test": "node scripts/test-pix.cjs",
+    "check:pix-sources": "node scripts/check-pix-kb-sources.mjs"
   },
   "dependencies": {
     "next": "^15.0.0",

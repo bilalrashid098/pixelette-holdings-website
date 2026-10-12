@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { InsightArticle } from '@/components/InsightArticle';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Services for equity: how startup partnerships can be structured',
   description:
     'How a services-for-equity partnership can combine cash and shares, and why ownership, milestones and governance have to be written down for that venture.',
-  alternates: { canonical: '/insights/services-for-equity-properly-structured' },
-};
+  path: '/insights/services-for-equity-properly-structured',
+});
 
 export default function ArticlePage() {
   return (

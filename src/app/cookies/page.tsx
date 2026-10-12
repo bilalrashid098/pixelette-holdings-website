@@ -1,13 +1,14 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Section, PageHero } from '@/components/ui';
 import { SITE, CONTACT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Cookie Policy',
-  description: 'How cookies and similar technologies are used on the Pixelette Holdings website.',
-  alternates: { canonical: '/cookies' },
-};
+  description:
+    'How cookies and similar technologies are used on the Pixelette Holdings website.',
+  path: '/cookies',
+});
 
 /**
  * Structured to match the Pixelette Marketing cookie policy, rewritten for this

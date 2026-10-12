@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import { Section, PageHero } from '@/components/ui';
 import { CAPITAL_STATEMENT, FOOTER_NOTICE } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Website and Investment Disclaimer',
   description:
     'Pixelette Holdings website disclaimer: information only, not an offer or inducement to invest, no advice and no guaranteed outcomes.',
-  alternates: { canonical: '/disclaimer' },
-};
+  path: '/disclaimer',
+});
 
 export default function DisclaimerPage() {
   return (

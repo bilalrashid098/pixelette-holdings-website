@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import { Section, PageHero } from '@/components/ui';
 import { SITE, CONTACT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Accessibility Statement',
   description:
     'Pixelette Holdings aims to meet WCAG 2.2 level AA. Accessibility is treated as a build requirement, not a retrofit.',
-  alternates: { canonical: '/accessibility' },
-};
+  path: '/accessibility',
+});
 
 export default function AccessibilityPage() {
   return (

@@ -1,23 +1,23 @@
-import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Section, PageHero, Qualifier } from '@/components/ui';
 import { SITE, CONTACT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy Notice',
   description:
     'How Pixelette Holdings Ltd collects, uses and protects personal information across this website and our work.',
-  alternates: { canonical: '/privacy' },
-};
+  path: '/privacy',
+});
 
 /**
- * Structured to match the Pixelette Marketing privacy statement, rewritten for
- * what this Holdings site actually does: mailto enquiries, browser-only
- * assessment storage, no analytics cookies, and contact via CONTACT.email only.
- * Counsel should still confirm before publication.
+ * Structured for what this Holdings site actually does: contact and assistant
+ * enquiries stored when configured, partnership apply stores a DB backup then
+ * mailto, browser-only assessment storage, Pix H discovery with server-side
+ * lead scoring, no analytics cookies. Counsel should still confirm before publication.
  */
 const EFFECTIVE = '12 October 2026';
-const VERSION = '1.0';
+const VERSION = '1.3';
 
 export default function PrivacyPage() {
   return (
@@ -71,12 +71,27 @@ export default function PrivacyPage() {
 
             <h3>What you give us</h3>
             <p>
-              Enquiry forms on this website open a message in your own email program, addressed to{' '}
-              {CONTACT.email}. The website does not store or transmit what you type. We receive
-              personal information only if you send that message. Typical fields include your name,
-              email, organisation, enquiry type and message. On the partnership enquiry, we may
-              also receive venture context such as stage, need, structure and a short description,
-              together with whether you asked for occasional insights emails.
+              The contact page asks for your name, email, optional organisation, and four
+              discovery questions about the venture or partnership you are exploring, what exists
+              today, any deadline or fundraising window, and what a successful partnership would look
+              like. Those details are sent to our servers so we can store the enquiry, notify the
+              team by email when that service is configured, and reply.
+            </p>
+            <p>
+              The partnership enquiry on the apply page asks for founder name, email, company or
+              venture, optional website, country or principal market, sector, stage, optional capital
+              band, a short venture description, biggest current constraint, and optional marketing
+              consent. Those details are sent to our servers as a backup copy. The page then opens a
+              message in your own email program addressed to {CONTACT.email}; we receive that message
+              only if you send it. Assessment answers carried from the startups page (need, structure,
+              context) may be stored with the enquiry when present.
+            </p>
+            <p>
+              The site assistant (Pix H) asks for your name and email before chatting, and may
+              ask the same four discovery questions. Those details are sent to our servers so we can
+              record the contact, score the completed enquiry for the team&apos;s inbox, and reply.
+              The chat itself is kept only in the browser for that visit; reloading the page clears
+              it. We do not store the full chat transcript.
             </p>
             <p>
               The startup partnership assessment on this site asks about visitor type, stage, need
@@ -194,9 +209,12 @@ export default function PrivacyPage() {
               you can object. See your rights.
             </p>
             <p>
-              No decision with legal or similarly significant effects is made about you by automated
-              means. Whether we reply, what we say and whether we propose working together are
-              decisions made by people.
+              When an assistant enquiry is completed, we score it on the server from the answers you
+              gave (for example whether the email looks organisational, whether a company name was
+              given, and how substantive the answers are). The score and a short band help the team
+              order the inbox. It does not decide whether anyone gets a reply, what we say, or
+              whether we propose working together — those decisions are made by people. No decision
+              with legal or similarly significant effects is made about you by automated means.
             </p>
 
             <h2>Analytics, cookies and your privacy choices</h2>
@@ -234,11 +252,14 @@ export default function PrivacyPage() {
               transaction, we may share information with the parties to it.
             </p>
             <p>
-              Because enquiry forms open in your own email program, we do not use a third-party form
-              or transactional-email provider to collect enquiries from this site. Each provider we do
-              engage processes information for us under that provider&apos;s data processing terms
-              where required. If you are assessing us as a supplier and need the contractual position
-              in writing, ask and we will send it to your reviewer.
+              Partnership apply still opens your own email program for the human inbox, so that
+              message reaches us only if you send it; a backup copy of the form answers may also be
+              stored in our enquiry database. Contact-page enquiries, assistant contacts and completed
+              assistant enquiries may be stored in that database and notified by email when those
+              services are configured. Each provider we engage processes information for us under that
+              provider&apos;s data processing terms where required. If you are assessing us as a
+              supplier and need the contractual position in writing, ask and we will send it to your
+              reviewer.
             </p>
             <p>We do not sell personal data or exchange it for monetary consideration.</p>
 

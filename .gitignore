@@ -8,6 +8,8 @@ node_modules/
 out/
 build/
 dist/
+# Ephemeral tsc output from `npm run pix:test` (scripts/test-pix.cjs)
+.pix-test-build/
 
 # Environment — never commit a value, only env.example with NAMES
 .env

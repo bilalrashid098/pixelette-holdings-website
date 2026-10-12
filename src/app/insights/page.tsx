@@ -1,13 +1,13 @@
-import type { Metadata } from 'next';
 import { Section, PageHero } from '@/components/ui';
 import { InsightArticleCard } from '@/components/InsightArticleCard';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Insights',
   description:
     'Explore practical perspectives on venture formation, equity partnerships, founder governance and the decisions involved in developing and growing technology businesses.',
-  alternates: { canonical: '/insights' },
-};
+  path: '/insights',
+});
 
 const FEATURED = {
   category: 'Venture formation',

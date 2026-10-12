@@ -1,15 +1,15 @@
-import type { Metadata } from 'next';
 import { DeliveryStages } from '@/components/DeliveryStages';
 import { PartnershipProtection } from '@/components/PartnershipProtection';
 import { Section, SectionHead, PageHero, Buttons, Btn } from '@/components/ui';
 import { HSE_STATEMENT } from '@/content/site';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Hybrid Sweat Equity',
   description:
     'How Hybrid Sweat Equity works: agreed professional services in exchange for cash fees and equity participation, with the detailed terms set out in each venture’s agreements.',
-  alternates: { canonical: '/hse-model' },
-};
+  path: '/hse-model',
+});
 
 const PARTNERSHIP = [
   {
@@ -30,7 +30,7 @@ const PARTNERSHIP = [
   },
 ];
 
-const QUESTIONS: { q: string; a: string }[] = [
+const faqs: { q: string; a: string }[] = [
   {
     q: 'Is Hybrid Sweat Equity free development?',
     a: 'No. Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. It is not free work, and it is not a cash investment by Pixelette.',
@@ -109,7 +109,7 @@ export default function HsePage() {
       <Section surface="ice">
         <SectionHead eyebrow="Questions" title="Common questions" />
         <div className="faq">
-          {QUESTIONS.map((item) => (
+          {faqs.map((item) => (
             <details key={item.q}>
               <summary>{item.q}</summary>
               <p>{item.a}</p>

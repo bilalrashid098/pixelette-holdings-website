@@ -1,0 +1,659 @@
+{
+ "builtFrom": "src/app/**/page.tsx",
+ "counts": {
+  "pages": 17,
+  "faqs": 47,
+  "pointers": 0,
+  "sections": 31
+ },
+ "docs": [
+  {
+   "kind": "page",
+   "title": "About",
+   "text": "Pixelette Holdings brings together venture partnership capabilities and specialist businesses supporting technology development, market growth and organisational readiness.",
+   "path": "/about"
+  },
+  {
+   "kind": "section",
+   "title": "Practical support",
+   "text": "Hands-on expertise across engineering, commercial development and enterprise readiness.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "section",
+   "title": "Aligned interests",
+   "text": "Commercial arrangements designed to align contributions, responsibilities and longer-term interests.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "section",
+   "title": "Disciplined delivery",
+   "text": "Clearly defined scope, agreed milestones and measurable delivery progress.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "section",
+   "title": "Real-world impact",
+   "text": "Supporting ventures developing products and services with practical commercial applications.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "section",
+   "title": "The Pixelette Group",
+   "text": "Four businesses with distinct responsibilities, working independently or together according to the needs of each venture or client.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "section",
+   "title": "How we work together",
+   "text": "Each business brings its own expertise to an engagement. Pixelette Holdings coordinates selected venture partnerships, with the relevant group businesses contributing services according to the agreed requirements.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "section",
+   "title": "Quality and information security",
+   "text": "Pixelette Technologies holds ISO 9001 and ISO/IEC 27001 certifications for quality and information security management.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "faq",
+   "title": "What is Pixelette Holdings?",
+   "text": "Pixelette Holdings brings together venture partnership capabilities and specialist businesses supporting technology development, market growth and organisational readiness.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "faq",
+   "title": "What does each group business do?",
+   "text": "Pixelette Holdings develops selected venture partnerships through Hybrid Sweat Equity. Pixelette Technologies designs and builds digital products. Pixelette Marketing supports brand and commercial growth. Pixelette Certified supports compliance readiness and preparation for independent assessment.",
+   "path": "/about",
+   "page": "About"
+  },
+  {
+   "kind": "page",
+   "title": "Accessibility Statement",
+   "text": "Pixelette Holdings aims to meet WCAG 2.2 level AA. Accessibility is treated as a build requirement, not a retrofit.",
+   "path": "/accessibility"
+  },
+  {
+   "kind": "page",
+   "title": "Explore a partnership",
+   "text": "Tell us about your venture. Share a few details and Pixelette Holdings will review your enquiry. It does not create a partnership or an investment commitment, and it does not promise a reply by a set date.",
+   "path": "/apply"
+  },
+  {
+   "kind": "section",
+   "title": "What to send",
+   "text": "Your name, a email, the venture, its stage and a short description. You do not need a pitch deck or a cap table at this point.",
+   "path": "/apply",
+   "page": "Explore a partnership"
+  },
+  {
+   "kind": "section",
+   "title": "How it is used",
+   "text": "If you send the enquiry, Pixelette Holdings Ltd uses it to decide whether a conversation is relevant and to reply. The privacy notice describes that handling.",
+   "path": "/apply",
+   "page": "Explore a partnership"
+  },
+  {
+   "kind": "section",
+   "title": "What happens afterwards",
+   "text": "A person may review an enquiry that has actually been received. There is no promised response time. A reply does not create a partnership or commitment.",
+   "path": "/apply",
+   "page": "Explore a partnership"
+  },
+  {
+   "kind": "section",
+   "title": "What it does not do",
+   "text": "It does not create a partnership, a delivery obligation, an investment, or a commitment by either side. Any commercial terms would be a separate agreement.",
+   "path": "/apply",
+   "page": "Explore a partnership"
+  },
+  {
+   "kind": "section",
+   "title": "What this enquiry is for",
+   "text": "A conversation about delivery and a possible Hybrid Sweat Equity arrangement. It is not a request for Pixelette to invest cash, and there is no standard paid pilot on this page.",
+   "path": "/apply",
+   "page": "Explore a partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "How do I explore a partnership with Pixelette Holdings?",
+   "text": "Tell us about your venture on the apply page. Submitting an enquiry does not create a partnership or an investment commitment, and it does not promise a reply by a set date.",
+   "path": "/apply",
+   "page": "Explore a partnership"
+  },
+  {
+   "kind": "page",
+   "title": "Enquiry",
+   "text": "This page is not a receipt. An email you send yourself is the message that can be received.",
+   "path": "/apply/thank-you"
+  },
+  {
+   "kind": "page",
+   "title": "Contact",
+   "text": "Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership.",
+   "path": "/contact"
+  },
+  {
+   "kind": "section",
+   "title": "Write to us",
+   "text": "Use the form for general, strategic, incubator or capital enquiries. Your answers are stored so we can reply, and the team is notified by email when that is configured. Founders should explore a partnership instead.",
+   "path": "/contact",
+   "page": "Contact"
+  },
+  {
+   "kind": "faq",
+   "title": "How do I contact Pixelette Holdings?",
+   "text": "Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership on the apply page.",
+   "path": "/contact",
+   "page": "Contact"
+  },
+  {
+   "kind": "page",
+   "title": "Cookie Policy",
+   "text": "How cookies and similar technologies are used on the Pixelette Holdings website.",
+   "path": "/cookies"
+  },
+  {
+   "kind": "page",
+   "title": "Website and Investment Disclaimer",
+   "text": "Pixelette Holdings website disclaimer: information only, not an offer or inducement to invest, no advice and no guaranteed outcomes.",
+   "path": "/disclaimer"
+  },
+  {
+   "kind": "page",
+   "title": "Hybrid Sweat Equity",
+   "text": "How Hybrid Sweat Equity works: agreed professional services in exchange for cash fees and equity participation, with the detailed terms set out in each venture’s agreements.",
+   "path": "/hse-model"
+  },
+  {
+   "kind": "section",
+   "title": "Agreed cash contribution",
+   "text": "The founder and Pixelette agree what portion of the professional fee is paid in cash, and when. There is no published standard split.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "Professional services",
+   "text": "Pixelette provides the delivery described in the agreed scope. The work is contracted. Customers, revenue and fundraising are not.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "Equity participation",
+   "text": "Any equity is set out in the commercial and shareholder agreements. It is not a fixed allocation, and it is not presented here as a standard percentage.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "Milestones",
+   "text": "Responsibilities can be linked to milestones defined in the agreements. What counts as acceptance is agreed for that venture, not assumed from this page.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "How the partnership works",
+   "text": "Cash, delivery, equity and milestones are agreed for the venture. The precise commercial model depends on its circumstances.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "From concept to launch",
+   "text": "Five stages, used to organise the work. They are not guaranteed completion times.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "Protecting the partnership",
+   "text": "Every venture is different. We establish clear commercial, delivery and governance arrangements through agreements tailored to the partnership.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "section",
+   "title": "Explore a partnership",
+   "text": "Tell us about the venture. An enquiry does not create a partnership, and it does not promise a reply within a set time.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "Is Hybrid Sweat Equity free development?",
+   "text": "No. Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. It is not free work, and it is not a cash investment by Pixelette.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "Is there a standard equity percentage?",
+   "text": "No. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant agreements. A percentage on this website would be misleading.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "Do founders keep complete control?",
+   "text": "Decision-making rights depend on the shareholder and governance documents for that venture. This page does not promise that every founder retains complete control.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "Is a paid pilot required before a conversation?",
+   "text": "No standard paid pilot, validation retainer or other preliminary fee is required by this website. If any preliminary work is contracted, that is a separate agreement.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "Does following the stages guarantee a launch, customers or investment?",
+   "text": "No. The stages describe how delivery can be organised. They are not a timetable, and they are not a promise of customers, revenue or external investment.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "What should I do if I want to discuss a partnership?",
+   "text": "Explore a partnership. You can start on the startups page first if you want a clearer next step. Submitting an enquiry does not create a partnership.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "page",
+   "title": "Building a technology startup: what founders should validate before development begins",
+   "text": "What a technology startup should test before engineering starts: the problem, the customer, the commercial assumption, MVP scope and the resources the work will actually take.",
+   "path": "/insights/building-a-technology-startup"
+  },
+  {
+   "kind": "page",
+   "title": "Founder control and equity dilution: what to consider before signing",
+   "text": "Economic ownership and decision-making rights are different. What to read in voting, reserved matters, vesting and exit clauses before signing a shareholder arrangement.",
+   "path": "/insights/founder-control-and-equity-dilution"
+  },
+  {
+   "kind": "page",
+   "title": "From MVP to investment readiness: building evidence that matters",
+   "text": "Why a working product, user evidence, commercial validation and investment preparation are different stages, and why none of them guarantees external investment.",
+   "path": "/insights/from-mvp-to-investment-readiness"
+  },
+  {
+   "kind": "page",
+   "title": "Insights",
+   "text": "Explore practical perspectives on venture formation, equity partnerships, founder governance and the decisions involved in developing and growing technology businesses.",
+   "path": "/insights"
+  },
+  {
+   "kind": "page",
+   "title": "Services for equity: how startup partnerships can be structured",
+   "text": "How a services-for-equity partnership can combine cash and shares, and why ownership, milestones and governance have to be written down for that venture.",
+   "path": "/insights/services-for-equity-properly-structured"
+  },
+  {
+   "kind": "page",
+   "title": "Pixelette Holdings | HSE venture partnership",
+   "text": "Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model.",
+   "path": "/"
+  },
+  {
+   "kind": "section",
+   "title": "Agreed cash contribution",
+   "text": "The cash fee is agreed individually for each venture.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "Professional delivery",
+   "text": "Pixelette provides the professional services described in the agreed scope.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "Contractual equity participation",
+   "text": "Any equity participation is set out in the relevant agreements, for Pixelette or the relevant Pixelette group entity.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "Milestones and governance",
+   "text": "Milestones, founder rights and decision-making arrangements are documented for the venture.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "One venture partner, three specialist businesses",
+   "text": "Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "A partnership built around delivery and shared interests",
+   "text": "Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "Credentials and strategic relationships",
+   "text": "Pixelette Holdings brings together specialist capabilities, established industry relationships and strategic capital connections to support the development of selected technology ventures.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "section",
+   "title": "Build your next venture with Pixelette",
+   "text": "Tell us what you are building, the progress you have made and where additional delivery capability could make a difference. Our team will review the opportunity and discuss the next steps with you.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "What does Pixelette Holdings do?",
+   "text": "Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model, combining agreed cash contributions with equity participation and coordinating engineering, marketing, enterprise readiness and venture governance.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "What is Hybrid Sweat Equity?",
+   "text": "Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "Who is in the Pixelette group?",
+   "text": "Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "How do I explore a partnership?",
+   "text": "Founders can explore a partnership on the apply page. An enquiry does not create a partnership, and it does not promise a reply within a set time.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "page",
+   "title": "Portfolio",
+   "text": "Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships.",
+   "path": "/portfolio"
+  },
+  {
+   "kind": "section",
+   "title": "In their words",
+   "text": "Quotations are reproduced as previously published. Layout only has changed.",
+   "path": "/portfolio",
+   "page": "Portfolio"
+  },
+  {
+   "kind": "section",
+   "title": "Explore working with Pixelette",
+   "text": "The commercial model is explained on the Hybrid Sweat Equity page. Founders can explore a partnership.",
+   "path": "/portfolio",
+   "page": "Portfolio"
+  },
+  {
+   "kind": "faq",
+   "title": "What ventures has Pixelette partnered with?",
+   "text": "Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships on the portfolio page.",
+   "path": "/portfolio",
+   "page": "Portfolio"
+  },
+  {
+   "kind": "page",
+   "title": "Privacy Notice",
+   "text": "How Pixelette Holdings Ltd collects, uses and protects personal information across this website and our work.",
+   "path": "/privacy"
+  },
+  {
+   "kind": "faq",
+   "title": "Does Pixelette Holdings work with startups and venture programmes?",
+   "text": "Pixelette Holdings is a startup development partner for founders, incubators and accelerators, including startup equity partnership and support for venture programmes.",
+   "path": "/startups",
+   "page": "Startups"
+  },
+  {
+   "kind": "page",
+   "title": "Terms of Use",
+   "text": "Terms governing use of the Pixelette Holdings website, including your ownership of anything you submit.",
+   "path": "/terms"
+  },
+  {
+   "kind": "faq",
+   "title": "what does pixelette do",
+   "text": "Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model, combining agreed cash contributions with equity participation and coordinating engineering, marketing, enterprise readiness and venture governance.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "what do you do",
+   "text": "Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model, combining agreed cash contributions with equity participation and coordinating engineering, marketing, enterprise readiness and venture governance.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "what is pixelette holdings",
+   "text": "Pixelette Holdings partners with selected founders to develop, launch and grow technology ventures through its Hybrid Sweat Equity model, combining agreed cash contributions with equity participation and coordinating engineering, marketing, enterprise readiness and venture governance.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "what is hybrid sweat equity",
+   "text": "Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "explain hse",
+   "text": "Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "what is hse",
+   "text": "Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "sweat equity model",
+   "text": "Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant commercial and shareholder agreements.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "who is in the group",
+   "text": "Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "group companies",
+   "text": "Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "pixelette technologies marketing certified",
+   "text": "Pixelette Holdings coordinates venture relationships, equity structures and group governance. Pixelette Technologies, Pixelette Marketing and Pixelette Certified deliver engineering, commercial growth and enterprise readiness.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "how do I apply",
+   "text": "Founders can explore a partnership on the apply page. An enquiry does not create a partnership, and it does not promise a reply within a set time.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "start a partnership",
+   "text": "Founders can explore a partnership on the apply page. An enquiry does not create a partnership, and it does not promise a reply within a set time.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "explore partnership",
+   "text": "Founders can explore a partnership on the apply page. An enquiry does not create a partnership, and it does not promise a reply within a set time.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "how do venture partnerships work",
+   "text": "Founders can explore a partnership on the apply page. An enquiry does not create a partnership, and it does not promise a reply within a set time.",
+   "path": "/",
+   "page": "Pixelette Holdings | HSE venture partnership"
+  },
+  {
+   "kind": "faq",
+   "title": "is hybrid sweat equity free",
+   "text": "No. Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. It is not free work, and it is not a cash investment by Pixelette.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "is it free development",
+   "text": "No. Pixelette contributes agreed professional services in exchange for a combination of cash fees and equity participation. It is not free work, and it is not a cash investment by Pixelette.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "standard equity percentage",
+   "text": "No. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant agreements. A percentage on this website would be misleading.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "what equity percentage",
+   "text": "No. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant agreements. A percentage on this website would be misleading.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "fixed equity split",
+   "text": "No. The allocation of equity, milestone conditions, founder rights and governance arrangements are established in the relevant agreements. A percentage on this website would be misleading.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "founder control",
+   "text": "Decision-making rights depend on the shareholder and governance documents for that venture. This page does not promise that every founder retains complete control.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "do founders keep control",
+   "text": "Decision-making rights depend on the shareholder and governance documents for that venture. This page does not promise that every founder retains complete control.",
+   "path": "/hse-model",
+   "page": "Hybrid Sweat Equity"
+  },
+  {
+   "kind": "faq",
+   "title": "contact you",
+   "text": "Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership on the apply page.",
+   "path": "/contact",
+   "page": "Contact"
+  },
+  {
+   "kind": "faq",
+   "title": "get in touch",
+   "text": "Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership on the apply page.",
+   "path": "/contact",
+   "page": "Contact"
+  },
+  {
+   "kind": "faq",
+   "title": "email holdings",
+   "text": "Contact Pixelette Holdings about a general enquiry, a strategic partnership, an incubator or accelerator programme, or a capital relationship. Founders should explore a partnership on the apply page.",
+   "path": "/contact",
+   "page": "Contact"
+  },
+  {
+   "kind": "faq",
+   "title": "startups",
+   "text": "Pixelette Holdings is a startup development partner for founders, incubators and accelerators, including startup equity partnership and support for venture programmes.",
+   "path": "/startups",
+   "page": "Startups"
+  },
+  {
+   "kind": "faq",
+   "title": "incubators",
+   "text": "Pixelette Holdings is a startup development partner for founders, incubators and accelerators, including startup equity partnership and support for venture programmes.",
+   "path": "/startups",
+   "page": "Startups"
+  },
+  {
+   "kind": "faq",
+   "title": "accelerators",
+   "text": "Pixelette Holdings is a startup development partner for founders, incubators and accelerators, including startup equity partnership and support for venture programmes.",
+   "path": "/startups",
+   "page": "Startups"
+  },
+  {
+   "kind": "faq",
+   "title": "venture programmes",
+   "text": "Pixelette Holdings is a startup development partner for founders, incubators and accelerators, including startup equity partnership and support for venture programmes.",
+   "path": "/startups",
+   "page": "Startups"
+  },
+  {
+   "kind": "faq",
+   "title": "portfolio",
+   "text": "Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships on the portfolio page.",
+   "path": "/portfolio",
+   "page": "Portfolio"
+  },
+  {
+   "kind": "faq",
+   "title": "case studies",
+   "text": "Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships on the portfolio page.",
+   "path": "/portfolio",
+   "page": "Portfolio"
+  },
+  {
+   "kind": "faq",
+   "title": "ventures you partnered with",
+   "text": "Explore technology ventures and projects that Pixelette has helped develop, build and support through its specialist capabilities and venture partnerships on the portfolio page.",
+   "path": "/portfolio",
+   "page": "Portfolio"
+  }
+ ]
+}
